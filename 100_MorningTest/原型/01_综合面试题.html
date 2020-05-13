@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>241123</title>
+</head>
+
+<body>
+</body>
+<script type="text/javascript">
+  Foo.getName = function () {
+    alert(2);
+  };
+  function getName() {
+    alert(5);
+  }
+  Foo.prototype.getName = function () {
+    alert(3);
+  };
+  function Foo() {
+    getName = function () { alert(1); };
+    return this;
+  }
+  var getName = function () {
+    alert(4);
+  };
+
+  Foo.getName(); //2
+  getName();//4
+  Foo().getName(); //1
+  getName(); //1
+  new Foo.getName(); //2
+  new Foo().getName()//3
+
+
+
+  /*
+  运算符优先级：
+    https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+
+
+
+    提升后:
+      Foo.getName = function () {
+        alert(2);
+      };
+      function getName() {
+        alert(5);
+      }
+      Foo.prototype.getName = function () {
+        alert(3);
+      };
+      function Foo() {
+        getName = function () { alert(1); };
+        return this;
+      }
+      var getName = function () {
+        alert(4);
+      };
+
+      Foo.getName(); //2
+      getName();//4
+      Foo().getName(); //1
+      getName(); //1
+      new Foo.getName(); //2
+      new Foo().getName()//3
+  */
+</script>
+
+</html>

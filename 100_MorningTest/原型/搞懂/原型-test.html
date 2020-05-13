@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 所以对象都有隐式原型属性
+    const obj = {};
+    console.log(obj.__proto__);  //{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+
+    // 2. 所有函数都有显示原型属性
+    console.log(Object.prototype); //{constructor: ƒ, __proto__: Object}
+
+    // 3. 对象的隐式原型等于其‘构造函数’的显示‘原型对象’
+    console.log(obj.__proto__ === Object.prototype);  //true
+    // 4. 原型链的头
+    console.log(Object.prototype.__proto__);  //null
+
+    // 函数实例对象
+    /* 所有的函数都是new Function产生的函数对象 */
+    function name() { }  //等价于===> const name = new Function()
+
+
+
+
+  </script>
+</body>
+
+</html>

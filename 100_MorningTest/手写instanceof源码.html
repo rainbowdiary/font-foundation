@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+    instanceof运算符
+        是什么: 用于检测构造函数的prototype属性是否出现在某个实例对象的原型链
+        语法:object instanceof constructor
+                object 某个实例对象
+                constructor 某个 构造函数
+            指object的隐式原型是否在constructor的显示原型
+            了解原型链:每个对象都有隐式原型,其值指向其对应构造函数显示原型的值的运算符;
+        代码:
+        **/
+        function _instanceof(A, B) {
+            let A = A.__proto__;
+            let B = B.prototype;
+            while (A) {
+                if (A === B) {
+                    return true;
+                }
+                A = A.__proto__;
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>
