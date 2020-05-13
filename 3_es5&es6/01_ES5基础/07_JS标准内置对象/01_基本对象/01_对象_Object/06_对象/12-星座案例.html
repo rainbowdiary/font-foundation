@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * alert 普通对话框
+			 * prompt 带输入框的对话块
+			 * 
+			 */
+			/*
+			 * 1.弹出带输入框的对话框
+			 * 2.输入星座
+			 * 3.获取输入星座的文本,在程序中进行判断比较
+			 * 4.弹出alert性格特征
+			 */
+			
+			//获取用户输入的星座
+			var str = prompt('请输入您的星座:');
+			str = str.trim();//去除两端空格
+//			console.log(str);
+			if(str == '白羊座'){
+				alert('马萧的自夸........');
+			}else if(str == '狮子座'){
+				alert('七月的尾巴......');
+			}else{
+				alert('您输入的星座有误');
+			}
+		//var num = parseInt('10.99');
+		//console.log(num);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    {
+        let obj = {
+            name:"达姆",
+            age:18
+        }
+
+        //name : 匹配模式
+        //name2:变量名
+        let {name:name2,age:age2} = obj
+    }
+    {
+        const node = {
+            loc: {
+                start: {
+                    line: 1,
+                    column: 5
+                }
+            }
+        };
+
+        let {loc,loc:{start:{line}}} = node
+    }
+    {
+        let obj = {};
+        let arr = [];
+        ({ foo: obj.prop, bar: arr[0] } = { foo: 123, bar: true });
+        console.log(obj,arr)
+    }
+</script>
+</html>

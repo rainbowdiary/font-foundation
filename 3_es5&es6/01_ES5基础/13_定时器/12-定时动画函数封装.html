@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时动画</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            position: absolute;
+            top: 200px;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            background-color: #f90;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">位置变化400px</button>
+    <button id="btn2">位置变化800px</button>
+    <div id="box"></div>
+
+    <script>
+
+        // 获取按钮
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+        // 获取box元素
+        var box = document.getElementById('box');
+
+
+       // console.log(box.offsetLeft);
+        
+        // 监听事件  位置变化到 400
+        btn1.onclick = function () {
+            animate(box, 400);
+        };
+
+        // 监听事件 实现位置变化到 800px
+        btn2.onclick = function () {
+            animate(box, 800)
+        };
+
+        /**
+         * 定时动画
+         * @param node 要变化的元素
+         * @param target 目标位置
+         */
+        function animate(node, target) {
+            //如果元素上有动画，先清除掉
+            clearInterval(node.timer);
+
+            // 定义步幅  每次变化量
+            var step = 10;
+            // 获取当前的位置
+            var current = node.offsetLeft;
+            // 判断步幅 是增加还是减小
+            step = target > current ? step : -step;
+
+            // 开启定时器 把定机器标记作为node元素的属性
+            node.timer = setInterval(function () {
+
+                // 目标位置和当前位置的差值（绝对值）  大于 step（绝对值） 说明距离目标位置还比较远；
+                // 否则， 说明距离目标位置接近
+                if (Math.abs(target - current) > Math.abs(step) ) {
+                    // current值 变化
+                    current += step;
+                    // 设置元素的位置
+                    node.style.left = current + 'px';
+                } else {   // 说明接近目标位置
+                    // 设置元素到目标位置
+                    node.style.left = target + 'px';
+                    // 停止定时
+                    clearInterval(node.timer);
+                }
+            }, 20);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			R&B曲风
+			<h1>周杰伦</h1>
+			<!--范特西-->
+			<ul>
+				<li>双节棍</li>
+				<li>青花瓷</li>
+				<li>菊花台</li>
+				<li>发如雪</li>
+				<li>龙卷风</li>
+			</ul>
+			<h2>方文山</h2>
+		</div>
+		<script type="text/javascript">
+			/*
+			 * 子节点: childNodes 儿子节点
+			 * 高级浏览器:
+			 * 元素,文本(内容或者空格或者换行),注释
+			 * 低版本浏览器:
+			 * 元素,文本(不包括空格或者换行),注释
+			 */
+			var box = document.getElementById('box');
+			//子节点
+			console.log(box.childNodes);
+			
+//			for (var i = 0; i < box.childNodes.length; i++) {
+//				console.log(box.childNodes[i].nodeType+'===='+box.childNodes[i].nodeName+'===='+box.childNodes[i].nodeValue);
+//			}
+			for (var i = 0; i < box.childNodes.length; i++) {
+				//能进判断的一定是标签
+				if(box.childNodes[i].nodeType == 1 && box.childNodes[i].nodeName == 'UL'){
+				//	console.log(box.childNodes[i]);
+				}
+			}
+		</script>
+	</body>
+</html>

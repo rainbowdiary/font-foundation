@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回调地狱</title>
+</head>
+<body>
+
+</body>
+<script>
+    window.onload=function () {
+        setTimeout(function (flag) {
+            if(flag){
+                console.log("success-1");
+                setTimeout(function (flag) {
+                    if(flag){
+                        console.log("success-2");
+                        setTimeout(function (flag) {
+                            if(flag){
+                                console.log("success-3");
+                            }else {
+                                console.log("error-3");
+                                return;
+                            }
+                        },1000,true)
+                    }else {
+                        console.log("error-2");
+                        return;
+                    }
+                },1000,true)
+            }else {
+                console.log("error-1");
+                return;
+            }
+        },1000,true)
+    }
+</script>
+</html>

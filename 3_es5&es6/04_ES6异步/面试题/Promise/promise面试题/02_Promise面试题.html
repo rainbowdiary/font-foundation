@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>promise_面试题</title>
+</head>
+
+<body>
+  <!-- 面试题2 -->
+  <script type="text/javascript">
+    //宏: 1
+    //微: 3+ 4
+    // 2 5 3 4 1
+    setTimeout(() => {
+      console.log(1)
+    }, 0)
+
+    new Promise((resolve) => {
+      console.log(2)
+      resolve()
+    }).then(() => {  //加入微队列而不是执行，所以状态微pending
+      console.log(3)
+    }).then(() => {  //pengding->resolve
+      console.log(4)
+    })
+    console.log(5)
+  </script>
+
+
+
+</body>
+
+</html>

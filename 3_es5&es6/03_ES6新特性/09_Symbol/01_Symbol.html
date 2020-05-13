@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+    Symbol特性:
+      独一无二
+      作用: 
+        1. 作为对象的私有属性，不包含在属性集中，不会被枚举
+        2. 定义常量的时候使用Symbol()定义
+        3. 使用Symbol定义类的私有属性/方法
+    */
+
+    let PAGE_1 = Symbol()
+    let PAGE_2 = Symbol()
+    let obj = { [PAGE_1]: 123, [PAGE_2]: 456, test: 789 }
+    console.log(PAGE_1 === PAGE_2)//false
+
+    for (const key in obj) {
+      console.log(key); //'test'
+    }
+    console.log(Object.keys(obj)); //["test"]  私有属性，不能包含在属性集中
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>三点运算符</title>
+</head>
+
+<body>
+    <!-- 
+    ...运算符  
+    功能:    
+        1.组合一个数组              (实参给形参赋值   解构赋值)
+        2.平铺一个可迭代的结构
+     -->
+
+    <script>
+        // 1.组合数组
+        //  function test(a,...args){
+        //      console.log(args);  //(2) [Array(1), Array(2)]
+        //  }
+        //  test(1,[2],[3,4]);
+
+        //  2.平铺一个可迭代的对象
+        var arr = [
+            { key: "name", value: "zhangsan" },
+            { key: "age", value: 23 },
+            { key: "salary", value: "10000" }
+        ]
+
+        var res = arr.map((item) => {
+            var obj = {};
+            obj[item.key] = item.value; //进行数据处理
+            return obj;
+        }
+        );
+        var obj_res = Object.assign({},...res);
+        console.log(obj_res);  //{name: "zhangsan", age: 23, salary: "10000"}
+        
+
+
+    </script>
+</body>
+
+</html>

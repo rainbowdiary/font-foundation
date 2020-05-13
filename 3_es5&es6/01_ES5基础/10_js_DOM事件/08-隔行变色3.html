@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+		</ul>
+		<script type="text/javascript">
+			//获取所有li
+			var lis = document.getElementsByTagName('li');
+			//遍历
+			for(var i = 0; i < lis.length; i++) {
+				//默认效果
+				//偶数编号
+				if(i % 2 == 0) {
+					lis[i].style.backgroundColor = 'yellow';
+				} else {
+					//奇数编号
+					lis[i].style.backgroundColor = 'green';
+				}
+				//给每个元素添加一个num属性,把循环的i的值存入
+				lis[i].num = i;
+				//移入
+				lis[i].onmouseover = function() {
+					if(this.num % 2 == 0){
+						this.style.backgroundColor = 'red';
+					}else{
+						this.style.backgroundColor = 'blue';
+					}
+				}
+				//移出
+				lis[i].onmouseout = function() {
+					if(this.num % 2 == 0){
+						this.style.backgroundColor = 'yellow';
+					}else{
+						this.style.backgroundColor = 'green';
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>

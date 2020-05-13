@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本溢出</title>
+    <style>
+        .news-list {
+            margin: 100px auto;
+            width: 600px;
+            list-style: none;
+        }
+        .news-list li {
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+
+            /*设置文字不换行*/
+            white-space: nowrap;
+            /*设置盒子溢出隐藏*/
+            overflow: hidden;
+            /*设置溢出文本的处理*/
+            /*text-overflow: clip;*/
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <ul class="news-list">
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, odio?</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at dolorum ducimus eum hic minima odit provident saepe similique, sunt?</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, cumque cupiditate debitis, eligendi ex exercitationem libero modi nisi nulla porro quae quidem quos, repellendus sequi ullam voluptate voluptatem? Saepe, ullam.</li>
+    </ul>
+</body>
+</html>

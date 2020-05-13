@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit:cover">
+    <title>触摸事件touch</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        #box {
+            width:100%;
+            height: 400px;
+            background: #f90;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        //获取元素
+        var box = document.querySelector('#box');
+
+        // 监听 触摸开始 手指按压到屏幕上
+        box.addEventListener('touchstart', function () {
+           console.log('啊，我开始触摸了');
+        });
+        // 监听 触摸结束 手指离开
+        box.addEventListener('touchend', function () {
+            console.log('啊，我结束触摸了');
+        });
+        // 监听 触摸移动
+        box.addEventListener('touchmove', function () {
+           console.log('啊，好滑');
+        });
+        // 监听 触摸中断  触摸事件被中断
+        box.addEventListener('touchcancel', function () {
+           console.log('啊，我被中断了');
+        });
+
+        setTimeout(function () {
+            alert('啊，我弹了');
+        }, 2000);
+
+    </script>
+</body>
+</html>

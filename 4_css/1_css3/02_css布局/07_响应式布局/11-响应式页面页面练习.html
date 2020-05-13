@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>响应式</title>
+    <style>
+        * { font-family: Arial; font-size: 14px; margin: 0; padding: 0; border: none; }
+        a { text-decoration: none; }
+        ul { list-style: none; }
+        .clearfix:after {
+            content: '';
+            display: block;
+            clear:both
+        }
+        body {
+            background: #EFEFEF;
+        }
+
+        /*header 头部*/
+        #header {
+            position:relative;
+            padding:8px 0 15px;
+            height: 40px;
+            background:#88C5E1;
+            border-bottom: 5px solid #54ABD4;
+        }
+
+        .logo {
+            float:left;
+            width: 25%;
+            text-align: center;
+        }
+        .logo img {
+            height: 40px;
+        }
+
+        .search {
+            float: left;
+            width: 50%;
+        }
+        .search input {
+            float: left;
+            box-sizing: border-box;
+            width: 80%;
+            height: 40px;
+            padding: 0 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px 0 0 10px;
+        }
+        .search button {
+            float: right;
+            box-sizing: border-box;
+            width: 20%;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 0 10px 10px 0;
+        }
+        .nav {
+            float: right;
+            width: 25%;
+        }
+        .nav-btn {
+            display: none;
+        }
+        .nav li {
+            float: left;
+            width: 25%;
+            height: 40px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 40px;
+        }
+        .nav li a {
+            color: #fff;
+        }
+        @media screen and (max-width:640px) {
+            .search {
+                width: 60%;
+            }
+            .nav {
+                width: 15%;
+            }
+            .nav-btn {
+                display: block;
+                margin: 2px auto;
+                padding: 9px 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                background: transparent;
+            }
+            .nav-btn span {
+                display: block;
+                width: 22px;
+                height: 2px;
+                margin-bottom: 5px;
+                background: #888;
+            }
+            .nav-btn span:last-child {
+                margin-bottom: 0;
+            }
+            .nav ul {
+                overflow: hidden;
+                height: 0;
+                left: 0;
+                top: 68px;
+                width: 100%;
+                background: #88C5E1;
+                position: absolute;
+                transition: .5s;
+            }
+            .nav ul.open {
+                height: 160px;
+            }
+            .nav ul li {
+                float: none;
+                width: 100%;
+            }
+        }
+
+
+        /*banner*/
+        #banner img {
+            width:100%;
+        }
+
+        /*主体内容*/
+        #main {
+            margin-top: 20px;
+            margin-bottom: 100px;
+        }
+        .container {
+            margin: 0 auto;
+            width: 1000px;
+            overflow: hidden;
+        }
+        .col {
+            float: left;
+            box-sizing: border-box;
+            width: 25%;
+            padding: 10px;
+        }
+        .col-inner {
+            background-color: #fff;
+            text-align: center;
+        }
+        .col-inner a {
+            color: #333;
+        }
+        .col-inner img {
+            width: 100%;
+            display: block;
+        }
+        .col-inner h3 {
+            line-height: 60px;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                width: 100%;
+            }
+            .col {
+                width: 50%;
+            }
+        }
+        @media (max-width: 640px) {
+            .col {
+                width: 100%;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <!--头部-->
+    <div id="header">
+        <div class="logo">
+            <img src="img/Brand.png" alt="logo" srcset="img/Brand.png 1200w, img/Brand-M.png 1024w, img/Brand-S.png 640w" sizes="(max-width:640px) 640w, (max-width:1024px) 1024w,1200w">
+        </div>
+        <div class="search">
+            <form>
+                <input type="text" placeholder="请输入搜索内容">
+                <button>搜索</button>
+            </form>
+        </div>
+        <div class="nav">
+            <button class="nav-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="javascript:">首页</a></li>
+                <li><a href="javascript:">课程</a></li>
+                <li><a href="javascript:">公告</a></li>
+                <li><a href="javascript:">登录</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="banner">
+        <picture>
+            <source srcset="img/homeImgSmall.png" media="(max-width:640px)">
+            <source srcset="img/homeImgMiddle.png" media="(max-width:1024px)">
+            <source srcset="img/homeImg.png">
+            <img src="img/homeImg.png" alt="banner">
+        </picture>
+    </div>
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="col-inner">
+                        <a href="javascript:">
+                            <img src="img/04bootstrap.jpg" alt="bootstrap">
+                            <h3>Bootstrap</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col-inner">
+                        <a href="javascript:">
+                            <img src="img/01h5.jpg" alt="h5">
+                            <h3>HTML5</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col-inner">
+                        <a href="javascript:">
+                            <img src="img/02css3.jpg" alt="css3">
+                            <h3>CSS3</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col-inner">
+                        <a href="javascript:">
+                            <img src="img/03less.jpg" alt="Less">
+                            <h3>Less</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="col-inner">
+                        <a href="javascript:">
+                            <img src="img/04bootstrap.jpg" alt="bootstrap">
+                            <h3>Bootstrap</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col-inner">
+                        <a href="javascript:">
+                            <img src="img/01h5.jpg" alt="h5">
+                            <h3>HTML5</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col-inner">
+                        <a href="javascript:">
+                            <img src="img/02css3.jpg" alt="css3">
+                            <h3>CSS3</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="col-inner">
+                        <a href="javascript:">
+                            <img src="img/03less.jpg" alt="Less">
+                            <h3>Less</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            //获取导航按钮
+            var btn = document.querySelector('.nav-btn');
+            var ul = document.querySelector('.nav ul');
+            //点击
+            btn.addEventListener('click', function () {
+                ul.classList.toggle('open');
+            });
+
+        })();
+    </script>
+</body>
+</html>

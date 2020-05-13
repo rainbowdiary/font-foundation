@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj = {}
+
+    属性描述符: 属性的属性
+    在js中属性可以分为两拨:
+        数据描述符: 具有value和writable的属性
+        访问描述符: 具有get和set方法的属性
+
+    Object.defineProperty(obj,"age",{
+        value:77,
+        writable:true,
+       /* get:function () {
+            return this.__age;
+        },
+        set:function (val) {
+            if(val > 150){
+                this.__age = 150;
+            }else {
+                this.__age = val;
+            }
+        }*/
+    })
+
+    obj.age = 170;
+    console.log(obj.age)
+</script>
+</html>

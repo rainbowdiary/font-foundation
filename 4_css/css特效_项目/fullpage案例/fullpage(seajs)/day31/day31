@@ -1,0 +1,52 @@
+###静态项目(静态页面 + 动态效果)
+    css 模块化
+        模块化合并  压缩
+    js  模块化
+        模块化合并  压缩
+    html
+         压缩
+
+
+
+
+###seajs
+    var module = {};
+    module.exports ={};
+    exports = module.exports;
+
+    其他模块引入当前模块的时候 拿到的都是module.exports
+
+    玉伯 主导的一个js模块化方案  遵循CMD规范  抄的Commonjs规范
+        怎么定义模块
+            define(function(require,exports,module){
+                // 写模块代码
+            })
+        怎么暴露接口
+            重点:exports.xxx = arr / 值 / 函数 / 对象;
+            重点:module.exports = arr / 值 / 函数 / 对象;
+            module.exports.xxx  = arr / 值 / 函数 / 对象;
+
+            exports.aaa = aaa;
+            module.exports.xxx = xxx;
+            module.exports.yyy = yyy;
+
+            注意不能使用以下的方式暴露接口:
+               1. exports={}
+               2.module.exports.aaa = aaa;
+                 module.exports={
+                     xxx:xxx,
+                     yyy:yyy
+                  }
+               3. exports.aaa = aaa;
+                  module.exports={
+                     xxx:xxx,
+                     yyy:yyy
+                  }
+        怎么使用模块
+               seajs.use(路径)
+        怎么管理依赖
+                var m.e = require(路径)
+
+
+        路径问题!!!!
+        模块化合并

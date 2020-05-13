@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>选择会员卡 rem适配</title>
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit:cover">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body，#app {
+      width: 100%;
+      height: 100%;
+      background: #eee;
+    }
+
+    html {
+      font-size: 100px;
+    }
+
+    body {
+      font-family: PingFangSC-Regular, Arial, sans-serif;
+    }
+
+    .header {
+      height: .44rem;
+      text-align: center;
+      line-height: .44rem;
+      background: #fff;
+      border-bottom: 1px solid #DADADA;
+    }
+
+    .header h1 {
+      font-size: .18rem;
+      font-weight: normal;
+      color: #262A32;
+    }
+
+    .main {
+      background: #eee;
+      font-size: .16rem;
+    }
+
+    .item {
+      width: 3.45rem;
+      margin: .2rem auto;
+      background: #FFFFFF;
+      border-radius: .04rem .04rem 0 0;
+    }
+
+    .item-top {
+      box-sizing: border-box;
+      padding: .2rem 0 0 .2rem;
+      height: 1.20rem;
+      color: #fff;
+      border-radius: .04rem .04rem 0 0;
+    }
+
+    .card-title {
+
+      font-size: .24rem;
+    }
+
+    .card-phone {
+      margin-top: .05rem;
+      font-size: .12rem;
+    }
+
+    .card-address {
+      margin-top: .05rem;
+      font-size: .12rem;
+    }
+
+    .item-bottom {
+      box-sizing: border-box;
+      height: 40px;
+      padding: 10px 10px 10px 10px;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .card-remove {
+      float: left;
+      line-height: 20px;
+    }
+
+    .card-remove .btn {
+      font-size: 14px;
+      border: none;
+      background: none;
+    }
+
+    .card-select {
+      position: relative;
+      float: right;
+      padding-right: 30px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .card-select input {
+      display: none;
+
+    }
+
+    .card-select .checkbox-box {
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      top: -1px;
+      box-sizing: border-box;
+      width: 22px;
+      height: 22px;
+      border: 1px solid #DCDCDC;
+      border-radius: 50%;
+    }
+
+
+    .item:nth-child(1) .item-top {
+      background-image: linear-gradient(89deg, #C8C8C8 0%, #B2B2B2 100%);
+
+    }
+
+    .item:nth-child(2) .item-top {
+      background-image: linear-gradient(89deg, #BCD3E6 0%, #9DC0D8 100%);
+    }
+
+    .item:nth-child(3) .item-top {
+      background-image: linear-gradient(89deg, #F0C279 0%, #E6B45D 100%);
+    }
+
+    .item:nth-child(4) .item-top {
+      background-image: linear-gradient(89deg, #504E4E 0%, #262626 100%);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="header">
+      <h1>选择会员卡</h1>
+    </div>
+    <div class="main">
+      <div class="item">
+        <div class="item-top">
+          <h2 class="card-title">普通卡</h2>
+          <p class="card-phone">18882596253</p>
+          <p class="card-address">北京宏福苑影院</p>
+        </div>
+        <div class="item-bottom">
+          <div class="card-remove">
+            <button class="btn">解除绑定</button>
+          </div>
+          <div class="card-select">
+            默认卡
+            <input type="checkbox" name="" id="">
+            <div class="checkbox-box"></div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <h2 class="card-title">银卡</h2>
+          <p class="card-phone">18882596253</p>
+          <p class="card-address">北京宏福苑影院</p>
+        </div>
+        <div class="item-bottom">
+          <div class="card-remove">
+            <button class="btn">解除绑定</button>
+          </div>
+          <div class="card-select">
+            默认卡
+            <input type="checkbox" name="" id="">
+            <div class="checkbox-box"></div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <h2 class="card-title">金卡</h2>
+          <p class="card-phone">18882596253</p>
+          <p class="card-address">北京宏福苑影院</p>
+        </div>
+        <div class="item-bottom">
+          <div class="card-remove">
+            <button class="btn">解除绑定</button>
+          </div>
+          <div class="card-select">
+            默认卡
+            <input type="checkbox" name="" id="">
+            <div class="checkbox-box"></div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-top">
+          <h2 class="card-title">黑卡</h2>
+          <p class="card-phone">18882596253</p>
+          <p class="card-address">北京宏福苑影院</p>
+        </div>
+        <div class="item-bottom">
+          <div class="card-remove">
+            <button class="btn">解除绑定</button>
+          </div>
+          <div class="card-select">
+            默认卡
+            <input type="checkbox" name="" id="">
+            <div class="checkbox-box"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    /* 
+    ### 3 .2 rem适配
+
+    用rem单位代替像素
+    不同宽度的设置，修改根元素的字体大小
+
+    使用媒体查询来设置不同视口宽度下的根元素字体大小
+    使用js动态设置根元素字体大小
+    配合less
+     */
+    (function () {
+      //定义设计稿宽度
+      var designW = 375;
+      // 计算当前设备的视口宽度
+      var deviceW = document.documentElement.clientWidth;
+      //计算设备宽度与设计稿宽度的比例
+      var scale = deviceW / designW;
+      // 计算当前设备下根元素字体大小
+      var fontSize = 100 * scale;
+      // 设置根元素字体大小
+      document.documentElement.style.fontSize = fontSize + 'px';
+
+    })();
+  </script>
+</body>
+
+</html>

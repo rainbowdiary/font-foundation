@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var damu = Object.create(null);
+    damu.name="达姆";
+    damu.age=18;
+    Object.defineProperty(damu,"wife",{
+        value:"周冬雨",
+        writable:false,
+        enumerable:true,
+        configurable:false
+    })
+
+
+    Object.freeze(damu)
+    // Object.seal(damu)
+    // Object.preventExtensions(damu)
+    console.log(damu)
+</script>
+</html>

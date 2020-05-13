@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html,body {
+            margin-top: 0;
+            margin-bottom: 0;
+            height: 100%;
+        }
+        .line {
+            position: absolute;
+            width: 2px;
+            height:100%;
+            left: 1028px;
+            background: red;
+            top: 0;
+        }
+        .box{
+            width:20px;
+            height:20px;
+            background-image: url("./lun.jpg");
+            background-size:100% 100%;
+            border-radius:50%;
+            cursor:pointer;
+            animation:woff 5s 1 alternate forwards;
+        }
+
+        h2 {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .box1{
+            animation-timing-function:ease;
+        }
+
+        .box2{
+            animation-timing-function:linear;
+        }
+
+        .box3{
+            animation-timing-function:ease-in;
+        }
+        .box4{
+            animation-timing-function:ease-out;
+        }
+        .box5{
+            animation-timing-function:ease-in-out;
+        }
+        .box6{
+            animation-timing-function:cubic-bezier(.17,.67,.72,1.36);
+        }
+        .box7{
+            animation-timing-function:steps(7, end);
+        }
+        .box8{
+            animation-timing-function:step-start;
+        }
+        .box9{
+            animation-timing-function:step-end;
+        }
+
+
+        @keyframes woff{
+            from{
+
+            }
+            to{
+                transform:rotate(3600deg);
+                margin-left:1000px;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+<h1>transition-timing-function</h1>
+<hr>
+
+<h2>ease</h2>
+<div class="box box1"></div>
+<hr>
+
+<h2>linear</h2>
+<div class="box box2"></div>
+<hr>
+
+<h2>ease-in</h2>
+<div class="box box3"></div>
+<hr>
+
+<h2>ease-out</h2>
+<div class="box box4"></div>
+<hr>
+
+<h2>ease-in-out</h2>
+<div class="box box5"></div>
+<hr>
+
+<h2>cubic-bezier(0,1.15,.28,.83)</h2>
+<div class="box box6"></div>
+<hr>
+
+<h2>steps(7, end)</h2>
+<div class="box box7"></div>
+<hr>
+
+<h2>step-start</h2>
+<div class="box box8"></div>
+<hr>
+
+<h2>step-end</h2>
+<div class="box box9"></div>
+<hr>
+
+<div class="line"></div>
+</body>
+</html>

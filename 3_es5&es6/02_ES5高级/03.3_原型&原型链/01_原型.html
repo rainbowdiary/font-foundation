@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  /*
+   1. 隐式原型  所有的对象都拥有隐式原型
+   2. 显式原型  所有的函数都拥有显式原型
+   3. 对象的隐式原型 指向其 构造函数的显式原型
+   4. 原型链的头: Object.prototype.__proto__ === null
+   5. 所有的显式原型对象 都是Object实例
+   */
+  var obj = {};
+  console.log(obj.__proto__)
+  console.log(Object.prototype)
+  console.log(obj.__proto__ === Object.prototype)
+
+
+  function test() {
+
+  }
+
+</script>
+
+</html>

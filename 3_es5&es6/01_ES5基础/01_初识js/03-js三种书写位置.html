@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<!--
+			第二种:行内式,将js和html掺杂在一起
+		-->
+		<button onclick="alert('行内式');">按钮</button>
+		<!--
+			第三种:外链式,绝对分类
+			不要在外链式的script标签中写内嵌式的代码
+		-->
+		<script src="one.js" type="text/javascript" charset="utf-8"></script>
+		<!--
+			第一种:内嵌式,相对分离
+		-->
+		<script type="text/javascript">
+			alert('内嵌式');
+		</script>
+	</body>
+</html>

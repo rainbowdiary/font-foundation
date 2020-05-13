@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 数组:一组有序数据的集合
+			 * js中的数组可以存储不同类型的数据,数组中的每一个数据也叫做数组的元素
+			 * 可以通过数组名.length的方式获取数组的长度
+			 * 可以通过数组名[索引值(编号)]的方式(索引值从0开始),访问数组中的某一个元素,
+			 * 数组的最大索引值是arr01.length-1
+			 * 数组的元素在没有赋值时,是undefined,不要进行跨索引的方式定义数组的元素
+			 * 
+			 */
+			var num = 5;
+			var str = '哈哈';
+			
+			/*
+			 * 第一种: 字面量的方式
+			 */
+			var arr01 = ['哈哈',5,true,new Object(),'老刘'];
+			console.log(arr01[1]);
+			arr01[1] = '隔壁老王';
+			arr01[5] = '老李';
+//			arr01[10] = '老张';
+			arr01.length = 20;
+			arr01[20] = '呵呵';
+			console.log(arr01);
+			
+			/*
+			 * 第二种: new Array()
+			 */
+			var arr02 = new Array('哈哈',5,true,new Object(),'老刘');
+			arr02[0] = 'heihei';
+			console.log(arr02[2]);
+			console.log(arr02);
+			
+			/*
+			 * 第三种: new Array();
+			 */
+			var arr03 =  new Array(5);
+			arr03[10] = '嘿嘿';
+			console.log(arr03);
+		</script>
+	</body>
+</html>

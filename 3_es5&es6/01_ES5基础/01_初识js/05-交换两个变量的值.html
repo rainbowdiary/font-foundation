@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 交换两个变量的值:
+			 */
+			var num1 = 1;
+			var num2 = 5;
+			//第三方变量  
+			// 将num1变量中的数据复制一份再赋值给temp
+			var temp = num1;  //temp = 1  num1 = 1
+			num1 = num2;// num1 = 5   num2 = 5
+			num2 = temp;// num2 = 1   temp = 1
+			alert(temp);
+			alert(num1);
+			alert(num2);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变换原点</title>
+    <style>
+        .box {
+            margin:100px;
+            width: 200px;
+            height: 200px;
+            border: 10px dashed orange;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background: yellowgreen;
+
+            /*transform-origin: center center; */
+            transform-origin: left top;
+            /*transform-origin: 20px 20px;*/
+            /*transform-origin: left;*/
+            /*transform-origin: bottom;*/
+            /*transform-origin: 50px;  !*原点的水平坐标 50px，垂直坐标默认*!*/
+
+            /*transform: rotate(45deg);*/
+            /*transform: scale(.5);*/
+            /*transform: skewX(45deg)*/
+            transform: translateX(200px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div class="inner">Hello</div>
+    </div>
+
+</body>
+</html>

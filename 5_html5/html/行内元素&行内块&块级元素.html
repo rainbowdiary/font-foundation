@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: palevioletred;
+      text-align: center;
+    }
+
+    .content {
+      /* 块级元素默认宽度为父元素的100% */
+      background-color: green;
+      /* 行内块元素默认宽度由内容决定 */
+      display: inline-block;
+      /* 设置行内元素的基线相对于该元素所在行的基线的垂直对齐；middle把这个元素放在父元素的中部 */
+      vertical-align: middle;
+    }
+
+
+    /* 块级元素和行内块元素的默认宽度： 
+      块级元素：宽度是父元素宽度，高度由内容决定
+      行内块元素： 宽度是内容决定，高度由内容决定
+     */
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <span></span>
+    <div class="content">test</div>
+  </div>
+</body>
+
+</html>

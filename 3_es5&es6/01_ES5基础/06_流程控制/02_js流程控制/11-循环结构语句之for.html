@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 循环结构语句:
+			 * 
+			 * 循环包括三个条件:
+			 * 
+			 * 刚出生0岁         循环初始值
+			 * 每年增长1岁     循环的增量
+			 * 寿命     100岁   循环的次数
+			 * 
+			 * for关键字
+			 * 小括号 循环条件  (循环的初始值;循环的次数;循环的增量)
+			 * 
+			 */
+
+			//			document.write('11111111111111111111111111111111111111111111111111');
+			
+			for(var i = 0; i < 100; i++) {
+				document.write(i+'岁');
+				if(i == 2){
+					document.write('我长牙啦~');
+				}else if(i == 10){
+					document.write('我交的第一个女朋友');
+				}else if(i == 18){
+					document.write('我成人了,我交的第N个女朋友');
+				}else{
+					document.write('平庸');
+				}
+				document.write('<br/>');
+			}
+			document.write('后面的代码............');
+		</script>
+	</body>
+
+</html>

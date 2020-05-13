@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音视频</title>
+</head>
+<body>
+    <!--视频-->
+    <video src="resource/video/test.mp4" width="600" controls muted loop poster="resource/img/1.jpg" preload></video>
+    <!--
+        video标签属性：
+            src  指定视频地址
+            width/height  视频大小
+            controls  显示控制条 不用给值
+            muted    静音 不用给值
+            autoplay   自动播放   不用给值 （只有设置了静音的视频才能自动播放）
+            loop    循环播放 不用给值
+            poster   指定视频封面   不设置自动播放才有意义
+            preload   视频预加载    无需给值 不设置自动播放才有意义
+
+    -->
+
+    <br>
+    <br>
+
+    <audio src="resource/audio/test.mp3" autoplay ></audio>
+    <!--
+        比起video少了 width、height、poster
+
+    -->
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    var name = "The Window";
+    var object = {
+      name: "My Object",
+      getNameFunc: function () {
+        // console.log("getNameFunc", this);  //object
+        return function () {   //匿名函数，没有被谁调用，此时为普通调用，this=window
+          // console.log(this); //window
+          return this.name;
+        };
+      }
+    };
+    alert(object.getNameFunc()()); //"The Window"（在非严格模式下）
+      /*
+object.getNameFunc()返回的是匿名函数，
+此时不是通过getNameFunc()函数调用的，所以this指向window。
+*/
+  </script>
+</body>
+
+</html>

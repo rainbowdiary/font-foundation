@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>返回顶部</title>
+    <style>
+        .item {
+            height: 500px;
+        }
+        #gotoTop {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 40px;
+            height: 78px;
+            background: url('images/top.png') no-repeat;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+    <div class="item">Lorem ipsum dolor sit amet.</div>
+
+    <div id="gotoTop"></div>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            // 监听页面滚动事件
+            $(window).scroll(function(){
+                //如果滚动距离 > 视口高度 显示火箭
+                if ($(this).scrollTop() > $(this).height()) {
+                    $('#gotoTop').fadeIn();
+                } else {
+                    $('#gotoTop').fadeOut()
+                }
+
+            });
+
+
+            // 给火箭绑定 鼠标悬停和点击
+            $('#gotoTop').hover(function(){
+                $(this).css('background-image', 'url("images/top.gif")');
+            }, function(){
+                $(this).css('background-image', 'url("images/top.png")');
+            }).click(function(){
+                $('html,body').stop().animate({
+                    "scrollTop": '0'
+                }, 500)
+            });
+
+        });
+    </script>
+</body>
+</html>

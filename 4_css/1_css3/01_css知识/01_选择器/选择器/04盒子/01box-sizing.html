@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>box-sizing</title>
+    <style>
+        .box {
+            box-sizing: content-box; /*默认 盒子宽高=内容宽高+padding+border*/
+            box-sizing: border-box; /*width和height属性设置的宽高就是盒子实际的宽高*/
+
+            width: 300px;
+            height: 200px;
+            padding: 25px;
+            border: 3px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>

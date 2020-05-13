@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 执行器是一个同步的回调函数!
+    // 执行器是一个高阶函数
+
+    //promise是一个状态机
+    var promise =  new Promise(function (resolve,reject ) {
+        setTimeout(function (flag) {
+            if(flag){
+                console.log("第一次数据获取成功")
+                resolve()
+            }else{
+                console.log("第一次数据获取失败")
+                reject()
+            }
+        },1000,true)
+    })
+
+    //then方法的两个参数是异步的回调函数
+    promise.then(function () {
+        setTimeout(function (flag) {
+            if(flag){
+                console.log("第二次数据获取成功")
+            }else{
+                console.log("第二次数据获取失败")
+            }
+        },1000,true)
+    })
+</script>
+</html>

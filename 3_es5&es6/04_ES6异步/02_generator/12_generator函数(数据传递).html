@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+        1. Symbol & Iterator
+        2. generator & yield
+        3. 异常处理
+        4. 数据传递
+   */
+
+
+    // yield表达式后续代码的执行结果给了 在它身上暂停的那个next方法 (不关心)
+
+
+    /*yield表达式的返回值  哪个next方法从当前的yield表达式上启动
+    next方法就会把自己的参数作为当前yield表达式的返回值*/
+
+    function * test() {
+            var one = yield 11231321;
+            console.log(one)
+            yield 2;
+
+            yield 3;
+    }
+    var it = test()
+    it.next()
+    it.next("abc")
+</script>
+</html>

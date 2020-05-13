@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            width: 100px;
+            height: 500px;
+            background: deeppink;
+        }
+        ul li{
+            text-align: center;
+            line-height: 100px;
+            height: 100px;
+            background: pink;
+            border: 1px black solid;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+<script>
+    window.onload=function () {
+        /*var liNodes = document.querySelectorAll("ul li");
+        for(var i =0;i<liNodes.length;i++){
+            (function (i) {
+                liNodes[i].onclick=function () {
+                    console.log(i)
+                }
+            })(i)
+        }*/
+
+       var liNodes = document.querySelectorAll("ul li");
+       for(var i =0;i<liNodes.length;i++){
+           liNodes[i].index= i;
+           liNodes[i].onclick=function () {
+               console.log(this.index)
+           }
+       }
+    }
+</script>
+</html>

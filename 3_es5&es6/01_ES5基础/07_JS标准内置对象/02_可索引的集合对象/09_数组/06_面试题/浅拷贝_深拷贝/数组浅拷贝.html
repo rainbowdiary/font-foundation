@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 数组浅拷贝concat （修改新数组的引用数据类型会影响到原数组） 
+    console.log('-----数组浅拷贝concat-----');
+    let arr = [1, 3, { username: 'kiki' }]
+    let arr2 = arr.concat();
+
+    arr2[0] = '一'
+    arr2[2].username = 'wawa';
+
+    console.log(arr, arr2);
+
+
+
+    // 数据浅拷贝slice
+    console.log('-----数组浅拷贝slice-----');
+    let arr3 = [1, 3, { username: 'kiki' }]
+    let arr4 = arr3.slice()
+
+    arr4[2].username = 'kaka';
+    
+    console.log(arr3, arr4);
+  </script>
+</body>
+
+</html>

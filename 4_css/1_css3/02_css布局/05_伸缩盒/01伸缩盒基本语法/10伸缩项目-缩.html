@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex</title>
+    <style>
+        .wrap {
+            margin: 0 auto;
+            width: 600px;
+            height: 1000px;
+            border: 2px solid #ccc;
+
+            /*设置为伸缩容器*/
+            display: flex;
+
+        }
+        .box {
+            height: 200px;
+            color: #fff;
+        }
+        .box01 {
+            width: 100px;
+            background: #00aaee;
+            flex-shrink: 2;
+        }
+        .box02 {
+            width: 200px;
+            background: #1DC128;
+            flex-shrink: 3;
+            /*flex-shrink: 0;*/
+        }
+        .box03 {
+            width: 300px;
+            background: #5B0000;
+            flex-shrink:4;
+        }
+        .box04 {
+            width: 200px;
+            background: #88180e;
+            flex-shrink: 1;
+        }
+        .box05 {background: #ff9900}
+        .box06 {background: #1f1f1f}
+
+        /*
+        分母：  100*2 + 200*3 + 300*4 + 200*1 = 2200
+        赔钱： 200px
+        box01:  100*2 / 2200 * 200 =
+        box02: 600/2200 * 200
+
+        */
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="box box01">01</div>
+    <div class="box box02">02</div>
+    <div class="box box03">03</div>
+    <div class="box box04">04</div>
+<!--    <div class="box box05">05</div>-->
+<!--    <div class="box box06">06</div>-->
+</div>
+
+
+</body>
+</html>

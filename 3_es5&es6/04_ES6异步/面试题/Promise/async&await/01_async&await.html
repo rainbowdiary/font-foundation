@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+答案:
+    https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/7
+文章
+    https://github.com/dwqs/blog/issues/61
+    https://segmentfault.com/a/1190000011296839
+  
+    
+    同步执行:
+      promise异步：then，catch，其他是同步执行
+      await之前都是立即执行
+    
+    await做了什么?
+      实际上await是一个让出线程的标志。
+      await后面的表达式会先执行一遍，
+      将await后面的代码加入到microtask中
+
+    async await 本身就是promise+generator的语法糖。
+    所以await后面的代码是microtask。
+
+    --'script start'
+      **宏: setTimeout
+      执行:async1();
+    --'async1 start'
+      遇到await 
+        await后面的表达式async2()会被执行一遍；await后面的代码放入微队列
+    --'async2'
+       **'async1 end'注册微队列
+    --'promise1'
+       **'promise2'注册微队列
+    --'script end'
+      查看微队列
+        'async1 end' 'promise2'
+    --'async1 end' 
+    --'promise2'
+      查看宏任务
+    --'setTimeout'
+    
+     */
+    async function async1() {
+      console.log('async1 start');
+      await async2();  //遇到了await时，会将await后面的表达式执行一遍，所以就紧接着输出async2，
+      console.log('async1 end');
+    }
+    async function async2() {
+      console.log('async2');
+    }
+    console.log('script start');
+    setTimeout(function () {
+      console.log('setTimeout');
+    }, 0)
+    async1();
+    new Promise(function (resolve) {
+      console.log('promise1');
+      resolve();
+    }).then(function () {
+      console.log('promise2');
+    });
+    console.log('script end');
+  </script>
+</body>
+
+</html>

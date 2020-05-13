@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*迭代器协议:
+        迭代器 : 函数
+        迭代器调用 --> 迭代器对象 {next:fn}
+        迭代器对象.next() --> 迭代对象 {value:值,done:布尔值}*/
+
+
+     var arr = ["A","B","C"];
+
+     var itObj = arr[Symbol.iterator]()  // 迭代器 : arr[Symbol.iterator] itObj : 迭代器对象 {next:fn}
+     console.log(itObj.next());
+     console.log(itObj.next());
+     console.log(itObj.next());1
+     console.log(itObj.next());
+
+
+   // 能使用for of来循环值的结构  必定是实现了迭代器协议的
+   for(var item of arr){
+       console.log(item)
+   }
+</script>
+</html>

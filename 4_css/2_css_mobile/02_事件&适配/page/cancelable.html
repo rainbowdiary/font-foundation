@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cancelable</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit:cover">
+</head>
+<body>
+    <div id="box" style="width: 100%;height:300px;background: pink"></div>
+
+    <script>
+        document.addEventListener('touchstart', function (event) {
+            console.log('document', event.cancelable);
+        });
+
+        var box = document.querySelector('#box');
+        box.addEventListener('touchstart', function (event) {
+            console.log('box', event.cancelable);
+        })
+    </script>
+</body>
+</html>

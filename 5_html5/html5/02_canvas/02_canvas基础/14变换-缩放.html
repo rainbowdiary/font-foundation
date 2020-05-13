@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        canvas {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+
+        // 获取canvas元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        // 设置颜色
+        ctx.fillStyle = '#f90';
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'green';
+
+        ctx.fillRect(100, 100, 200, 100);
+
+        // 进行缩放
+        //ctx.scale(2, 2);
+        ctx.scale(.5, .5);
+
+        ctx.strokeRect(0, 0, 100, 100);
+
+    </script>
+</body>
+</html>

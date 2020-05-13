@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		console.log(Global)
+//		Global --> window
+
+		/*
+			isNaN() 函数用来确定一个值是否为NaN 
+			语法:isNaN(testValue)
+			参数:testValue要被检测的值。
+			返回值:如果给定值为 NaN则返回值为true；否则为false。
+		*/
+		console.log(isNaN(NaN))
+		
+		/*
+			parseInt() 函数解析一个字符串参数，并返回一个指定基数的整数
+			parseFloat() 函数解析一个字符串参数并返回一个浮点数
+			语法:parseFloat(string)
+			参数:string 需要被解析成为浮点数的字符串.
+			
+			parseInt,parseFloat转换情况
+				字符串->只要最高位是数字则会转换成数值；否则转换成NaN
+		*/
+		console.log(parseInt("3.14more non-digit characters"));
+		console.log(parseFloat("3.14more non-digit characters"));
+		
+		
+		
+		var obj = new window.Object();
+		var arr = new window.Array();
+		console.log(obj,arr)
+	</script>
+</html>

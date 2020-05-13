@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 设置元素隐藏的方法：opacity：0
+      特点： 1. 占据文档流，可以做用户交互，可以用来做动画效果
+                例如：鼠标悬才停显示按钮
+            2. 隐藏了也可以触发事件
+      注意：
+        该属性是兼容IE9以上的浏览器，
+        IE8 以及更早的版本支持替代的 filter 属性，
+        例如： filter:Alpha(opacity=50)。
+    */
+
+    body {
+      background-color: #ccc;
+    }
+
+    .green {
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      background-color: #a0ee00;
+      float: left;
+      margin: 20px;
+    }
+
+    .myDiv {
+      opacity: 0;
+      transition: all ease 1s;
+    }
+
+    .myDiv:hover {
+      opacity: 1;
+    }
+
+    .show {
+      opacity: 0;
+      animation: showtime infinite 4s;
+      -webkit-animation: showtime infinite 4s;
+      -moz-animation: showtime infinite 4s;
+      -o-animation: showtime infinite 4s;
+    }
+
+    @keyframes showtime {
+      25% {
+        opacity: 0.5;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      75% {
+        opacity: 0.5;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @-webkit-keyframes showtime {
+      25% {
+        opacity: 0.5;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      75% {
+        opacity: 0.5;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @-moz-keyframes showtime {
+      25% {
+        opacity: 0.5;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      75% {
+        opacity: 0.5;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @-o-keyframes showtime {
+      25% {
+        opacity: 0.5;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      75% {
+        opacity: 0.5;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="opacity">
+    <div class="green">1</div>
+    <div class="myDiv green" onclick="alert(2)">2</div>
+    <div class="green">3</div>
+    <div class="show green">4</div>
+  </div>
+</body>
+
+</html>

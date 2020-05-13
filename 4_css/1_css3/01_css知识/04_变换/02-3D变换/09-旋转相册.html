@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转相册</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .album {
+            position: relative;
+            margin: 200px auto 50px;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d; /*开启3d空间 开启3d舞台*/
+            perspective: 2500px;
+        }
+        .album li {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            transition: 1s;
+        }
+        .album img {
+            width: 200px;
+            height: 200px;
+        }
+        .btns {
+            text-align: center;
+        }
+        .btns button {
+            padding: 12px 20px;
+            font-size: 14px;
+            background: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="album">
+        <li><img src="../images/img11.jpg" alt="老刘"></li>
+        <li><img src="../images/img12.jpg" alt="老刘"></li>
+        <li><img src="../images/img13.jpg" alt="老刘"></li>
+        <li><img src="../images/img14.jpg" alt="老刘"></li>
+        <li><img src="../images/img15.jpg" alt="老刘"></li>
+        <li><img src="../images/img16.jpg" alt="老刘"></li>
+        <li><img src="../images/img17.jpg" alt="老刘"></li>
+        <li><img src="../images/img18.jpg" alt="老刘"></li>
+        <li><img src="../images/img19.jpg" alt="老刘"></li>
+    </ul>
+
+    <div class="btns">
+        <button class="prev">PREV</button>
+        <button class="next">NEXT</button>
+    </div>
+
+    <script>
+        (function () {
+            // 获取所有的li元素
+            var liNodes = document.querySelectorAll('.album li');
+            // 计算每次旋转的角度
+            var changeDeg = 360 / liNodes.length;
+
+            // 给每个li设置旋转角度
+            liNodes.forEach(function (liNode, index) {
+                // 设置旋转角度
+                liNode.style.transform = 'rotateY('+(changeDeg * index)+'deg) translateZ(400px)';
+            });
+            
+            
+            // 获取两个按钮
+            var prevBtn = document.querySelector('.prev');
+            var nextBtn = document.querySelector('.next');
+            // 定义变量，标记向前还是向后
+            var num = 0;
+            
+            // 下一个
+            nextBtn.addEventListener('click', function () {
+                num ++;  //变量的变化
+                setDeg();
+
+            });
+            
+            // 上一个
+            prevBtn.addEventListener('click', function () {
+                num --; // 变量变化
+                setDeg()
+            });
+
+            // 设置li的角度
+            function setDeg(){
+                // 重新给每个li设置旋转角度
+                liNodes.forEach(function (liNode, index) {
+                    // 设置旋转角度
+                    liNode.style.transform = 'rotateY('+(changeDeg * index + changeDeg * num)+'deg) translateZ(400px)';
+                });
+            }
+        })()
+    </script>
+</body>
+</html>

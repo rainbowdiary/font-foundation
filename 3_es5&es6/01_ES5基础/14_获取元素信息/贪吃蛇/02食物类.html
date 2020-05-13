@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>贪吃蛇</title>
+</head>
+<body>
+
+    <script>
+        // 地图类
+        (function () {
+            // 定义地图的构造函数
+            function MapG(width, height, bgColor) {
+                // 设置属性
+                this.width = width;
+                this.height = height;
+                this.bgColor = bgColor;
+            }
+
+            // 初始化方法
+            MapG.prototype.init = function(){
+                /*
+                * 在原型的方法中， this表示实例
+                * */
+                // 创建地图div
+                var divMap = document.createElement('div');
+                // 设置div的属性
+                divMap.style.width = this.width + 'px';
+                divMap.style.height = this.height + 'px';
+                divMap.style.backgroundColor = this.bgColor;
+                divMap.style.position = 'relative';
+                // 给div添加id属性
+                divMap.id = 'divMap';
+                // 把地图添加body中
+                document.body.appendChild(divMap)
+            };
+
+            // 把MapG暴露在window上
+            window.MapG = MapG;
+
+        })();
+        
+        // 食物类
+        (function () {
+            // 食物构造函数
+            function Food(width, height, bgColor) {
+                // 设置属性
+                this.width = width;
+                this.height = height;
+                this.bgColor = bgColor;
+                // 获取地图div
+                var divMap = document.getElementById('divMap');
+                // 设置食物的坐标，食物的坐标用格子数表示
+                this.x = Math.floor(Math.random() * (divMap.offsetWidth / this.width));
+                this.y = Math.floor(Math.random() * divMap.offsetHeight / this.height);
+            }
+
+            // 初始化方法
+            Food.prototype.init = function () {
+                // 获取地图div
+                var divMap = document.getElementById('divMap');
+                // 创建div
+                var divFood = document.createElement('div');
+                // 设置css样式
+                divFood.style.width = this.width + 'px';
+                divFood.style.height = this.height + 'px';
+                divFood.style.backgroundColor = this.bgColor;
+                divFood.style.position = 'absolute';
+                // 设置食物的位置
+                divFood.style.left = this.x * this.width + 'px';
+                divFood.style.top = this.y * this.height + 'px';
+                // 把食物添加到地图上
+                divMap.appendChild(divFood);
+            };
+
+            // 把构造函数暴露在window上
+            window.Food = Food;
+
+        })();
+
+
+
+        var mapG = new MapG(800, 600, '#ccc');
+        mapG.init(); //初始计划
+
+        // 实例化食物
+        var food = new Food(20, 20, 'yellowgreen');
+        food.init();
+
+
+
+    </script>
+</body>
+</html>

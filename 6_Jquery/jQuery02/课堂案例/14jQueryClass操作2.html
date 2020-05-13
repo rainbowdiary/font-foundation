@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class操作</title>
+    <style>
+        .item {
+            width: 120px;
+            height: 120px;
+            border: 10px solid #ccc;
+            border-radius: 50%;
+        }
+        .item.active {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <img src="images/1.jpg"  class="item">
+    <img src="images/2.jpg"  class="item">
+    <img src="images/3.jpg"  class="item">
+    <img src="images/4.jpg"  class="item">
+    <img src="images/5.jpg"  class="item">
+
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+           // 给所有的图片添加点击事件
+           $('.item').click(function () {
+              $(this).toggleClass('active');
+           });
+
+
+
+        });
+    </script>
+</body>
+</html>

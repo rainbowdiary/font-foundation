@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+        1. Symbol & Iterator
+        2. generator & yield
+        3. 异常处理
+        4. 数据传递
+   */
+
+    function * test() {
+        try {
+            yield setTimeout(function (flag) {
+                if(flag){
+                    console.log("第一次获取数据成功")
+                    it.next()
+                }else{
+                    console.log("第一次获取数据失败")
+                }
+            },1000,true);
+
+            yield setTimeout(function (flag) {
+                if(flag){
+                    console.log("第二次获取数据成功")
+                    it.next()
+                }else{
+                    console.log("第二次获取数据失败")
+                }
+            },1000,true);
+
+            yield setTimeout(function (flag) {
+                if(flag){
+                    console.log("第三次获取数据成功")
+                }else{
+                    console.log("第三次获取数据失败")
+                }
+            },1000,true);
+        }catch (e) {
+            console.log(e)
+        }
+    }
+    var it = test()
+    it.next()
+</script>
+</html>

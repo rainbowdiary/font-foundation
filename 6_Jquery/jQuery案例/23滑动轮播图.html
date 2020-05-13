@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font: 16px "Microsoft YaHei",sans-serif;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .play-box {
+            position: relative;
+            margin: 100px auto;
+            width: 900px;
+            height: 350px;
+            border: 1px solid #ccc;
+            background: #fff;
+            overflow: hidden;
+        }
+        #imgList {
+            position: absolute;
+            left: -900px;
+            top: 0;
+            height: 350px;
+
+        }
+        .play-box a{
+            float: left;
+        }
+        .play-box img {
+            width: 900px;
+            height: 350px;
+            border: 0;
+        }
+
+        #iconList {
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+            margin-left: -45px;
+        }
+        #iconList li{
+            float: left;
+            margin: 0 4px;
+            width: 10px;
+            height: 10px;
+            font-size: 0;
+            border-radius: 50%;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        #iconList li.current {
+            background-color: red;
+        }
+
+        .slidebar {
+            display: none;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+            width: 30px;
+            height: 50px;
+            color: #fff;
+            font-family: "simsun";
+            text-align: center;
+            line-height: 50px;
+            background-color: #000;
+            opacity: .6;
+            filter: alpha(opacity=60);
+            cursor:pointer;
+        }
+        .slidebar-left {
+            left: 0;
+        }
+        .slidebar-right {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="playBox" class="play-box">
+    <div id="imgList">
+        <a href="http://www.itxdl.cn" target="_blank" class="current">
+            <img src="./images/play/p01.jpg" alt="">
+        </a>
+
+        <a href="http://www.unclealan.cn" target="_blank">
+            <img src="./images/play/p02.jpg" alt="">
+        </a>
+
+        <a href="http://www.google.cn" target="_blank">
+            <img src="./images/play/p03.jpg" alt="">
+        </a>
+
+        <a href="http://www.baidu.cn" target="_blank">
+            <img src="./images/play/p04.jpg" alt="">
+        </a>
+        <a href="http://www.qq.cn" target="_blank">
+            <img src="./images/play/p05.jpg" alt="">
+        </a>
+    </div>
+
+
+    <div id="iconList">
+        <ul>
+            <li class="current">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+
+
+    <div class="slidebar slidebar-left"><</div>
+    <div class="slidebar slidebar-right">></div>
+</div>
+
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        //设置遍历
+        var speed = 3000;
+        var m = 1;   //循环遍历
+        var imgWidth = 900;
+
+
+        //设置imgList的宽度
+        $("#imgList").width(900*7);
+        var $firstImage = $("#imgList a").first().clone();
+        $("#imgList a:last").clone().prependTo("#imgList");
+        $("#imgList").append($firstImage);
+
+
+        //定时器
+        var playTimer = setInterval(runPlay, speed);
+
+        //定时函数
+        function runPlay(){
+            //控制图片变化
+            controlPlay();
+        }
+
+
+        // 控制 图片的变化 图标变化
+        function controlPlay(){
+            var n = m + 1;
+            //图片变化
+            $("#imgList").stop().animate({
+                left: -n*imgWidth
+            }, 200, function(){
+                if (n === 6) {
+                    $("#imgList").css("left", "-900px")
+                }
+                if (n === 0) {
+                    $("#imgList").css("left", (-imgWidth*5)+"px");
+                }
+            });
+
+            //m值的控制
+            if (m > 4) {
+                m = 0;
+            }
+            if (m < 0) {
+                m = 4;
+            }
+
+            //图标变化
+            $("#iconList li").removeClass("current").eq(m).addClass("current");
+
+            //m 的值变化
+            m ++;
+        }
+
+
+        //给整个轮播图绑定 鼠标悬停事件
+        $("#playBox").mouseenter(function(event){
+
+
+            //停止定时
+            clearInterval(playTimer);
+            //左右控制按钮显示
+            $(".slidebar").show();
+
+        }).mouseleave(function(event){
+            console.log(event.target);
+            //重新开启定时
+            playTimer = setInterval(runPlay, speed);
+            //左右控制按钮隐藏
+            $(".slidebar").hide();
+        });
+
+        //给 li 控制图标 绑定 单击事件
+        $("#iconList li").click(function(){
+            //修改m的值
+            m = $(this).index();
+            controlPlay();
+        }).hover(function(){
+            return false;
+        });
+
+
+
+        //下一张图片
+        $(".slidebar-right").click(function(){
+            //显示下一张
+            controlPlay();
+        });
+
+        //上一张图片
+        $(".slidebar-left").click(function(){
+            m -= 2;
+            //显示上一张
+            controlPlay();
+        })
+
+
+    })
+</script>
+</body>
+</html>

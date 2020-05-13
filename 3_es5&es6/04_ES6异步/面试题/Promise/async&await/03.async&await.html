@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 在第二个变式中，我将async1中await后面的代码和async2的代码都改为异步的，代码如下：
+
+    --'script start'
+      **宏: setTimeout3 
+    --async1 start
+      **宏:  setTimeout3 setTimeout2 setTimeout1
+      **微队列: setTimeout('setTimeout1')  promise2
+    --promise1
+    --'script end'
+    --promise2
+    --setTimeout3 
+    --setTimeout2 
+    --setTimeout1
+
+    */
+    async function async1() {
+      console.log('async1 start');
+      await async2();
+      //更改如下：
+      setTimeout(function () {
+        console.log('setTimeout1')
+      }, 0)
+    }
+    async function async2() {
+      //更改如下：
+      setTimeout(function () {
+        console.log('setTimeout2')
+      }, 0)
+    }
+    console.log('script start');
+
+    setTimeout(function () {
+      console.log('setTimeout3');
+    }, 0)
+    async1();
+
+    new Promise(function (resolve) {
+      console.log('promise1');
+      resolve();
+    }).then(function () {
+      console.log('promise2');
+    });
+    console.log('script end');  
+  </script>
+</body>
+
+</html>

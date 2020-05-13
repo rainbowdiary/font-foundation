@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul {
+				border: 1px solid #000;
+				padding: 5px;
+			}
+			
+			li {
+				border: 1px solid red;
+				padding: 5px;
+			}
+			
+			a {
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul id="list">
+			<li>
+				<a href="##">删除1</a>
+			</li>
+			<li>
+				<a href="##">删除2</a>
+			</li>
+			<li>
+				<a href="##">删除3</a>
+			</li>
+			<li>
+				<a href="##">删除4</a>
+			</li>
+			<li>
+				<a href="##">删除5</a>
+			</li>
+		</ul>
+		<script type="text/javascript">
+			/*
+			 * 事件委派也叫事件委托: 就是利用事件冒泡的原理提高代码执行效率
+			 */
+			/*
+			 * 第一种
+			 */
+			var list = document.getElementById('list');
+			var ass = document.getElementsByTagName('a');
+
+			//			for (var i = 0; i < ass.length; i++) {
+			//				//单击a
+			//				ass[i].onclick = function(){
+			//					//删除li
+			//					list.removeChild(this.parentElement);
+			//				}
+			//			}
+			//第二种 :
+			//高级浏览器:
+			//单击a冒泡到ul的单击事件,通过事件处理函中的参数对象,获取到target(或者srcElement)目标,再从目标节点找到父节点li
+			//低版本浏览器:
+			//单击a冒泡到ul的单击事件,通过window.event,获取到srcElement目标,再从目标节点找到父节点li,再从目标节点找到父节点li
+			list.onclick = function(e) {
+				//alert('list');
+				//				console.log(e.target);
+				//console.log(e);
+
+				//高级浏览器
+				//用ul调用删除方法,删除的是a的父元素li
+				//				if(e.target.nodeName == 'A'){
+				//					
+				//					this.removeChild(e.target.parentElement);
+				//				}
+				//				if(window.event.srcElement)
+				//				console.log(window.event.srcElement);
+				//				if(window.event.srcElement.nodeName == 'A'){
+				//					this.removeChild(window.event.srcElement.parentElement);
+				//				}
+				//console.log(e);
+				if(e) {
+					if(e.target.nodeName == 'A') {
+
+						this.removeChild(e.target.parentElement);
+					}
+				} else {
+					if(window.event.srcElement.nodeName == 'A') {
+						this.removeChild(window.event.srcElement.parentElement);
+					}
+				}
+
+			}
+			//			for (var i = 0; i < 10000; i++) {
+			//				console.log(i);
+			//			}
+		</script>
+	</body>
+
+</html>

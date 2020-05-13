@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ready简写</title>
+</head>
+<body>  
+    <div id="box"></div>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log('ready');
+        });
+
+        // ready简写
+        $(function(){
+            console.log('我也是ready');
+        });
+    </script>
+</body>
+</html>

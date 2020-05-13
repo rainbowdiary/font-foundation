@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 毫秒单位的作用: 在设计订单号时,为了订单号唯一和方便数据库查询,通常用日期➕时间作为
+			 * 订单号,但是1秒钟对于计算机时间是很长的,所以会精确到毫秒再➕一组随机数,确保订单号的
+			 * 唯一
+			 */
+			var myDate = new Date();
+			console.log(myDate);
+			console.log(myDate.getFullYear()); //年
+			console.log(myDate.getMonth() + 1); //月  (0-11)
+			console.log(myDate.getDate()); //日
+			console.log(myDate.getDay()); //星期   (0-6)
+			console.log(myDate.getHours()); //小时
+			console.log(myDate.getMinutes()); //分
+			console.log(myDate.getSeconds()); //秒
+			console.log(myDate.toLocaleDateString()); //本地日期
+			console.log(myDate.toLocaleTimeString()); //本地时间
+			console.log(myDate.valueOf()); //毫秒   1秒 = 1000毫秒
+
+			var aaa = myDate.getDay(); // 0-6
+			//第三种
+			Date.prototype.getUpperDay = function (num) {
+				var str = '';
+				switch(num) {
+					case 0:
+						str = '日';
+						break;
+					case 1:
+						str = '一';
+						break;
+					case 2:
+						str = '二';
+						break;
+					case 3:
+						str = '三';
+						break;
+					case 4:
+						str = '四';
+						break;
+					case 5:
+						str = '五';
+						break;
+					case 6:
+						str = '六';
+						break;
+				}
+				return str;
+			}
+			//第二种
+			//			function getUpperDay(num) {
+			//				var str = '';
+			//				switch(num) {
+			//					case 0:
+			//						str = '日';
+			//						break;
+			//					case 1:
+			//						str = '一';
+			//						break;
+			//					case 2:
+			//						str = '二';
+			//						break;
+			//					case 3:
+			//						str = '三';
+			//						break;
+			//					case 4:
+			//						str = '四';
+			//						break;
+			//					case 5:
+			//						str = '五';
+			//						break;
+			//					case 6:
+			//						str = '六';
+			//						break;
+			//				}
+			//				return str;
+			//			}
+			//         第一种
+			//			var str = '';
+			//			switch (num){
+			//				case 0: str='日';
+			//					break;
+			//				case 1: str='一';
+			//					break;
+			//				case 2: str='二';
+			//					break;
+			//				case 3: str='三';
+			//					break;
+			//				case 4: str='四';
+			//					break;
+			//				case 5: str='五';
+			//					break;
+			//				case 6: str='六';
+			//					break;
+			//			}
+			// 2019年8月11日 星期日 下午 14:30:20
+			document.write(myDate.getFullYear() + '年' + (myDate.getMonth() + 1) + '月' + myDate.getDate() + '日' + '星期' + myDate.getUpperDay(myDate.getDay())+myDate.toLocaleTimeString());
+
+			console.dir(Date);
+		</script>
+	</body>
+
+</html>

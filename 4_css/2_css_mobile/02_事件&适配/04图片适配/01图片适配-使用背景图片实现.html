@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit:cover">
+    <title>图片适配</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .banner {
+            margin: 0 auto;
+            max-width: 414px;
+            width: 100%;
+            height: 650px;
+            background-image: url(images/music_small.png);
+            background-size: 414px 650px;
+        }
+        @media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx) {
+            .banner {
+                background-image: url(images/music_small_2x.png);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner"></div>
+</body>
+</html>

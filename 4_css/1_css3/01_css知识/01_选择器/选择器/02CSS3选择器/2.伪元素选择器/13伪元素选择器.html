@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪元素选择器</title>
+    <style>
+        input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            color: red;
+        }
+        /*input::-webkit-placeholder {*/
+        /*    color: green;*/
+        /*}*/
+        input::placeholder {
+            color: green;
+        }
+
+        .box {
+            width: 600px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        .box::selection {
+            background: deeppink;
+            color: #1E9FFF;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="请输入您的姓名">
+
+    <div class="box">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore id illo nam praesentium similique. Aliquid commodi deserunt, ex explicabo illum maxime mollitia odio provident quam quibusdam quisquam quo rem rerum?
+    </div>
+</body>
+</html>

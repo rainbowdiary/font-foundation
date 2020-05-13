@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+  重点: 谁先被注册
+  外部第二个then的注册，需要等外部第一个then的同步代码执行完成。
+    */
+    new Promise((resolve, reject) => {
+      console.log("外部promise");
+      resolve();  //状态发生改变，外部第一个then被注册
+    })
+      .then(() => {
+        console.log("外部第一个then");
+        new Promise((resolve, reject) => {
+          console.log("内部promise");
+          resolve(); //状态被确认下一个then回调被注册！！！ 而不是执行
+        })           //此时同步代码执行完成 // 外部第二个then的注册，
+          .then(() => {
+            console.log("内部第一个then");
+          })
+          .then(() => {
+            console.log("内部第二个then");
+          });
+      })
+      .then(() => {
+        console.log("外部第二个then");
+      });
+/*
+    1. new Promise执行里面同步执行器
+  --输出"外部promise"，
+    调用resolve()
+    2. 同步注册外部第一个.then方法
+    执行外部第一个.then方法的同步代码
+  --输出"外部第一个then"
+  --输出"内部promise"
+    调用 resolve();
+    3. 内部第一个then被注册
+    内部第二个then为pending状态
+    4. 外部第一个then同步代码执行完毕，
+    5. 外部第二个.then方法被注册（被注册是同步注册）
+      执行同步代码，即同步被注册
+
+   同步代码执行完成，执行微任务
+   回调队列注册的有：
+      内部第一个then被注册 外部第二个.then方法被注册 内部第二个then被注册（内部第一个then执行完毕后）
+    内部第一个then被注册被执行
+  --输出"内部第一个then"
+  --输出“外部第二个then”
+  --输出“内部第二个then”
+    
+    
+调用resolve then方法被同步注册而不是执行
+***then 的注册，是指微任务队列的注册
+    */
+  </script>
+</body>
+
+</html>

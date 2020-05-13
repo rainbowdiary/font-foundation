@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/*
+		 1.	str.slice(beginSlice[, endSlice])
+			作用：提取一个字符串的一部分，并返回一新的字符串
+			语法：str.slice(beginSlice[, endSlice])
+			参数：
+				beginSlice：
+					从该索引（以0为基数）处开始提取原字符串中的字符。
+				endSlice：
+					可选。在该索引（以 0 为基数）处结束提取字符串。如果省略该参数，slice会一直提取到字符串末尾。
+				返回值: 返回一个从原字符串中提取出来的新字符串
+				注意：
+					如果beginSlice为负数，会被当做 sourceLength + beginSlice 看待，
+				这里的sourceLength 是字符串的长度 。如果加完还是负数则看为0。endSlice同理
+					如果beginSlice >= endSlice,提出的是空白字符串
+					slice方法提取的范围是左闭右开的
+
+		 * */
+		var str = "hello world";
+		console.log(str.slice(1,2));
+		console.log(str.slice(1));
+		console.log(str.slice(-3,-1));
+		console.log(str.slice(8,10));
+		
+		
+		
+		
+		
+		
+		
+
+	</script>
+</html>

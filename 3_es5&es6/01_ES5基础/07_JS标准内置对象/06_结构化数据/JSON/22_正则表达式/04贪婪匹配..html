@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原子</title>
+</head>
+<body>
+
+    <script>
+        var html = `
+             <div class="box">
+                <ul>
+                    <li><img src="01.jpg" alt=""></li></ul></div>
+        `;
+
+
+        console.log(html);
+
+        // 定义正则 匹配 img标签
+        // 在数量修饰符的后面加？  ，阻止贪婪匹配
+        var reg = /<img.+?>/;
+
+        /*
+        * {2,5}?
+        * {3,}?
+        * *?
+        * */
+
+        console.log(reg.exec(html)[0]);
+
+
+
+    </script>
+</body>
+</html>

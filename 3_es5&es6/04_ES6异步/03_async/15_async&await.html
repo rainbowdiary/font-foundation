@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+        1. async & await的基本流程
+        2. async & await的异常处理
+    */
+    (async function test() {
+            await new Promise(function (resolve,reject) {
+                setTimeout(function (flag) {
+                    if(flag){
+                        console.log("第一次数据获取成功")
+                        resolve()
+                    }else {
+                        console.log("第一次数据获取失败")
+                        reject()
+                    }
+                },1000,true)
+            })
+            await new Promise(function (resolve,reject) {
+                setTimeout(function (flag) {
+                    if(flag){
+                        console.log("第二次数据获取成功")
+                        resolve()
+                    }else {
+                        console.log("第二次数据获取失败")
+                        reject()
+                    }
+                },1000,true)
+            })
+            await new Promise(function (resolve,reject) {
+                setTimeout(function (flag) {
+                    if(flag){
+                        console.log("第三次数据获取成功")
+                        resolve()
+                    }else {
+                        console.log("第三次数据获取失败")
+                        reject()
+                    }
+                },1000,true)
+            })
+    })().catch(function (errMsg) {
+        console.log(errMsg)
+    })
+
+
+</script>
+</html>

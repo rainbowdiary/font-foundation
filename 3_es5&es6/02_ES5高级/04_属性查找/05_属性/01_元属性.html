@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 属性描述符 === 元属性
+    var obj = {
+        name:"达姆"
+    }
+    /*
+        configurable: true      代表这个属性的可配置权限(能否被删除 能否被重新配置)
+        enumerable: true        代表这个属性的可枚举权限(能否出现在对象的for in循环中)
+        value: "达姆"           代表当前这个属性的值
+        writable: true          代表当前这个属性的值能否被修改
+    */
+
+
+    var res = Object.getOwnPropertyDescriptor(obj,"name")
+    console.log(res)
+</script>
+</html>

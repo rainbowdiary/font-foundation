@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father {
+      background: green;
+      height: 500px;
+      width: 500px;
+      text-align: center;
+    }
+
+    /* 方法：使用参照物，加一个span */
+    .father span {
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+    }
+
+    .child {
+      display: inline-block;
+      /* 定义行内元素相较于父元素的基线位置 */
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="father">
+    <span></span>
+    <div style="background: red;" class="child">上下左右</div>
+  </div>
+</body>
+
+</html>

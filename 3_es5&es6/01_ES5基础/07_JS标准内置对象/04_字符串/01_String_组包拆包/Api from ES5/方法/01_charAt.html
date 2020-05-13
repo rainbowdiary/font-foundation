@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/*
+		 作用：从一个字符串中返回指定的字符
+		 语法：str.charAt(index)
+		 参数：index
+			一个介于0 和字符串长度减1之间的整数。 (0~length-1)
+		返回值：指定的字符
+		 注意：
+			如果没有提供索引，charAt() 将使用0
+			如果超过字符串长度减1，charAt() 将返回空白字符串
+		 * */
+		var str = "hello world";
+		console.log(str.charAt(0));
+		console.log(str.charAt());
+		console.log(str.charAt(100));
+		
+		
+		/*
+		 [index]：
+			[]的形式也可以用来访问字符串中的指定字符。但这种方式是在ES5中定义的。部分浏览器会有兼容性问题
+		*/
+		console.log(str[0]);
+		console.log(str[100]);	//undefined
+		
+
+	</script>
+</html>

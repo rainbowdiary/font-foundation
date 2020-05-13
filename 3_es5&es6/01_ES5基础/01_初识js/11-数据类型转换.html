@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			console.log('===========数据类型转换===========');
+			console.log('===========其它数据类型转换成数值类型===========');
+			console.log('===========其它类型转成整数parseInt()函数,同时具备向下取整===========');
+			console.log(parseInt('10'));//10
+			console.log(parseInt('10.99'));//10
+			console.log(parseInt('10abc'));//10
+			console.log(parseInt('10.99abc'));//10
+			console.log(parseInt('abc10'));//NaN
+			console.log(parseInt(true));//NaN
+			console.log(parseInt(false));//NaN
+			console.log(parseInt(undefined));//NaN
+			console.log(parseInt(null));//NaN
+			console.log('===========其它类型转成小数parseFloat()函数===========');
+			console.log(parseFloat('10'));//10
+			console.log(parseFloat('10.99'));//10.99
+			console.log(parseFloat('10.99abc'));//10.99
+			console.log(parseFloat(true));//NaN
+			console.log(parseFloat(false));//NaN
+			console.log(parseFloat(undefined));//NaN
+			console.log(parseFloat(null));//NaN
+			console.log('===========其它类型转成数值Number()函数,严格型的转换===========');
+			console.log(Number('10'));//10
+			console.log(Number('10.99'));//10.99
+			console.log(Number('10.99abc'));//NaN
+			console.log(Number(true));//1
+			console.log(Number(false));//0
+			console.log(Number(undefined));//NaN
+			console.log(Number(null));//0
+			console.log('===========其它数据类型转换成字符串类型===========');
+			console.log('===========其它类型转成字符串toString函数===========');
+			var num01 = 10;
+			var num02 = true;
+			var num03;      // 由于undefined和null的数据类型没有toString函数,所以报错
+			var num03 = null;
+			console.log(num01.toString());
+			console.log(num02.toString());
+//			console.log(num03.toString());
+			console.log('===========其它类型转成字符串String()函数===========');
+			console.log(String(10));
+			console.log(String(10.99));
+			console.log(String(true));
+			console.log(String(undefined));
+			console.log(String(null));
+			console.log('===========其它数据类型转换成布尔类型===========');
+			console.log('===========其它类型转成字符串Boolean()函数===========');
+			console.log(Boolean('哈哈'));
+			console.log(Boolean('1'));
+			console.log(Boolean('0'));
+			console.log(Boolean(' '));
+			console.log(Boolean(1));
+			console.log(Boolean(-1));
+			console.log(Boolean(3.14));
+			console.log(Boolean(0));
+			console.log(Boolean(''));
+			console.log(Boolean(undefined));
+			console.log(Boolean(null));
+		</script>
+	</body>
+</html>

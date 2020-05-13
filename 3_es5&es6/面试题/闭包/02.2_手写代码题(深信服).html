@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+    考题
+    go('l')  ==》 "gol"
+    go()('l');  //输出 "gool"
+    go()()('l');  //输出 "goool"
+    go()()()('l');  //输出 "gooool"
+
+    考点: 1.闭包 2.尾递归
+
+    分析:
+      1. 没有参数，返回一个函数  等待着被继续调用
+      2. 有参数，返回一个字符串 "g" + "o"*go函数被调动的次数 + "参数"
+     */
+
+    // 优化没有全局变量
+    function go(test) {
+      go.flag = go.flag ? ++go.flag : 1
+      return test ? (function () {
+        let oStr = "";
+        for (let index = 0; index < go.flag; index++) {
+          oStr += "o"
+        }
+        return "g" + oStr + test
+      })() : go
+    }
+
+    const a = go()()("l")
+    console.log(a);
+/*
+        go.flag++
+        运算符都有返回值，返回值为加之前的值，永远为 1
+    
+        ++go.flag
+        返回的是加之后的值
+    */
+  </script>
+</body>
+
+</html>

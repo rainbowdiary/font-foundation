@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    {
+        let arr = Array.of(1,true,"test")
+        console.log(arr)
+    }
+
+    {
+        let arrayLike = {
+            0:"a",
+            1:"b",
+            2:"c",
+            length:3
+        }
+        // let arr = Array.prototype.slice.call(arrayLike);
+        let arr = Array.from(arrayLike)
+        console.log(arr);
+    }
+
+    {
+        //fill 如果start小于0 则加上length 如果加上后还小于0 从0开始
+       let arr = ["a","b","c","d"]
+        console.log(arr.fill("♥",3,4));
+    }
+
+    {
+        let arr = ["a","b","c","d"]
+
+        for(let item1 of arr.keys()){
+            console.log(item1)
+        }
+        for(let item2 of arr.values()){
+            console.log(item2)
+        }
+        for(let item3 of arr.entries()){
+            console.log(item3)
+        }
+    }
+
+    {
+        let arr = ["a","b","c","d"]
+        console.log(arr.includes("aa"));
+    }
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            display: -webkit-box;
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+
+            /*控制主轴是哪一根*/
+            -webkit-box-orient:horizontal;
+            -webkit-box-direction:normal;
+            -webkit-box-pack:start;
+            -webkit-box-align: center;
+                    /*
+                        start
+                        end
+                        center
+                    */
+
+        }
+        #wrap .inner{
+            width: 50px;
+            height: 50px;
+            border: 1px solid;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 50px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="inner">1</div>
+        <div class="inner">2</div>
+        <div class="inner">3</div>
+        <div class="inner">4</div>
+        <div class="inner">5</div>
+    </div>
+</body>
+</html>

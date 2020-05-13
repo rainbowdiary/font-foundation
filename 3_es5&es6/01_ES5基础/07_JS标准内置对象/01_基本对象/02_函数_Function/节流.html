@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>throttle</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      border: 1px solid;
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    /*
+  节流是: 当事件频繁触发的时候，事件第一次触发之后，
+         之后只能大于设定的时间才能触发第二次
+  理解:
+    节流通俗解释就比如我们水龙头放水，阀门一打开，水哗哗的往下流，秉着勤俭节约的优良传统美德，我们要把水龙头关小点，最好是如我们心意按照一定规律在某个时间间隔内一滴一滴的往下滴。
+  场景:
+       浏览器事件，
+       窗口移动（resize）,
+       页面滚动scroll，
+       拖拽的mousemove，
+       抢购疯狂点击mousedown
+
+  项目中使用:
+    自己封装滚动条的时候使用时候，需要加载页面数据，
+    因此对用户上下滑动做了一个节流限制，防止事件频繁触发造成浏览器性能问题，
+    也缓解了频繁向后台请求数据造成的服务器压力
+
+    在抢购商品的时候，用户疯狂的点击也做了节流处理，
+   */
+    const box = document.querySelector('.box');
+
+    const downCallBack = function () {
+      console.log("----");
+    }
+
+    window.addEventListener("mousedown", throttle(downCallBack, 1000))
+
+    function throttle(cb, delay) {
+      let start = 0; //让第一次触发，之后只有大于设定时间才能触发；
+      return function () { //cb闭包和this劫持
+        const now = Date.now();
+        if (now - start > delay) {
+          cb.apply(this, arguments);
+          start = now;
+        }
+      }
+    }  
+  </script>
+</body>
+
+</html>

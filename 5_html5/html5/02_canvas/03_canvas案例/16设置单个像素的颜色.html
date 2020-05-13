@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+       canvas {
+           background: #ccc;
+            background-size: cover;
+       }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        // 获取画布元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+
+        //创建一个imageData
+        var imageData = ctx.createImageData(400, 400);
+
+        for (var i = 0; i < imageData.width; i ++) {
+            //设置某个像素点的颜色
+            setPixel(imageData, i, 100, [255,0,0,255]);
+        }
+
+
+
+        // 把像素信息写入画布
+        ctx.putImageData(imageData, 0, 0);
+
+
+        /**
+         * 设置单个像素的颜色
+         */
+        function setPixel(imageData, x, y, colors=[0,0,0,0]) {
+            // 计算当前像素点的起始坐标
+            var index = y*imageData.width*4 + x*4;
+            // 对像素数据进行设置
+            imageData.data[index] = colors[0];
+            imageData.data[index+1] = colors[1];
+            imageData.data[index+2] = colors[2];
+            imageData.data[index+3] = colors[3];
+        }
+
+
+
+        /**
+         * 获取单个像素的信息
+         */
+        function getPixel(imageData, x, y) {
+            //定义空数组
+            var colors = [];
+            // 计算当前像素点的起始坐标
+            var index = y*imageData.width*4 + x*4;
+            //向数组中添加数据
+            colors[0] = imageData.data[index];
+            colors[1] = imageData.data[index+1];
+            colors[2] = imageData.data[index+2];
+            colors[3] = imageData.data[index+3];
+            //返回结果
+            return colors;
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

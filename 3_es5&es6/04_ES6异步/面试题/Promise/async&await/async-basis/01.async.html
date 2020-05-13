@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // async怎么处理返回值
+
+    // 从结果中可以看到async函数返回的是一个promise对象，如果在函数中 return 一个直接量，async 会把这个直接量通过 Promise.resolve() 封装成 Promise 对象。
+    /* 
+    当调用一个 async 函数时，
+      会返回一个 Promise 对象。
+      当这个 async 函数返回一个值时，
+          Promise 的 resolve 方法会负责传递这个值；
+          当 async 函数抛出异常时，Promise 的 reject 方法也会传递这个异常值。
+    
+    */
+    async function testAsync() {
+      return "hello async";  //async会通过Promise.resolve("hello async")封装成 Promise 对象
+    }
+    let result = testAsync();
+    console.log(result)   //Promise { [[PromiseStatus]]: "resolved", [[PromiseValue]]: "hello async" }
+  </script>
+</body>
+
+</html>

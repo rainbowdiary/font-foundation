@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则计算器</title>
+    <style>
+        input {
+            width: 300px;
+            padding:10px;
+            border:1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            background-color: #f5f5f5;
+        }
+
+        #box {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="1.php" id="myForm">
+        <table>
+            <tr>
+                <td>字符串：</td>
+                <td><input type="text" id="strInput"></td>
+            </tr>
+            <tr>
+                <td>正则：</td>
+                <td><input type="text" id="regInput"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button>验证</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <div id="box"></div>
+
+    <script>
+        // 获取表单元素
+        var myForm = document.getElementById('myForm');
+
+        // 当表单被提交的时候，触发
+        myForm.onsubmit = function(){
+            // 获取input里的内容
+            var strInputContent = document.getElementById('strInput').value;
+            var regInputContent = document.getElementById('regInput').value;
+
+            // 创建正则表达式
+            var pattern = RegExp(regInputContent);
+
+            // 进行验证
+            if (pattern.test(strInputContent) ) {
+                document.getElementById('box').innerHTML = '验证成功！';
+            } else {
+                document.getElementById('box').innerHTML = '验证失败！';
+            }
+
+            // 阻止表单提交
+            return false;
+        }
+
+    </script>
+
+
+</body>
+</html>

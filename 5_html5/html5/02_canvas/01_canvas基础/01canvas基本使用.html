@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas基本使用</title>
+    <style>
+        canvas {
+            background: red;
+            /*不要通过css给canvas设置大小*/
+            /*width: 400px;*/
+            /*height: 300px;*/
+        }
+    </style>
+</head>
+<body>
+    <!--canvas元素-->
+    <canvas width="600" height="400" id="myCanvas"></canvas>
+
+    <script>
+        // 第一步 获取画布元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 第二步 设置画布大小
+        canvas.width = 600;
+        canvas.height = 600;
+
+        // 第三步 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        // 绘制
+        ctx.fillStyle = 'green';
+        ctx.fillRect(0, 0, 600, 600);
+
+    </script>
+</body>
+</html>

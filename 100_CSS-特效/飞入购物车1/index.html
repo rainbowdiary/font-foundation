@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Index</title>
+
+<script src="jquery-1.7.1.js" type="text/javascript"></script>
+
+<style type="text/css">
+.thingsBox{border:1px solid #aaaaaa;width:300px;height:100px;cursor:pointer;}
+#collectBox{width:100px;height:100px;border:1px red solid;z-index:2;position:fixed;top:0px;right:0px;background:#a0a0a0;}
+</style>
+
+<script type="text/javascript">
+function MoveBox(obj) {
+	var divTop = $(obj).offset().top;
+	var divLeft = $(obj).offset().left;
+	$(obj).css({ "position": "absolute", "z-index": "500", "left": divLeft + "px", "top": divTop + "px" });
+	$(obj).animate({ "left": ($("#collectBox").offset().left - $("#collectBox").width()) + "px", "top": ($(document).scrollTop() + 30) + "px", "width": "100px", "height": "70px" }, 500, function () {
+		$(obj).animate({ "left": $("#collectBox").offset().left + "px", "top": $("#collectBox").offset().top + "px" }, 500).fadeTo(0, 0.1).hide(0);
+	});
+}
+</script>
+</head>
+<body>
+
+<div style="min-height: 300px; border: 1px solid #aaaaaa; text-align: center; vertical-align: middle;
+background-color: #78adef;">
+&nbsp;站个位置<!--<input type="button" name="name" value="重来开始" onclick="location.reload()" />--></div>
+<br />
+<br />
+<br />
+<div>
+请点击：</div>
+<br />
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #ff0000;">
+1111<img src="http://2.zol-img.com.cn/manu_photo/111_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #00ff00;">
+222<img src="http://2.zol-img.com.cn/manu_photo/232_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #0000ff;">
+333<img src="http://2.zol-img.com.cn/manu_photo/657_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #ffff00;">
+444<img src="http://2.zol-img.com.cn/manu_photo/184_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #abefab;">
+555<img src="http://2.zol-img.com.cn/manu_photo/1048_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #ab2323;">
+666<img src="http://2.zol-img.com.cn/manu_photo/363_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #dfadf5;">
+777<img src="http://2.zol-img.com.cn/manu_photo/1047_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #56abab;">
+888<img src="http://2.zol-img.com.cn/manu_photo/221_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #e2f2a3;">
+999<img src="http://2.zol-img.com.cn/manu_photo/777_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #ee8d2d;">
+aaa<img src="http://2.zol-img.com.cn/manu_photo/888_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #943185;">
+bbb<img src="http://2.zol-img.com.cn/manu_photo/32919_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #158425;">
+ccc<img src="http://2.zol-img.com.cn/manu_photo/34329_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #93ad02;">
+ddd<img src="http://2.zol-img.com.cn/manu_photo/1050_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #654987;">
+eee<img src="http://2.zol-img.com.cn/manu_photo/1051_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #0000ff;">
+fff<img src="http://2.zol-img.com.cn/manu_photo/1799_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #123456;">
+hhh<img src="http://2.zol-img.com.cn/manu_photo/1053_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #456789;">
+ggg<img src="http://2.zol-img.com.cn/manu_photo/139_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #963258;">
+jjj<img src="http://2.zol-img.com.cn/manu_photo/301_.jpg" alt="" />
+</div>
+<div onClick="MoveBox(this)" class="thingsBox" style="background: #741258;">
+kkk<img src="http://2.zol-img.com.cn/manu_photo/407_.jpg" alt="" />
+</div>
+
+<img id="collectBox" src="http://ico.ooopic.com/iconset01/Windows7-icons/gif/123609.gif" alt="" />
+
+</body>
+</html>

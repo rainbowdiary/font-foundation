@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //  问题?????  为什么m没有产生闭包 ????????
+    function fun(n, o) {
+      console.log(o)
+      return {
+        fun: function (m) {
+          return fun(m, n)
+        }
+      }
+    }
+
+    /* var a = fun(0)
+     var b = a.fun(1)
+     var c = b.fun(2)
+     var d = c.fun(3) */
+
+    var d = fun(0).fun(1).fun(2).fun(3)
+    /*
+    理解流程:
+      1. var d = fun(0)
+        执行fun(0)
+        function fun(n=0, o=undefined){console.log(o=undefined) return {fun: fn}}
+      --console.log(o=undefined)
+        解析return发现内层函数调用了外层函数的变量，
+       ** 产生闭包n=0,发现fun是递归函数
+        function fun(n=0, o=undefined){console.log(o=undefined) return {fun: function(m){return fun(m=undefined,n=0)}}}
+        var d = fun(0) ==>
+              = return {fun: fn:function(m){return fun(m=undefined,n=0)}
+              =  {fun: function(m){return fun(m=undefined,n=0)}}
+      2. 执行 var d = {fun: function(m){return fun(m=undefined,n=0)}}.fun(1)
+          var d =  {fun: function(m){return fun(m=undefined,n=0)}}.fun(1)
+          执行function(m=1){return fun(m=1,n=0)}
+          执行return fun(m=1,n=0) 递归函数，执行外面的function fun(n, o) {return {}}
+       **产生闭包m=1
+          function fun(n=1, o=0) {console.log(o=0) return {fun: function (m) {return fun(m=1闭包, n=1闭包)} }}
+      --console.log(o=0)
+        执行 return {fun: function (m) {return fun(m=1闭包, n=0闭包)} }
+          发现内层函数调用了外层函数的变量，
+       ** 产生闭包n=1
+       return {fun: function (m) {return fun(m=1闭包, n=1闭包)} }
+        所以var d = fun(0).fun(1)执行结果为
+        var d = {fun: function (m) {return fun(m=1闭包, n=1闭包)} }
+      3. 执行var d = fun(0).fun(1).fun(2)
+        var d = {fun: function (m) {return fun(m=1闭包, n=1闭包)} }.fun(2)
+        fun(m=2){return fun(m=2实参&闭包, n=1闭包) }
+        return fun(m=2, n=1闭包) 执行递归
+        function fun(n=2, o=1) {
+      --console.log(o=1)
+          return {fun: function (m) { return fun(m, n=2)}}}
+       **产生闭包m=2 n=2
+      4. var d = fun(0).fun(1).fun(2).fun(3)
+          {fun: function (m) { return fun(m, n=2)}}.fun(3)
+          function (m=3) { return fun(m=3实参&闭包, n=2)}
+           return fun(m=3实参&闭包, n=2)
+           fun(m=3实参&闭包, n=2)
+          执行递归
+            function fun(n=3, o=2) {
+      -- console.log(o=2)
+            return {fun: function (m) {return fun(m=3闭包, n=3闭包)}}}
+       **产生闭包m=3闭包, n=3闭包
+         var d = fun(0).fun(1).fun(2).fun(3)  ====>
+         var d = {fun: function (m) {return fun(m=3闭包, n=3闭包)}}}
+     */
+  </script>
+</body>
+
+</html>

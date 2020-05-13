@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>background-origin</title>
+    <style>
+        .box {
+            box-sizing: border-box;
+            margin: 100px auto;
+            width: 1000px;
+            height: 400px;
+            padding: 50px;
+            border: 50px solid #ccc;
+
+            color: red;
+            font-size: 60px;
+            font-weight: bold;
+
+            background: url(images/bg02.jpg) no-repeat;
+            background-size: 300px 200px;
+            background-size: 100% 100%;
+            background-size: cover; /*尽量让背景图铺满元素，不能让图片变形，必要时可以裁切图片*/
+            background-size: contain; /*尽量让背景图铺满元素，不能让图片变形，必要时可以不铺满元素（图片必须完整显示）*/
+
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="box">同志们冲啊</div>
+</body>
+</html>

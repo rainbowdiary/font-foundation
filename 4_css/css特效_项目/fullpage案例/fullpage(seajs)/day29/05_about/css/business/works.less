@@ -1,0 +1,104 @@
+@import "../mixin/mixin";
+@import "../extend/extend";
+@import "../animation/animation";
+#wrap{
+  .content{
+    .list{
+      .item{
+        .works{
+          .works-1{
+            .commonTitle();
+            margin: 50px 0 100px 50px;
+          }
+          .works-2{
+            margin-left: 50px;
+            .works-list{
+              &:extend(.clearfix all);
+              li{
+                position: relative;
+                float: left;
+                width: 220px;
+                height: 133px;
+                margin:0 1px;
+                overflow: hidden;
+                .mask{
+                  opacity: 0;
+                  position: absolute;
+                  left:0;
+                  right:0;
+                  top:0;
+                  bottom:0;
+                  background: rgba(25,25,25,0.8);
+                  color: white;
+                  padding: 15px;
+                  transition: 1s opacity;
+                  span{
+                    display: block;
+                  }
+                  i{
+                    display: block;
+                    margin: 0 auto;
+                    margin-top: 10px;
+                    width: 32px;
+                    height: 34px;
+                    background: url("../img/zoomico.png") no-repeat;
+                    transition: 1s background-position;
+                    &:hover{
+                      background-position:0 -36px ;
+                    }
+                  }
+                }
+                & > span{
+                  position: absolute;
+                  left:0;
+                  right:0;
+                  top:0;
+                  bottom:0;
+                  transition: 1s transform;
+                }
+                &:nth-child(1){
+                  & > span{
+                    background: url("../img/worksimg1.jpg") no-repeat;
+                  }
+                }
+                &:nth-child(2){
+                  & > span{
+                    background: url("../img/worksimg2.jpg") no-repeat;
+                  }
+                }
+                &:nth-child(3){
+                  & > span{
+                    background: url("../img/worksimg3.jpg") no-repeat;
+                  }
+                }
+                &:nth-child(4){
+                  width: 332px;
+                  & > span{
+                    background: url("../img/worksimg4.jpg") no-repeat;
+                  }
+                }
+                &:hover{
+                  & > span{
+                    transform: rotate(45deg) scale(1.5);
+                  }
+                  .mask{
+                    opacity: 1;
+                  }
+                }
+              }
+            }
+          }
+          .works-3{
+            position: absolute;
+            left: 900px;
+            top: 170px;
+            width: 167px ;
+            height: 191px;
+            background: url("../img/robot.png") no-repeat;
+            animation: robotMove 3s linear infinite;
+          }
+        }
+      }
+    }
+  }
+}

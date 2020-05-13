@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结构伪类选择器</title>
+    <style>
+       .news-list {
+           list-style: none;
+           width: 800px;
+           margin: 100px auto;
+           padding: 0;
+       }
+        .news-list li {
+            padding: 20px;
+        }
+        /*
+        .news-list li:nth-child(odd) {
+            background: #ccc;
+        }
+        .news-list li:nth-child(even) {
+            background: #f5f5f5;
+        }
+
+         */
+
+        .news-list li:nth-child(2n) {
+            background: #ccc;
+        }
+        .news-list li:nth-child(2n+1) {
+            background: #f5f5f5;
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="news-list">
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+    </ul>
+
+</body>
+</html>

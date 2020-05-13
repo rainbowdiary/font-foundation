@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    {
+      let a = 11
+    }
+    {
+      let a = 12
+    }
+    // console.log('a', a);//Uncaught ReferenceError: a is not defined
+
+    {
+      var b = 1
+    }
+    {
+      var b = 2
+    }
+    console.log('b', b);//2
+
+    {
+      // 没有赋初始值，则其值为 undefined
+      console.log(c); //Uncaught ReferenceError: Cannot access 'c' before initialization
+      let c;
+    }
+    // console.log(c); //var_let区别_2.html:33 Uncaught ReferenceError: c is not defined
+
+    {
+
+      console.log(d); // 没有赋初始值，则其值为 undefined,且可以在赋值之前引用
+      var d;
+    }
+    console.log(d);  // 没有赋初始值，则其值为 undefined
+  </script>
+</body>
+
+</html>

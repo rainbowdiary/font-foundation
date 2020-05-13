@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit:cover">
+    <title>模拟多指事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 100%;
+            height: 300px;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+
+        document.addEventListener('touchstart', function (event) {
+            event.preventDefault();
+        }, {passive: false});
+
+        // 获取元素
+        var box = document.querySelector('#box');
+
+
+        gestrue(box, {
+            start: function(){
+                box.innerHTML = 'start';
+            },
+            change: function(){
+                box.innerHTML = Math.random();
+            },
+            end: function(){
+                box.innerHTML = 'end';
+            }
+        });
+
+        /**
+         * 封装手势事件
+         * @param node  要监听的元素
+         * @param callback  指定回调函数，对应不同的事件：  start\change\end
+         */
+        function gestrue(node, callback){
+            //手势开始
+            node.addEventListener('touchstart', function (event) {
+               //判断屏幕上手指个数>=2
+               if (event.touches.length >= 2) {
+                   node.isStarted = true; //标记已经发生了start事件
+                   if (callback && typeof(callback['start']) === 'function') {
+                       callback['start']();
+                   }
+               }
+            });
+            //手势变化
+            node.addEventListener('touchmove', function (event) {
+                //判断屏幕上手指个数>=2
+                if (event.touches.length >= 2) {
+                    if (callback && typeof(callback['change']) === 'function') {
+                        callback['change']();
+                    }
+                }
+            });
+            // 手势结束
+            node.addEventListener('touchend', function (event) {
+                // 发生过start事件且元素上手指个数<2
+                if (node.isStarted && event.targetTouches.length < 2) {
+                    node.isStarted = false; //设置标记
+                    if (callback && typeof(callback['end']) === 'function') {
+                        callback['end']();
+                    }
+                }
+            });
+        }
+
+
+    </script>
+</body>
+</html>

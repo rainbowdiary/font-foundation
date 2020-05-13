@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        canvas {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+
+        // 获取canvas元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        // 设置颜色
+        ctx.fillStyle = '#f90';
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'green';
+
+        ctx.fillRect(100, 100, 200, 100);
+
+        // 位移 不影响前面的图像 影响后面所有图像
+        // 位移的是绘图上下文， 位移的是画布的坐标系
+        ctx.translate(200, 200);
+
+        // 绘制矩形 描边矩形
+        ctx.strokeRect(100, 100, 200, 100);
+
+        // 绘制矩形
+        ctx.strokeRect(0, 0, 50, 50);
+
+
+    </script>
+</body>
+</html>

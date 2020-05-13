@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器</title>
+	<style>
+		ul {
+			width: 600px;
+			list-style: none;
+		}
+		li {
+			margin-top: 10px;
+			padding: 20px;
+			border: 2px dotted #ccc;
+		}
+	</style>
+</head>
+<body>
+	<h1>jQuery选择器 -- 基本选择器</h1>
+	<hr>
+	<ul id="firstList">
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li class="item">Lorem ipsum dolor sit amet.</li>
+		<li>Lorem ipsum dolor sit amet.
+			<ul>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+			</ul>
+		</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+		<p>Lorem ipsum dolor sit amet.</p>
+		<li>Lorem ipsum dolor sit amet.</li>
+	</ul>
+	
+	<hr>
+
+	<ul id="secondList">
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li class="item">Lorem ipsum dolor sit amet.</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+	</ul>
+
+	<hr>
+
+	<ul>
+		<li>Lorem ipsum dolor sit amet.</li>
+	</ul>
+
+	<hr>
+
+	<p class="item">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, similique ex? Repudiandae aliquam nam voluptas, eius illo amet iste perspiciatis, nesciunt laudantium expedita doloribus numquam itaque quas, reprehenderit omnis magni.
+	</p>
+
+	<script src="jquery-1.11.1.js"></script>
+	<script>
+		$(function () {
+			// 层级事件
+			//$('#firstList li').css('border', '2px solid #f90');
+			//$('#firstList>li').css('border', '2px solid #f90');  //子元素
+
+			$('#firstList .item').css('border', '2px solid #f90');
+			//$('#firstList .item+li').css('border', '2px solid red')
+			$('#firstList .item~li').css('border', '2px solid red');
+
+		});
+	</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+       canvas {
+
+       }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        // 获取画布元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+
+        // 绘制矩形 目标图像
+        ctx.fillStyle = 'red';
+        ctx.fillRect(100, 100, 200, 100);
+
+        // 设置图像合成规则
+        ctx.globalCompositeOperation = 'source-atop';  // 源图像在目标图像之外的部分不可见
+        ctx.globalCompositeOperation = 'source-in';  //
+        ctx.globalCompositeOperation = 'source-out';  //
+        ctx.globalCompositeOperation = 'destination-over';  //
+        ctx.globalCompositeOperation = 'destination-atop';  //
+        ctx.globalCompositeOperation = 'destination-in';  //
+        ctx.globalCompositeOperation = 'destination-out';  //
+        ctx.globalCompositeOperation = 'lighter';  //
+        ctx.globalCompositeOperation = 'copy';  //
+        ctx.globalCompositeOperation = 'xor';  //
+
+        //再绘制矩形 源图像
+        ctx.fillStyle = 'green';
+        ctx.fillRect(100, 100, 100, 200);
+
+
+
+
+
+
+    </script>
+</body>
+</html>

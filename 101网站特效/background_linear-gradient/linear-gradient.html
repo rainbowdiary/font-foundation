@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    .demo {
+      width: 200px;
+      height: 100px;
+      padding: 10px;
+
+      background-color: #eaeaea;
+      background-image: linear-gradient(0deg, red, green);
+      /* 线性渐变 */
+      background-repeat: no-repeat;
+      background-position: center;
+      /* 渐变框变成了50*50 */
+      /* background-size: 50px 50px; */
+      background-size: 200% 200%;
+      /* 渐变框变成了440*240 */
+    }
+
+    /*渐变框&渐变线 
+      渐变本身没有固定尺寸，渐变框有；渐变框是padding-box 宽高220*120
+         渐变线为渐变框的中心；
+         background-linear-gradient(0deg,green,red...)
+         第一个参数： 
+          顺时针
+          to top,0deg
+          to right,90deg 
+          to bottom,180deg (默认)
+          to left,270deg
+          to left top
+       */
+  </style>
+</head>
+
+<body>
+  <div class="demo"></div>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				height: 10000px;
+			}
+			.box{
+				width: 50px;
+				height: 50px;
+				background: url(images/bgs.png) no-repeat -159px -51px;
+				position: fixed;
+				right: 20px;
+				top:50%;
+				margin-top: -25px;
+			}
+			.box img{
+				position: absolute;
+				left:-150px;
+				top:0;
+				display: none;
+			}
+			.pox{
+				background-position-x: -220px;
+			}
+			/*.box .dis{
+				display: block;
+			}*/
+			.dis{
+				display: block !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+			<img src="images/456.png" alt="" id="ercode"/>
+		</div>
+		<script type="text/javascript">
+			//获取box
+			var box = document.getElementById('box');
+			//获取二维码大图
+			var ercode = document.getElementById('ercode');
+			
+			//绑定鼠标移入
+			box.onmouseover = function (){
+			  //box添加pox类名
+			  this.className = 'box pox';
+			  //img添加dis类名
+			  ercode.className = 'dis';
+			}
+			//绑定鼠标移出
+			box.onmouseout = function(){
+				this.className = 'box';
+				ercode.className = '';
+			}
+		</script>
+	</body>
+</html>

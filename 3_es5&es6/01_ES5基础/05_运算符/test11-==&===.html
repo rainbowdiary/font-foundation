@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let a = 3;
+    let b = new Number(3);
+    let c = 3;
+
+    console.log(a == b); //可以进行类型转换
+    console.log(1 == true); //可以进行类型转换
+    console.log(a === b); //类型不同就不等
+    console.log(b === c);
+
+    /*
+    new Number()是内置的构造函数，实际上返回的是一个对象
+    ==： 比较值是否相等，a和b都有3的值
+         不同基础数据类型比较，会转换为相同类型再比较
+         基础数据类型和引用数据类型，引用数据类型会转换为基础数据类型再比较
+    ===： 比较值和类型
+          类型不等就不等
+     */
+  </script>
+</body>
+
+</html>

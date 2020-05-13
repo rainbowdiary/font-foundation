@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- onchange事件传递this，获取当前传递的文件信息 -->
+  <input type="file" name="" id="" onchange="handlerChange(this)">
+
+  <script>
+    function handlerChange(e) {
+      // 获取上传的文件信息 e.files[0]
+      console.log(e.files[0].name);
+    }
+  </script>
+</body>
+
+</html>

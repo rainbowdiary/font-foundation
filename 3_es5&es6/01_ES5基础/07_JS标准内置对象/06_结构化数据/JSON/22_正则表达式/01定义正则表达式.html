@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+</head>
+<body>
+    <script>
+
+        /*
+        * var s1 = "hello";
+        * var s2 = String(100)
+        * var s3 = new String(100)
+        *
+        * */
+
+        // 定义正则表达式  直接量方式
+        var reg = /hello/;
+        console.log(typeof reg);
+
+        // 再定义
+        var reg1 = RegExp("hello");
+        console.log(reg1, typeof reg1);
+
+        var reg2 = RegExp("hello");
+
+        console.log('');
+        // 正则表达式如何去匹配验证字符串
+        console.log(reg.test('hello'));
+        console.log(reg.test('world'));
+        console.log(reg.test('aaahelloworld'));  //只有字符串中有一部分满足正则的条件，就可以匹配
+
+
+        console.log('');
+        // exce方法
+        console.log(reg.exec('hello'));
+        console.log(reg.exec('aaahelloworld'));
+        console.log(reg.exec('aaahelloworldhello'));  //匹配字符串中第一次满足正则条件的部分
+        console.log(reg.exec('apple'));  // null
+        /**
+         * exec() 如果能匹配成功返回数组，不能匹配返回 null
+         * 数组的第一个成员 是从字符串中匹配到内容（第一次出现）
+         * index: 匹配到的内容在字符串中位置
+         * input： 完整的字符串
+         * */
+
+        console.log();
+
+
+        //'hello'.replace(reg)
+
+
+
+    </script>
+</body>
+</html>

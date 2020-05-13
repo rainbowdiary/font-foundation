@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* typeof是否能判断正确? */
+    /* 原始数据类型除了null都可以判断正确，引用数据类型除了函数其他都会判断为object */
+    typeof 1
+    typeof "1"
+    typeof true
+    typeof undefined
+    typeof Symbol()
+    typeof null //object
+
+    typeof {}  //object
+    typeof []  //object
+    typeof Function //'function'
+
+    /* 判断引用数据类型的类型使用object instanceof function*/
+    //instanceof也是有缺陷的
+    console.log([] instanceof Array)
+  </script>
+</body>
+
+</html>

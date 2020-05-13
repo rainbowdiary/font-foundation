@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        canvas {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+
+        // 获取canvas元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        // 字体属性
+        ctx.font = 'bold 100px 宋体';
+        // 填充颜色
+        ctx.fillStyle = 'yellowgreen';
+        // 描边颜色
+        ctx.strokeStyle = 'green';
+
+        // 填充文字
+        ctx.fillText('老刘你好', 100, 100);
+
+        // 描边文字
+        ctx.strokeText('老刘来了', 100, 300);
+
+        // 填充+描边
+        ctx.fillText('老刘走了', 100, 500);
+        ctx.lineWidth = 4;
+        ctx.strokeText('老刘走了', 100, 500);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#wrap .content .list .item .about .about-1 {
+  color: #009ee0;
+  font-size: 80px;
+  line-height: 0.8;
+  font-weight: bold;
+  letter-spacing: -5px;
+  margin: 50px 0 100px 50px;
+}
+#wrap .content .list .item .about .about-2 {
+  color: white;
+  line-height: 1.5;
+  font-size: 15px;
+  width: 400px;
+  margin-left: 50px;
+}
+#wrap .content .list .item .about .about-3 {
+  position: absolute;
+  left: 550px;
+  top: -100px;
+}
+#wrap .content .list .item .about .about-4 > div {
+  position: absolute;
+  width: 260px;
+  height: 200px;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+}
+#wrap .content .list .item .about .about-4 > div .about-list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+#wrap .content .list .item .about .about-4 > div .about-list li {
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+#wrap .content .list .item .about .about-4 > div .about-list li img {
+  position: absolute;
+  transition: 1s left , 1s top;
+}
+#wrap .content .list .item .about .about-4 > div span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: 1s transform;
+  transform: scale(1.5);
+  display: block;
+}
+#wrap .content .list .item .about .about-4 > div.item-1 {
+  left: 750px;
+  top: 50px;
+}
+#wrap .content .list .item .about .about-4 > div.item-1 span {
+  background: url("../img/about2.jpg") no-repeat;
+}
+#wrap .content .list .item .about .about-4 > div.item-2 {
+  left: 600px;
+  top: 290px;
+}
+#wrap .content .list .item .about .about-4 > div.item-2 span {
+  background: url("../img/about4.jpg") no-repeat;
+}
+#wrap .content .list .item .about .about-4 > div:hover span {
+  transform: scale(1);
+}

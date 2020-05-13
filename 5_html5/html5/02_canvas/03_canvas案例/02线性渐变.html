@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+       canvas {
+           background: #ccc;
+       }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        // 获取画布元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+
+        // 径向渐变
+        var gradient = ctx.createLinearGradient(100, 100, 500, 100);
+        gradient.addColorStop(0, 'red');
+        gradient.addColorStop(1, 'green');
+
+
+        ctx.fillStyle = gradient;  //把渐变对象作为颜色
+        ctx.fillRect(0, 200, 800, 100);
+
+        ctx.lineWidth = 20;
+        ctx.strokeStyle = gradient;
+        ctx.strokeRect(0, 400, 800, 100);
+
+        ctx.fillRect(700, 50, 100, 100);
+
+        
+    </script>
+</body>
+</html>

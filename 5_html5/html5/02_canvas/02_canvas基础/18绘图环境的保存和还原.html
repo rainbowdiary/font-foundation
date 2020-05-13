@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        canvas {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+
+        // 获取canvas元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        // 设置颜色
+        ctx.fillStyle = '#f90';
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'green';
+
+        // 保存当前绘图环境
+        ctx.save();
+            // 变换
+            ctx.translate(400, 300);
+            ctx.rotate(Math.PI/4);
+            ctx.beginPath();
+            ctx.rect(-50, -50, 100, 100);
+            ctx.strokeStyle = 'red';
+            ctx.stroke();
+        // 恢复之前保存的绘图环境
+        ctx.restore();
+
+
+        // 继续绘制图像
+        ctx.beginPath();
+        ctx.rect(0, 0, 50, 50);
+        ctx.stroke();
+
+    </script>
+</body>
+</html>

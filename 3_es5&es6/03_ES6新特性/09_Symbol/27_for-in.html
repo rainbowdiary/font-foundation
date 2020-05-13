@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  var sym = Symbol()
+  var obj = {
+    a: "a",
+    b: "b",
+    [sym]: "abc"
+  }
+
+  for (item in obj) {
+    console.log(item)
+  }
+
+  console.log(Object.getOwnPropertyNames(obj))
+  console.log(obj[Object.getOwnPropertySymbols(obj)[0]])
+  console.log(obj[sym])
+</script>
+
+</html>

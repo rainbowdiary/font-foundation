@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结构伪类选择器</title>
+    <style>
+        .wrapper {
+            margin: 10px auto;
+            width: 1000px;
+            overflow:hidden;
+            border: 1px solid #ccc;
+        }
+        .item {
+            float: left;
+            width: 235px;
+            height: 235px;
+            background-color: #f90;
+            margin-right: 20px;
+        }
+        .item:last-child {
+            margin-right: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+</body>
+</html>

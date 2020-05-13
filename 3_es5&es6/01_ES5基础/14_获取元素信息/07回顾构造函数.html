@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>构造函数</title>
+</head>
+<body>
+<script>
+    /*
+    *  类： 构造函数   js中的构造函数等同于java中的类
+
+    *  构造函数和对象： 构造函数用来创建（描述）对象， 一个构造函数可以创建多个类
+    * * */
+
+    // 定义构造函数 一般情况把函数首字母大写
+    function Person(name, age) {
+        // 属性 特性
+        this.name = name;
+        this.age = age;
+
+        // 功能 方法
+        this.eat = function () {
+            console.log(this.name + '能吃！');
+        };
+        this.drink = function (){
+            console.log(this.name + '能喝!');
+        }
+
+    }
+
+
+    // 实例化
+    var p1 = new Person('张三丰', 34);
+    var p2 = new Person('张乌鸡', 24);
+    var p3 = new Person('张一打', 14);
+
+    console.log(p1);
+    console.log(p2);
+    console.log(p3);
+
+
+
+
+
+</script>
+</body>
+</html>

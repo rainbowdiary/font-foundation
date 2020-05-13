@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function yhsj(hangs) {
+        var outArr =[];
+        for(var i=0;i<hangs;i++){
+            var innerArr =[];
+            for(var j=0;j<(i+1);j++){
+                innerArr[j]=0;
+            }
+            outArr[i]=innerArr;
+        }
+
+        for(var i=0;i<outArr.length;i++){
+            for(var j=0;j<outArr[i].length;j++){
+                document.write(outArr[i][j]+"&nbsp;&nbsp;")
+            }
+            document.write("<br/>")
+        }
+    }
+    yhsj(10)
+</script>
+</html>

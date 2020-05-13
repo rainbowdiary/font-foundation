@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过渡事件</title>
+    <style>
+        .wrapper {
+            width: 800px;
+            height: 40px;
+            border: 5px dashed darkorange;
+        }
+        .box {
+            width: 100px;
+            height: 40px;
+            background: #1E9FFF;
+            transition: 2s width linear ;
+        }
+        .box:hover {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<button>过渡</button>
+<div class="wrapper">
+    <div class="box"></div>
+</div>
+
+<script>
+    var button = document.querySelector('button');
+    var box = document.querySelector('.box');
+
+    button.onclick = function () {
+        box.style.width = '800px';
+    };
+
+    // 给发生过渡的元素监听过渡时间
+
+    // 过渡开始的时候（延迟之后）
+    box.addEventListener('transitionstart', function () {
+       console.log('transitionstart');
+    });
+
+    // 过渡开始 延迟之前
+    box.addEventListener('transitionrun', function () {
+        console.log('transitionrun');
+    });
+
+    // 过渡完成
+    box.addEventListener('transitionend', function () {
+        console.log('transitionend');
+    });
+
+
+    // 过渡中断
+    box.addEventListener('transitioncancel', function () {
+        console.log('transitioncancel');
+    })
+</script>
+
+
+</body>
+</html>

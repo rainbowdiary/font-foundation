@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<button>开启单次定时器</button>
+		<button>关闭单次定时器</button>
+		<button>开启多次定时器</button>
+		<button>关闭多次定时器</button>
+		<script type="text/javascript">
+			/* BOM: browser object  model  浏览器对象模型   window
+			 * 回调函数:我们定义,系统调用
+			 * 定时器: 在设置的时间到达后,执行命令
+			 * 
+			 * 单击定时器:当设置的事件到达后,执行命令,且执行一次    例如:炸弹💣
+			 * 开启单次定时器: setTimeout(回调函数,间隔时间(毫秒))
+			 * 关闭单词定时器: clearTimeout(定时器标识)
+			 * 
+			 * 多次定时器:每达到设置的时间后,都会执行命令
+			 * 开启多次定时器: setInterval(回调函数,间隔时间(毫秒))
+			 * 关闭多次定时器: clearInterval(定时器标识)
+			
+			 */
+			var btns = document.getElementsByTagName('button');
+			var timer = null;
+			var timer2 = null;
+			//开启单次
+			btns[0].onclick = function() {
+				timer = setTimeout(function() {
+					alert('boom~~~~');
+				}, 1000);
+				console.log(timer);
+			}
+			//关闭单次
+			btns[1].onclick = function() {
+				clearTimeout(timer);
+			}
+			//开启多次
+			btns[2].onclick = function() {
+				timer2 = setInterval(function(){
+					alert('铃铃铃,该起床啦~~~');
+				},1000);
+				console.log(timer2);
+			}
+			//关闭多次
+			btns[3].onclick = function() {
+				clearInterval(timer2);
+			}
+
+		</script>
+	</body>
+
+</html>

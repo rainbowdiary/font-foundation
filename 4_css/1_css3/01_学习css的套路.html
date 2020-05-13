@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #app{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border: 1px solid;
+        }
+
+       /* 绝对定位盒子的特性:
+            left + right + margin-left/right + padding-left/right + border-left/right + width = 包含块的padding-box的横向尺寸
+              0     0        auto      auto       0          0        0           0       100           400
+            top + bottom + margin-top/bottom + padding-top/bottom + border-top/bottom + height = 包含块的padding-box的纵向尺寸
+                                                                                                        400
+            */
+
+        /*css属性(盒模型 浮动 定位)
+            1. 默认值
+            2. 是否可继承
+            3. 能否使用百分比  如果可以百分比参照于谁*/
+        #test{
+            position: absolute;
+           /* width: 100px;
+            height: 100px;*/
+            background: pink;
+
+            left: 50%;
+            top: 50%;
+            /*margin: -50px 0  0 -50px;*/
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="test">
+                test
+        </div>
+    </div>
+</body>
+</html>

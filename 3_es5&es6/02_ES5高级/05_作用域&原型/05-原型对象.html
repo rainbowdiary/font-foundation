@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 原型对象:
+			 */
+			
+			//构造函数
+			function Person(name, age, gender) {
+				this.name = name;
+				this.age = age;
+				this.gender = gender;
+				this.sing = function() {
+					alert('呵呵哈hi');
+				}
+			}
+			var jay = new Person('周杰伦', 40, true);
+			var jolin = new Person('蔡依林', 39, false);
+			var num01 = 5;
+			var num02 = 5;
+			console.log(jay);
+			console.log(jay.name);
+			console.log(jay.__proto__);
+			
+			console.dir(Person);
+//			console.log( num01 == num02);
+			console.log( jay == jolin);
+			console.log(jay.__proto__ == Person.prototype)
+			console.log(Person.prototype.constructor == Person);
+		</script>
+	</body>
+
+</html>

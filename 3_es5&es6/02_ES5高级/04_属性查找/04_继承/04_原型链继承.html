@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+    继承
+    多态(重写)
+    封装(函数化)
+    */
+    Person.prototype.eat=function (msg) {
+        console.log(msg)
+    }
+    function Person(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    Teacher.prototype.teach=function () {
+        console.log("教书")
+    }
+    function Teacher(name,age,subject) {
+        Person.call(this,name,age)
+        this.subject =  subject
+    }
+
+    //原型链继承(方法) + 构造函数继承(属性) = 组合继承
+    var obj={
+        a:function () {
+            console.log("a")
+        },
+        b:function () {
+            console.log("b")
+        }
+    }
+   /* var person = new Person()
+    person.a = function () {
+        console.log("a")
+    }
+    person.b = function () {
+        console.log("b")
+    }
+    person.constructor = Teacher;*/
+    obj.constructor = Teacher;
+    Teacher.prototype.__proto__ = obj;
+    obj.__proto__ = Person.prototype;
+
+
+    var damu = new Teacher("达姆",18,"前端")
+    console.log(damu)
+
+</script>
+</html>

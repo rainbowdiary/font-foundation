@@ -1,0 +1,13 @@
+#app {
+  background-color: #f90;
+}
+#app .container {
+  width: 1000px;
+  margin: 0 auto;
+}
+#app .container::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/*# sourceMappingURL=index.css.map */

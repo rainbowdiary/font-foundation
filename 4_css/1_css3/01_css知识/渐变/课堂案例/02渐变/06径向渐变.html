@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>径向渐变</title>
+    <style>
+        .box {
+            width:400px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+
+            /*径向渐变*/
+            /*background-image: radial-gradient(red, green);*/
+
+            /*径向渐变 圆心位置*/
+            /*background-image: radial-gradient(at center center ,red, green);*/
+            /*background-image: radial-gradient(at left top ,red, green);*/
+            /*background-image: radial-gradient(at 50px 50px ,red, green);*/
+            /*background-image: radial-gradient(at 40% 40% ,red, green);*/
+            /*background-image: radial-gradient(at 50% 50%,red, green); !*只写一个值，只设置水平位置，垂直位置默认（center）*!*/
+
+            /*设置圆的形状*/
+            /*background-image: radial-gradient(ellipse at 50% 50%,red, green);*/
+            /*background-image: radial-gradient(circle at 50% 50%,red, green);*/
+
+            /*圆的半径 决定了*/
+            /*background-image: radial-gradient(circle closest-side at 50% 50%,red, green);*/
+            /*background-image: radial-gradient(circle farthest-side at 50% 50%,red, green);*/
+            /*background-image: radial-gradient(circle closest-corner at 20% 20%,red, green);*/
+            /*background-image: radial-gradient(circle farthest-corner at 20% 20%,red, green);*/
+            /*background-image: radial-gradient(circle 50px,red, green);*/
+
+
+            /*椭圆的半径*/
+            /*background-image: radial-gradient(100px 50px,red, green);*/
+            background-image: radial-gradient(50px,red, green);
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

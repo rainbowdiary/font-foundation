@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择会员卡</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" id="meta">
+    <link rel="stylesheet" href="index.css">
+    <script>
+        (function(){
+            //设置设计稿宽度
+            var designW = 375;
+            // 设置设计稿宽度时的 根元素字体大小
+            var fontSize = designW/12;
+            // 计算当前设备宽度和设计稿的比例
+            var scale = document.documentElement.clientWidth / designW;
+            // 根据比例设置当前设备下 根元素字体大小
+            document.documentElement.style.fontSize = fontSize * scale + 'px';
+        })();
+    </script>
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            <h1>选择会员卡</h1>
+        </div>
+        <div class="main">
+            <div class="item">
+                <div class="item-top">
+                    <h2 class="card-title">普通卡</h2>
+                    <p class="card-phone">18882596253</p>
+                    <p class="card-address">北京宏福苑影院</p>
+                </div>
+                <div class="item-bottom">
+                    <div class="card-remove">
+                        <button class="btn">解除绑定</button>
+                    </div>
+                    <div class="card-select">
+                        默认卡
+                        <input type="checkbox" name="" id="">
+                        <div class="checkbox-box"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-top">
+                    <h2 class="card-title">银卡</h2>
+                    <p class="card-phone">18882596253</p>
+                    <p class="card-address">北京宏福苑影院</p>
+                </div>
+                <div class="item-bottom">
+                    <div class="card-remove">
+                        <button class="btn">解除绑定</button>
+                    </div>
+                    <div class="card-select">
+                        默认卡
+                        <input type="checkbox" name="" id="">
+                        <div class="checkbox-box"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-top">
+                    <h2 class="card-title">金卡</h2>
+                    <p class="card-phone">18882596253</p>
+                    <p class="card-address">北京宏福苑影院</p>
+                </div>
+                <div class="item-bottom">
+                    <div class="card-remove">
+                        <button class="btn">解除绑定</button>
+                    </div>
+                    <div class="card-select">
+                        默认卡
+                        <input type="checkbox" name="" id="">
+                        <div class="checkbox-box"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-top">
+                    <h2 class="card-title">黑卡</h2>
+                    <p class="card-phone">18882596253</p>
+                    <p class="card-address">北京宏福苑影院</p>
+                </div>
+                <div class="item-bottom">
+                    <div class="card-remove">
+                        <button class="btn">解除绑定</button>
+                    </div>
+                    <div class="card-select">
+                        默认卡
+                        <input type="checkbox" name="" id="">
+                        <div class="checkbox-box"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

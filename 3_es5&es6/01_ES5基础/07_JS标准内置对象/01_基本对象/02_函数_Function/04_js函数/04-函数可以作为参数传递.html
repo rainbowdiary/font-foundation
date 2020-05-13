@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//			函数可以作为参数传递
+
+			function sum(a) {
+				// var a = function (){
+				//						alert('我是fn函数');
+				//					}
+
+				// var  a = function(){
+				//	alert('我是匿名函数');
+				//}
+			//console.log(a);
+				a();
+			}
+			var num = '老刘';
+			//			sum('哈哈');
+			var arr = [1, 2, 3, 4, 5];
+			//			sum(arr);
+			var fn = function() {
+				alert('我是fn函数');
+			}
+
+			function fn2() {
+				alert('我是fn2函数');
+			}
+
+			sum(fn);
+			sum(fn2);
+			sum(function() {
+				alert('我是匿名函数');
+			});
+			
+			sum(5);
+		</script>
+	</body>
+
+</html>

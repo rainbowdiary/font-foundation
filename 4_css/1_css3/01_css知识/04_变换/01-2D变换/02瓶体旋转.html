@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瓶体旋转</title>
+    <style>
+        .box {
+            position: relative;
+            margin:100px auto;
+            width: 194px;
+            height: 336px;
+            overflow: hidden;
+        }
+        .box1 {
+            position: relative;
+            z-index: 4;
+        }
+
+        .box2 {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            transform: translateX(-10px);
+        }
+        .box2 img {
+            float: left;
+            width: 537px;
+            height: 280px;
+        }
+        .box img {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1">
+            <img src="../images/coke_can.png" alt="易拉罐">
+        </div>
+        <div class="box2">
+            <img src="../images/coke_bg.jpg" alt="老刘">
+        </div>
+    </div>
+    <script>
+        (function () {
+            // 获取元素
+            var box2 = document.querySelector('.box2');
+            var imgNode = box2.querySelector('img');
+            // 克隆一张图片
+            box2.appendChild(imgNode.cloneNode(true));
+            // 设置box2的宽度
+            box2.style.width = imgNode.offsetWidth * 2 + 'px';
+
+            console.log(imgNode.offsetWidth);
+
+
+            var translateX = 0; // 初始值
+            setInterval(function () {
+                // 初始值变换
+                translateX -= 1;
+                // 判断位置
+                if (translateX <= -imgNode.offsetWidth) {
+                    translateX = 0;
+                }
+                //设置css属性
+                box2.style.transform = 'translateX('+translateX+'px)';
+            }, 10);
+        })();
+    </script>
+</body>
+</html>

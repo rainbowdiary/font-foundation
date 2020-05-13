@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 面试题1 ： 下面输出什么?  */
+    // for (var i = 0; i <= 3; i++) {
+    //   setTimeout(function () {
+    //     console.log(i)
+    //   }, 1000);
+    // }
+
+    // 1秒后一次性输出4个4
+
+    /*解析
+    设计知识点： var变量提升、异步、作用域、闭包
+      for第一次，window.i=0，执行setTimeout，往宏队列里面塞一个任务
+      for第二次，window.i=1，执行setTimeout，往宏队列里面塞一个任务
+      for第三次，window.i=2，执行setTimeout，往宏队列里面塞一个任务
+      for第四次，window.i=3，执行setTimeout，往宏队列里面塞一个任务
+      for循环执行结束,window.i=4,for循环维持需要几微妙
+      1s时间到了，执行宏队列里面的任务，此时i=4
+      输出4个4
+      所以结果1s后一次性输出4个4
+     */
+
+    /* 面试题2： var改成let */
+    // for (let i = 0; i <= 3; i++) {
+    //   setTimeout(function () {
+    //     console.log(i)
+    //   }, 1000);
+    // }   //1s后依次输出0123
+
+    /*解析
+    涉及： for循环中let和var的区别，解决了变量作用域问题
+
+    var与let其中一个区别是在for循环中：
+      var声明的变量在for循环中会被提升到全局作用域
+      let：只在for产生的每个循环体块作用域{}中有效
+
+    for第一次，i=0，产生了一个块级作用域{i=0}, 执行setTimeout，往宏队列里面塞一个任务
+    for第二次，i=1，产生了一个块级作用域{i=1}, 执行setTimeout，往宏队列里面塞一个任务
+    for第三次，i=2，产生了一个块级作用域{i=2}, 执行setTimeout，往宏队列里面塞一个任务
+    for第四次，i=3，产生了一个块级作用域{i=3}, 执行setTimeout，往宏队列里面塞一个任务
+    for循环执行结束,产生了4个块级作用域，往宏队列塞入了4个任务，for循环维持需要几微妙
+    1s时间到了，执行宏队列里面的任务，此时输出每个作用域里的i
+    依次输出0123
+    所以结果1s依次输出0123  */
+
+
+
+    /* 面试题3： 改造代码： 使用定时器实现每隔一秒输出1，2，3，4，5
+       思考: 利用闭包,两种方案（var和let的方案）
+    */
+
+    for (let i = 0; i < 5; i++) {
+      setTimeout(() => console.log(i), 1000 * i)
+    }
+
+
+    // for (var i = 0; i < 5; i++) {
+    //   (function (i) {
+    //     setTimeout(() => console.log(i), 1000 * i)
+    //   })(i)
+    // }
+
+  </script>
+</body>
+
+</html>

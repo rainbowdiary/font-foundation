@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+       canvas {
+           background: #ccc;
+       }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        // 获取画布元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        // 创建img dom对象
+        var imgNode = document.createElement('img');
+        imgNode.src = 'img/atguigu.jpg';
+
+        // 如果图片加载完毕
+        imgNode.onload = function () {
+            // 创建背景图对象
+            var p = ctx.createPattern(imgNode, 'no-repeat');
+
+            //把背景对象作为颜色
+            ctx.fillStyle = p;
+
+            // 填充矩形
+            ctx.fillRect(100, 100, 400, 300);
+            ctx.strokeRect(100, 100, 400, 300);
+        }
+
+
+
+    </script>
+</body>
+</html>

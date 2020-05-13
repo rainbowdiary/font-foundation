@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//			var arr = [];
+			//			var arr = new Array(5,'哈哈');
+			//          arr[5] = 
+
+			//字面量方式创建对象
+			//			var jay = new Object();
+			//          jay.name = '周杰伦';
+			var jay = {
+				name: '周杰伦',
+				age: 18,
+				gender: true,
+				sing: function() {
+					alert('青花瓷');
+				}
+			};
+			//			jay.name = '周杰伦';
+			console.log(jay);
+
+			/**
+			 * 
+			 * @param {一个数组} arr
+			 * @return {第一个是和}
+			 * @return {第二个是最大值}
+			 * @return {第三个是最小值}
+			 */
+			function getSumAndMaxAndMinByArray(arr) {
+				// var arr = [1,2,3,4,5];
+				//	console.log(arr);
+				var sum = 0;
+				var max = arr[0];
+				var min = arr[0];
+				for(var i = 0; i < arr.length; i++) {
+					sum += arr[i];
+					if(max < arr[i]) {
+						max = arr[i];
+					}
+					if(min > arr[i]) {
+						min = arr[i];
+					}
+				}
+				//var k = ['老刘','haha',5];
+				//数组也是一种数据类型,返回值也可以是一个数组类型的数据
+				//				var obj = new Object();
+				//				obj.sum = sum;
+				var obj = {
+					sum: sum,
+					max: max,
+					min: min
+				};
+
+				return obj;
+				//	return max;
+				//	return min;
+			}
+			var laoliu = getSumAndMaxAndMinByArray([1, 2, 3, 4, 5]);
+			console.log(laoliu.max);
+			console.log(getSumAndMaxAndMinByArray([1, 2, 3, 4, 5]).min);
+		</script>
+	</body>
+
+</html>

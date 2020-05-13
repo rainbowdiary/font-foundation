@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        #smallImage {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+        #smallImage img {
+            width: 400px;
+            height: 400px;
+        }
+        #zoom {
+            position: absolute;
+            display: none;
+            width: 200px;
+            height: 200px;
+            left:0;
+            top: 0;
+            background: url('images/zoom/zoom-bg.png');
+            cursor: move;
+        }
+
+        #bigImage {
+            display: none;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        #bigImage img {
+            width: 800px;
+            height: 800px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <li>
+
+    </li>
+
+    <div id="smallImage">
+        <img src="images/zoom/small.jpeg" alt="小图">
+        <div id="zoom"></div>
+    </div>
+    <div id="bigImage">
+        <img src="images/zoom/big.jpeg" alt="大图">
+    </div>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+
+
+           $('#smallImage').mouseover(function(){
+                // 大图显示并设置位置
+                $('#bigImage').show().offset({
+                    left: $('#smallImage').offset().left + $('#smallImage').outerWidth() + 10,
+                    top: $('#smallImage').offset().top
+                });
+                // zoom显示
+               $('#zoom').show();
+           }).mouseout(function(){
+               $('#bigImage').hide();
+               $('#zoom').hide();
+           }).mousemove(function (event) {
+               // 获取鼠标在小图上位置
+               var mouseX = event.clientX - $(this).offset().left;
+               var mouseY = event.clientY - $(this).offset().top;
+               // 计算zoom的位置
+               var zoomX = mouseX - 100;
+               var zoomY = mouseY - 100;
+               // 对zoom的位置进行限定
+               if (zoomX < 0) {
+                   zoomX = 0;
+               } else if (zoomX > 200) {
+                   zoomX = 200;
+               }
+               if (zoomY < 0) {
+                   zoomY = 0;
+               } else if (zoomY > 200) {
+                   zoomY = 200;
+               }
+               // 设置zoom的位置
+               $('#zoom').css('left', zoomX + 'px').css('top', zoomY + 'px');
+               // 大图区域滚动
+               $('#bigImage').scrollLeft(zoomX * 2).scrollTop(zoomY * 2);
+
+           });
+        });
+    </script>
+</body>
+</html>

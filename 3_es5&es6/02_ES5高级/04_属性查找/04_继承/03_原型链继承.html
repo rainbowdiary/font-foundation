@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+    继承
+    多态(重写)
+    封装(函数化)
+    */
+    // 构造函数继承属性,原型链继承方法
+    Person.prototype.eat=function (msg) {
+        console.log(msg)
+    }
+    function Person(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    //实现了原型链继承
+    Teacher.prototype.__proto__ = Person.prototype;
+    Teacher.prototype.teach=function () {
+        console.log("教书")
+    }
+    function Teacher(name,age,subject) {
+        Person.call(this,name,age)
+        this.subject =  subject
+    }
+
+
+    var damu = new Teacher("达姆",18,"前端")
+    console.log(damu)
+
+</script>
+</html>

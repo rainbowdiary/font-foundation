@@ -1,0 +1,68 @@
+@import "../mixin/mixin";
+@import "../extend/extend";
+@import "../animation/animation";
+#wrap{
+  .content{
+    .list{
+      .item{
+        .team{
+          .team-1{
+            .commonTitle();
+            width: 400px;
+            margin: 50px;
+            float: left;
+          }
+          .team-2{
+            float: right;
+            width: 400px;
+            margin: 50px;
+            p{
+              .commonText();
+            }
+          }
+          .team-3{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 270px;
+            margin: auto;
+            width: 944px;
+            height: 448px;
+            li{
+              float: left;
+              width: 118px;
+              height:448px;
+              box-sizing: border-box;
+              background: url("../img/team.png") no-repeat;
+              &:nth-child(2){
+                background-position:-118px 0;
+              }
+              &:nth-child(3){
+                background-position:-236px 0;
+              }
+              &:nth-child(4){
+                background-position:-354px 0;
+              }
+              &:nth-child(5){
+                background-position:-472px 0;
+              }
+              &:nth-child(6){
+                background-position:-590px 0;
+              }
+              &:nth-child(7){
+                background-position:-708px 0;
+              }
+              &:nth-child(8){
+                background-position:-826px 0;
+              }
+            }
+            .qipao{
+              display: none;
+              position: absolute;
+            }
+          }
+        }
+      }
+    }
+  }
+}

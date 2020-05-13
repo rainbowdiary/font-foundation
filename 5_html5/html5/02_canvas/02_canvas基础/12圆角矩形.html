@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        canvas {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+
+        // 获取canvas元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+
+        radiusRect(ctx, 100, 100, 400, 200, 100, 4, 'green', 'yellow');
+
+        /**
+         * 圆角矩形
+         * */
+        function radiusRect(ctx, x, y, width, height, radius, strokeWidth=2, strokeColor='#000', fillColor='transparent') {
+            // 开启路径
+            ctx.beginPath();
+            // 绘制路径
+            ctx.moveTo(x+radius, y);  //起始点
+            ctx.arcTo(x+width, y, x+width, y+radius, radius);
+            ctx.arcTo(x+width, y+height, x+width-radius, y+height, radius);
+            ctx.arcTo(x, y+height, x, y+height-radius, radius);
+            ctx.arcTo(x, y, x+radius, y, radius);
+
+            // 描边填充 设置
+            ctx.lineWidth = strokeWidth;
+            ctx.strokeStyle = strokeColor;
+            ctx.fillStyle = fillColor;
+            // 填充描边
+            ctx.fill();
+            ctx.stroke();
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit:cover">
+
+    <title>移动端浏览器默认行为</title>
+    <style>
+        html,body,#app {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <a href="http://www.atguigu.com">我是超链接</a>
+        <a href="http://www.atguigu.com">我是超链接</a>
+        <a href="http://www.atguigu.com">我是超链接</a>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, impedit magni. Atque, cumque doloremque eaque eius fugiat impedit incidunt ipsum laborum libero maxime necessitatibus obcaecati quasi, quia sunt veniam voluptate.
+        </p>
+
+        <input type="text">
+    </div>
+
+
+    <script>
+        //阻止所有元素的默认行为 阻止浏览器的默认行为
+        // chrome不允许在document、window、html、body 的触摸事件中阻止默认行为
+        //
+        // document.addEventListener('touchstart', function(event){
+        //     event.preventDefault();
+        // }, {passive: false})
+
+        var app = document.querySelector('#app');
+        app.addEventListener('touchstart', function(event){
+            event.preventDefault();
+        });
+
+        var input = document.querySelector('input');
+        input.addEventListener('touchstart', function () {
+            input.focus();
+        });
+
+
+        var p = document.querySelector('p');
+        p.addEventListener('touchstart', function (event) {
+            event.stopPropagation(); //阻止冒泡
+        })
+    </script>
+</body>
+</html>

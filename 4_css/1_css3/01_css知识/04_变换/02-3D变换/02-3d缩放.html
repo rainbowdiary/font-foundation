@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3d缩放</title>
+    <style>
+        .box {
+            margin: 100px;
+            border: 10px dashed orange;
+            width: 200px;
+            height: 200px;
+
+            /*开启3D空间*/
+            transform-style: preserve-3d;
+            perspective: 300px;
+
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 0, 0, .5);
+
+            /*transform: scaleZ(15);*/
+            transform: scale3d(1.5, 1.5, 1.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

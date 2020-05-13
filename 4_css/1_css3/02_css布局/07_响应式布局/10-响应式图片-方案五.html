@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式图片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .banner {
+
+
+        }
+        .banner img {
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <picture>
+            <source srcset="img/homeImgSmall.png" media="(max-width:640px)">
+            <source srcset="img/homeImgMiddle.png" media="(max-width:1080px)">
+            <source srcset="img/homeImg.png">
+            <img src="img/homeImg.png" alt="老刘">
+        </picture>
+    </div>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box {
+				width: 330px;
+				height: 190px;
+				/*background: yellowgreen;*/
+				margin: 100px auto;
+			}
+			
+			.addBtn {
+				width: 100px;
+				height: 30px;
+			}
+			
+			table {
+				width: 320px;
+				border: 1px solid #ccc;
+				/*单元格与单元格之间的间距*/
+				border-spacing: 0;
+				/*1px边框*/
+				border-collapse: collapse;
+			}
+			
+			th,
+			td {
+				border: 1px solid #ccc;
+				height: 30px;
+				text-align: center;
+			}
+			
+			th {
+				background: #09c;
+				color: #fff;
+			}
+			
+			.cover {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, .5);
+				display: none;
+			}
+			
+			.dialog {
+				width: 430px;
+				height: 250px;
+				background: #FFFFFF;
+				position: absolute;
+				left: 50%;
+				margin-left: -215px;
+				top: 50%;
+				margin-top: -125px;
+				/*text-align: center;*/
+				display: none;
+			}
+			
+			.dialog h3 {
+				height: 35px;
+				line-height: 35px;
+				text-align: center;
+				background: #eee;
+			}
+			
+			.close {
+				position: absolute;
+				right: 5px;
+				top: 3px;
+				font-size: 20px;
+				font-weight: 700;
+				cursor: pointer;
+			}
+			
+			.dialog div input {
+				width: 300px;
+				height: 30px;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+			}
+			
+			.dialog div {
+				padding: 20px 0 0 20px;
+			}
+			
+			.comBtn {
+				width: 100px;
+				height: 30px;
+				display: block;
+				margin: 20px auto 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<button class="addBtn" id="addBtn">添加数据</button>
+			<table>
+				<thead>
+					<tr>
+						<th>电影名称</th>
+						<th>领衔主演</th>
+						<th>已完成</th>
+					</tr>
+				</thead>
+				<tbody id="tbody">
+					<tr>
+						<td>哪吒</td>
+						<td>哪吒</td>
+						<td>
+							<a href="##">删除</a>
+						</td>
+					</tr>
+					<tr>
+						<td>烈火英雄</td>
+						<td>黄晓明</td>
+						<td>
+							<a href="##">删除</a>
+						</td>
+					</tr>
+					<tr>
+						<td>使徒行者2</td>
+						<td>古天乐</td>
+						<td>
+							<a href="##">删除</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="cover" id="cover"></div>
+		<div class="dialog" id="dialog">
+			<h3>添加数据</h3>
+			<span class="close" id="close">X</span>
+			<div>
+				<label for="txt1">电影名称:</label>
+				<input type="text" placeholder="请输入电影名称" id="txt1" />
+			</div>
+			<div>
+				<label for="txt2">领衔主演:</label>
+				<input type="text" value="老刘" id="txt2" />
+			</div>
+			<button class="comBtn" id="comBtn">完成</button>
+		</div>
+		<script type="text/javascript">
+			//获取tbody
+			var tbody = document.getElementById('tbody');
+			//获取tbody后代所有的a
+			var ass = tbody.getElementsByTagName('a');
+			//获取添加数据按钮
+			var addBtn = document.getElementById('addBtn');
+			//获取cover
+			var cover = document.getElementById('cover');
+			//获取dialog
+			var dialog = document.getElementById('dialog');
+			//获取comBtn
+			var comBtn = document.getElementById('comBtn');
+			//获取关闭
+			var close = document.getElementById('close'); 
+			//循环绑定事件
+//			for(var i = 0; i < ass.length; i++) {
+//				ass[i].onclick = function() {
+//					//					alert(1);
+//					console.log(this.parentElement.parentNode);
+//					// 父元素调用删除方法,删除a标签的父元素的父元素,tr
+//					tbody.removeChild(this.parentElement.parentNode);
+//				}
+//			}
+			//利用事件委派原理给tbody绑定单击事件
+			tbody.onclick = function(e){
+//				alert(1);
+				//确保单击的是a标签
+				if(e.target.nodeName == 'A'){
+					var a = e.target;
+					//删除目标a的父元素的父元素,tr
+					this.removeChild(a.parentElement.parentElement);
+				}
+			}
+			//单击添加数据
+			addBtn.onclick = function() {
+				//显示cover
+				cover.style.display = 'block';
+				//显示dialog
+				dialog.style.display = 'block';
+			}
+			//单击完成按钮
+			comBtn.onclick = function() {
+				//获取txt1  去掉两端空格
+				var str1 = txt1.value.trim();
+				console.log(str1);
+				//获取txt2  去掉两端空格
+				var str2 = txt2.value.trim();
+				console.log(str2);
+				console.log(txt1.value.trim().length);
+//				if(txt1.value.trim() != '' && txt2.value.trim() != '') {
+//				if(txt1.value.trim() && txt2.value.trim()) {
+//				if(txt1.value.trim().length !=0 && txt2.value.trim().length !=0) {
+				if(txt1.value.trim().length  && txt2.value.trim().length ) {
+					//显示cover
+					cover.style.display = 'none';
+					//显示dialog
+					dialog.style.display = 'none';
+
+					//创建tr
+					var tr = document.createElement('tr');
+					tbody.appendChild(tr);
+					//循环创建三td
+					for(var i = 0; i < 3; i++) {
+						//创建td
+						var td = document.createElement('td');
+						//第一个td
+						if(i == 0) {
+							//将电影名称的值赋值给td
+							td.innerHTML = str1;
+
+						} else if(i == 1) {//第二个td
+							//将领衔主演的值赋值给td
+							td.innerHTML = str2;
+						} else {//第三个td
+							//创建a
+							var a = document.createElement('a');
+							a.href = '##';
+							a.innerText = '删除';
+							td.appendChild(a);
+							//绑定单击事件
+//							a.onclick = function(){
+//								// 父元素调用删除方法,删除a标签的父元素的父元素,tr
+//								tbody.removeChild(this.parentElement.parentNode);
+//							}
+						}
+						tr.appendChild(td);
+					}
+					txt1.value = '';
+					txt2.value = '老刘';
+				}else{
+					alert('领衔主演或者电影名称不能为空');
+				}
+			}
+			
+			//单击关闭
+			close.onclick = function(){
+				//显示cover
+					cover.style.display = 'none';
+					//显示dialog
+					dialog.style.display = 'none';
+			}
+		</script>
+	</body>
+
+</html>

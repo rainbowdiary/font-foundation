@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        /*
+         	从键盘读入个数不确定的整数，并判断读入的正数和负数的个数，输入为0时结束程序
+         */
+        var flag1 = 0;
+        var flag2 = 0;
+        for(;;){
+            var mun = parseInt(prompt("请输入一个整数"));
+            if(mun>0){
+                flag1++;
+            }else if(mun<0){
+                flag2++;
+            }else {
+                break
+            }
+        }
+        console.log(flag1,flag2)
+
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    async function testSometing() {
+      console.log("执行testSometing");
+      // return "testSometing";   //，返回的是一个Promise对象要要等它resolve，
+      //  等价于
+      return Promise.resolve("testSometing");
+    }
+    const data = testSometing()
+    console.log(data);  //Promise {<resolved>: "testSometing"}
+
+  </script>
+</body>
+
+</html>

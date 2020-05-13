@@ -1,0 +1,192 @@
+.clearfix,
+#wrap .content .list .item .works .works-2 .works-list {
+  *zoom: 1;
+}
+.clearfix::after,
+#wrap .content .list .item .works .works-2 .works-list::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+@keyframes robotMove {
+  0% {
+    transform: translateX(0px) rotateY(0deg);
+  }
+  49% {
+    transform: translateX(-499px) rotateY(0deg);
+  }
+  50% {
+    transform: translateX(-500px) rotateY(180deg);
+  }
+  99% {
+    transform: translateX(-1px) rotateY(180deg);
+  }
+  100% {
+    transform: translateX(0px) rotateY(0deg);
+  }
+}
+@keyframes leftHide {
+  0% {
+    visibility: visible;
+    transform: translateZ(0px);
+  }
+  50% {
+    transform: translateX(-30%) rotateY(45deg) scale(0.8);
+  }
+  100% {
+    visibility: hidden;
+    transform: translateZ(-200px);
+  }
+}
+@keyframes leftShow {
+  0% {
+    visibility: hidden;
+    transform: translateZ(-200px);
+  }
+  50% {
+    transform: translateX(-30%) rotateY(45deg) scale(0.8);
+  }
+  100% {
+    visibility: visible;
+    transform: translateZ(0px);
+  }
+}
+@keyframes rightShow {
+  0% {
+    visibility: hidden;
+    transform: translateZ(-200px);
+  }
+  50% {
+    transform: translateX(30%) rotateY(-45deg) scale(0.8);
+  }
+  100% {
+    visibility: visible;
+    transform: translateZ(0px);
+  }
+}
+@keyframes rightHide {
+  0% {
+    visibility: visible;
+    transform: translateZ(0px);
+  }
+  50% {
+    transform: translateX(30%) rotateY(-45deg) scale(0.8);
+  }
+  100% {
+    visibility: hidden;
+    transform: translateZ(-200px);
+  }
+}
+#wrap .content .list .item .works .works-1 {
+  color: #009ee0;
+  font-size: 80px;
+  line-height: 0.8;
+  font-weight: bold;
+  letter-spacing: -5px;
+  margin: 50px 0 100px 50px;
+  position: relative;
+  z-index: 2;
+}
+#wrap .content .list .item .works .works-2 {
+  position: relative;
+  z-index: 2;
+  margin-left: 50px;
+}
+#wrap .content .list .item .works .works-2 .works-list li {
+  position: relative;
+  float: left;
+  width: 220px;
+  height: 133px;
+  margin: 0 1px;
+  overflow: hidden;
+}
+#wrap .content .list .item .works .works-2 .works-list li .mask {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(25, 25, 25, 0.8);
+  color: white;
+  padding: 15px;
+  transition: 1s opacity;
+}
+#wrap .content .list .item .works .works-2 .works-list li .mask span {
+  display: block;
+}
+#wrap .content .list .item .works .works-2 .works-list li .mask i {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 32px;
+  height: 34px;
+  background: url("../img/zoomico.png") no-repeat;
+  transition: 1s background-position;
+}
+#wrap .content .list .item .works .works-2 .works-list li .mask i:hover {
+  background-position: 0 -36px;
+}
+#wrap .content .list .item .works .works-2 .works-list li > span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: 1s transform;
+}
+#wrap .content .list .item .works .works-2 .works-list li:nth-child(1) > span {
+  background: url("../img/worksimg1.jpg") no-repeat;
+}
+#wrap .content .list .item .works .works-2 .works-list li:nth-child(2) > span {
+  background: url("../img/worksimg2.jpg") no-repeat;
+}
+#wrap .content .list .item .works .works-2 .works-list li:nth-child(3) > span {
+  background: url("../img/worksimg3.jpg") no-repeat;
+}
+#wrap .content .list .item .works .works-2 .works-list li:nth-child(4) {
+  width: 332px;
+}
+#wrap .content .list .item .works .works-2 .works-list li:nth-child(4) > span {
+  background: url("../img/worksimg4.jpg") no-repeat;
+}
+#wrap .content .list .item .works .works-2 .works-list li:hover > span {
+  transform: rotate(45deg) scale(1.5);
+}
+#wrap .content .list .item .works .works-2 .works-list li:hover .mask {
+  opacity: 1;
+}
+#wrap .content .list .item .works .works-3 {
+  position: absolute;
+  z-index: 2;
+  left: 900px;
+  top: 170px;
+  width: 167px ;
+  height: 191px;
+  background: url("../img/robot.png") no-repeat;
+  animation: robotMove 3s linear infinite;
+}
+#wrap .content .list .item .works .pencel1 {
+  width: 180px;
+  height: 97px;
+  background: url(../img/pencel1.png) no-repeat;
+  position: absolute;
+  left: 500px;
+  top: 0;
+}
+#wrap .content .list .item .works .pencel2 {
+  width: 268px;
+  height: 38px;
+  background: url(../img/pencel2.png) no-repeat;
+  position: absolute;
+  left: 300px;
+  top: 250px;
+}
+#wrap .content .list .item .works .pencel3 {
+  width: 441px;
+  height: 231px;
+  background: url(../img/pencel3.png) no-repeat;
+  position: absolute;
+  left: 650px;
+  top: 300px;
+}

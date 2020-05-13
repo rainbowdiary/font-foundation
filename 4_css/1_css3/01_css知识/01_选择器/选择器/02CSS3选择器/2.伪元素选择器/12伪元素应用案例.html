@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下载列表</title>
+    <style>
+        .download-list {
+            font-size: 16px;
+        }
+        .download-list li a::after {
+            content: "";
+            display: inline-block;
+            margin-left: 20px;
+            width: 16px;
+            height: 18px;
+            background: url('../images/a.png') no-repeat;
+            vertical-align: middle;
+        }
+        .download-list li a[href$=".doc"]::after {
+            background-position: 0 0;
+        }
+        .download-list li a[href$=".ppt"]::after {
+            background-position: 0 -50px;
+        }
+        .download-list li a[href$=".xls"]::after {
+            background-position: 0 -75px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="download-list">
+        <li><a href="files/炸药配方.doc">炸药配方.doc</a></li>
+        <li><a href="files/联系方式.xls">联系方式.xls</a></li>
+        <li><a href="files/蛋糕配方.doc">蛋糕配方.doc</a></li>
+        <li><a href="files/咸菜配方.doc">咸菜配方.doc</a></li>
+        <li><a href="files/成绩表.xls">成绩表.xls</a></li>
+        <li><a href="files/公司上市计划.ppt">公司上市计划.ppt</a></li>
+    </ul>
+
+</body>
+</html>

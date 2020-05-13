@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        某大型互联网公司： http://www.atguigu.com:8080/movies/01001.html
+        我的网址： http://learn.fuming.site/index.html
+        这样一个值： https://122.234.120.90:8080/files/01.php 哈哈哈
+    </div>
+
+
+    <script>
+        /**
+         * URL
+         * 协议 http/https
+         * 网址： www.atguitu.com
+         * 端口：8080
+         * Pathname: /movies/01001.html
+         *
+         * */
+
+        // 获取div中的内容
+        var content = document.getElementById('box').innerHTML;
+
+        // 定义正则 匹配URL
+        var pattern = /(<http|https):\/\/([\w\.]+)(:\d{2,5})?\/(\S+)/g;
+
+        // 进行匹配
+        var res = pattern.exec(content);
+
+       console.log(res);
+        console.log();
+
+
+        console.log('URL：'+res[0]);
+        console.log('协议：'+res[1]);
+        console.log('主机名：'+res[2]);
+        console.log('端口：'+res[3]);
+        console.log('pahtname：'+res[4]);
+    </script>
+</body>
+</html>

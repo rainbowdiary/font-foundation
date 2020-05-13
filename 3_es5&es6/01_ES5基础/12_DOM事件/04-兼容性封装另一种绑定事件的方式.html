@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<button id="btn">按钮</button>
+		<button id="btn2">按钮2</button>
+		<script type="text/javascript">
+			/*
+			 * 另一种绑定事件的方式:
+			 * 高级浏览器:元素.addEventListener('不带on的事件类型',事件处理函数,布尔值);
+			 * 布尔值: false是事件冒泡,true是事件捕获
+			 * ie低版本浏览器: 元素.attachEvent('带on的事件类型',事件处理函数);
+			 */
+			var btn = document.getElementById('btn');
+			var btn2 = document.getElementById('btn2');
+			//第一种方式: 只能是事件冒泡
+			//			btn.onclick =function(){
+			//				
+			//			}
+			//第二种方式: 添加事件监听的方式   两种方式(事件捕获和事件冒泡)
+
+			//			btn.addEventListener('click',fn,false);
+			//			btn.addEventListener('click',function(){
+			//				alert(2);
+			//			},false);
+			//			console.log(btn.addEventListener);
+
+			//btn.attachEvent('onclick',fn);
+
+			function fn() {
+				alert(1);
+			}
+			addEvent(btn,'click',function(){
+				alert('哈哈');
+			});
+			
+			/**
+			 * 
+			 * 兼容性封装绑定事件
+			 * @param {元素对象} obj
+			 * @param {事件类型} type
+			 * @param {事件处理函数} fun
+			 * @param {事件阶段} bool
+			 */
+			function addEvent(obj,type,fun,bool) {
+				if(obj.addEventListener) {
+					//alert('高级');
+					obj.addEventListener(type,fun,bool);
+				} else {
+					//alert('低级');
+					obj.attachEvent('on'+type,fun);
+				}
+			}
+		</script>
+	</body>
+
+</html>

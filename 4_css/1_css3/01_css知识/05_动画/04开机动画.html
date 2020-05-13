@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开机动画</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        html,body {
+            height: 100%;
+        }
+        .start-animation {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .start-animation .list {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .start-animation .list li {
+            float: left;
+            font-size: 30px;
+            margin-right: 5px;
+            animation-name: startAnim;
+            animation-duration: 300ms;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        .start-animation .list li:first-child{
+            animation-delay: 0ms;
+        }
+        .start-animation .list li:nth-child(2){
+            animation-delay: 100ms;
+        }
+        .start-animation .list li:nth-child(3){
+            animation-delay: 200ms;
+        }
+        .start-animation .list li:nth-child(4){
+            animation-delay: 300ms;
+        }
+        .start-animation .list li:nth-child(5){
+            animation-delay: 400ms;
+        }
+        .start-animation .list li:last-child {
+            animation-delay: 500ms;
+            margin-right: 0;
+        }
+
+        @keyframes startAnim {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="start-animation">
+        <ul class="list">
+            <li>L</li>
+            <li>O</li>
+            <li>A</li>
+            <li>D</li>
+            <li>I</li>
+            <li>N</li>
+            <li>G</li>
+        </ul>
+    </div>
+
+</body>
+</html>

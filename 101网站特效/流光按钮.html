@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* 流光按钮：
+         有两层，里层为实心层，外层为光影层（模糊的效果形成）
+         里层外层背景效果一模一样
+         流动： 动画，设置背景图像的位置位移形成
+     */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #000000;
+    }
+
+    a {
+      /* 不知道宽高，就可以设置垂直水平居中，使用css3 */
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+      /* 背景颜色变大，让图像更好看了，不那么突兀 */
+      background-size: 400%;
+      width: 400px;
+      height: 100px;
+      color: #ffffff;
+      line-height: 100px;
+      text-decoration: none;
+      text-align: center;
+      /* 控制文字的大小写 */
+      text-transform: uppercase;
+      border-radius: 50px;
+      /* 让里层的在上面 */
+      z-index: 1;
+    }
+
+    /* 在内容之前插入新的外衣 */
+    a::before {
+      content: '';
+      position: absolute;
+      /* 图层比容器大5px，不用写宽高了 */
+      left: -5px;
+      right: -5px;
+      top: -5px;
+      bottom: -5px;
+      /* 两层都设置一样的背景 */
+      background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+      /* 背景颜色变大，让图像更好看了，不那么突兀 */
+      background-size: 400%;
+      border-radius: 50px;
+      /* 加上滤镜变模糊一点,形成光圈的效果 */
+      filter: blur(20px);
+      z-index: -1;
+    }
+
+
+    a:hover::before {
+      animation: sun 8s infinite;
+    }
+
+    a:hover {
+      animation: sun 8s infinite;
+    }
+
+    @keyframes sun {
+      100% {
+        /* background-position: 第一个值是水平方向，向左位移-400%；第二个值是垂直方向 */
+        background-position: -400% 0;
+      }
+    }
+  </style>
+  <title>流光按钮</title>
+</head>
+
+<body>
+  <a href="javascript:;">sunButton</a>
+</body>
+
+</html>

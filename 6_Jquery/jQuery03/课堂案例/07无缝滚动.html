@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝滚动</title>
+    <style>
+        #scrollBox {
+            margin: 100px auto;
+            width: 800px;
+            height: 200px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+        .container {
+            width: 10000px;
+        }
+        .image-list {
+            float: left;
+        }
+        .image-list img {
+            float: left;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="scrollBox">
+        <div class="container">
+            <div class="image-list">
+                <img src="images/avatar/1.jpg" alt="拖鞋">
+                <img src="images/avatar/2.jpg" alt="拖鞋">
+                <img src="images/avatar/3.jpg" alt="拖鞋">
+                <img src="images/avatar/4.jpg" alt="拖鞋">
+                <img src="images/avatar/5.jpg" alt="拖鞋">
+                <img src="images/avatar/6.jpg" alt="拖鞋">
+                <img src="images/avatar/7.jpg" alt="拖鞋">
+                <img src="images/avatar/8.jpg" alt="拖鞋">
+                <img src="images/avatar/9.jpg" alt="拖鞋">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            // 把image-list克隆一份
+            $('.image-list').clone().insertAfter('.image-list');
+
+            // 定时
+            var intervalId = setInterval(runScroll, 20);
+
+            // 鼠标滑过和离开
+            $('#scrollBox').mouseover(function(){
+                clearInterval(intervalId);  //停止定时
+            }).mouseout(function(){
+                intervalId = setInterval(runScroll, 20);
+            });
+
+
+            //  定时函数
+            function runScroll() {
+                // 判断如果到达临界位置 （第二组图片）
+                if ($('#scrollBox').scrollLeft() >= $('.image-list').outerWidth()) {
+                    $('#scrollBox').scrollLeft(0);
+                }
+                $('#scrollBox').scrollLeft($('#scrollBox').scrollLeft() + 2);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>关灯</button>
+		<button>开灯</button>
+		<script type="text/javascript">
+			var btns  = document.getElementsByTagName('button');
+			//关灯
+			btns[0].onclick = function(){
+//				alert(1);
+				//获取body
+				document.body.style.backgroundColor = '#333';
+			}
+			//开灯
+			btns[1].onclick = function(){
+//				alert(1);
+				//获取body
+				document.body.style.backgroundColor = '#fff';
+			}
+		</script>
+	</body>
+</html>

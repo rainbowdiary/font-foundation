@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性操作</title>
+</head>
+<body>
+    <img src="images/1.jpeg" width="300" title="美图" id="myImage">
+
+
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        /**
+         * 原生JS属性操作：
+         * dom.propName = value;// 赋值   dom.propName; // 取值   用于元素的内置属性
+         * getAttribute()   setAttribute();                     自定义属性 只有是在html上的顺序，皆可操作
+         * */
+
+        var imgNode = document.getElementById('myImage');
+
+        // 获取属性值
+        console.log(imgNode.width,  imgNode.getAttribute('width'));
+
+        // 设置属性
+        imgNode.width = 400;
+        imgNode.setAttribute('width', 500);
+
+
+        // 添加一个自定义属性
+        imgNode.loadPic = '007.jpg';  //无法把属性添加到元素上
+        imgNode.setAttribute('loadPic', '008.jpg'); // 添加了自定义属性，添加到html元素上
+
+        console.log(imgNode.loadPic);  // 无法获取自定义属性的
+
+        console.log(imgNode.src);
+        console.log( imgNode.getAttribute('src'));
+
+
+    </script>
+</body>
+</html>

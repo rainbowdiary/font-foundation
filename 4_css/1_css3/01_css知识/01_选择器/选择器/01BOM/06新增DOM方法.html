@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增DOM方法</title>
+    <style>
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 800px;
+        }
+        li {
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-bottom:10px;
+        }
+        li.active {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="item">Lorem ipsum dolor sit amet. <button>删除</button></li>
+        <li>Lorem ipsum dolor sit amet. <button>删除</button></li>
+        <li>Lorem ipsum dolor sit amet. <button>删除</button></li>
+        <li>Lorem ipsum dolor sit amet. <button>删除</button></li>
+        <li>Lorem ipsum dolor sit amet. <button>删除</button></li>
+    </ul>
+
+    <script>
+        // 给所有的button监听 click
+        var btns = document.querySelectorAll('ul li button');
+        // forEach方法可以遍历 数组和伪数组
+        btns.forEach(function(item, index){
+            item.addEventListener('click', function () {
+               this.parentNode.remove();  //删除
+            });
+        });
+
+
+        // 给所有li监听单击事件
+        var lis = document.querySelectorAll('ul li');
+        lis.forEach(function (item) {
+           item.addEventListener('click', function () {
+              this.classList.toggle('active');
+
+           });
+        });
+
+
+
+
+
+    </script>
+
+    <style>
+        .box {
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+        }
+
+    </style>
+</body>
+</html>

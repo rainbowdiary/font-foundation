@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj = {
+        get age(){
+            return this.__age__
+        },
+        set age(val){
+            if(val > 150){
+                alert("你疯了 , 年龄不合法")
+                this.__age__ = 150;
+            }else{
+                alert("是一个合法的年龄")
+                this.__age__ = val;
+            }
+        }
+    }
+
+    // obj.age=1800000000
+    console.log(obj.age)
+</script>
+</html>

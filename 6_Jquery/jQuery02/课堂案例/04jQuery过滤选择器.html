@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器</title>
+	<style>
+		ul {
+			width: 600px;
+			list-style: none;
+		}
+		li {
+			margin-top: 10px;
+			padding: 20px;
+			border: 2px dotted #ccc;
+		}
+	</style>
+</head>
+<body>
+	<h1>jQuery选择器 -- 基本选择器</h1>
+	<hr>
+	<ul id="firstList">
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li class="item">Lorem ipsum dolor sit amet.</li>
+		<li>Lorem ipsum dolor sit amet.
+			<ul>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+			</ul>
+		</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+		<p>Lorem ipsum dolor sit amet.</p>
+		<li>Lorem ipsum dolor sit amet.</li>
+	</ul>
+	
+	<hr>
+
+	<ul id="secondList">
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li lang="en">Lorem ipsum dolor sit amet.</li>
+		<li class="item">Lorem ipsum dolor sit amet.</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+	</ul>
+
+	<hr>
+
+	<ul>
+		<li>Lorem ipsum dolor sit amet.</li>
+	</ul>
+
+	<hr>
+
+	<p class="item">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, similique ex? Repudiandae aliquam nam voluptas, eius illo amet iste perspiciatis, nesciunt laudantium expedita doloribus numquam itaque quas, reprehenderit omnis magni.
+	</p>
+
+	<input type="text">
+
+	<script src="jquery-1.11.1.js"></script>
+	<script>
+		$(function () {
+			// 过滤选择器
+			/*
+			$('li:first').css('border', '2px solid red');
+			$('li:last').css('border', '2px solid green');
+			$('li:eq(3)').css('border', '2px solid blue');
+			 */
+
+			//$('#firstList>li:lt(3)').css('border', '2px solid #f90');
+			//$('#firstList>li:gt(2)').css('border', '2px solid green');
+
+			//$('li:lang("en")').css('border', '2px solid red');
+			//$('html:root').css('border', '2px solid red');
+
+
+			setTimeout(function () {
+				//$('ul:target').css('border', '2px solid green');
+			}, 100);
+
+
+
+
+			$('input:focus').css('border', '2px solid green');
+
+		});
+		
+		window.onload = function () {
+			$('ul:target').css('border', '2px solid green');
+		}
+
+	</script>
+
+
+
+
+</body>
+</html>

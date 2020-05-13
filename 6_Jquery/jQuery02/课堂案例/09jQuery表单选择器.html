@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery表单选择器</title>
+</head>
+<body>
+	<h1>jQuery表单选择器</h1>
+	<hr>
+	<form action="#">
+		<table>
+			<tr>
+				<td>Text：</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td>Text:</td>
+				<td><input type="text" disabled value="lili"></td>
+			</tr>
+			<tr>
+				<td>Pwd:</td>
+				<td><input type="password" name="pwd"></td>
+			</tr>
+
+
+
+			<tr>
+				<td>radio：</td>
+				<td>
+					<input type="radio" name="sex" value="m">男
+					<input type="radio" name="sex" value="w" checked>女
+				</td>
+			</tr>
+
+			<tr>
+				<td>checkbox</td>
+				<td>
+					<input type="checkbox" name="">
+					<input type="checkbox" name="" checked>
+					<input type="checkbox" name="">
+					<input type="checkbox" name="">
+				</td>
+			</tr>
+
+			<tr>
+				<td>file</td>
+				<td>
+					<input type="file" name="">
+				</td>
+			</tr>
+
+			<tr>
+				<td>select</td>
+				<td>
+					<select name="">
+						<option value="1">A</option>
+						<option value="2" selected>B</option>
+						<option value="3" disabled>C</option>
+						<option value="4">D</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>textarea</td>
+				<td>
+					<textarea name="" id="" cols="30" rows="10"></textarea>
+				</td>
+			</tr>
+
+			<tr>
+				<td>按钮：</td>
+				<td>
+					<input type="submit" value="提交">
+					<input type="reset" value="重置">
+					<input type="button" value="普通按钮">
+
+					<button>button</button>
+					<button type="button">不能提交的button</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+
+	<script src="jquery-1.11.1.js"></script>
+	<script>
+		$(function () {
+
+			// 选中所有的表单控件： input\textarea\select\button
+			//$(":input").css('border', '2px solid green');
+			//$(":text").css('border', '2px solid green');
+			//$(":submit").css('border', '2px solid green');
+
+
+			// disabled
+			// 获取有disabled属性的元素
+			//$(":disabled").css('border', '2px solid green');
+			// 获取没有disabled的元素
+			//$(":enabled").css('border', '2px solid green');
+
+			// checked
+			$(":checked").css('border', '2px solid green');
+		});
+	</script>
+
+</body>
+</html>

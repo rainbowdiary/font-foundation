@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		/*
+			new Date();
+			new Date(value);
+			new Date(dateString);
+			new Date(year, month[, day[, hour[, minutes[, seconds[, milliseconds]]]]]); （注意月份是从0开始的）
+			
+			参数：
+				如果没有输入任何参数，则Date的构造器会依据系统设置的当前时间来创建一个Date对象。
+			
+				value:代表自1970年1月1日00:00:00 (世界标准时间) 起经过的毫秒数。
+				
+				dateString:表示日期的字符串值。
+				
+				year:代表年份的整数值。为了避免2000年问题最好指定4位数的年份; 使用 1998, 而不要用 98.
+				month:代表月份的整数值从0（1月）到11（12月）。
+				day:代表一个月中的第几天的整数值，从1开始。
+				hour:代表一天中的小时数的整数值 (24小时制)。
+				minute:分钟数。
+				second:秒数。
+				millisecond:表示时间的毫秒部分的整数值
+		*/
+		
+		var date = new Date();
+		console.log(date) //Fri Jun 22 2018 23:51:34 GMT+0800 (中国标准时间)
+		
+		var date2 = new Date(0);
+		console.log(date2)//Thu Jan 01 1970 08:00:00 GMT+0800 (中国标准时间)
+		
+		var birthday = new Date("Sun December 17, 1995 03:24:00");
+		console.log(birthday)
+		
+		var birthday = new Date(1995,11,17,3,24,0);
+		console.log(birthday)
+	</script>
+</html>

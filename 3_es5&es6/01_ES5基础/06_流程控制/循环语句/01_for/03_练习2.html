@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*2.编写程序。从1循环到150并在每行打印一个值，
+            另外在每个3的倍数行上打印出“foo”,
+            在每个5的倍数行上打印“bar”,
+            在每个7的倍数行上打印输出“baz”
+     */
+
+    for(var i=0;i<=150;i++){
+        document.write(i+" ");
+        if(i%3 ===0){
+            document.write("foo ");
+        }
+        if(i%5 ===0){
+            document.write("bar ");
+        }
+        if(i%7 ===0){
+            document.write("baz ");
+        }
+        document.write("<br/>");
+    }
+
+</script>
+</html>

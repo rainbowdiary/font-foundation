@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>八卦</title>
+    <style>
+        html,body {
+            background: #ccc;
+            overflow: hidden;
+        }
+        .yinyang{
+            margin: 100px auto;
+            box-sizing: border-box;
+            width:400px;
+            height:400px;
+            background: #fff;
+            border-bottom:200px solid #000;
+            border-radius: 50%;
+            position:relative;
+            cursor: pointer;
+            transition:all 2s linear;
+        }
+        .yinyang:hover{
+            transform:rotate(360deg);
+        }
+        .yinyang::before{
+            content:"";
+            position:absolute;
+            left:0;
+            top:100px;
+            box-sizing: border-box;
+            width:200px;
+            height:200px;
+            border:80px solid #000;
+            border-radius: 50%;
+            background:#fff;
+
+        }
+        .yinyang::after{
+            content:"";
+            position:absolute;
+            right: 0;
+            top: 100px;
+            width:200px;
+            height:200px;
+            box-sizing: border-box;
+            background-color: #000;
+            border: 80px solid #fff;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="yinyang">
+
+</div>
+</body>
+</html>

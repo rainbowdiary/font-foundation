@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画属性</title>
+    <style>
+        @keyframes changeOffset {
+            0% {
+                transform: translateX(100px);
+            }
+            100% {
+                transform: translateX(500px);
+            }
+        }
+        .box {
+            margin-top: 100px;
+            width: 100px;
+            height: 100px;
+            background: #f90;
+
+            animation-name: changeOffset;
+            animation-duration: 1s;
+            animation-delay: 1s;
+            /*animation-timing-function: linear;*/
+
+            /*设置动画的循环次数*/
+            /*animation-iteration-count: 2;*/
+            /*animation-iteration-count: infinite;*/
+
+            /*设置是否反向运动*/
+            /*animation-direction: reverse;*/
+            animation-direction: alternate;
+            /*animation-direction: alternate-reverse;*/
+
+            /*让动画暂停*/
+            /*animation-play-state: paused;*/
+
+            /*动画之外的状态*/
+            /*animation-fill-mode: forwards;*/
+            /*animation-fill-mode: backwards;*/
+            /*animation-fill-mode: both;*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <button id="btn1">开始动画</button>
+    <button id="btn2">暂停动画</button>
+
+    <script>
+        var box = document.querySelector('.box');
+        var btn1 = document.querySelector('#btn1');
+        var btn2 = document.querySelector('#btn2');
+        btn1.addEventListener('click', function () {
+            box.style.animationPlayState = 'running';
+        });
+        btn2.addEventListener('click', function () {
+            box.style.animationPlayState = 'paused';
+        });
+    </script>
+</body>
+</html>

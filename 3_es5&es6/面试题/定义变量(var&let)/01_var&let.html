@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // function sayHi() {
+    //   console.log(name); //unde
+    //   console.log(age); //referenceError 
+    //   var name = "Lydia";
+    //   let age = 21;
+    // }
+
+    // sayHi();
+
+
+
+    function sayHi() {
+      var name
+      console.log(name);  //undefined
+      console.log(age); //01.html:27 Uncaught ReferenceError: Cannot access 'age' before initialization
+      name = "Lydia";
+      let age = 21;
+    }
+
+    sayHi();
+  </script>
+</body>
+
+</html>

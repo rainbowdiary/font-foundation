@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+</head>
+<body>
+
+    <script>
+        document.oncontextmenu = function(event){
+            //alert('啊，我被右击了');
+
+            //阻止默认的系统菜单
+            event.preventDefault();  //阻止系统默认行为
+            //return false;
+        }
+    </script>
+</body>
+</html>

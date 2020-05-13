@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj = {
+        name:"达姆"
+    }
+    Object.defineProperty(obj,"wife",{
+        value:"周冬雨",
+        writable:true,
+        enumerable:false,
+        configurable:false
+    })
+
+    // obj.wife = "老付"
+
+    /*for (item in obj){
+        console.log(item)
+    }*/
+
+    // delete obj.wife;
+    Object.defineProperty(obj,"wife",{
+        value:"周冬雨",
+        writable:false
+    })
+
+    console.log(obj)
+</script>
+</html>

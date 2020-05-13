@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit:cover">
+    <title>音悦台</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div id="app">
+        <!--头部-->
+        <header id="header">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="javascript:">
+                        <img src="img/logo.png" alt="logo">
+                    </a>
+                </div>
+                <div class="menu-btn"></div>
+                <div class="btns">
+                    <button class="btn btn-search">搜索</button>
+                    <button class="btn">登录</button>
+                    <button class="btn">注册</button>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <form action="test.php">
+                    <input type="text" class="search-input" placeholder="请输入搜索内容...">
+                    <button class="search-btn">搜索</button>
+                </form>
+            </div>
+
+        </header>
+
+
+
+    </div>
+
+    <script>
+        // 适配
+        (function () {
+            //定义设计稿宽度
+            var designW = 1080;
+            // 定义设计稿等宽 根元素字体大小
+            var rootFontSize = designW/12;
+            // 计算 设备宽度和设计稿宽度的比例
+            var scale = document.documentElement.clientWidth / designW;
+            // 设置设备宽度下， 根元素的字体大小
+            document.documentElement.style.fontSize = rootFontSize * scale + 'px';
+        })();
+
+        // 取消所有元素的默认动作
+        (function () {
+            //获取包裹元素
+            var app = document.querySelector('#app');
+            // 阻止全局默认动作
+            app.addEventListener('touchstart', function (event) {
+                event.preventDefault();
+            });
+
+            // 使所有的超链接可以触摸跳转
+            var links = document.querySelectorAll('a[href]');
+            // 监听触摸结束事件
+            links.forEach(function (linkNode) {
+                linkNode.addEventListener('touchend', function () {
+                   location.href = this.href;
+                });
+            })
+        })();
+    </script>
+</body>
+</html>

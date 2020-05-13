@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*什么是闭包？
+        闭包本质上是一个c++对象
+        当函数有能力"记住"并访问自己的作用域链时就会产生闭包*/
+
+
+
+    //鸡肋闭包
+    function wrap() {
+        var a =1;
+        function inner() {
+            console.log(a)
+        }
+        inner()
+    }
+    wrap()
+
+
+    //有用的闭包
+    function wrap() {
+        var a  =1;
+        function inner () {
+            console.log(a)
+        }
+        return  inner;
+    }
+    var inner = wrap()
+    inner()
+</script>
+</html>

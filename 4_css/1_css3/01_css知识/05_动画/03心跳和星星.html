@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>心跳和星星</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1 , #box2{
+            margin: 150px auto;
+            width: 100px;
+            height: 100px;
+            background-repeat: no-repeat;
+        }
+        #box1{
+            background-image: url("images/heart-sprite.png");
+        }
+        #box2{
+            background-image: url("images/star-sprite.png");
+        }
+        #box1, #box2 {
+            animation: xingxing 0.5s steps(28) infinite;
+        }
+        #box1:hover , #box2:hover{
+            animation-play-state: paused;
+        }
+        @keyframes xingxing {
+            from{background-position: 0 0}
+            to{background-position: -2800px 0}
+        }
+    </style>
+</head>
+<body>
+<div id="box1"></div>
+<div id="box2"></div>
+</body>
+
+</html>

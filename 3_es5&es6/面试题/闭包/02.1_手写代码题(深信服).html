@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+    拼接函数名
+    go('l')  ==》 "gol"
+    go()('l');  //输出 "gool"
+    go()()('l');  //输出 "goool"
+    go()()()('l');  //输出 "gooool"
+
+    考点: 1.闭包 2.尾递归
+
+    分析:
+      1. 没有参数，返回一个函数  等待着被继续调用
+      2. 有参数，返回一个字符串 "g" + "o"*go函数被调动的次数 + "参数"
+
+     */
+
+    let flag = 0; //记录函数被调用的次数
+    function go(test) {
+      flag++;
+      return test ? (function () {
+        let oStr = "";
+        for (let index = 0; index < flag; index++) {
+          oStr += "o"
+        }
+        return "g" + oStr + test
+      })() : go
+    }
+
+    const a = go()("l")
+    console.log(a);
+
+  </script>
+</body>
+
+</html>

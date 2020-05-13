@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>box-shadow</title>
+    <style>
+        .box {
+            margin: 100px auto;
+            width: 400px;
+            height: 300px;
+            border: 1px solid #333;
+
+            /*阴影*/
+            box-shadow:10px 10px; /*水平偏移  垂直偏移*/
+            box-shadow:10px 10px #ccc; /*水平偏移  垂直偏移 颜色*/
+            box-shadow:10px 10px 12px #ccc;  /*水平偏移  垂直偏移  模糊值 颜色*/
+            box-shadow: 10px 10px 12px;  /*水平偏移  垂直偏移  模糊值*/
+            box-shadow: 10px 10px 12px 10px;  /*水平偏移  垂直偏移  模糊值  外延值*/
+            box-shadow: 10px 10px 12px 2px #ccc;  /*水平偏移  垂直偏移  模糊值  外延值 颜色*/
+        }
+
+        .box1 {
+            margin: 100px auto;
+            width: 400px;
+            height: 300px;
+            border: 1px solid #333;
+            box-shadow:inset 5px 5px 12px red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <div class="box1"></div>
+</body>
+</html>

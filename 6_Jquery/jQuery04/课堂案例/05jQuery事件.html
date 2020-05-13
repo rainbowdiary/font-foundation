@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery事件</title>
+</head>
+<body>
+
+    <div class="form-item">
+        <input type="text">
+    </div>
+
+    <hr>
+
+    <input type="checkbox">
+    <input type="checkbox">
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function(){
+
+            // blur事件 原生的blur只能监听给输入框
+            $(':text').blur(function () {
+               console.log('input 失去焦点')
+            });
+
+            // focuseout 是 jQuery的封装的事件， 既可以在输入框元素上监听，也可以在在输入框的父元素监听
+            $('.form-item').focusout(function () {
+                console.log('input 失去焦点 focusout')
+            });
+
+
+            $(':text').focus(function(){
+                console.log('获取焦点');
+            });
+            $('.form-item').focusin(function () {
+               console.log('获取焦点 focusin');
+            });
+
+
+            // change
+            $(':checkbox').change(function () {
+                console.log('我发生了改变：我当前的值是：'+$(this).prop('checked'));
+            });
+
+            // select事件
+            $(':text').select(function () {
+               alert('啊，我被select了');
+            });
+        })
+    </script>
+</body>
+</html>

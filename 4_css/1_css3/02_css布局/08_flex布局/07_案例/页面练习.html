@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex 页面练习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            display: block;
+        }
+        html, body {
+            height: 100%;
+        }
+        #header {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 70px;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, .7);
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: space-between;
+            width: 275px;
+        }
+        .nav-list li{
+            width:85px;
+            height: 35px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-list li a{
+            color: #fff;
+        }
+
+
+        #content {
+            width: 100%;
+            height: 100%;
+            background: url('../06页面练习/images/bg.jpg') no-repeat;
+            background-size: cover;
+            display: flex;
+        }
+        .content-list {
+            margin: auto;
+            width: 1000px;
+            height: 210px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .content-list li {
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .content-list li:nth-child(1){
+            background-color: #595CA8;
+        }
+        .content-list li:nth-child(2){
+            background-color: #FF9D2E;
+        }
+        .content-list li:nth-child(3){
+            background-color: #01A6DE;
+        }
+        .content-list li:nth-child(4){
+            background-color: #015E91;
+        }
+        .content-list li:nth-child(5){
+            background-color: #1DC128;
+        }
+        .content-list li:nth-child(6){
+            background-color: #01A6DE;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1 class="logo">
+            <a href="javascript:">
+                <img src="../06页面练习/images/atguigu-logo.png" alt="logo">
+            </a>
+        </h1>
+        <ul class="nav-list">
+            <li><a href="javascript:">新学科</a></li>
+            <li><a href="javascript:">学科简介</a></li>
+            <li><a href="javascript:">上海校区</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <ul class="content-list">
+            <li>
+                <img src="../06页面练习/images/ywfw_1.png" alt="h5">
+                <p>H5学科</p>
+            </li>
+            <li>
+                <img src="../06页面练习/images/ywfw_2.png" alt="java">
+                <p>Java学科</p>
+            </li>
+            <li>
+                <img src="../06页面练习/images/ywfw_3.png" alt="云计算">
+                <p>云计算</p>
+            </li>
+            <li>
+                <img src="../06页面练习/images/ywfw_4.png" alt="Android">
+                <p>Android学科</p>
+            </li>
+            <li>
+                <img src="../06页面练习/images/ywfw_5.png" alt="微信">
+                <p>微信小程序</p>
+            </li>
+            <li>
+                <img src="../06页面练习/images/ywfw_6.png" alt="PHP">
+                <p>PHP学科</p>
+            </li>
+
+        </ul>
+    </div>
+
+</body>
+</html>

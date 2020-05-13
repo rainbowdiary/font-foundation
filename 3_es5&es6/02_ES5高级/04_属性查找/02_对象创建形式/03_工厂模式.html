@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*缺点:
+          1.代码冗余
+          2.组织形式不好
+          3.没有类型 都是Object
+          4.占用的内存空间太大
+      */
+
+    // 组织形式变好了
+    // 代码不冗余
+
+    function createObj(name,age) {
+        return {
+            name:name,
+            age:age,
+            eat:function (msg) {
+                console.log(msg)
+            }
+        }
+    }
+
+
+    var damu = createObj("达姆",18)
+    var damu2 = createObj("芳芳",38)
+
+
+</script>
+</html>

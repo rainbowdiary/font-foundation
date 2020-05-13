@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原子</title>
+</head>
+<body>
+
+    <script>
+        // 字符串边界   字符串的开始和结束
+        // ^ \A
+        // $ \Z
+        var reg = /^apple/;
+        console.log(reg.exec('apple is very haochi'));
+        console.log(reg.exec('i like apple'));
+        console.log('');
+
+        var reg1 = /apple$/;
+        console.log(reg1.exec('apple is very haochi'));
+        console.log(reg1.exec('i like apple'));
+        console.log('');
+
+
+        var reg2 = /^apple$/;
+        console.log(reg2.exec('apple'));
+
+
+        // 定义正则 限定用户名 必须是 6-12位的数字、字母下划线
+        var nameReg = /^\w{6,12}$/;
+        var name = 'asdfjaklsdfjaklsfjlkasfjkalsfjlkasjflkasfjaklsdfjalskf';
+        name = 'acc';
+        name = 'xiaoli';
+
+        console.log(nameReg.test(name));
+    </script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>品牌墙</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .brand-list {
+            margin: 50px auto;
+            padding: 1px 0 0 1px;
+            width: 726px;
+            background: #ccc;
+            overflow: hidden;
+        }
+        .brand-list li {
+            position: relative;
+            margin: 0 1px 1px 0;
+            float: left;
+            width: 120px;
+            height: 108px;
+        }
+        .brand-list .img-3d {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 120px;
+            height: 108px;
+            background: #fff;
+            transform-style: preserve-3d;
+            transition: transform .5s;
+        }
+        .brand-list .img-front,.brand-list .img-back {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 120px;
+            height: 108px;
+            text-align: center;
+            line-height: 108px;
+
+        }
+        .brand-list .img-back {
+            transform: rotateY(180deg);
+        }
+        .brand-list .img-front img,.brand-list .img-back img {
+            vertical-align: middle;
+        }
+
+        /*.brand-list li:hover .img-3d {*/
+        /*    transform: rotateY(180deg);*/
+        /*}*/
+
+        #btn {
+            /*background: red;*/
+            /*color: #fff;*/
+            text-align:center;
+            background: #fff;
+            user-select: none; /*文字不可被选中*/
+        }
+        #refresh {
+            margin:25px auto 0;
+            width:28px;
+            height: 28px;
+            background: url('img/refresh.png') no-repeat;
+            transition: 1s;
+        }
+        #btn:hover {
+            color: #fff;
+            background: red;
+        }
+        #btn:hover #refresh {
+            background: url('img/refresh-white.png') no-repeat;
+        }
+
+    </style>
+</head>
+<body>
+
+    <ul class="brand-list">
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon2.jpg" alt="老刘">
+                </div>
+                <div class="img-front">
+                    <img src="img/icon1.jpg" alt="老刘">
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon3.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon4.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon5.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon6.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon7.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon8.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon9.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon10.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon11.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon12.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon13.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon14.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon15.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon16.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon17.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon18.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon19.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon20.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon21.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon22.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon23.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon24.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon25.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon26.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon27.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon28.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon29.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon30.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon31.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon32.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon33.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon34.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon35.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon36.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon37.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon38.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon39.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon40.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon41.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon42.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon43.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon44.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="img-3d">
+                <div class="img-back">
+                    <img src="img/icon45.jpg"/>
+                </div>
+                <div class="img-front">
+                    <img src="img/icon2.jpg"/>
+                </div>
+            </div>
+        </li>
+        <li id="btn">
+            <div id="refresh"></div>
+            <span>换一批</span>
+        </li>
+
+    </ul>
+
+    <script>
+        (function () {
+            //获取元素
+            var btn = document.querySelector('#btn');
+            var refresh = document.querySelector('#refresh');
+            var imgNodes = document.querySelectorAll('.brand-list .img-3d');
+
+            //定义变量 计数器
+            var count = 0;
+            // 单击
+            btn.addEventListener('click', function () {
+                count ++;   //计数器++
+
+                // 旋转图标旋转
+                refresh.style.transform = 'rotate('+(360*count)+'deg)';
+
+                //每个图片旋转
+                imgNodes.forEach(function (imgNode, index) {
+                    // 计算下行号和列号
+                    var rowCount = Math.floor(index / 6);
+                    var colCount = index % 6;
+
+                    imgNode.style.transitionDelay = (rowCount+colCount) * 100 + 'ms';
+                    imgNode.style.transform = 'rotateY(' + (180*count) + 'deg)';
+                });
+                
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+#app {
+  background-color: #f90;
+  font: 12px '微软雅黑';
+}
+#app .container {
+  width: 1000px;
+  margin: 0 auto;
+}
+#app .container::after {
+  content: "";
+  display: block;
+  clear: both;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>结构伪类选择器</title>
+  <style>
+    .wrapper {
+      margin: 10px auto;
+      width: 600px;
+    }
+
+    .wrapper p {
+      height: 120px;
+    }
+
+    /* :nth-of-type(n)	p:nth-of-type(2)	选择属于其父元素第二个 <p> 元素的每个 <p> 元素。	 */
+    .wrapper img:nth-of-type(odd) {
+      float: left;
+      margin-right: 10px;
+    }
+
+    .wrapper img:nth-of-type(even) {
+      float: right;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <img src="../images/31.jpg" alt="老刘">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa debitis, dolores enim, facere, hic ipsa iusto
+      laudantium libero molestiae mollitia obcaecati optio perspiciatis possimus quaerat rem reprehenderit tempora
+      tempore voluptas!</p>
+    <img src="../images/32.jpg" alt="老刘">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa debitis, dolores enim, facere, hic ipsa iusto
+      laudantium libero molestiae mollitia obcaecati optio perspiciatis possimus quaerat rem reprehenderit tempora
+      tempore voluptas!</p>
+    <img src="../images/33.jpg" alt="老刘">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa debitis, dolores enim, facere, hic ipsa iusto
+      laudantium libero molestiae mollitia obcaecati optio perspiciatis possimus quaerat rem reprehenderit tempora
+      tempore voluptas!</p>
+    <img src="../images/34.jpg" alt="老刘">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa debitis, dolores enim, facere, hic ipsa iusto
+      laudantium libero molestiae mollitia obcaecati optio perspiciatis possimus quaerat rem reprehenderit tempora
+      tempore voluptas!</p>
+    <img src="../images/35.jpg" alt="老刘">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa debitis, dolores enim, facere, hic ipsa iusto
+      laudantium libero molestiae mollitia obcaecati optio perspiciatis possimus quaerat rem reprehenderit tempora
+      tempore voluptas!</p>
+    <img src="../images/36.jpg" alt="老刘">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa debitis, dolores enim, facere, hic ipsa iusto
+      laudantium libero molestiae mollitia obcaecati optio perspiciatis possimus quaerat rem reprehenderit tempora
+      tempore voluptas!</p>
+  </div>
+</body>
+
+</html>

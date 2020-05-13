@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+       canvas {
+           background: url(img/img22.jpg);
+           background-size: cover;
+       }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        // 获取画布元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        ctx.globalAlpha = .5;
+
+        ctx.fillRect(100, 100, 200, 150);
+
+        ctx.fillStyle = 'red';
+        ctx.fillRect(400, 300, 100, 100);
+
+        ctx.globalAlpha = 1;
+        ctx.fillRect(600, 400, 100, 100);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+		</ul>
+		<script type="text/javascript">
+			//获取所有li
+			var lis = document.getElementsByTagName('li');
+			//遍历
+			for(var i = 0; i < lis.length; i++) {
+				//偶数编号
+				if(i % 2 == 0) {
+					lis[i].style.backgroundColor = 'yellow';
+					//移入
+					lis[i].onmouseover = function() {
+						this.style.backgroundColor = 'red';
+					}
+					//移出
+					lis[i].onmouseout = function() {
+						this.style.backgroundColor = 'yellow';
+					}
+				} else {
+					//奇数编号
+					lis[i].style.backgroundColor = 'green';
+					//移入
+					lis[i].onmouseover = function() {
+						this.style.backgroundColor = 'blue';
+					}
+					//移出
+					lis[i].onmouseout = function() {
+						this.style.backgroundColor = 'green';
+					}
+
+				}
+			}
+		</script>
+	</body>
+
+</html>

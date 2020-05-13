@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tween算符</title>
+    <style>
+        .wrapper {
+            width: 600px;
+            height: 60px;
+            border: 4px dashed #f90;
+        }
+        .box {
+            width: 0px;
+            height: 60px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="box"></div>
+    </div>
+
+    <script>
+
+        /*
+           参数；
+        * t current  当前时间
+        * b begin 初始值
+        * c change 变边值 (目标值和初始值之间的差)
+        * d duration  时间间隔
+        * s 回弹系数
+
+            返回值：
+          此时此刻元素的某个属性的值
+        * */
+
+        var box = document.querySelector('.box');
+
+
+
+        /*值 0 100*/
+        var c = 0; //当前时间是0
+        var d = 2000;
+        var startWidth = 0;
+        var targetWidth = 600;
+        var intervalId = setInterval(function () {
+            c +=10;
+            box.style.width = Tween.backEaseOut(c, startWidth, targetWidth-startWidth, d) + 'px';
+
+            if (c >= d) {
+                clearInterval(intervalId);
+            }
+        }, 10);
+
+
+
+
+        /*Tween类*/
+        var Tween = {
+            linear: function(t,b,c,d){ return c*t/d + b; },
+            ease: function(t,b,c,d){
+                return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
+            },
+            backEaseOut: function(t,b,c,d,s){
+                if (s == undefined) s = 1.70158;
+                return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+            }
+        };
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit:cover">
+    <title>图片适配</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .banner {
+            margin: 0 auto;
+            max-width: 414px;
+            width: 100%;
+        }
+        .banner img {
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <img srcset="images/music_small.png,
+                    images/music_small_2x.png 2x"
+             src="images/music_small.png"
+             alt="老刘">
+    </div>
+</body>
+</html>

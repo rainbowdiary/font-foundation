@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>background-position</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .test {
+      width: 300px;
+      height: 300px;
+      border: 10px dashed pink;
+      /* 不知道高宽情况下垂直水平居中 */
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: red;
+      background: url('./img/test1.jpg') no-repeat;
+      background-size: 100px;
+      /* 只指定一个值，则这个值为水平方向的，垂直方向的为center
+         默认水平方向正值向右偏移，负值向左偏移
+         偏移的位置参照于padding-box外沿线
+         (300px-100px)*50%=100px
+         (300px-100px)*-10%=-20px
+       */
+      background-position: -10% 0%; /*水平方向向左位移了10px*/
+      /* background-position: 50%;  水平方向向右位移了100px*/
+
+    }
+
+    /* 
+    background-position:
+    值: 
+     * 坐标轴的原点就是容器的左顶点
+     (默认值: 0% 0%)
+    
+   1.  (方位值，值设置一个关键字，第二个值将是center)
+      第一个值是水平位置，第二个值是垂直位置、
+      应用的是对齐规则，而不是坐标规则；x为left表示图像的左边与容器的左边对其；center表示相较于容器居中对齐
+     left top(默认)
+     right top
+     left bottom
+     right bottom
+     center left
+     center center 表示相较于容器居中对齐
+     center right
+    background-position: right 20px bottom 20px;
+     2. (百分比)
+     x% y% 
+     - 第一个值是水平位置，第二个值是垂直位置。
+     - 左上角是0% 0%，右下角是100% 100%
+     - 只指定一个值，另一个值就是50%
+     - 应用坐标规则： 图像的左顶点相对于坐标原点（容器左顶点）的值
+     * 问题? 百分比是怎么计算的? 相较于谁的百分比
+       - (容器宽度-图像宽度)*x%
+       - (容器高度-图像高度)*y%
+     (xpos ypos)
+     单位像素，css单位
+     第一个值是水平位置，第二个值是垂直位置。
+     左上角是00，
+     */
+  </style>
+</head>
+
+<body>
+  <div class="test"></div>
+</body>
+
+</html>

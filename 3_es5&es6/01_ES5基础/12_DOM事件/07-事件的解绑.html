@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">投票</button>
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			//第一种绑定
+//			btn.onclick = function(){
+//				alert(1);
+//			}
+			//第一种解绑
+//			btn.onclick = null;
+//			btn.onclick = function(){
+//				alert('投票成功');
+//				btn.onclick = null;
+//			}
+			
+//			btn.onclick = function(){
+//				alert(1);
+//			}
+//			btn.onclick = function(){
+//				alert(2);
+//			}
+			function fn1(){
+				alert(1);
+//				fn2();
+			}
+			function fn2(){
+				alert(2);
+			}
+			//第二种方式:
+//			btn.addEventListener('click',fn1,false);
+//			btn.addEventListener('click',fn2,false);
+			//第二种解绑:
+			//btn.removeEventListener('click',fn1,false);
+			//第三种绑定:
+			btn.attachEvent('onclick',fn1);
+			btn.attachEvent('onclick',fn2);
+			//第三种解绑:
+			btn.detachEvent('onclick',fn1);
+			/**
+			 * 
+			 * 兼容性封装解绑事件
+			 * @param {元素对象} obj
+			 * @param {事件类型} type
+			 * @param {事件处理函数} fun
+			 * @param {事件阶段} bool
+			 */
+			function removeEvent(obj,type,fun,bool){
+				if(obj.removeEventListener){
+					obj.removeEventListener(type,fun,bool);
+				}else{
+					obj.detachEvent('on'+type,fun);
+				}
+			}
+		</script>
+	</body>
+</html>

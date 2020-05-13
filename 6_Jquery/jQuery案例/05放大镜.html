@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery放大镜</title>
+    <style>
+        #smallBox {
+            position: relative;
+            width:400px;
+            height:400px;
+        }
+
+        #bigBox {
+            overflow: hidden;
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            display: none
+        }
+
+        #bigBox img{
+            width: 800px;
+            height: 800px;
+        }
+
+        #zoom {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width:200px;
+            height: 200px;
+            background: url("images/zoom/zoom-bg.png");
+            cursor: move;
+        }
+
+
+    </style>
+</head>
+<body>
+<h1>放大镜</h1>
+<hr>
+<div id="smallBox">
+    <img src="images/zoom/small.jpeg" alt="">
+
+    <div id="zoom"></div>
+</div>
+
+<div id="bigBox">
+    <img src="images/zoom/big.jpeg" alt="">
+</div>
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        //鼠标悬停在小图上
+        $("#smallBox").mouseover(function(event){
+            //计算小图位置
+            var smallLeft = $("#smallBox").offset().left;
+            var smallTop = $("#smallBox").offset().top;
+
+            //显示大图 并改变位置
+            $("#bigBox").show().offset({
+                left: smallLeft + 400 + 10,
+                top: smallTop
+            });
+
+            //显示放大镜元素
+            $("#zoom").show();
+
+            //绑定 鼠标移动事件
+            $(this).mousemove(function(event){
+                //鼠标在小图上的位置
+                var mLeft = event.pageX - smallLeft;
+                var mTop = event.pageY - smallTop;
+
+                //计算放大镜位置
+                var zLeft = Math.min(Math.max(mLeft - 100, 0), 200);
+                var zTop = Math.min(Math.max(mTop -100, 0), 200);
+
+                //放大镜元素 并跟随鼠标移动
+                $("#zoom").css("left", zLeft+"px").css("top", zTop+"px");
+
+                //控制大图 显示部分内容
+                $("#bigBox").scrollLeft(zLeft * 2).scrollTop(zTop * 2);
+            })
+
+
+        }).mouseout(function(){
+            //放大镜元素 隐藏
+            $("#zoom").hide();
+            //大图隐藏
+            $("#bigBox").hide();
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片倒影</title>
+    <style>
+        img {
+            margin: 40px 100px;
+
+            /*-webkit-box-reflect: below 10px url(images/refect.png);*/
+            -webkit-box-reflect: below 10px linear-gradient(transparent, transparent 40% , red);
+        }
+
+        .box {
+            margin-top: 250px;
+            font:bold 30px "楷体";
+            text-align:center;
+
+        }
+        .box p {
+            -webkit-box-reflect: below 0px linear-gradient(transparent, transparent 40% , red);
+        }
+
+    </style>
+</head>
+<body>
+    <img src="images/shanghai.jpg" alt="老刘">
+
+    <div class="box">
+        <p>锄禾日当午</p>
+        <p>锄禾日当午</p>
+        <p>锄禾日当午</p>
+        <p>锄禾日当午</p>
+    </div>
+</body>
+</html>

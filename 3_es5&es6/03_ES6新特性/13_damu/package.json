@@ -1,0 +1,21 @@
+{
+  "name": "03_damu",
+  "version": "1.0.0",
+  "description": "这是一个空项目",
+  "main": "index.js",
+  "scripts": {
+    "test": "webpack -v"
+  },
+  "keywords": [
+    "达姆"
+  ],
+  "author": "damu",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {
+    "loadsh": "0.0.4",
+    "webpack": "^3.10.0"
+  }
+}

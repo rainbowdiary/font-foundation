@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+    总结：async后面不要写代码，如果写了，后面的代码会先执行
+    */
+    (async () => {
+      await new Promise((resolve) => {
+        console.log("----1");
+        resolve()
+      }).then(() => {
+        console.log("----2");
+      })
+      console.log("***");
+    })()
+    console.log("+++");
+
+  </script>
+</body>
+
+</html>

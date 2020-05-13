@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  let map = new Map([["name", "达姆"], ["age", 18], [function test() { }, "fn"]])
+  map.set("name", "damu")
+  console.log(map.get("name"))
+
+  for (const iterator of map) {  //可以直接迭代出键值数组
+    console.log(iterator);
+  }
+
+  /* 区别于普通对象 */
+  let a = function () { console.log("a"); }; let obj = { name: "达姆", age: 18, [a]: 123 }
+  /* for (const iterator of obj) {  //TypeError obj is not iterable 不能使用for-of拿到键值
+    console.log(iterator);
+  } */
+  for (const key in obj) {  //只能先拿到键再迭代其值
+    if (obj.hasOwnProperty(key)) {
+      const element = obj[key];
+      console.log(key, element);
+    }
+  }
+
+</script>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 作用域:变量的访问区域
+			 * 
+			 * js的预解析: js会优先去找在全局中有没有用var声明的变量,将声名提升到全局作用域的
+			 * 顶端,在全局中用函数名定义的函数,会整体提升到全局作用域的顶端
+			 * 在函数中用var定义的变量,会提升到当前作用域的顶端
+			 * 在函数中用函数名定义的函数会提升到当前作用域的顶端
+			 * 
+			 * 全局作用域:在script标签中的就是全局作用域
+			 * 
+			 * 全局变量:在全局中声明的变量,全局变量都是window对象下的属性
+			 * 定义全局变量的两种方式:
+			 * 1.带var定义的变量:会将声明提升到全局作用域的顶端
+			 * 2.不带var定义的声明:必须是声明➕赋值,变量的声明不会提升,否则会报错
+			 * 
+			 * 全局对象:浏览器顶级对象window对象,window对象下的属性和方法在使用时,可以省略
+			 * window对象
+			 * 
+			 * 函数作用域:在函数中用var定义的变量是函数中的局部(私有)变量,从外界是无法访问的,声明会提升
+			 * 到函数作用域的顶端.(显示声明和形参(隐式声明))
+			 * 
+			 * 在函数中没有用var定义的变量,一定是函数的上层作用域中的
+			 * 
+			 * 用函数名定义的函数会整体提升到当前作用域的顶端
+			 */
+
+			//			 function fn(){
+			//			 	alert('我是fn');
+			//			 }
+			//           var fn = funciton(){
+			//          alert('我是fn');
+			//}
+
+			//			fn();
+			//			
+			//			fn();
+
+			//			console.log(fn);//undefined
+			//			var fn = function(){
+			//				alert('我是fn');
+			//			}
+			//			console.log(fn);
+			//			fn();
+
+			//			var a = 5;
+			//			a = function(){
+			//				alert('哈哈');
+			//			}
+			//			a();
+
+			//			var a = 5;
+			//			function a(){
+			//				alert('哈哈');
+			//			}
+			//			console.log(a);
+			//			a();//报错    执行函数
+
+			//			var a;
+			//			var a = function (){
+			//				alert('哈哈');
+			//			}
+			//			a = 5;
+			//			a();//报错    执行函数
+
+			//			var a = 5;
+			//			a = function() {
+			//				console.log(a);//自己的函数体
+			//			}
+			//			a();
+
+
+//			function fn1(a){
+//				console.log(a);
+//			}
+//			function fn2(){
+//				console.log('我是fn2');
+//			}
+//			fn1(fn2);
+
+//			var fn1 = function(){
+//				fn1 = 5;
+//			}
+//			fn1();
+//			fn1();
+
+
+//			var fn1 = function(){
+//				var fn1 = 5;
+//			}
+//			fn1();
+//			fn1();
+		</script>
+	</body>
+
+</html>

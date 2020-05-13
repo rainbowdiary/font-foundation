@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        .warp {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+        .main {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            line-height: 300px;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="warp">
+        <div class="main" style="width: 100%;height: 100px;background: pink">
+            1
+        </div>
+        <div class="main" style="width: 100%;height: 100px;background: gray">
+            2
+        </div>
+        <div class="main" style="width: 100%;height: 100px;background: red">
+            3
+        </div>
+    </div>
+</body>
+<script src="./dist/index.js"></script>
+</html>

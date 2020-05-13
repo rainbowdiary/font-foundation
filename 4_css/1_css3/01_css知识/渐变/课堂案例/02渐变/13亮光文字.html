@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>亮光文字</title>
+    <style>
+        body {
+            background: #000;
+        }
+        h1 {
+            margin-left: auto;
+            margin-right: auto;
+            width: 600px;
+            font-size: 100px;
+            color: rgba(0,0,0,.5);
+
+            background-image: linear-gradient(135deg, rgba(255,255,255,.5) 70px, #fff 140px,  rgba(255,255,255,.5) 210px);
+            -webkit-background-clip: text;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>老刘我想你了</h1>
+    <script>
+        //获取元素
+        var h1 = document.querySelector('h1');
+
+        var num = 0;
+        setInterval(function () {
+            num += 10;
+            h1.style.backgroundPositionX = num + 'px';
+        }, 20)
+    </script>
+</body>
+</html>

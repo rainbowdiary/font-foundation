@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+   /* 1. 字面量*/
+   /* 2. 对象.的形式*/
+   /* 3. 对象[str]的形式*/
+   /* 4. Object.definePropert*/
+    var obj = {a:"a"} // writable为true的数据描述符
+    obj.b = "b"// writable为true的数据描述符
+    obj["c"]="c"// writable为true的数据描述符
+    Object.defineProperty(obj,"d",{})// writable为false的数据描述符
+
+    console.log(Object.getOwnPropertyDescriptor(obj,"a"))
+    console.log(Object.getOwnPropertyDescriptor(obj,"b"))
+    console.log(Object.getOwnPropertyDescriptor(obj,"c"))
+    console.log(Object.getOwnPropertyDescriptor(obj,"d"))
+
+    var e = "e";
+    console.log(Object.getOwnPropertyDescriptor(window,"e"))
+    delete window.e;
+    console.log(window.e)
+
+</script>
+</html>

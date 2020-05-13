@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery全选</title>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <ul class="news-list">
+        <li><input type="checkbox"> Lorem ipsum dolor sit amet.</li>
+        <li><input type="checkbox"> Lorem ipsum dolor sit amet.</li>
+        <li><input type="checkbox"> Lorem ipsum dolor sit amet.</li>
+        <li><input type="checkbox"> Lorem ipsum dolor sit amet.</li>
+        <li><input type="checkbox"> Lorem ipsum dolor sit amet.</li>
+        <li><input type="checkbox"> Lorem ipsum dolor sit amet.</li>
+        <li><input type="checkbox"> Lorem ipsum dolor sit amet.</li>
+    </ul>
+
+    <input type="checkbox" id="allSelect"> 全选
+
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+           $('#allSelect').on('change', function () {
+                $('.news-list>li>input').prop('checked', $(this).prop('checked'));
+           });
+        });
+    </script>
+</body>
+</html>

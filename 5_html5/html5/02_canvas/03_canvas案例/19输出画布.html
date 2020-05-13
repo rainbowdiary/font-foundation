@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            /*overflow: hidden;*/
+        }
+       canvas {
+           background: #ccc;
+            background-size: cover;
+       }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        // 获取画布元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        // 创建图片元素
+        var imgNode = document.createElement('img');
+        imgNode.src = 'img/img23.jpg';
+        // 等待图片加载完成
+        imgNode.onload = function () {
+
+            // 把图片绘入画布
+            ctx.drawImage(imgNode, 0, 0, canvas.width, canvas.height);
+
+            var newImage = document.createElement('img');
+            newImage.src = canvas.toDataURL('image/jpeg');
+            newImage.width = 300;
+            newImage.onload = function(){
+                document.body.appendChild(newImage);
+                //ctx.drawImage(newImage, 300, 300, 200, 200);
+            }
+
+        };
+
+
+        // 输出画布编码 输出图像的base64编码
+
+       console.log( canvas.toDataURL('image/jpeg'))
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

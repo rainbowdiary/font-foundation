@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        canvas {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+
+        // 获取canvas元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'green';
+        ctx.fillStyle = 'yellow';
+
+        ctx.beginPath();
+        ctx.moveTo(100, 100);
+        ctx.lineTo(400, 100);
+        ctx.lineTo(400, 400);
+        ctx.stroke();
+
+        // 切线圆弧
+        ctx.beginPath();
+        //ctx.moveTo(100, 100);
+        ctx.lineTo(390, 100);
+        ctx.arcTo(400,100,400,200,150);
+        ctx.strokeStyle = 'red';
+        //ctx.fill();
+        ctx.stroke();
+
+        // 圆角
+        ctx.beginPath();
+        ctx.moveTo(500, 100);
+        ctx.arcTo(700, 100, 700, 400, 50);
+        ctx.lineTo(700, 400);
+        ctx.stroke();
+        
+    </script>
+</body>
+</html>

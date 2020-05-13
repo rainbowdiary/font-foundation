@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //原型链 : 隐式原型链
+    //arr --__proto__--> Array.prototype --__proto__-->  Object.prototype --__proto__--> null
+    var arr = [1,2,3];
+    var res = arr.toString()
+    console.log(res)
+
+    Object.prototype.wife="老刘";
+    Object.prototype.fn=function () {
+        return "我是公共的函数"
+    };
+    var obj = {
+        name:"老付",
+        age:48
+    }
+    var res2 = obj.toString()
+    console.log(res2)
+
+    console.log(obj.wife)
+    console.log(arr.wife)
+    console.log(arr.fn())
+
+</script>
+</html>

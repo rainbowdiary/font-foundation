@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="btn">读取</button>
+		<button id="btn02">设置</button>
+		<div id="box">我是一个盒子</div>
+		<p id="p1">我是段落</p>
+		<script type="text/javascript">
+			/*
+			 * 兼容性: 兼容低版本浏览器(ie6,7,8)
+			 * innerText属性是由微软最开始给ie定制的属性,后来被所有浏览器应用,但是在某一个版本
+			 * 的火狐浏览器是不能使用的.
+			 * textContent属性和innerText属性的功能是一样,但是只能高级浏览器使用
+			 * 浏览器:
+			 * 高级浏览器: chrome  firefox ie9及以上  现在符合web标准浏览器
+			 * 低版本浏览器: ie6,7,8
+			 * 
+			 * 解决方案:
+			 * 让所有高级浏览器使用textContent,ie678使用innerText
+			 */
+			var btn = document.getElementById('btn');
+			var btn02 = document.getElementById('btn02');
+			var box = document.getElementById('box');
+			var p1 = document.getElementById('p1');
+			//读取
+			btn.onclick = function() {
+				//				console.log(box.innerText);
+				//console.log(box.textContent);
+				//				if(box.textContent != undefined){
+				//					//alert('高级');
+				//					console.log(box.textContent);
+				//				}else{
+				//					//alert('垃圾');
+				//					console.log(box.innerText);
+				//				}
+				console.log(getTextContent(p1));
+			}
+			//设置
+			btn02.onclick = function() {
+				//
+				//				box.textContent = '老刘';
+				setTextContent(box,'老王');
+			}
+			
+			/**
+			 * 兼容性封装设置元素的内容
+			 * @param {元素对象} obj
+			 * @param {文本内容} txt
+			 */
+			function setTextContent(obj,txt) {
+				if(obj.textContent != undefined) {
+					//高级
+					obj.textContent = txt;
+				} else {
+					obj.innerText = txt;
+				}
+			}
+
+			/**
+			 * 兼容性封装读取元素内容
+			 * @param {元素对象} obj
+			 */
+			function getTextContent(obj) {
+				//高级浏览器
+				if(obj.textContent != undefined) {
+					//alert('高级');
+					return obj.textContent;
+				} else {
+					//低版本
+					//alert('垃圾');
+					return obj.innerText;
+				}
+
+			}
+		</script>
+	</body>
+
+</html>

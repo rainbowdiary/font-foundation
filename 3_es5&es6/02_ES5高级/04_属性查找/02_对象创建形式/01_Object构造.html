@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*缺点:
+          1.代码冗余
+          2.组织形式不好
+          3.没有类型 都是Object
+          4.占用的内存空间太大
+      */
+
+    var obj = new Object()
+    obj.name = "damu";
+    obj.age=18;
+    obj.eat = function () {
+        console.log("吃很多")
+    }
+
+    var obj2 = new Object()
+    obj.name = "ff";
+    obj.age=38;
+    obj.eat = function () {
+        console.log("吃很少")
+    }
+</script>
+</html>

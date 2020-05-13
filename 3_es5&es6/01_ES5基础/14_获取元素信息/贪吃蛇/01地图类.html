@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>贪吃蛇</title>
+</head>
+<body>
+
+    <script>
+        // 地图类
+        (function () {
+            // 定义地图的构造函数
+            function MapG(width, height, bgColor) {
+                // 设置属性
+                this.width = width;
+                this.height = height;
+                this.bgColor = bgColor;
+            }
+
+            // 初始化方法
+            MapG.prototype.init = function(){
+                /*
+                * 在原型的方法中， this表示实例
+                * */
+                // 创建地图div
+                var divMap = document.createElement('div');
+                // 设置div的属性
+                divMap.style.width = this.width + 'px';
+                divMap.style.height = this.height + 'px';
+                divMap.style.backgroundColor = this.bgColor;
+                // 把地图添加body中
+                document.body.appendChild(divMap)
+            };
+
+
+            // 把MapG暴露在window上
+            window.MapG = MapG;
+
+        })();
+
+
+
+
+        var mapG = new MapG(800, 600, '#ccc');
+        mapG.init(); //初始计划
+        console.log(mapG);
+
+        // var mapG1 = new MapG(800, 600, '#ccc');
+        // mapG1.init(); //初始计划
+        // console.log(mapG1);
+    </script>
+</body>
+</html>

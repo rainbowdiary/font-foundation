@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>目标伪类选择器</title>
+  <style>
+    #secondBox {
+      width: 600px;
+      height: 200px;
+      border: 2px solid #333;
+    }
+
+    /* #news:target	选择当前活动的 #news 元素。 */
+    div:target {
+      background: #f90;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="firstBox" style="height: 1000px;width: 200px;"></div>
+  <div id="secondBox"></div>
+  <div id="thirdBox" style="height: 1000px;width: 200px;"></div>
+
+</body>
+
+</html>

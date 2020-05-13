@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery DOM操作</title>
+    <style>
+        .box {
+            width: 700px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        img {
+            width: 200px;
+        }
+        img.active {
+            width: 196px;
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <h4>内部插入：</h4>
+    <button>append</button>
+    <button>appendTo</button>
+    <button>prepend</button>
+    <button>prependTo</button>
+
+    <h4>外部插入</h4>
+    <button>after</button>
+    <button>inertAfter</button>
+    <button>before</button>
+
+    <h4>包裹</h4>
+    <button>wrap</button>
+    <button>wrapAll</button>
+    <button>unwrap</button>
+
+    <h4>替换</h4>
+    <button>replaceWith 替换选中的</button>
+    <button>replaceAll</button>
+
+    <h4>删除</h4>
+    <button>remove 删除选中的</button>
+    <button>empty</button>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="box">
+        <img src="images/mm/1.jpeg" alt="老刘的梦中情人">
+        <img src="images/mm/2.jpeg" alt="老刘的梦中情人">
+        <img src="images/mm/3.jpeg" alt="老刘的梦中情人">
+        <img src="images/mm/4.jpeg" alt="老刘的梦中情人">
+        <img src="images/mm/5.jpeg" alt="老刘的梦中情人">
+    </div>
+
+    <img src="images/mm/12.jpeg" id="laoLiu">
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            // 内部插入
+            // append
+            $('button').eq(0).click(function () {
+               // 创建一个元素
+               //var $newImage = $('<images>');
+               //$newImage.prop('src', 'images/mm/6.jpeg');
+               // 把新突破添加到box元素
+               //$('.box').append($newImage);
+               $('.box').append('<img src="images/mm/6.jpeg">');
+           }) ;
+            // appendTo
+            $('button').eq(1).click(function () {
+               //$('<images src="images/mm/7.jpeg">')
+               //$('<images>').prop('src', 'images/mm/7.jpeg').appendTo($('.box'));
+               $('<img>').prop('src', 'images/mm/7.jpeg').appendTo('.box');
+           });
+            //prepend
+            $('button').eq(2).click(function () {
+               $('.box').prepend('<img src="images/mm/8.jpeg">');
+            });
+            //prependTo
+            $('button').eq(3).click(function () {
+                $('<img>').prop('src', 'images/mm/7.jpeg').prependTo('.box');
+            });
+
+            // 外部插入
+            // after
+            $('button').eq(4).click(function () {
+               $('.box').after('<img src="images/mm/9.jpeg">')
+            });
+            // insertAfter
+            $('button').eq(5).click(function () {
+                $('<img src="images/mm/10.jpeg">').insertAfter('.box');
+            });
+            // before
+            $('button').eq(6).click(function () {
+               $('.box').before('<img src="images/mm/11.jpeg">');
+            });
+            
+            
+            // 包裹
+            // wrap
+            $('button').eq(7).click(function () {
+               $('.box img').wrap('<li>');
+            });
+            // wrapAll
+            $('button').eq(8).click(function () {
+                $('.box img').wrapAll('<li>');
+            });
+            // unwrap
+            $('button').eq(9).click(function () {
+                $('.box img').unwrap();
+            });
+
+            // 替换
+            // replaceWith
+            $('button').eq(10).click(function(){
+                var laoLiu = $('#laoLiu');
+                //$('.box images.active').replaceWith('<images src="images/mm/11.jpeg">');
+                $('.box img.active').replaceWith(laoLiu.clone());
+            });
+            // repalceAll
+            $('button').eq(11).click(function(){
+                $('<img src="images/mm/13.jpeg">').replaceAll('.box img.active');
+            });
+
+            // 删除
+            // remove
+            $('button').eq(12).click(function () {
+               $('.box img.active').remove();
+            });
+            //empty
+            $('button').eq(13).click(function () {
+                $('.box').empty();
+            });
+
+
+
+            $('.box img').click(function(){
+                $(this).toggleClass('active');
+            })
+        });
+    </script>
+
+
+
+
+</body>
+</html>

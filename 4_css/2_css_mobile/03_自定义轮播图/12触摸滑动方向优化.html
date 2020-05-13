@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit:cover">
+    <title>触摸滑动</title>
+    <link rel="stylesheet" href="css/swiper.css">
+</head>
+<body>
+    <div class="swiper" id="mySwiper">
+        <ul class="swiper-wrapper">
+           <li class="swiper-item"><img src="img/1.jpg" alt="老刘"></li>
+           <li class="swiper-item"><img src="img/2.jpg" alt="老刘"></li>
+           <li class="swiper-item"><img src="img/3.jpg" alt="老刘"></li>
+           <li class="swiper-item"><img src="img/4.jpg" alt="老刘"></li>
+           <li class="swiper-item"><img src="img/5.jpg" alt="老刘"></li>
+        </ul>
+        <div class="pagation">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <div id="content">
+        <img src="img/content.png" alt="老刘">
+    </div>
+
+    <script src="js/transformcss.js"></script>
+    <script>
+        (function () {
+            // 获取元素
+            var swiper = document.querySelector('#mySwiper');
+            var swiperWrapper = swiper.querySelector('.swiper-wrapper');
+            var swiperItems = swiper.querySelectorAll('.swiper-item');
+            var pagation = swiper.querySelector('.pagation');
+            var pagationItems = pagation.querySelectorAll('span');
+            var index = 0;  //表示轮播图的索引
+            var itemLength = swiperItems.length; // 为克隆前， 轮播项目的数量
+            var duration = 5000;  //轮播的时间间隔
+
+            // 把所有的图片克隆一份加入 swiperWrapper
+            swiperWrapper.innerHTML += swiperWrapper.innerHTML;
+            // 重新获取轮播图项目的集合
+            swiperItems = swiper.querySelectorAll('.swiper-item');
+
+
+            // 动态的设置swiperWrapper和swiperItem的宽度
+            swiperWrapper.style.width = swiperItems.length * 100 + '%';
+            swiperItems.forEach(function (swiperItem) {
+                swiperItem.style.width = 100 / swiperItems.length + '%';
+            });
+
+
+
+
+            // swiperWrpper可以被拖动
+            // 手指按下
+            swiper.addEventListener('touchstart', function (event) {
+                // 去掉过渡
+                swiperWrapper.style.transition = 'none';
+
+                // 关闭定时器
+                clearInterval(intervalId);
+
+                // 如果此时索引是0 刷的一下，变为索引是 itemLength
+                if (index <= 0) {
+                    index = itemLength;
+                    transformCss(swiperWrapper, 'translateX', -index * swiper.clientWidth)
+                } else if (index >= swiperItems.length - 1) {
+                    index = itemLength - 1;
+                    transformCss(swiperWrapper, 'translateX', -index * swiper.clientWidth)
+                }
+
+                // 获取触点对象
+                var touch = event.changedTouches[0];
+                // 获取触点的初始位置 水平方向
+                this.startX = touch.clientX;
+                // 获取触点的初始位置 垂直方向
+                this.startY = touch.clientY;
+                // 获取swiperWrapper的初始位置
+                this.eleX = transformCss(swiperWrapper, 'translateX');
+                //设置滑动距离的初始值
+                this.dstX = 0;
+                // 计算开始触摸时的时间
+                this.startTime = (new Date).getTime();
+            });
+            // 手指移动
+            swiper.addEventListener('touchmove', function (event) {
+                // 获取触点对象
+                var touch = event.changedTouches[0];
+                // 获取触点此时的位置 水平方向
+                var endX = touch.clientX;
+                // 获取触点此时位置 垂直方向
+                var endY = touch.clientY;
+                //计算手指滑动的距离 水平方向
+                this.dstX = endX - this.startX;
+                // 计算手指滑动距离 垂直方向
+                var dstY = endY - this.startY;
+                //判断用户是水平滑动还是垂直滑动
+                if (Math.abs(dstY) > Math.abs(this.dstX)) {
+                    // 判定用户是垂直滑动
+                    this.dstX = 0; //清空水平方向的滑动距离
+                    return;
+                }
+
+                // 计算swiperWrapper的位置
+                transformCss(swiperWrapper, 'translateX', this.eleX + this.dstX);
+                //  阻止垂直方向的滑动
+                event.preventDefault();
+            });
+            //手指离开
+            swiper.addEventListener('touchend', function () {
+                // 添加过渡
+                swiperWrapper.style.transition = 'transform .5s';
+
+                // 获取触摸结束时的时间
+                var endTime = (new Date).getTime();
+                // 计算时间间隔
+                var dstTime = endTime - this.startTime;
+
+                // 判断时间间隔
+                if (dstTime < 300) { // 用户滑得快
+                    if (this.dstX < 0) { //下一张 从右往左
+                        index ++;
+                    } else if (this.dstX > 0) { // 上一张
+                        index --;
+                    }
+                } else {  //用户滑得慢
+                    // 判断上一张下一张 当前张
+                    index = -Math.round(transformCss(swiperWrapper, 'translateX') / swiper.clientWidth);
+                }
+
+                // 设置位置
+                setSwiper(index);
+
+                // 开启定时器
+                intervalId = setInterval(runPlay, duration);
+            });
+
+            // 定时轮播
+            var intervalId = setInterval(runPlay, duration);
+            
+            // swiperWrapper过渡完成之后
+            swiperWrapper.addEventListener('transitionend', function () {
+                // 等到过渡结束之后再判断
+                if (index >= swiperItems.length - 1) {
+                    //快速切换至 itemLength-1
+                    index = itemLength - 1;
+                    swiperWrapper.style.transition = 'none';
+                    setSwiper(index);
+                }
+            });
+
+            /**
+             * 定时器函数
+             * */
+            function runPlay(){
+                // 索引值+1
+                index ++;
+                // 添加过渡效果
+                swiperWrapper.style.transition = 'transform .5s';
+                setSwiper(index);
+            }
+
+            /**
+             * 设置ul的位置和按钮高亮
+             * */
+            function setSwiper(m){
+                // 设置swiperWrapper的位置
+                var translateX = -m * swiper.clientWidth;
+                transformCss(swiperWrapper, 'translateX', translateX);
+
+                // 对应的控制按钮高亮
+                pagationItems.forEach(function (pagationItem) {
+                    pagationItem.classList.remove('active');
+                });
+                pagationItems[m%itemLength].classList.add('active');
+            }
+
+        })();
+    </script>
+</body>
+</html>

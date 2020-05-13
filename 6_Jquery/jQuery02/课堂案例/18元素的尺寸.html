@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <style>
+        .container {
+            position: relative;
+            margin: 100px auto;
+            overflow:hidden;
+        }
+        #box {
+            margin: 10px;
+            width: 400px;
+            height: 300px;
+            padding: 20px;
+            border: 2px solid #f90;
+        }
+    </style>
+</head>
+<body>
+    <button>设置元素大小</button>
+    <div id="box"></div>
+
+
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+
+            console.log($('#box').width(), $('#box').height());  //内容大小
+            console.log($('#box').innerWidth(), $('#box').innerHeight());  //内容大小+padding大小
+            console.log($('#box').outerWidth(), $('#box').outerHeight());  //内容大小+padding大小+border大小
+
+
+            $('button').click(function(){
+                //$('#box').width(500);
+                //$('#box').innerWidth(500);
+                $('#box').outerWidth(500);
+                console.log($('#box').outerWidth());
+            })
+        });
+    </script>
+</body>
+</html>

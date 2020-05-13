@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击切换</title>
+    <style>
+        .wrapper {
+            margin: 100px auto;
+            width: 730px;
+        }
+        .wrapper img {
+            display: block;
+        }
+        .banner {
+            position: relative;
+            width: 750px;
+            height: 454px;
+        }
+        .banner img{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .banner img:first-child {
+            z-index: 1;
+        }
+        .banner img:target {
+            z-index: 2;
+        }
+
+
+        .icons a {
+            float: left;
+            width: 146px;
+            height: 91px;
+        }
+        .icons a img {
+            width: 146px;
+            height: 91px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="banner">
+            <img src="../images/jd001.jpg" alt="老刘" id="firstImage">
+            <img src="../images/jd002.jpg" alt="老刘" id="secondImage">
+            <img src="../images/jd003.jpg" alt="老刘" id="thirdImage">
+            <img src="../images/jd004.jpg" alt="老刘" id="forthImage">
+            <img src="../images/jd005.jpg" alt="老刘" id="fifthImage">
+        </div>
+        <div class="icons">
+            <a href="#firstImage"><img src="../images/jd001.jpg" alt="老刘"></a>
+            <a href="#secondImage"><img src="../images/jd002.jpg" alt="老刘"></a>
+            <a href="#thirdImage"><img src="../images/jd003.jpg" alt="老刘"></a>
+            <a href="#forthImage"><img src="../images/jd004.jpg" alt="老刘"></a>
+            <a href="#fifthImage"><img src="../images/jd005.jpg" alt="老刘"></a>
+        </div>
+    </div>
+</body>
+</html>

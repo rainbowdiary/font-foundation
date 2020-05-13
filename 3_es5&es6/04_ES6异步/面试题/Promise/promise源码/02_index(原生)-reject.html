@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="./02_Promise(自定义)/lib/02_Promise.js"></script>
+</head>
+
+<body>
+
+</body>
+<script>
+  /* 
+  问题:
+    then什么时候被调用？
+      then先调用还是exec先调用
+    第一个new Promise的exec先调用
+    then方法调用的时候，返回一个new Promise ，then新的的exec继续被调用
+
+源码解析步骤:
+1. new Mypromise state=pending value=undefined
+2. exec()执行器执行； console.log(a)报错 ，state=REJECT,value="a is not defined" callbacks=[onReject]被注册到异步队列[]中
+3. return1 不管，忽略没有接
+4. then() 
+5. then return new ThenReturnPromise： state=pending value=undefined  callbacks=[]
+6. ThenReturnPromise exec()
+	7. 前一个promise状态为reject
+	8. 将onReject
+		setTimeout(function(){
+			handleResult(onReject)
+		},0)
+	9.执行handleResult(onReject)
+		var result = callBack() 
+		//callbacks=undefined
+		//result=undefined
+		catch(e){
+			reject()
+		}
+	10. 执行reject()
+		that.callBacks为空
+11.then return new ThenReturnPromise的执行器也执行完毕
+12.console.log(result);
+  */
+
+  const result = new MyPromise((resolve, reject) => {
+    console.log(a);
+    //3. resolve被调用状态确认，then的onResolve回调被注册到异步队列,V8有空就执行
+    resolve(0)
+    // 
+    return 1;
+  }) //2. 调用then方法，promise状态初始化为pending的时候，onResolve函数同步持有，还没有被放到队列中
+    .then(() => {
+      console.log(111);
+    })
+
+  console.log(result); //Promise {<pending>}
+
+</script>
+
+</html>

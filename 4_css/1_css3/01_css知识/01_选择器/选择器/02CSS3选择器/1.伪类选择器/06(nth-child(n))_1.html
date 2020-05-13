@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* :nth-child(1) 要么子元素 元素类型相同
+                     要么子元素 class类相同
+     */
+    #d>div:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      background-color: yellow;
+    }
+
+    #d>div:nth-child(2) {
+      width: 100px;
+      height: 100px;
+      background-color: green;
+    }
+
+    #d>div:nth-child(3) {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="d">
+    <div id="d1">1</div>
+    <div id="d2">2</div>
+    <div id="d3">3</div>
+  </div>
+
+
+  <script>
+
+  </script>
+</body>
+
+</html>

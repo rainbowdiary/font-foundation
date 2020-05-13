@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 300px;
+				height: 100px;
+				border: 1px solid #000;
+			}
+			
+			li {
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		程序员商品:
+		<ul>
+			<li>笔记本</li>
+			<li>假发</li>
+			<li>帽子</li>
+			<li>格子衬衫</li>
+			<li>充气娃娃</li>
+		</ul>
+		购物车:
+		<div id="car"></div>
+		<script type="text/javascript">
+			var lis = document.getElementsByTagName('li');
+			var car = document.getElementById('car');
+			var str = '';
+			for(var i = 0; i < lis.length; i++) {
+				lis[i].onclick = function() {
+					//读取li的内容
+					str += getTextContent(this)+'   ';
+					console.log(str);
+					//将内容设置到car的内容
+					setTextContent(car,str);
+				}
+			}
+
+			/**
+			 * 兼容性封装设置元素的内容
+			 * @param {元素对象} obj
+			 * @param {文本内容} txt
+			 */
+			function setTextContent(obj, txt) {
+				if(obj.textContent != undefined) {
+					//高级
+					obj.textContent = txt;
+				} else {
+					obj.innerText = txt;
+				}
+			}
+
+			/**
+			 * 兼容性封装读取元素内容
+			 * @param {元素对象} obj
+			 */
+			function getTextContent(obj) {
+				//高级浏览器
+				if(obj.textContent != undefined) {
+					//alert('高级');
+					return obj.textContent;
+				} else {
+					//低版本
+					//alert('垃圾');
+					return obj.innerText;
+				}
+
+			}
+		</script>
+	</body>
+
+</html>

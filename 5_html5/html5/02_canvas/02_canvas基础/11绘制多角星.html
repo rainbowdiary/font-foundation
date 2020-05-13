@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        canvas {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+
+        // 获取canvas元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        // 绘制多边形
+        //poly(ctx, 400, 300, 100);
+       // poly(ctx, 400, 300, 100, 10, 6, 'green', 'red');
+
+        //star(ctx, 400, 300, 100, 40);
+        star(ctx, 400, 300, 100, 60, 26, 6, 'yellow', 'red');
+
+
+        /***
+         * 绘制多边形
+         * @param ctx 绘图环境
+         * @param x,y 图像的中心点坐标
+         * @param r1   中心点距离远端点的位置
+         * @param r2   中心点距离近端点的位置
+         * @param count   边数 默认5
+         * @param strokeWidth 描边宽度
+         * @param strokeColor 描边颜色
+         * @param fillColor 填充颜色
+         */
+        function star(ctx, x, y, r1, r2, count=5, strokeWidth=2, strokeColor = '#000', fillColor = 'transparent') {
+            // 开启路径
+            ctx.beginPath();
+            // 循环绘制路径
+            for (var i = 0; i < count; i ++) {
+                // 计算角度
+                var a1 = (90 + i * (360 / count)) / 180 * Math.PI;  //远端角
+                var a2 = (90 + (360 / count / 2) + i * (360 / count)) / 180 * Math.PI;  //远端角
+                // 计算每个断点的坐标
+                var x1 = x + Math.cos(a1) * r1;  //计算远端点的坐标
+                var y1 = y - Math.sin(a1) * r1;
+                var x2 = x + Math.cos(a2) * r2;  //计算近端点的坐标
+                var y2 = y - Math.sin(a2) * r2;
+                // 绘制连接点
+                ctx.lineTo(x1, y1);
+                ctx.lineTo(x2, y2);
+            }
+            // 闭合路径
+            ctx.closePath();
+
+            // 描边填充
+            ctx.lineWidth = strokeWidth;
+            ctx.strokeStyle = strokeColor;
+            ctx.fillStyle = fillColor;
+
+            ctx.fill();
+            ctx.stroke();
+
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

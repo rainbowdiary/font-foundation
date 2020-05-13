@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+        1. new Promise
+        2. 执行器执行完毕  第一个定时器执行 它的回调被注册
+        3. 返回第一个pending状态的promise
+        4. 调用第一个then方法 then方法对应的回调被注册
+        5. 返回第二个pending状态的promise
+        6. 调用第二个then方法 then方法对应的回调被注册
+
+        第一个定时器时间到达 塞入异步队列 v8有空 轮询队列  第一个定时器的回调被执行
+        第一个promise的状态从 pending 变为 resolved
+        第一个then方法对应的第一个回调参数被执行 第二个定时器被执行 对应的定时器的回调被注册
+        第二个promise的状态从 pending 变为 resolved 第二个then方法对应的回调被执行
+        输出-----
+
+        第二个定时器的时间到达    入异步队列 v8有空 轮询队列  第二个定时器的回调被执行
+    */
+
+
+    // es6所有的异步方案 : 使用同步的编程思想 书写 异步的代码
+    new Promise(function (resolve,reject ) {
+        setTimeout(function (flag) {
+            if(flag){
+                console.log("第一次数据获取成功")
+                resolve()
+            }else{
+                console.log("第一次数据获取失败")
+                reject()
+            }
+        },1000,true)
+    }).then(function (resolve) { //promise pendng -> resolve  定时器刚刚被注册完,返回undefined的值
+        setTimeout(function (flag) {
+            if(flag){
+                console.log("第一次数据获取成功")
+                resolve()
+            }else{
+                console.log("第一次数据获取失败")
+                reject()
+            }
+        },1000,true)
+    }).then(function () { //第二个第三个定时器同时注册,同时输出
+        setTimeout(function (flag) {
+            if(flag){
+                console.log("第一次数据获取成功")
+                resolve()
+            }else{
+                console.log("第一次数据获取失败")
+                reject()
+            }
+        },1000,true)
+    })
+</script>
+</html>

@@ -1,0 +1,17 @@
+
+###js
+        outinAn.js    出入场动画
+        biubiubiu.js  气泡效果
+
+        about.js      第四屏
+        frame.js      骨架代码   依赖于 outinAn.js
+        home.js       第一屏
+        team.js       第五屏     依赖于 biubiubiu.js
+        open.js       开机动画   依赖于 outinAn.js  home.js
+
+
+        resize.js   依赖于 frame.js
+
+
+
+

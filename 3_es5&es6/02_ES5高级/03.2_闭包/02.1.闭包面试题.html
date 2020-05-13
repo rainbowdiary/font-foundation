@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function fun(n, o) {
+      console.log(o)
+      return {
+        fun: function (m) {
+          return fun(m, n)
+        }
+      }
+    }
+    var a = fun(0) //闭包: n=0
+    a.fun(1)  //m=1 n=0闭包
+    a.fun(2) //m2 n=0闭包
+    a.fun(3) //undefined,0,0,0
+
+    /*
+    理解流程:
+      1. var a = fun(0)
+          执行fun(0)
+          fun(n=0,o=undefined)
+        --console.log(o=undefined)
+          return {fun:fn}
+          外层函数被调用解析到return，发现return内层函数有调用外层函数的变量，
+          ** 产生闭包存放在内存函数的作用域内([[Scopes]]: n=0)
+          a = {fun:fn(m){return fun(m=undefined,n=0闭包)}}
+      2. 执行a.fun(1)
+          执行fn(m){return fun(m=undefined,n=0闭包)}
+          fn(m=1){return fun(m=1,n=0闭包)}
+          执行return fun(m=1,n=0闭包)   m，n为实参，m为传入的实参1，n没有被传入，按照查找变量原则，找到闭包n=0
+          执行fun(m=1,n=0闭包) ，是一个递归函数
+          所以执行外面的function fun(n=1, o=0){console.log(o=0) return {}}
+        --console.log(o=0)
+          return {} 但是a.fun(1)没有接返回值，所以不管
+      3. 执行a.fun(2)
+          a还是第一步骤中a = {fun:fn(m){return fun(m=undefined,n=0闭包)}}
+          执行a.fun(2)
+          fn(m=2){return fun(m=2,n=0闭包)}
+          执行return fun(m=2,n=0闭包)
+          执行 fun(m=2,n=0闭包) 是递归，执行外面的function fun(n=2, o=0) {console.log(o=0) return {} }
+        --console.log(o=0)
+        return {} ；a.fun(2)没有接该返回值
+      4. a.fun(3)
+          同理传的都是m的值，输出的还是闭包console.log(o=0)
+        --console.log(o=0)
+     */
+
+    /*
+    知识点: 递归，闭包
+    fun被调用4次，
+    产生闭包n=0
+    每次a.fun()都是去递归打印闭包n的值
+     */
+  </script>
+</body>
+
+</html>

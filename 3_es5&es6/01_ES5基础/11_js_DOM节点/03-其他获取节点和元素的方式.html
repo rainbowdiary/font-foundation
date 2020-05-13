@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="box">
+		<!--范特西-->
+			<h1>周杰伦</h1>
+			<!--范特西-->
+			<ul id="list">
+				<li>双节棍</li>
+				<li>青花瓷</li>
+				<li id="li03">菊花台</li>
+				<li>发如雪</li>
+				<li>龙卷风</li>
+			</ul>
+			<h2>方文山</h2>
+		</div>
+
+		<script type="text/javascript">
+			/*
+			 * 第一个子节点:firstChild
+			 * 高级浏览器:
+			 * 元素  文本(内容或者空格或者换行) 注释
+			 * 低版本浏览器:
+			 * 元素 文本(不包含空格或者换行) 注释
+			 * 第一个子元素: firstElementChild
+			 * 高级浏览器: 元素
+			 * 低版本浏览器: 没有这个属性
+			 */
+			var box = document.getElementById('box');
+			var li03 = document.getElementById('li03');
+//			console.dir(box);
+			console.dir(box.firstChild);
+			console.log(box.firstElementChild);
+			
+			console.log('============其它获取节点和元素的方式,以下规则同上====================');
+			console.log(box.firstChild);//第一个子节点
+			console.log(box.firstElementChild);//第一个子元素
+			console.log(box.lastChild);//最后一个子节点
+			console.log(box.lastElementChild);//最后一个子节点
+			console.log(li03.nextSibling);//下一个兄弟节点
+			console.log(li03.nextElementSibling);//下一个兄弟元素
+			console.log(li03.previousSibling);//上一个兄弟节点
+			console.log(li03.previousElementSibling);//上一个兄弟元素
+		</script>
+	</body>
+
+</html>

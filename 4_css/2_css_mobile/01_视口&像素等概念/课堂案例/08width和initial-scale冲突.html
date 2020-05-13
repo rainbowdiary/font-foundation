@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>meta</title>
+    <meta name="viewport" content="width=device-width,initial-scale=0.5">
+    <style>
+        .box {
+            margin: 0 auto;
+            padding: 20px;
+            width: 300px;
+            height: 300px;
+            background: #f90;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <script>
+        var box = document.querySelector('.box');
+
+        setInterval(function () {
+            box.innerHTML = '布局视口宽：'+document.documentElement.clientWidth+'<br>';
+            box.innerHTML += '布局视口高：'+document.documentElement.clientHeight+'<br><br>';
+
+            box.innerHTML += '视觉视口宽：'+window.innerWidth+'<br>';
+            box.innerHTML += '视觉视口高：'+window.innerHeight+'<br>';
+        }, 200)
+
+
+    </script>
+</body>
+</html>

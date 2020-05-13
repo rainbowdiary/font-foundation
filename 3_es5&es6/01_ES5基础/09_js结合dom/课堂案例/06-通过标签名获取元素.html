@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<p id="p1">我是p标签</p>
+		<p id="p2">我是p标签</p>
+		<p title="">我是p标签</p>
+		<p>我是p标签</p>
+		<p>我是p标签</p>
+		<p>我是p标签</p>
+		<p>我是p标签</p>
+		<p>我是p标签</p>
+		<p>我是p标签</p>
+		<p>我是p标签</p>
+		<script type="text/javascript">
+			/*
+			 * document.getElementsByTagName('标签名'):通过标签名获取对象数组
+			 */
+			
+			//获取btn
+			var btn = document.getElementById('btn');
+			var p1 = document.getElementById('p1');
+			var p2 = document.getElementById('p2');
+			
+			var ps = document.getElementsByTagName('p');
+			console.log(ps[0]);
+			console.log(document.getElementsByTagName('p')[0]);
+			console.log(ps);
+			btn.onclick = function(){
+//				p1.innerText = '我是段落';
+//				p2.innerText = '我是段落';
+				
+				//通过数组名[索引]的方式设置每个对象的innerText
+//				ps[0].innerText = '我是段落';
+//				ps[1].innerText = '我是段落';
+				for (var i = 0; i < ps.length; i++) {
+					ps[i].innerText = '我是段落';
+				}
+			}
+		</script>
+	</body>
+</html>

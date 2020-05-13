@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+      宏:
+      微: 
+执行结果: 
+*/
+    Promise.resolve(1)
+      .then(2)  //不是函数，返回新promise，将前一个promise结果穿透，所以还是resolve(1)
+      .then(Promise.resolve(3))
+      .then(console.log)
+
+    /*
+    如果then第一个参数不是函数：
+      如果调用 then的 Promise 的状态（fulfillment 或 rejection）发生改变，
+      但是 then 中并没有关于这种状态的回调函数，
+      那么 then 将创建一个没有经过回调函数处理的新 Promise 对象，
+      这个新 Promise 只是简单地接受调用这个 then 的原 Promise 的终态作为它的终态
+    */
+  </script>
+</body>
+
+</html>

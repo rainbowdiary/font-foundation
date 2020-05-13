@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>媒体查询</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            box-sizing: border-box;
+            margin: 0 auto;
+            width: 1000px;
+            height: 300px;
+            background: pink;
+            padding: 20px;
+            font-size: 40px;
+            color: red;
+        }
+
+        /*>=640 并且 <=1024 视口宽度 */
+        /*@media (min-width: 640px) and (max-width: 1024px) {*/
+        /*    .box {*/
+        /*        background: red;*/
+        /*        color: #fff;*/
+        /*    }*/
+        /*}*/
+
+
+        /*<=640 或者 >=1024  */
+        @media (max-width: 640px),(min-width:1024px) {
+            .box {
+                background: blue;
+                color: #ff9900;
+            }
+        }
+
+        @media screen and (min-width:200px) {
+
+        }
+
+        @media only screen and (min-width:200px) {
+
+        }
+
+
+        @media not print {
+            .box {
+                border: 2px solid red;
+            }
+        }
+
+        @media only print {
+            .box {
+                font-size: 100px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        老刘啊老刘
+    </div>
+</body>
+</html>

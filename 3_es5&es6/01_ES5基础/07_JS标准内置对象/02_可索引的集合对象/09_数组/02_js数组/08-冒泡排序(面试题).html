@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var arr = [13, 41, 32, 25, 11];
+			// [13,32,25,11,41]
+			//轮数     行    轮数是元素的个数减1
+			for(var i = 0; i < arr.length - 1; i++) {
+				//比较次数   列    比较的次数随着每轮的增加而减少
+				for(var j=0;j<arr.length - 1-i;j++){
+					if(arr[j] > arr[j+1]){
+						//借助第三方变量交换
+						var temp = arr[j];
+						arr[j] = arr[j+1];
+						arr[j+1] = temp;
+					}
+				}
+			}
+			console.log(arr);
+			
+			
+			
+			
+			
+			//轮数     行
+//			for(var i = 0; i < arr.length - 1; i++) {
+//				//交换次数   列
+//				for(var j=0;j<arr.length - 1-i;j++){
+//					document.write('★');
+//				}
+//				document.write('<br/>');
+//			}
+		</script>
+	</body>
+
+</html>

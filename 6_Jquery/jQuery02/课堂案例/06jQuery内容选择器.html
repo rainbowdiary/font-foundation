@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器</title>
+	<style>
+		ul {
+			width: 600px;
+			list-style: none;
+		}
+		li {
+			margin-top: 10px;
+			padding: 20px;
+			border: 2px dotted #ccc;
+		}
+	</style>
+</head>
+<body>
+	<h1>jQuery选择器 -- 基本选择器</h1>
+	<hr>
+	<ul id="firstList">
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li class="item">Lorem ipsum dolor sit amet.</li>
+		<li></li>
+		<li>Lorem ipsum dolor sit amet.
+			<ul>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet. 你好</li>
+				<li class="item">Lorem ipsum dolor sit amet. 我有calss item</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+			</ul>
+		</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+		<p>Lorem ipsum dolor sit amet.</p>
+		<li>Lorem ipsum dolor sit amet.</li>
+	</ul>
+	
+	<hr>
+
+	<ul id="secondList">
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li lang="en">Lorem ipsum dolor sit amet.</li>
+		<li class="item">Lorem ipsum dolor sit amet.</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+	</ul>
+
+	<hr>
+
+	<ul>
+		<li>Lorem ipsum dolor sit amet.</li>
+	</ul>
+
+	<hr>
+
+	<p class="item">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, similique ex? Repudiandae aliquam nam voluptas, eius illo amet iste perspiciatis, nesciunt laudantium expedita doloribus numquam itaque quas, reprehenderit omnis magni.
+	</p>
+
+	<input type="hidden">
+
+	<input type="text" autofocus>
+
+	<script src="jquery-1.11.1.js"></script>
+	<script>
+		$(function () {
+			// 内容选择器
+			//$('li:contains("你好")').css('border', '2px solid red');
+			//$('li:empty').css('border', '2px solid red');
+			//$('li:parent').css('border', '2px solid red');
+			//$('li:not(".item")').css('border', '2px solid red');
+
+			// 匹配到 包含指定后代元素的 元素
+			$('li:has(".item")').css('border', '2px solid red');
+
+			console.log($('li').constructor);
+
+			console.dir($);
+
+		});
+	</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 面试题2： 怎么让上面的代码依次输出?  
+    改造代码： 使用定时器实现每隔一秒输出1，2，3，4，5
+     */
+
+    /* let */
+    // for (let i = 0; i < 6; i++) {
+    //   setTimeout(() => {
+    //     console.log(i);
+    //   }, i * 1000)
+    // }
+
+
+    /* var */
+    for (var i = 0; i < 6; i++) {
+      (function test(i) {
+        setTimeout(() => {
+          console.log(i);
+        }, i * 1000)
+      })(i)
+    }
+    /*
+    知识点: 定时器结合闭包
+    */
+  </script>
+</body>
+
+</html>

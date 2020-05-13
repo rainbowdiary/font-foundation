@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多重背景</title>
+    <style>
+        .box{
+            width:800px;
+            height:400px;
+            border:2px solid #ccc;
+
+            background: url('images/bg-tl.png') no-repeat left top,
+                        url('images/bg-tr.png') no-repeat right top,
+                        url('images/bg-bl.png') no-repeat left bottom,
+                        url('images/bg-br.png') no-repeat right bottom;
+        }
+    </style>
+</head>
+<body>
+<h1>多重背景图片</h1>
+<hr>
+
+<div class="box"></div>
+</body>
+</html>

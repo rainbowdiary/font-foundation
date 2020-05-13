@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 字符串类型(string): '哈哈'  '520abc'
+			 * 其它语言中java:
+			 * char c1 = 'a';
+			 * string str01 = '520abc';
+			 * 
+			 * 字符串类型的数据,当是数字的时候,在做减乘除的运算时,会隐式的将
+			 * 数据转换成数值类型的数据,再进行数据运算,得到的结果是数值类型的数据
+			 * 字符串类型的数据在做相加操作时,永远都是拼接,得到的结构永远是字符串
+			 * 字符串可以根据length属性获取字符串的长度,空格也算一个长度,当连一个空格
+			 * 都有没的时候,称为空字符串,空字符串的长度是0
+			 * 
+			 * 布尔类型中的true转换成数值是1,false是0
+			 */
+			var str01 = '10';
+			var str02 = '下午上课一点都不困,abc520 ';
+			var str03 = '';
+			console.log(str02.length);
+			console.log(str03.length);
+			console.log('哈哈');
+			console.log('5' - 3);
+			console.log('5' - '3');
+			console.log('5' * '3');
+			console.log('5' / '3');
+			console.log('哈哈' - 3); //NaN   not a number	
+			console.log('哈哈' * '3'); //NaN   not a number	
+			console.log('5哈' * 2); //NaN   not a number	
+			console.log(true - 5);
+			console.log(str01 - '2');
+			console.log('5' + '20');
+			console.log('哈哈' + 5);
+			console.log('5' + true);
+			// 
+			console.log(1 + 1);
+			console.log('10' - true + true); //10
+			console.log('哈哈' + 5 * true); //'哈哈5'
+			console.log('哈哈' - '5' * '3'); //NaN
+			console.log('哈哈' + '哈哈' * 2); //NaN  '哈哈' '哈哈NaN'
+			var num03;
+			console.log(10 - num03); //NaN
+			console.log(10 + ('哈哈' + num03)); //'10哈哈undefined'
+			console.log(10 + ('5' + 'true')); //105true
+			console.log(10 + ('5' - 'true')); //NaN
+			console.log('10' + ('5' - 'true')); //10NaN
+			console.log(num03 + ('5' + true)); //undefined5true
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location对象</title>
+</head>
+<body>
+
+    <button id="btn1">设置location</button>
+
+    <br>
+    <br>
+
+    <button id="btn2">reload刷新</button>
+    <button id="btn3">assign</button>
+    <button id="btn4">replace</button>
+
+    <script>
+        var btn1 = document.getElementById('btn1');
+        var btn3 = document.getElementById('btn3');
+        var btn4 = document.getElementById('btn4');
+
+        btn1.onclick = function(){
+            //location.port = 8080;
+            //location.protocol = 'https:';
+
+            // 设置页面跳转
+            //location.href = 'https://www.baidu.com';
+            //location = 'http://www.atguigu.com';  // 直接设置location
+            location = './03history对象.html';
+        };
+
+        btn3.onclick = function(){
+            location.assign('03history对象.html');   // 会把新的页面加入到历记录中
+        };
+
+        btn4.onclick = function(){
+            location.replace('03history对象.html');  // 不会把新页面加入到历史记录中
+        };
+
+
+
+
+
+        console.log(location);
+        console.log('完整的URLhref : ' + location.href);
+        console.log('协议 : ' + location.protocol);
+        console.log('主机名 : ' + location.hostname);
+        console.log('端口 : ' + location.port);
+        console.log('主机名+端口 : ' + location.host);
+        console.log('pathname : ' + location.pathname);
+        console.log('search : ' + location.search);
+        console.log('hash : ' + location.hash);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.one{
+				width: 200px;
+				height: 200px;
+				background: yellowgreen;
+				margin: 0 auto;
+				border:5px solid blue;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<div id="box"></div>
+		<script type="text/javascript">
+			/*
+			 * 设置标签的类名: 由于在js中class是类的关键字,所以在设置标签类名的
+			 * 属性时是className
+			 */
+			var btn = document.getElementById('btn');
+			var box = document.getElementById('box');
+			btn.onclick = function(){
+				box.className = 'one';
+			}
+		</script>
+	</body>
+</html>

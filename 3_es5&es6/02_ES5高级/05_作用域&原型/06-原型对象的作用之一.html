@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 原型对象的作用之一: 原型对象是一个公共的存储空间,可以把一些公共的属性和方法,定义
+			 * 到原型对象中,当实例对象要调用时,直接来原型对象中调用,实现资源的共享,节省空间
+			 */
+			
+			
+			// window对象下的方法aaa, 所有的方法都定义到window对象下,不合适,会造成方法的不明确,
+			//会造成命名冲突
+//			function bit(){
+//				console.log('aaa打坏人..');
+//			}
+//			window.aaa();
+			function HunPerson(name,color,gender){
+				this.name = name;
+				this.color = color;
+//				this.gender = gender;
+//				this.bit = function(){
+//					alert('打坏人..');
+//				}
+//				this.bit = bit;
+			}
+			// 将bit方法定义到原型对象中
+			HunPerson.prototype.bit = function(){
+				console.log('原型对象中的bit');
+			}
+			HunPerson.prototype.gender = '男';
+			var xiaolan = new HunPerson('小兰','blue');
+			var xiaohong = new HunPerson('小红','red');
+			
+			xiaolan.bit();
+			console.log(xiaolan.gender);
+			console.log(xiaolan.bit == xiaohong.bit);
+			
+			console.log(xiaolan);
+//			function offer(){
+//				alert(1);
+//			}
+//			window.offer();
+		</script>
+	</body>
+</html>

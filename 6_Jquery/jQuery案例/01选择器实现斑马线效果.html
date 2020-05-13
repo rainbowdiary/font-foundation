@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery选择器实现斑马线效果</title>
+    <style>
+        table {
+            width: 800px;
+            border-collapse: collapse;
+        }
+        td,th {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            text-align: left;
+            border-bottom-width: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery选择器实现斑马线效果</h1>
+    <table>
+        <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>职业</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>李世民</td>
+            <td>39</td>
+            <td>皇帝</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>房玄龄</td>
+            <td>41</td>
+            <td>尚书左仆射</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>杜如晦</td>
+            <td>38</td>
+            <td>尚书右仆射</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>长孙无忌</td>
+            <td>54</td>
+            <td>中书令</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>魏征</td>
+            <td>45</td>
+            <td>门下侍中</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>秦叔宝</td>
+            <td>39</td>
+            <td>左武卫大将军</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>尉迟敬德</td>
+            <td>38</td>
+            <td>右武卫大将军</td>
+        </tr>
+    </table>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+           $('tr:odd').css('background-color', "#eee");
+        });
+    </script>
+
+</body>
+</html>

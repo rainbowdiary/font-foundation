@@ -1,0 +1,129 @@
+//公共样式
+@import "./reset/reset.less";
+@import "./extend/extend.less";
+@import "./mixin/mixin.less";
+
+//业务样式
+@import "./business/about.less";
+@import "./business/course.less";
+@import "./business/home.less";
+@import "./business/team.less";
+@import "./business/works.less";
+@import "./business/open.less";
+
+//骨架样式
+#wrap{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .head{
+    //流体布局
+    width: 100%;
+    background: white!important;
+    .head-main{
+      //固定布局
+      position: relative;
+      width: 1100px;
+      height: 80px;
+      margin: 0 auto;
+      .logo{
+        display: inline-block;
+        margin-top: 30px;
+      }
+      .nav{
+        float: right;
+        margin-top: 50px;
+        & > li{
+          float: left;
+          margin-left: 40px;
+          color: #11A0DF;
+          a{
+            position: relative;
+            .down{
+              transition: 1s width;
+              overflow: hidden;
+              width: 0;
+              color: black;
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+          }
+          &:hover .down{
+            width: 100%;
+          }
+        }
+      }
+      .arrow{
+        transition: 1s left;
+        width: 21px;
+        height: 11px;
+        position: absolute;
+        z-index: 9;
+        left: 50%;
+        top: 80px;
+        background: url("../img/arrow.png") no-repeat;
+      }
+    }
+  }
+  .content{
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 80px;
+    bottom: 0;
+    background: gray;
+    & > .list{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transition: 1s top;
+      & > .item{
+        overflow: hidden;
+        position: relative;
+        background-position: 50% 50% !important;
+        & > div{
+          .V-H-Center();
+          width: 1100px;
+          height: 520px;
+        };
+        &:nth-child(1){
+          background: url("../img/bg1.jpg") no-repeat;
+        }
+        &:nth-child(2){
+          background: url("../img/bg2.jpg") no-repeat;
+        }
+        &:nth-child(3){
+          background: url("../img/bg3.jpg") no-repeat;
+        }
+        &:nth-child(4){
+          background: url("../img/bg4.jpg") no-repeat;
+        }
+        &:nth-child(5){
+          background: url("../img/bg5.jpg") no-repeat;
+        }
+      }
+    }
+    .points{
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      z-index: 10;
+      & > li{
+        width: 15px;
+        height: 15px;
+        margin-top: 5px;
+        border-radius:50% ;
+        border: 2px solid pink;
+        &.active{
+          background: white;
+        }
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    const foo = function  (a,arr){
+        this.a = a
+        this.arr = arr
+        console.log(1)
+        console.log(a == arr)
+    }
+    foo.prototype.foo = function (a,b){
+        console.log(2)
+        return a == b
+    }
+    foo.prototype.sum = function (){
+        console.log(3)
+        return this.a == this.arr
+    }
+    foo.sum = function (a,b){
+        console.log(4)
+        return a == b
+    }
+
+    console.log(foo.sum())
+    let fooObj = new foo(false,[])
+    let fooObj2 = new foo(null,[])
+    console.log(fooObj.foo({},''))
+    console.log(fooObj.foo({},{}))
+    console.log(fooObj.sum())
+    foo(NaN,NaN)
+
+    foo(NaN,NaN) || fooObj.foo([],0)
+    fooObj.foo([],0) || foo(NaN,NaN)
+    foo(NaN,NaN) && fooObj.foo([],0)
+    fooObj.foo([],0) && foo(NaN,NaN)
+
+
+    //1 静态方法 foo是一个函数也是一个对象，因为js是动态语言 可以直接对象.属性 所以sum是foo对象里的方法 undefined == undefined  -> true
+    //2 new关键字 完成四件事 开辟空间给一个新对象 -> this设置成当前对象 -> 执行函数内部代码，设置对象的属性和方法值 -> 返回这个新对象 此时的foo就是构造函数 false == []  Number.([].valueOf().toString()) 结果是 0  false 在ToNumber规则下 也是0
+    //3  null == []  第一类和第二类==的结果是false  第一类 number string boolean object 第二类 null undefined
+    //4 此时调用的是fooObj里面的foo 首先在全局的foo中去找有没有foo -> 没有，就通过__proto__ 去构造函数的prototype原型对象中去找foo
+    //有foo这个方法 所以调用 {} == ''  根据转换规则 Number({}.valueOf().toString()) -> NaN  NaN == 0 -> false
+    //5 {} == {}  两个对象比较 比较的是内存中的地址值 这是两个对象 在堆内存中是两块空间 所以地址值肯定不同 -> false
+    //6 fooObj.sum() 里面的this指向fooObj这个对象 所以也就是创建fooObj时传入的参数 let fooObj = new foo(false,[])
+    //7 这里我们把foo当成是一个普通的函数直接去调用 里面就是console.log(a == arr) NaN 不等于 NaN -> false
+    // 短路或 ||  前面为true 不执行后面的  因为为true 整体结果就是true 没必要判断后面了
+    // 短路与 &&  前面为false 不执行后面的
+
+</script>
+</html>

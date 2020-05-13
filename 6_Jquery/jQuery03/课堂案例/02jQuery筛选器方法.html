@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery筛选器</title>
+	<style>
+		ul {
+			width: 600px;
+			list-style: none;
+		}
+		li {
+			margin-top: 10px;
+			padding: 20px;
+			border: 2px dotted #ccc;
+		}
+	</style>
+</head>
+<body>
+	<h1>jQuery筛选器</h1>
+	<hr>
+	<ul id="firstList">
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li class="item">Lorem ipsum dolor sit amet.</li>
+		<li>Lorem ipsum dolor sit amet.
+			<ul>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li id="myLi">Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li class="item">Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+			</ul>
+		</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+		<p>Lorem ipsum dolor sit amet.</p>
+		<li>Lorem ipsum dolor sit amet.</li>
+	</ul>
+	
+	<hr>
+
+	<ul id="secondList">
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li lang="en">Lorem ipsum dolor sit amet.</li>
+		<li class="item">Lorem ipsum dolor sit amet.</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+	</ul>
+
+	<hr>
+
+	<ul>
+		<li>Lorem ipsum dolor sit amet.</li>
+	</ul>
+
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script>
+		$(function () {
+
+			//$('li').first().css('border', '2px solid red');
+			//$('li').filter('.item').css('border', '2px solid red');
+			//$('li').not('.item').css('border', '2px solid red');
+
+			// 获取索引值是 3 4 5 6 的元素
+			//$('li').slice(3, 7).css('border', '2px solid red');
+			//$('li').slice(3).css('border', '2px solid red');
+
+			//查找
+			// $('#firstList').css('border', '2px solid red');
+			// $('#firstList').find('li').css('border', '2px solid green');
+			// $('#firstList').children('li').css('border', '2px solid green');
+
+			//$('#myLi').css('border', '2px solid red').parent().css('border', '2px solid blue');
+			$('#myLi').css('border', '2px solid red');
+			//$('#myLi').next().css('border', '2px solid green');
+			//$('#myLi').nextAll().css('border', '2px solid green');
+			$('#myLi').nextUntil('.item').css('border', '2px solid green');
+		});
+
+
+	</script>
+
+
+
+
+</body>
+</html>

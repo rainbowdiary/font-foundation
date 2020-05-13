@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        某大型互联网公司： http://www.atguigu.com:8080/movies/01001.html
+        我的网址： http://learn.fuming.site/index.html
+        这样一个值： https://122.234.120.90:8080/files/01.php 哈哈哈
+    </div>
+
+
+<script>
+
+    // 从content里面把所有的 url 都取出来
+
+    // 获取div中的内容
+    var content = document.getElementById('box').innerHTML;
+
+    // 定义正则 匹配URL 全局匹配
+    var pattern = /(http|https):\/\/([\w\.]+)(:\d{2,5})?\/(\S+)/g;
+
+
+    // 如果全局匹配，两个方法的结果不一样
+    console.log(pattern.exec(content));   // 无法全局匹配
+    console.log(content.match(pattern));  // 数组中每个匹配的结果
+
+
+</script>
+</body>
+</html>

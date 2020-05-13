@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+/*
+面试题来源:
+    https://github.com/ElviraD/Closure_Prototype/blob/master/closure.js
+
+有疑问的
+02:
+    1.31行函数内没有找到他会去函数调用fn()的前面去找,还是全局从上到下找
+    2.32行函数内的没有声明的表达式就是全局的
+06: 
+    2.形参默认在函数作用域内声明了var 形参名;  var a
+    3.形参是否不需要声明,随便给,跟右查询无关
+07: 
+    不理解 变量声明a 为什么 == 字符串 "a"
+09:
+    自调是否要提升;
+    自调是表达式, 表达式:function前面有括号或其他字符
+10: 
+    1.return b + a++; 
+    2.fn()(5) 是怎么调用的
+
+*/
+
+        {
+            // var b;
+            // if (!(b in window)) {
+            //     b = 1;
+            // }
+            // console.log(b)//undefined
+        }
+
+        {
+            var c = 1   //Uncaught SyntaxError: Identifier 'c' has already been declared
+            function c(c) {
+                console.log(c)
+                var c = 3
+            }
+            c(2)
+        }
+        // {
+        //     function c(c) {
+        //         console.log(c)
+        //         var c = 3
+        //     }
+        //     // var c 
+        //     c = 1   //Uncaught SyntaxError: Identifier 'c' has already been declared
+        //     c(2)
+        // }
+    </script>
+</body>
+
+</html>

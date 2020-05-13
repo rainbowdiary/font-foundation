@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多列</title>
+    <style>
+        .article {
+            margin: 50px auto;
+            padding: 20px;
+            width: 800px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px #ccc;
+
+            /*多列*/ /*两个一起设置 谁计算出来的列数少，按照哪一个*/
+            /*column-width: 200px;*/
+            /*column-count: 3;*/
+            columns: 100px 3;
+
+            /*设置列间距*/
+            column-gap: 20px;
+
+            /*列与列之间的边框*/
+            column-rule: 1px dashed #ccc;
+        }
+
+        .article h1 {
+            /*设置横跨所有的列*/
+            column-span: all;
+            text-align: center;
+        }
+
+        .article p:nth-of-type(2) {
+            /*-webkit-column-break-before: always;*/
+            /*-webkit-column-break-after: always;*/
+        }
+        .article p:nth-of-type(3) {
+            /*-webkit-column-break-inside: avoid;*/
+
+        }
+    </style>
+</head>
+<body>
+    <div class="article">
+        <h1>震惊！老刘</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores aut excepturi magni nostrum praesentium reiciendis. A amet aperiam at consectetur corporis culpa cum deserunt dolor esse maxime molestias, pariatur placeat!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur consequuntur dolor exercitationem incidunt inventore magni, perferendis porro quia sequi voluptate.</p>
+        <p>中宣部常务副部长王晓晖29日介绍，庆祝中华人民共和国成立70周年活动中，将在北京人民大会堂举行隆重颁授仪式，对在中国特色社会主义建设和保卫国家中作出重大贡献、建立卓越功勋、道德品质高尚、群众公认的杰出人士，在中国社会主义现代化建设和促进中外交流合作、维护世界和平中作出杰出贡献的外国人，在各领域各行业作出重大贡献、享有崇高声誉、道德品质高尚、群众公认的杰出人士，分别授予“共和国勋章”“友谊勋章”和国家荣誉称号。中华人民共和国主席习近平将亲自颁授勋章、奖章，签发证书。</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, expedita.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda at, corporis debitis dignissimos dolor doloremque ducimus eos est expedita iste laudantium libero mollitia nihil, quam quod reiciendis repellat voluptatum. Aut consectetur consequuntur cum debitis dolore error expedita ipsa iste laudantium minima molestias nemo nesciunt nostrum obcaecati odio officiis perferendis quidem repellat repellendus, reprehenderit repudiandae sapiente sit sunt unde vitae voluptate.</p>
+    </div>
+</body>
+</html>

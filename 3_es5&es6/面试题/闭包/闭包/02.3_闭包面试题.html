@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+    做JS面试题 一定要写步骤！！！！！！！！！！！很容易错
+     */
+    function fun(n, o) {
+      console.log(o)
+      return {
+        fun: function (m) {
+          return fun(m, n)
+        }
+      }
+    }
+
+    var c = fun(0).fun(1)  //undefined,0    return {fun: function (m) {return fun(m, n=0闭包)}}
+    c.fun(2)   //0 {fun: function (m) {return fun(m, n=0闭包)}}.fun(2) 
+    c.fun(3)   //0
+
+
+    /*
+    1. 
+      var c = fun(0).fun(1)
+      var c = fun(0)
+      var c = function(n=0,o=undefined){console.log(o=undefined) return {fun:fn(m){return fun(m=undefined,n=0闭包)}} }
+    --console.log(o=undefined)
+      执行return {fun:fn(m){return fun(m=undefined,n=0闭包)}}
+     **产生闭包n=0
+
+      var c = fun(0).fun(1)
+         {fun:fn(m){return fun(m=undefined,n=0闭包)}}.fun(1)
+         fn(m=1){return fun(m=1,n=0闭包)}} 递归函数，
+         function fun(n=1, o=0) {console.log(o=0),return {
+                                                      fun: function (m) {
+                                                        return fun(m, n=0闭包)
+                                                      }
+                                                    }}
+    --console.log(o=0)
+         执行return {fun: function (m) {return fun(m, n)} }
+     **产生闭包n=1
+        返回一个对象
+        所以
+        var c = {fun: function (m) {return fun(m, n=1)} }
+      
+    2.  c.fun(2)  
+      {fun: function (m) {return fun(m, n=1)} }.fun(2)
+      function (m=2) {return fun(m=2, n=1)}
+      function fun(n=2, o=1) {console.log(o=1); return {}}
+    --console.log(o=1);
+      但是没有接返回值
+    3. c.fun(3)
+     {fun: function (m) {return fun(m, n=1)} }.fun(3)
+      function (m=3) {return fun(m=3, n=1)} 
+      function fun(n=3, o=1) {console.log(o=1)}
+    --console.log(o=1)
+
+     */
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式图片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .banner {
+
+        }
+        .banner img {
+            display: block;
+            width: 100%;
+        }
+
+        .banner .large {
+            display: block;
+        }
+        .banner .middle {
+            display: none;
+        }
+        .banner .small {
+            display: none;
+        }
+
+        /*中等屏幕*/
+        @media (max-width: 1024px) {
+            .banner .large {
+                display: none;
+            }
+            .banner .middle {
+                display: block;
+            }
+            .banner .small {
+                display: none;
+            }
+        }
+
+        /*小屏幕*/
+        @media (max-width: 640px) {
+            .banner .large {
+                display: none;
+            }
+            .banner .middle {
+                display: none;
+            }
+            .banner .small {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <img src="img/homeImg.png" alt="老刘" class="large">
+        <img src="img/homeImgMiddle.png" alt="老刘" class="middle">
+        <img src="img/homeImgSmall.png" alt="老刘" class="small">
+    </div>
+</body>
+</html>

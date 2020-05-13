@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+        1. async & await的基本流程
+        2. async & await的异常处理
+        3. async & await的数据传递
+    */
+    (async function test() {
+        var data1 =   await new Promise(function (resolve,reject) {
+                    resolve(1)
+                })
+        var data2 =  await new Promise(function (resolve,reject) {
+                    resolve(2)
+                })
+        var data3 =  await new Promise(function (resolve,reject) {
+                    resolve(3)
+                })
+
+        console.log(data1,data2,data3)
+    })().catch(function (errMsg) {
+        console.log(errMsg)
+    })
+
+
+</script>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				background: pink;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="btn">读取</button>
+		<div id="box" style="width:500px;"></div>
+		<script type="text/javascript">
+			/*
+			 * getComputedStyle只能高级浏览器使用,ie低版本不能用
+			 * currentStyle ie浏览器都能使用
+			 * 解决方案:
+			 * 高级浏览器用getComputedStyle,id低版本currentStyle
+			 */
+			var btn = document.getElementById('btn');
+			var box = document.getElementById('box');
+			btn.onclick = function() {
+				//				console.log(box.style.width);
+				//				console.log(getComputedStyle(box).height);
+				//				console.log(box.currentStyle.width);
+				//				if(getComputedStyle == '报错'){
+				//					
+				//				}
+				//alert
+				//prompt
+				//				console.log(window.getComputedStyle);
+				//				if(window.getComputedStyle !=undefined){
+				//					alert('高级');
+				//				}else{
+				//					alert('辣鸡');
+				//				}
+				getStyle(box,'background-color');
+//				console.log(getComputedStyle(box));
+			}
+
+			/**
+			 * 兼容性封装读取元素的样式
+			 * @param {元素对象} obj
+			 * @param {css属性名} pro
+			 */
+			function getStyle(obj,pro) {
+				//var pro
+			//由于getComputedStyle只能高级浏览器使用,所以说在高级浏览器的window对象下有
+			//getComputedStyle的方法.在ie低版本由于不用使用getComputedStyle,说明在window下
+			//没有定义过getComputedStyle,此时如果不把window对象带上,此时会认为是一个没有声明
+			//过的属性或者方法,此时就报错了
+				if(window.getComputedStyle != undefined) {
+//					alert('高级');
+					console.log(window.getComputedStyle(obj)[pro]);
+				} else {
+//					alert('辣鸡');
+					console.log(obj.currentStyle[pro]);
+				}
+
+			}
+			
+			
+		</script>
+	</body>
+
+</html>

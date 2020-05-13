@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // es6所有的异步方案 : 使用同步的编程思想 书写 异步的代码
+    new Promise(function (resolve,reject ) {
+        reject("damu")
+    }).then(function (val) {
+        console.log(val)
+    },function (val) {
+        console.log(val)
+    })
+</script>
+</html>

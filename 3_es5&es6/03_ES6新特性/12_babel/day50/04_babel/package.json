@@ -1,0 +1,30 @@
+{
+  "name": "02_babel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel ./src/index.js -o ./dist/index.js",
+    "start": "webpack ./dist/index.js  ./dist/index2.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@59naga/babel-plugin-transform-array-from": "0.0.0",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/helper-module-imports": "^7.0.0",
+    "@babel/plugin-transform-object-assign": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/runtime": "^7.3.4",
+    "babel-plugin-transform-array-from": "^1.0.0",
+    "webpack": "^3.10.0"
+  },
+  "browserslist": [
+    "cover 99.5%"
+  ],
+  "dependencies": {}
+}

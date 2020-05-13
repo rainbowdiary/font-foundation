@@ -1,0 +1,33 @@
+//实现三角
+// 指定方向 left right up down
+.arrowBorder(@length) {
+  width: 0;
+  height: 0;
+  border-style:solid;
+  border-width: @length;
+}
+
+// 箭头向左
+.arrow(@length, @color, @direction) when(@direction=left) {
+  .arrowBorder(@length);
+  border-color: transparent @color transparent transparent;
+}
+// 箭头向右
+.arrow(@length, @color, @direction) when(@direction=right) {
+  .arrowBorder(@length);
+  border-color: transparent transparent transparent @color;
+}
+// 箭头向上
+.arrow(@length, @color, @direction) when(@direction=up) {
+  .arrowBorder(@length);
+  border-color: transparent transparent @color transparent;
+}
+// 箭头向下
+.arrow(@length, @color, @direction) when(@direction=down) {
+  .arrowBorder(@length);
+  border-color: @color transparent transparent transparent;
+}
+
+.box {
+  .arrow(20px, red, down);
+}

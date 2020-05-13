@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* for-in用来迭代可可迭代的对象，不是普通对象 */
+    for (let prop in ['a', 'b', 'c'])
+      console.log(prop);            // 0, 1, 2 (array indexes)
+
+    for (let prop in 'str')
+      console.log(prop);            // 0, 1, 2 (string indexes)
+
+    for (let prop in { a: 1, b: 2, c: 3 })
+      console.log(prop);            // a, b, c (object property names)
+
+    for (let prop in new Set(['a', 'b', 'a', 'd']))
+      console.log(prop);            // undefined (no enumerable properties)
+  </script>
+</body>
+
+</html>

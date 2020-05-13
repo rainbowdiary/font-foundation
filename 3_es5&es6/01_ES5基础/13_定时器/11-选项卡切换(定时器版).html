@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.box {
+				width: 1070px;
+				height: 530px;
+				/*background: pink;*/
+				margin: 100px auto;
+			}
+			
+			.box ul {
+				border: 1px solid #ccc;
+				overflow: hidden;
+				width: 320px;
+			}
+			
+			.box ul li {
+				float: left;
+				position: relative;
+			}
+			
+			.box ul li a {
+				display: block;
+				width: 80px;
+				height: 31px;
+				line-height: 31px;
+				border-top: 3px solid #fff;
+				text-align: center;
+				color: #000;
+				text-decoration: none;
+			}
+			
+			.box .current {
+				border-color: red;
+			}
+			
+			.box ul li span {
+				width: 1px;
+				height: 15px;
+				background: #CCCCCC;
+				position: absolute;
+				right: 0;
+				top: 12px;
+			}
+			
+			.box div {
+				border: 1px solid #ccc;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box" id="box">
+			<ul id="list">
+				<li>
+					<a href="##" class="current">女士精品</a>
+					<span></span>
+				</li>
+				<li>
+					<a href="##">国妆名牌</a>
+					<span></span>
+				</li>
+				<li>
+					<a href="##">男士精品</a>
+					<span></span>
+				</li>
+				<li>
+					<a href="##">清洁用品</a>
+				</li>
+			</ul>
+			<div style="display: block;">
+				<img src="img/01.jpg" alt="" />
+			</div>
+			<div>
+				<img src="img/02.jpg" alt="" />
+			</div>
+			<div>
+				<img src="img/03.jpg" alt="" />
+			</div>
+			<div>
+				<img src="img/04.jpg" alt="" />
+			</div>
+		</div>
+		<script type="text/javascript">
+			//获取list
+			var list = document.getElementById('list');
+			//获取box
+			var box = document.getElementById('box');
+			//获取所有的a
+			var ass = list.getElementsByTagName('a');
+			//获取所有div
+			var divs = box.getElementsByTagName('div');
+			//定时器
+			var timer = null;
+			//循环绑定事件a
+			for(var i = 0; i < ass.length; i++) {
+				//存编号
+				ass[i].num = i;
+				//移入事件
+				ass[i].onmouseover = function() {
+					//开启定时器,时间到达再执行
+					console.log(this);
+					//存储当前this指向的对象
+					var myThis = this;
+					timer = setTimeout(function() {
+						console.log(myThis);
+						//回调函数中的this指向的是window
+						//切换选项卡
+						//排它
+						//所有删除current类名
+						for(var i = 0; i < ass.length; i++) {
+							//排它a
+							ass[i].className = '';
+							//排它div
+							divs[i].style.display = 'none';
+						}
+
+						//自己有current
+						myThis.className = 'current';
+						//alert(this.num);
+						//显示和a标签编号相同的div
+						divs[myThis.num].style.display = 'block';
+					}, 300);
+				}
+				//鼠标移出
+				ass[i].onmouseout = function(){
+					//关闭定时器
+					clearTimeout(timer);
+				}
+			}
+		</script>
+	</body>
+
+</html>

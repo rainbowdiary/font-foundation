@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性操作</title>
+</head>
+<body>
+    <img src="images/1.jpeg" width="300" title="美图" id="myImage" loadpic="xiaoli">
+
+
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+      $(function () {
+          // 获取属性的值
+          console.log($('#myImage').attr('width'));
+          // 获取自定义属性
+          console.log($('#myImage').attr('loadpic'));
+
+          // 设置属性
+          $('#myImage').attr('width', 400);
+          $('#myImage').attr('data-name', 'dalili');
+
+          /*
+          * attr()的原理 就是 setAttribute() 和 getAttribute()
+          * */
+
+          // prop 操作内置属性
+          console.log($('#myImage').prop('src'));
+          console.log($('#myImage').prop('data-name'));
+          /**
+           * prop() 原理： dom.属性名  操作内置属性
+           * */
+
+
+          // 移出属性
+          $('#myImage').removeAttr('loadpic');  //可移出
+          $('#myImage').removeAttr('width'); //可移出
+
+          $('#myImage').removeProp('data-name'); //没用
+          $('#myImage').removeProp('src'); //  delete imgDom.src
+      })
+    </script>
+</body>
+</html>

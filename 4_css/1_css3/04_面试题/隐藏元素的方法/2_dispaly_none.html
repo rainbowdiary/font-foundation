@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 不占据文档流，他和他的子元素添加动画效果会失效 */
+    #wrap {
+      display: none;
+    }
+
+    #wrap:hover {
+      animation: show infinite 4s;
+    }
+
+    @keyframes show {
+      0% {
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 0.2;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrap">
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+  </div>
+  <div>2</div>
+</body>
+
+</html>

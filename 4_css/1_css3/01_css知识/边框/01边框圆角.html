@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>border-radius</title>
+	<style>
+		div{
+			width:300px;
+			height:100px;
+			border:1px solid red;
+
+		}
+		.circle{
+			width:400px;
+			height:400px;
+			border-radius: 200px;
+			background:yellow;
+		}
+
+	</style>
+</head>
+<body>
+	<h1>边框圆角 border-radius</h1>
+	<hr>
+	
+	<h2>普通的圆角</h2>
+	<div style="border-radius:10px"></div>
+
+	<h2>左上角</h2>
+	<div style="border-top-left-radius:20px"></div>
+
+	<h2>右上角</h2>
+	<div style="border-top-right-radius:20px"></div>
+
+	<h2>左左角</h2>
+	<div style="border-bottom-left-radius:20px"></div>
+	
+	<h2>右下角</h2>
+	<div style="border-bottom-right-radius:20px"></div>
+
+	<h2>四个角不一样</h2>
+	<div style="border-radius:20px 40px"></div>
+
+	<h2>四个角不一样</h2>
+	<div style="border-radius:20px 40px 10px"></div>
+
+	<h2>四个角不一样</h2>
+	<div style="border-radius:10px 20px 30px 40px"></div>
+
+	<hr>
+
+
+	<h2>x半径和y半径不一样</h2>
+	<div style="border-top-right-radius:40px 20px"></div>
+
+
+	<h2>子弹头</h2>
+<!--	<div style="border-top-right-radius:150px 50px;border-bottom-right-radius:150px 50px"></div>-->
+	<div style="border-radius: 0 150px 150px 0 / 0 50px 50px 0"></div>
+
+	<h2>同时设置多个角度</h2>
+	<div style="border-radius:150px/50px"></div>
+
+	<h2>同时设置多个角度</h2>
+	<div style="border-radius:20px 30px 40px 100px/10px 15px 20px 50px"></div>
+
+	<h2>圆</h2>
+	<div class="circle"></div>
+
+
+
+</body>
+</html>

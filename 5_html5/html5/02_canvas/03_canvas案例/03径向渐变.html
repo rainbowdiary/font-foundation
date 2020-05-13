@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+       canvas {
+           background: #ccc;
+       }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        // 获取画布元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+
+        // 创建一个径向渐变
+        var gradient = ctx.createRadialGradient(400, 300, 100, 400, 300, 200);
+        gradient.addColorStop(0, 'red');
+        gradient.addColorStop(.5, 'yellow');
+        gradient.addColorStop(1, 'black');
+
+        ctx.fillStyle = gradient;
+
+        // 绘制矩形
+        ctx.fillRect(0, 0, 800, 600);
+
+    </script>
+</body>
+</html>

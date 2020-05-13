@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery选择器</title>
+	<style>
+		ul {
+			width: 600px;
+			list-style: none;
+		}
+		li {
+			margin-top: 10px;
+			padding: 20px;
+			border: 2px dotted #ccc;
+		}
+	</style>
+</head>
+<body>
+	<h1>jQuery选择器 -- 基本选择器</h1>
+	<hr>
+	<ul id="firstList">
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li class="item">Lorem ipsum dolor sit amet.</li>
+		<li>Lorem ipsum dolor sit amet.
+			<ul>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+				<li>Lorem ipsum dolor sit amet.</li>
+			</ul>
+		</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+		<p>Lorem ipsum dolor sit amet.</p>
+		<li>Lorem ipsum dolor sit amet.</li>
+	</ul>
+	
+	<hr>
+
+	<ul id="secondList">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, sed!</p>
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+		<li lang="en">Lorem ipsum dolor sit amet.</li>
+		<li class="item">Lorem ipsum dolor sit amet.</li>
+		<li>Lorem ipsum dolor sit amet.</li>
+	</ul>
+
+	<hr>
+
+	<ul>
+		<li>Lorem ipsum dolor sit amet.</li>
+	</ul>
+
+	<hr>
+
+	<p class="item">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, similique ex? Repudiandae aliquam nam voluptas, eius illo amet iste perspiciatis, nesciunt laudantium expedita doloribus numquam itaque quas, reprehenderit omnis magni.
+	</p>
+
+
+	<script src="jquery-1.11.1.js"></script>
+	<script>
+		$(function () {
+			// 子元素选择器 过滤！！！！！
+			// 是不是兄弟元素中的第一个
+			//$('li:first-child').css('border', '2px solid red');
+			//$('li:last-child').css('border', '2px solid red');
+
+			// 从1开始的
+			//$('li:nth-child(2)').css('border', '2px solid red');
+			//$('li:nth-last-child(2)').css('border', '2px solid red');
+
+			//$('li:only-child').css('border', '2px solid red');
+
+
+
+			// 所有兄弟元素里面 同类型的第一个
+			$('li:first-of-type').css('border', '2px solid red');
+
+		});
+	</script>
+
+
+
+
+</body>
+</html>

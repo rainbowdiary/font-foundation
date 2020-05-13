@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var length = 10;
+    function fn() {
+      console.log(this.length);
+    }
+
+    var obj = {
+      length: 5,
+      method: function (fn) {
+        fn();  //被独立调用，this指向window，输出: 10 
+        arguments[0]();  //内联属性 相当于 arguments.fn() console.log(arguments.length)
+      }
+    };
+    obj.method(fn)  //10 1
+    obj.method(fn, 1); //10 2
+  </script>
+</body>
+
+</html>

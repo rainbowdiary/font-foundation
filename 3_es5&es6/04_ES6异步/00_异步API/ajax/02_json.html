@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    /*
+    *   json:javaScript对象表示法。是存储和交换文本信息的语法。它采用键值对的方式来组织。易于人们阅读和编写，同时也易于机器解析和生成。
+    *   json是独立于语言的，也就是说不管什么语言，都可以解析json，只需要按照json的规则来就行
+    *
+    *
+    *   json数据的书写格式是：名称/值对
+    *   {
+    *       "teacher":[
+    *           {"name":"damu1","age":18},
+    *           {"name":"damu2","age":18},
+    *           {"name":"damu3","age":18}
+    *       ]
+    *   }
+    *
+    *   json的值可以是下面这些类型
+    *       数字（整数 浮点数）
+    *       字符串（在双引号中）
+    *       逻辑值（true false）
+    *       数组（在[]内）
+    *       对象（在{}内）
+    *       null
+    * */
+
+   /*
+            JSON.parse()
+            jsonlint.com
+    */
+
+
+    //url:http://localhost:3000/news?id=1
+    //url:http://localhost:3000/comments?newsId=1
+    window.onload=function () {
+        var xhr;
+        if(window.XMLHttpRequest){
+            xhr = new XMLHttpRequest(); // IE7以上浏览器
+        }else {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");//IE5 IE6
+        }
+        xhr.open("get", "http://localhost:3000/comments?newsId=1");
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === 4 ) {
+                if(xhr.status === 200){
+                    //console.log(xhr.responseText)
+                    console.log(JSON.parse(xhr.responseText))
+                }else {
+                    console.log("error")
+                }
+            }
+        }
+        xhr.send();
+    }
+</script>
+</html>

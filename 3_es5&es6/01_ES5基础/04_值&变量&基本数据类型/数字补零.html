@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    /* 
+        重要api： 
+          split() 字符串转数组
+          join()  数组转字符串
+         */
+
+
+    /**
+    * 自定义函数名：PrefixZero
+    * @param num： 被操作数
+    * @param n： 固定的总位数
+    */
+    function PrefixZero(num, n) {
+      console.log(Array(n).join(0) + num);
+      return (Array(n).join(0) + num).slice(-n);
+    }
+
+    console.log(PrefixZero(999, 6));
+  </script>
+</body>
+
+</html>

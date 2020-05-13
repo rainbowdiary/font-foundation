@@ -1,0 +1,40 @@
+.news-list {
+  margin: 50px auto;
+  width: 700px;
+
+  ul {
+    list-style: none;
+    li {
+      border:1px solid #ccc;
+      padding: 20px;
+
+      >a {
+        color: #333;
+        text-decoration: none;
+      }
+      // & .news-list ul li
+      &:nth-child(odd) {
+        background: #f5f5f5;
+      }
+      &:nth-child(even) {
+        background: skyblue;
+      }
+      &:hover {
+        background: pink;
+        a {
+          color: #fff;
+        }
+      }
+    }
+
+
+    // & .news-list ul-.news-list ul-.news-list ul
+    &-&-& {
+      color: red;
+    }
+
+  }
+
+
+
+}

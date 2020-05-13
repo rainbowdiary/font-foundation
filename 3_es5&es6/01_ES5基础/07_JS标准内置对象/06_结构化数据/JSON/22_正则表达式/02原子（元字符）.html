@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原子</title>
+</head>
+<body>
+    <script>
+       // /hello,-我/
+
+        // 字符直接量
+        // 一个字母、一个标点符号、一个数字、一个汉字、一个空白字符（换行、tab） 都是一个原子
+        // 一个原子只能匹配一个字符
+        console.log(/a/.exec('apple'));
+        console.log(/,/.exec('apple,orange'));
+        console.log(/我/.exec('你和我心连心'));
+        console.log(/\n/.exec('你和我\n心连心'));
+        console.log('');
+
+
+        // 字符类
+        // 字符类可以匹配一类字符； 一个原子匹配一个字符
+        //  [abz] 匹配一个字符，这个字符可以是a,可以是b，也可以z
+        //  [a-z] 匹配26个字母中的任意一个
+        //  [a-zA-Z] 匹配26个字母中的任意一个
+        // [0-9ea]  匹配 0 ~ 9、e、a
+        // [^abz]  匹配除了a、b、z以外的所有字符 匹配一个
+       // [^a-zA-Z] 除了字母
+        console.log(/[abz]/.exec('banner'));
+        console.log(/[a-z]/.exec('Apple'));
+        console.log(/[a-zA-Z]/.exec('Apple'));
+        console.log(/[a-zA-Z]/.exec('10000'));
+        console.log(/[^abz]/.exec('banner'));
+        console.log(/[^a-zA-Z]/.exec('我和你心连心'));
+        console.log('');
+
+
+        // 特殊的字符类
+        // . 匹配除了换行符以外所有的字符     [^\n]
+        console.log(/./.exec('banner'));
+        console.log(/./.exec('apple'));
+        console.log(/./.exec('^&(*&(&'));
+        console.log(/./.exec('哈哈'));
+        console.log(/./.exec('\n'));
+
+
+        //  \w 匹配任意一个 数字、大小写字母、下划线      [0-9a-zA-Z_]
+        //  \W 匹配任意一个 除了数字、大小写字母、下划线 以外的字符  [^0-9a-zA-Z_]
+        console.log(/\w/.exec('+add'));
+        console.log(/\W/.exec('+add'));
+
+
+        // \d  匹配任意一个数字     [0-9]
+        // \D  匹配任意一个除了数字以外的字符  [^0-9]
+       console.log(/\d/.exec('app100'));
+       console.log(/\D/.exec('app100'));
+
+
+        // \s  匹配任意一个空白符    [\n\v\t\f ]
+        // \S  匹配任意除了空白符以外的字符   [^\n\v\t\f ]
+        console.log(/\s/.exec('hello world'));
+        console.log(/\s/.exec('hello\nworld'));
+        console.log();
+
+
+        // 匹配在正则里面具有特殊意义的字符 用反斜杠转义
+        console.log(/\./.exec('hello.world'));
+        console.log(/\/\//.exec('http://www.baidu.com'));
+
+
+
+
+
+
+    </script>
+</body>
+</html>

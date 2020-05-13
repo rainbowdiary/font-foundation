@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			console.log(Math.PI); //圆周率
+			console.log(Math.abs(-10)); //绝对值
+			console.log(Math.ceil(10.01)); //向上取整
+			console.log(Math.floor(10.99)); //向下取整   和parseInt()一样
+			console.log(Math.round(10.51)); //四舍五入
+			console.log(Math.max(5, 3, 8, 10, 1, 15));
+			console.log(Math.min(5, 3, 8, 10, 1, 15));
+			console.log(Math.random()); // 大于0,小于1的随机小数
+			function myMax() {
+				/*
+				 * arguments是一个数组,以数组的形式存储实际参数
+				 */
+				//				console.log(arguments);
+				//当前最大值
+				var max = arguments[0];
+				for(var i = 0; i < arguments.length; i++) {
+					if(max < arguments[i]) {
+						max = arguments[i];
+					}
+				}
+				return max;
+			}
+			//			myMax('哈哈',8,true);
+			console.log(myMax(5, 8, 3, 10, 20, 4));
+
+			console.log(Math.random()); // 大于0,小于1的随机小数
+			console.log(parseInt(Math.random() * 5)); // 
+			var arr = ["马萧", "韦丽枝", "梅剑伟", "陈则", "逯会芳", "彭琪", "朱亚男", "胥远康", "吴涛", "曾珍", "黄丽莉", "李岳阳", "师缓缓", "宋彬原", "胡锦霞",
+				"朱翊捷", "刘小红", "伍富平", "宋润宇", "汪甫杰", "张德", "汤闯", "靳东鹏", "李春洋", "晁晨新", "刘淦", "潘成远", "金旭", "顾家龙", "刘虎", "陈帅", "章海江", "朱杏杏", "朱晓艳"
+			];
+
+			var num = parseInt(Math.random() * arr.length); //0 1 2
+			alert(arr[num]);
+		</script>
+	</body>
+
+</html>

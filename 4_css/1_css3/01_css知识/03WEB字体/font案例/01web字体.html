@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手写WEB字体</title>
+    <style>
+        @font-face {
+            font-family: "laoliu";
+            src: url("fonts/FZSJ-WSMQSJW.woff2") format("woff2"),
+            url("fonts/FZSJ-WSMQSJW.woff") format("woff"),
+            url("fonts/FZSJ-WSMQSJW.ttf") format("truetype"),
+            url("fonts/FZSJ-WSMQSJW.eot") format("embedded-opentype"),
+            url("fonts/FZSJ-WSMQSJW.svg") format("svg");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .book {
+            margin: 20px auto;
+            padding: 40px;
+            width: 600px;
+            min-height: 800px;
+            font-family: 'laoliu';
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 40px;
+            background: repeating-linear-gradient(#fff 0, #fff 39px, #999 40px);
+            background-clip: content-box;
+            background-position: left -8px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px #ccc;
+        }
+        .book p:not(:first-child) {
+            text-indent: 2em;
+        }
+
+        .book p:last-child,.book p:nth-last-child(2) {
+            text-align: end;
+        }
+    </style>
+</head>
+<body>
+<div class="book">
+    <p>Dear 老刘:</p>
+    <p>好久不见，我想死你了！</p>
+    <p>中宣部常务副部长王晓晖29日介绍，庆祝中华人民共和国成立70周年活动中，将在北京人民大会堂举行隆重颁授仪式，对在中国特色社会主义建设和保卫国家中作出重大贡献、建立卓越功勋、道德品质高尚、群众公认的杰出人士，在中国社会主义现代化建设和促进中外交流合作、维护世界和平中作出杰出贡献的外国人，在各领域各行业作出重大贡献、享有崇高声誉、道德品质高尚、群众公认的杰出人士，分别授予“共和国勋章”“友谊勋章”和国家荣誉称号。中华人民共和国主席习近平将亲自颁授勋章、奖章，签发证书。</p>
+    <p>临港是上海发展的缩影。背靠长江水、面向太平洋的上海，历来是观察中国经济的绝佳窗口。应对外部挑战，上海立足全国发展大局，积极构筑城市发展战略新优势。在申城走访，记者听到的是敢闯敢干、只争朝夕的故事，感受到的是逆流而上、逆势飞扬的劲头。</p>
+    <p>鲁迅。</p>
+    <p>一九三一年写于绍兴。</p>
+</div>
+</body>
+</html>

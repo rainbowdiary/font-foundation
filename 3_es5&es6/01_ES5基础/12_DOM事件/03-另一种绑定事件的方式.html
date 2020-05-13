@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<script type="text/javascript">
+			/*
+			 * 另一种绑定事件的方式:
+			 * 高级浏览器:元素.addEventListener('不带on的事件类型',事件处理函数,布尔值);
+			 * 布尔值: false是事件冒泡,true是事件捕获
+			 * ie低版本浏览器: 元素.attachEvent('带on的事件类型',事件处理函数);
+			 */
+			var btn = document.getElementById('btn');
+			//第一种方式: 只能是事件冒泡
+//			btn.onclick =function(){
+//				
+//			}
+			//第二种方式: 添加事件监听的方式   两种方式(事件捕获和事件冒泡)
+			
+//			btn.addEventListener('click',fn,false);
+//			btn.addEventListener('click',function(){
+//				alert(2);
+//			},false);
+//			console.log(btn.addEventListener);
+				
+			btn.attachEvent('onclick',fn);
+
+			function fn(){
+				alert(1);
+			}
+		</script>
+	</body>
+</html>

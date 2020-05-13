@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit:cover">
+    <title>ios多指事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 100%;
+            height: 300px;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+
+        document.addEventListener('touchstart', function (event) {
+            event.preventDefault();
+        }, {passive: false});
+
+        // 获取元素
+        var box = document.querySelector('#box');
+
+        // 手势开始
+        // 当有手指开始触摸元素，如果此时屏幕上>=2根手指， 可以触发
+        box.addEventListener('gesturestart', function(){
+            box.innerHTML = 'gesturestart';
+        });
+
+        // 手势变换
+        // 当有手指在元素上移动，判断此时屏幕上手指数量>=2  触发
+        box.addEventListener('gesturechange', function (event) {
+            //box.innerHTML = Math.random();
+            //用于缩放 比例
+           // box.innerHTML = 'scale : '+event.scale;
+            box.innerHTML = 'rotation : '+event.rotation;
+        });
+
+        // 手势结束
+        // 当有手指离开元素， 此时元素上手指个数<2, 就触发（前提：之前触发过gesturestart）
+        box.addEventListener('gestureend', function () {
+           box.innerHTML = 'gestureend';
+        });
+
+
+    </script>
+</body>
+</html>

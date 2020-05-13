@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit:cover">
+    <title>触摸事件touch</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        #box {
+            width:100%;
+            height: 400px;
+            background: #f90;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        //获取元素
+        var box = document.querySelector('#box');
+
+        //监听 鼠标事件
+        box.addEventListener('click', function () {
+            console.log('click');
+        });
+
+        box.addEventListener('touchstart', function () {
+            console.log('touchstart');
+        });
+        box.addEventListener('touchend', function () {
+            console.log('touchend');
+        })
+        // box.addEventListener('mousedown', function () {
+        //     console.log('mousedown');
+        // });
+        // box.addEventListener('mouseup', function () {
+        //     console.log('mouseup');
+        // });
+        // box.addEventListener('mousemove', function () {
+        //     console.log('mousemove');
+        // })
+
+    </script>
+</body>
+</html>

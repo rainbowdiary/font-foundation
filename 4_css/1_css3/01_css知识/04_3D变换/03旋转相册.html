@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转相册</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+        body {
+            /*background: #000;*/
+        }
+        ul {
+            list-style: none;
+        }
+        .album {
+            position: relative;
+            margin: 200px auto 50px;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            perspective: 2500px;
+
+        }
+        .album li {
+            position: absolute;
+            left:0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            box-shadow: 0 0 12px #fff;
+            overflow: hidden;
+            transition: 1s;
+        }
+        .album li img {
+            width: 200px;
+            height: 200px;
+
+        }
+        .btns {
+            text-align: center;
+        }
+        .btns button {
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            background: #f5f5f5;
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="album">
+        <li><img src="images/img11.jpg" alt="铭哥牛逼"></li>
+        <li><img src="images/img12.jpg" alt="铭哥牛逼"></li>
+        <li><img src="images/img13.jpg" alt="铭哥牛逼"></li>
+        <li><img src="images/img14.jpg" alt="铭哥牛逼"></li>
+        <li><img src="images/img15.jpg" alt="铭哥牛逼"></li>
+        <li><img src="images/img16.jpg" alt="铭哥牛逼"></li>
+        <li><img src="images/img17.jpg" alt="铭哥牛逼"></li>
+        <li><img src="images/img18.jpg" alt="铭哥牛逼"></li>
+        <li><img src="images/img19.jpg" alt="铭哥牛逼"></li>
+<!--        <li><img src="images/img19.jpg" alt="铭哥牛逼"></li>-->
+    </ul>
+
+    <div class="btns">
+        <button class="prev">PREV</button>
+        <button class="next">NEXT</button>
+    </div>
+
+    <script>
+        (function () {
+            // 获取所有li
+            var liNodes = document.querySelectorAll('.album li');
+            // 给每个li设置变换
+            liNodes.forEach(function (liNode, index) {
+                liNode.style.transform = 'rotateY(' + (360/liNodes.length * index) + 'deg) translateZ(400px)';
+            });
+
+            var prevBtn = document.querySelector('.prev');
+            var nextBtn = document.querySelector('.next');
+
+            var currentDeg = 0, changeDeg = 360 / liNodes.length;
+            prevBtn.addEventListener('click', function () {
+                currentDeg -= changeDeg;
+                liNodes.forEach(function (liNode, index) {
+                    liNode.style.transform = 'rotateY(' + (changeDeg * index + currentDeg) + 'deg) translateZ(400px)';
+                });
+            });
+            nextBtn.addEventListener('click', function () {
+                currentDeg += changeDeg;
+                liNodes.forEach(function (liNode, index) {
+                    liNode.style.transform = 'rotateY(' + (changeDeg * index + currentDeg) + 'deg) translateZ(400px)';
+                });
+            });
+
+        })();
+    </script>
+</body>
+</html>

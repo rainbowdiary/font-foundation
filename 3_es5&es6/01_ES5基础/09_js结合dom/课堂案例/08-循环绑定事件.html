@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<img src="images/111.jpg" alt="" width="100" />
+		<img src="images/222.jpg" alt="" width="200" />
+		<img src="images/333.jpg" alt="" width="300" />
+		<script type="text/javascript">
+			/*
+			 * 循环绑定事件: 利用循环中的i的变换,分别遍历每个数组中的对象,给对象绑定事件,所有的
+			 * 代码都是一瞬间执行完的
+			 * 事件处理函数中的代码,是当被触发时才执行的,被触发是n年之后的事,此时事件处理函数
+			 * 中的i是死值3了,所以访问img[3],没有这个对象,里面的值是undefined.
+			 * 
+			 * this在事件处理函数中指向的是事件源
+			 */
+			var imgs = document.getElementsByTagName('img');
+			//			imgs[0].onclick = function(){
+			//				alert(imgs[0].width);
+			//			}
+			//			imgs[1].onclick = function(){
+			//				alert(imgs[1].width);
+			//			}
+			//			imgs[2].onclick = function(){
+			//				alert(imgs[2].width);
+			//			}
+//						imgs[0].onclick = function(){
+//							alert(this.width);
+//						}
+//						imgs[1].onclick = function(){
+//							alert(this.width);
+//						}
+//						imgs[2].onclick = function(){
+//							alert(this.width);
+//						}
+			for(var i = 0; i < imgs.length; i++) {
+				imgs[i].onclick = function() {
+//					alert(imgs[i].width);
+//					alert(imgs[3].width);
+//					alert(i);
+					console.log(this);
+				}
+
+			}
+			
+			
+			
+			console.log('后面的代码');
+		</script>
+	</body>
+
+</html>

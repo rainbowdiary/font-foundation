@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 原型链:实例对象调用的属性或者方法,首先看是否在构造函数中定义,如果定了,就使用,如果没定
+			 * 会去原型对象中去寻找,如果定义了,就使用,如果没定义,会去上一层类型的原型对象中去寻找,
+			 * 以此类推,直到找到Object原型对象中,如果没有就是undefined,相当于给对象添加了一个属性
+			 * 并且没有赋值
+			 *
+			 */
+			function HunPerson(name,color,gender){
+				this.name = name;
+				this.color = color;
+//				this.bit = function(){
+//					console.log('构造函数中的bit');
+//				}
+			}
+			// 将bit方法定义到原型对象中
+//			HunPerson.prototype.bit = function(){
+//				console.log('原型对象中的bit');
+//			}
+			HunPerson.prototype.gender = '男';
+//			Object.prototype.bit = function(){
+//				console.log('Object原型对象中的bit');
+//			}
+			
+			var xiaolan = new HunPerson('小兰','blue');
+			var xiaohong = new HunPerson('小红','red');
+			xiaolan.bit();
+			console.dir(Object);
+		</script>
+	</body>
+</html>
+

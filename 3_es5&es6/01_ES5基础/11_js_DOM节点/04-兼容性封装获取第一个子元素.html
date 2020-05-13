@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="box">
+		<!--范特西-->
+			<h1>周杰伦</h1>
+			<!--范特西-->
+			<ul id="list">
+				哈哈
+			</ul>
+			<h2>方文山</h2>
+		</div>
+
+		<script type="text/javascript">
+			/*
+			 * 第一个子节点:firstChild
+			 * 高级浏览器:
+			 * 元素  文本(内容或者空格或者换行) 注释
+			 * 低版本浏览器:
+			 * 元素 文本(不包含空格或者换行) 注释
+			 * 第一个子元素: firstElementChild
+			 * 高级浏览器: 元素
+			 * 低版本浏览器: 没有这个属性
+			 */
+			var box = document.getElementById('box');
+			//var li03 = document.getElementById('li03');
+			var list = document.getElementById('list');
+//			console.dir(box);
+			console.dir(box.firstChild);
+			console.log(box.firstElementChild);
+			
+			console.log('============其它获取节点和元素的方式,以下规则同上====================');
+			console.log(box.firstChild);//第一个子节点
+			console.log(box.firstElementChild);//第一个子元素
+			console.log(box.lastChild);//最后一个子节点
+			console.log(box.lastElementChild);//最后一个子节点
+//			console.log(li03.nextSibling);//下一个兄弟节点
+//			console.log(li03.nextElementSibling);//下一个兄弟元素
+//			console.log(li03.previousSibling);//上一个兄弟节点
+//			console.log(li03.previousElementSibling);//上一个兄弟元素
+			
+			console.log(getFirstElementChild());
+			
+			function getFirstElementChild(){
+				//
+				if(list.firstElementChild != undefined){
+//					alert('高级');
+					return list.firstElementChild;
+				}else{
+//					alert('laji');
+					//只能使用firstChild
+					
+					//第一种
+//					for (var i = 0; i < list.childNodes.length; i++) {
+//						//一定是元素
+//						if(list.childNodes[i].nodeType ==1){
+//							//一定是第一个元素
+//							return list.childNodes[i];
+//						}
+//					}
+					//第二种
+					//第一个子节点
+					var nodeE = list.firstChild;
+					console.log('错误'+nodeE);
+					// 判断nodeE是否有节点  && 节点的类型
+					while(nodeE && nodeE.nodeType != 1){
+						//找下一个兄弟节点赋值给nodeE
+						nodeE =  nodeE.nextSibling;
+					}
+					// 当循环结束,将当前的节点返回
+					return nodeE;
+				}
+			}
+			
+		</script>
+	</body>
+
+</html>

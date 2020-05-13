@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+</head>
+<body>
+    <script>
+        console.log(/apple\borange/.exec('apple orange')); // 为什么不能匹配成功
+        console.log(/apple\b/.exec('apple orange'));
+        console.log(/apple\b orange/.exec('apple orange')); //无意义
+
+    </script>
+
+</body>
+</html>

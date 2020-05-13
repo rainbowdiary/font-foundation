@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+       function getAjax(url) {
+           return new Promise(function (resolve,reject) {
+               let xhr = new XMLHttpRequest();
+               xhr.onreadystatechange=function () {
+                   if(xhr.readyState===4){
+                       if(xhr.status ===200){
+                           var data = JSON.parse(xhr.responseText);
+                           resolve(data);
+                       }else {
+                           reject();
+                       }
+                   }
+               }
+               xhr.open("get",url);
+               xhr.send();
+           })
+       }
+        async function test(){
+            var data = await getAjax("http://localhost:3000/news?id=1");
+            data = await getAjax("http://localhost:3000"+data.commentsUrl);
+            console.log(data)
+        }
+        test();
+
+
+</script>
+</html>

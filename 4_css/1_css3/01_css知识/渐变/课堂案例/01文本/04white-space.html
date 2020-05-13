@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>white-space</title>
+    <style>
+        p {
+            width: 600px;
+            padding: 20px;
+            border: 1px solid #ccc;
+
+            /*white-space: pre;*/
+            /*white-space: pre-wrap; !*可以自动换行的pre*!*/
+            /*white-space: pre-line; !*可以识别换行符normal*!*/
+            white-space: nowrap; /*强制不换行*/
+        }
+
+
+        pre {
+            width: 600px;
+            padding:20px;
+            border: 1px solid #ccc;
+            background: #f5f5f5;
+            border-radius: 5px;
+            font-size: 14px;
+
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium alias beatae blanditiis corporis cupiditate dolore et facere harum iusto magni, molestiae, molestias neque non praesentium quisquam sunt tempora tempore?
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium alias beatae blanditiis corporis cupiditate dolore et facere harum iusto magni, molestiae, molestias neque non praesentium quisquam sunt tempora tempore?
+    </p>
+
+    <p>
+        人民解放军占领南京 毛泽东
+            钟山风雨起苍黄，百万雄师过大江。
+
+        虎距龙盘今胜昔，天翻地覆慨而慷。
+
+        宜将剩勇追穷寇，不可沽名学霸王。
+
+        宜将剩勇追穷寇，不可沽名学霸王。
+    </p>
+
+
+    <hr>
+
+    <pre>
+        人民解放军占领南京 毛泽东
+        钟山风雨起苍黄，百万雄师过大江。
+
+        虎距龙盘今胜昔，天翻地覆慨而慷。
+
+        宜将剩勇追穷寇，不可沽名学霸王。
+
+        宜将剩勇追穷寇，不可沽名学霸王。
+    </pre>
+    <pre>
+var a = 100;
+for (var i = 0; i < 1; i ++) {
+    console.log('ok')
+}
+    </pre>
+</body>
+</html>

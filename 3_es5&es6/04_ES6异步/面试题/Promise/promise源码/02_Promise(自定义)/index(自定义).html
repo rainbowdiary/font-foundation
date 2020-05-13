@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="./lib/05_Promise(ES6).js"></script>
+<script>
+    /*
+        第一步代码扫完之后 (初始化)
+            p : pending undefined callbacks:[{onResolve,onReject}]
+            p2 : pending undefined callbacks:[]
+
+        v8有空了 执行 队列中第一个回调
+            ()=>{resolve(1)}
+            p : resolve 1 将function () {item.onResolve()}塞入队列
+
+        v8又有空 执行 队列中第一个回调
+             item.onResolve()
+                        ---> function () {handleResult(onResolve)}
+                        ---> handleResult(onResolve)
+                        ---> onResolve()  将()=>{resolve(2)}塞入队列
+                        ---> result : pending undefined callbacks:[{onResolve,onReject}]
+
+        v8又有空 执行 队列中第一个回调
+            ()=>{resolve(2)}
+                  result : resolve 2 将function () {item.onResolve()}塞入队列
+
+        v8又有空 执行 队列中第一个回调
+             item.onResolve()
+                    p2  resolve 2 callbacks:[]
+    */
+
+    var p1 = new MyPromise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(1)
+        },2000)
+    }).then(()=>{
+
+    },()=>{
+        
+    })
+    var p2 = new MyPromise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(2)
+        },1000)
+    })
+    var p3 = new MyPromise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(3)
+        },3000)
+    })
+    var arr =[p2,p3,p1]
+
+    // console.log(MyPromise.race(arr));
+    console.log(MyPromise.all(arr));
+</script>
+</html>

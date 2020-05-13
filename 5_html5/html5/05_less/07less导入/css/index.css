@@ -1,0 +1,20 @@
+@import url(style.css);
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+.box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  height: 300px;
+  margin-left: -200px;
+  margin-top: -150px;
+  background-color: transparent;
+  color: #0000ff;
+}
+/*# sourceMappingURL=index.css.map */

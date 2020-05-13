@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>线性渐变</title>
+    <style>
+        .box {
+            margin: 50px auto;
+            width: 400px;
+            height: 200px;
+            border: 2px solid #ccc;
+
+            /*把渐变当做背景图片*/
+            background-image: linear-gradient(red, green);
+
+            /*控制渐变的方向*/ /*默认从上到下*/ /*关键字设置*/
+            /*background-image: linear-gradient(to top, red, green);*/
+            /*background-image: linear-gradient(to right, red, green);*/
+            /*background-image: linear-gradient(to top right, red, green);*/
+
+            /*控制渐变方向，使用角度*/
+            /*background-image: linear-gradient(0deg, red, green); !*从下到上 to top*!*/
+            /*background-image: linear-gradient(180deg, red, green); !*to bottom*!*/
+            background-image: linear-gradient(45deg, red, green); /*to top right*/
+
+
+        }
+    </style>
+</head>
+<body>
+
+        <div class="box"></div>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取元素大小</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        li {
+            margin: 20px;
+            height: 200px;
+            background: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <div style="width:2000px;height:1px"></div>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+
+        // 监听页面滚动
+        window.onscroll = function(){
+            // 输出滚动条滚动的距离
+            // console.log(window.scrollTop);
+            // console.log(document.body.scrollTop);  // 低版本IE
+            // console.log(document.documentElement.scrollTop) // chrome firefox
+
+            //var top = window.scrollTop || document.documentElement.scrollTop || document.body.scrollTop;
+
+            console.log(scroll().left, scroll().top);
+        };
+
+
+        /**
+         * 获取滚动条滚动距离
+         * 返回对象，对象left：水平滚动的距离  top：垂直滚动的距离
+         */
+        function scroll(){
+            // 获取水平方向滚动距离
+            var left = window.scrollLeft || document.documentElement.scrollLeft || document.body.scrollLeft;
+
+            // 获取垂直方向滚动距离
+            var top = window.scrollTop || document.documentElement.scrollTop || document.body.scrollTop;
+
+            // 返回对象
+            return {
+                left: left,
+                top: top
+            }
+        }
+
+    </script>
+</body>
+</html>

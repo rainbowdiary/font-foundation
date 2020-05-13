@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插件</title>
+    <link rel="stylesheet" href="js/select2/css/select2.css">
+</head>
+<body>
+    <select id="mySelect">
+        <option value="1">长江</option>
+        <option value="1">黄河</option>
+        <option value="1">黑龙江</option>
+        <option value="1">雅鲁藏布江</option>
+        <option value="1">黄浦江</option>
+        <option value="1">淮河</option>
+        <option value="1">黑河</option>
+        <option value="1">牡丹江</option>
+        <option value="1">鸭绿江</option>
+        <option value="1">浏阳河</option>
+    </select>
+
+    <select id="mySelect2"></select>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/select2/js/select2.min.js"></script>
+    <script>
+        $(function(){
+           $('#mySelect').select2({
+               width: 120
+           });
+
+           $('#mySelect2').select2({
+               width: 120,
+               data: [
+                   {id: 1, text: '泰山'},
+                   {id: 2, text: '黄山'},
+                   {id: 3, text: '华山'},
+                   {id: 4, text: '衡山'},
+                   {id: 5, text: '恒山'},
+                   {id: 6, text: '嵩山'},
+               ]
+           });
+        });
+    </script>
+</body>
+</html>

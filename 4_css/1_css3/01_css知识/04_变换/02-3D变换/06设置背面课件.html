@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>观察者位置</title>
+    <style>
+        .box {
+            margin: 100px;
+            border: 10px dashed orange;
+            width: 200px;
+            height: 200px;
+
+            /*开启3D空间*/
+            transform-style: preserve-3d;
+            perspective: 300px;
+
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 0, 0, .5);
+
+
+            transform: rotateX(180deg);
+            /*transform: translateZ(100px);*/
+            backface-visibility: hidden;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner">老刘</div>
+    </div>
+</body>
+</html>

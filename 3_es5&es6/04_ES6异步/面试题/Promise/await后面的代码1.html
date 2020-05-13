@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    (async () => {
+      await new Promise((resolve) => {
+        console.log("----1");
+        resolve()
+      }).then(() => {
+        console.log("----2");
+      })
+      console.log("***");
+    })()
+    console.log("+++");
+
+    /*
+                        ----1
+await后面的代码1.html:22 +++
+await后面的代码1.html:18 ----2
+await后面的代码1.html:20 ***
+    */
+  </script>
+</body>
+
+</html>

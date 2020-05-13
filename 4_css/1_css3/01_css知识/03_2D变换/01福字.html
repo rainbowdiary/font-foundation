@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>福字</title>
+    <style>
+        .box{
+            position: absolute;
+            left:50%;
+            top:50%;
+            width:200px;
+            height:200px;
+            background-color:red;
+            font:150px '楷体';
+            text-align:center;
+            line-height: 200px;
+
+            transform:translate(-50%, -50%) rotate(45deg) ;
+
+        }
+
+        .box span{
+            display: inline-block;
+            transform:rotate(135deg);
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <span>福</span>
+</div>
+</body>
+</html>

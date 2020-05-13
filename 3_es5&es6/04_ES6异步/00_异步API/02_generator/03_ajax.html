@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    
+    function getAjax(url) {
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange=function () {
+            if(xhr.readyState===4){
+                if(xhr.status === 200){
+                    let data =  JSON.parse(xhr.responseText);
+                    iterator.next(data);
+                }
+            }
+        }
+        xhr.open("get",url);
+        xhr.send();
+    }
+    
+    
+    function * news() {
+        let data =  yield getAjax("http://localhost:3000/news?id=1");
+        let data2 = yield getAjax("http://localhost:3000"+data.commentsUrl);
+        console.log(data2)
+    }
+    var iterator = news();
+    iterator.next();
+</script>
+</html>

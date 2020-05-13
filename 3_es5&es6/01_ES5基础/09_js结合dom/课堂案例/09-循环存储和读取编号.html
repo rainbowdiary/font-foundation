@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<img src="images/111.jpg" alt="" width="100" />
+		<img src="images/222.jpg" alt="" width="200" />
+		<img src="images/333.jpg" alt="" width="300" />
+		<script type="text/javascript">
+			/*
+			 */
+			var imgs = document.getElementsByTagName('img');
+			
+			for(var i = 0; i < imgs.length; i++) {
+				//给数组中的每个元素对象动态添加一个属性
+				imgs[i].num = i;
+				imgs[i].onclick = function() {
+					alert(this.num);
+				}
+
+			}
+			console.log('后面的代码');
+		</script>
+	</body>
+
+</html>

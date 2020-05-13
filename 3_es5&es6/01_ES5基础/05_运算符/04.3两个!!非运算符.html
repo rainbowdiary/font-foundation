@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var foo;
+    console.log('!foo foo为undefined: ', !foo);//undifined情况下，一个感叹号返回的是true;
+    var goo = null;
+    console.log('!goo goo为null: ', !goo);//null情况下，一个感叹号返回的也是true;
+    var o = { flag: '111' };
+    var test = !!o.flag;//等效于var test=o.flag||false;
+    console.log('!!o.flag test', test);
+
+// !一个感叹号: 转换变量为相反的boolean值
+// !!两个感叹号：转换变量或者运算符等结果为boolean值,
+  </script>
+</body>
+
+</html>

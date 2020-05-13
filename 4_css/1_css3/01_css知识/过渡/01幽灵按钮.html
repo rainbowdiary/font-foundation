@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>幽灵按钮</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            position: relative;
+            margin: 100px auto;
+            width: 300px;
+            height: 80px;
+            background: deeppink;
+            text-align: center;
+            line-height: 80px;
+            font-weight: bold;
+            font-size: 40px;
+            color: white;
+            text-transform: uppercase;
+            transition: 2s;
+        }
+        #wrap::after, #wrap::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 10px;
+            background: yellowgreen;
+            transition: 2s width;
+        }
+
+        #wrap::before {
+            top:0;
+            left: 0;
+        }
+        #wrap::after{
+            bottom: 0;
+            right: 0;
+        }
+        #wrap:hover{
+            color: deeppink;
+            background: #fff;
+        }
+        #wrap:hover:before, #wrap:hover:after{
+            width: 300px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+    html5
+</div>
+</body>
+
+</html>

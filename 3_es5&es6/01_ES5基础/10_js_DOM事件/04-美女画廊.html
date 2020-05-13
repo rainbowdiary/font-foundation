@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				
+			}
+			body{
+				background: #ccc;
+			}
+			.box{
+				width: 490px;
+				height: 400px;
+				/*background: pink;*/
+				margin: 100px auto;
+			}
+			img{
+				display: block;
+			}
+			.box ul{
+				padding: 20px 0;
+				overflow: hidden;
+			}
+			.box ul li{
+				float:left;
+				margin-right: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<h2>美女画廊</h2>
+			<ul id="list">
+				<li>
+					<a href="images/1.jpg">
+						<img src="images/1-small.jpg" width="100"/>
+					</a>
+				</li>
+				<li>
+					<a href="images/2.jpg">
+						<img src="images/2-small.jpg" width="100"/>
+					</a>
+				</li>
+				<li>
+					<a href="images/3.jpg">
+						<img src="images/3-small.jpg" width="100"/>
+					</a>
+				</li>
+				<li>
+					<a href="images/4.jpg">
+						<img src="images/4-small.jpg" width="100"/>
+					</a>
+				</li>
+			</ul>
+			<img src="images/placeholder.png" width="400" height="250" border="1" id="bigImg"/>
+		</div>
+		<div class="footer">
+			<a href="##">美女发廊</a>
+		</div>
+		<script type="text/javascript">
+			//获取大img
+			var bigImg = document.getElementById('bigImg');
+			//获取list
+			var list = document.getElementById('list');
+			//网页下所有的后代a
+			//var ass = document.getElementsByTagName('a');
+			//list下所有的后代a
+			var ass = list.getElementsByTagName('a');
+			for (var i = 0; i < ass.length; i++) {
+				ass[i].onclick = function(){
+					//获取自身的href属性值
+				//	var srcString = this.href;
+					//设置给大img的src
+					//bigImg.src = srcString;
+					//简写
+					bigImg.src = this.href;
+					return false;
+				}
+			}
+		</script>
+	</body>
+
+</html>

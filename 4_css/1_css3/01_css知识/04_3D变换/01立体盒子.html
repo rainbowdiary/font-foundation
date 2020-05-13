@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>立体盒子</title>
+    <style>
+        body {
+        }
+        .box {
+            position: relative;
+            margin: 200px auto;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transform-origin: 50% 50% -100px;
+        }
+        .face {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 30px;
+            font-weight:bold;
+            backface-visibility: hidden;
+        }
+        .face1 {
+            background: yellowgreen;
+        }
+        /*左边一面*/
+        .face2 {
+            left: -200px;
+            background: skyblue;
+            transform-origin: right;
+            transform: rotateY(-90deg);
+        }
+        /*右边一边*/
+        .face3 {
+            background: pink;
+            left: 200px;
+            transform-origin: left;
+            transform: rotateY(90deg);
+        }
+        /*上边一面*/
+        .face4 {
+            background: mediumpurple;
+            top: -200px;
+            transform-origin: bottom;
+            transform: rotateX(90deg);
+        }
+        /*下边一面*/
+        .face5 {
+            background: darkred;
+            top: 200px;
+            transform-origin: top;
+            transform: rotateX(-90deg);
+        }
+        /*后面一面*/
+        .face6 {
+            background: orangered;
+            transform: translateZ(-200px) rotateX(180deg) rotate(180deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="face face1">1</div>
+        <div class="face face2">2</div>
+        <div class="face face3">3</div>
+        <div class="face face4">4</div>
+        <div class="face face5">5</div>
+        <div class="face face6">6</div>
+    </div>
+
+    <script>
+        (function () {
+            var box = document.querySelector('.box');
+            var deg = 0;
+
+            setInterval(function () {
+                deg ++;
+                box.style.transform = 'rotateX('+deg+'deg) rotateY('+deg+'deg)';
+            }, 50)
+        })()
+    </script>
+</body>
+</html>

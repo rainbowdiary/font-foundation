@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		
+		<!--<table border="1" cellspacing="0">
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+		</table>-->
+		<script type="text/javascript">
+			document.write('<table border="1" cellspacing="0">');
+			//行
+			for(var j = 1; j <= 9; j++) {
+					document.write('<tr>');
+				//列      
+				//内循环的循环次数是当前的行数
+				for(var i = 1; i <= j; i++) {
+					document.write('<td>');
+					// 列数*行数 = 积
+					document.write(i + '*' + j + '=' + i * j); //   '+i+' '+j+' '+i*j+'
+					document.write('</td>');
+				}
+				document.write('</tr>');
+				
+			}
+			document.write('</table>');
+		</script>
+	</body>
+
+</html>

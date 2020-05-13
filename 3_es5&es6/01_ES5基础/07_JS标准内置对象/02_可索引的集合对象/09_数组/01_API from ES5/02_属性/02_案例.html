@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function app() {
+        var BestStudent = {
+            name:"",
+            score:0,
+        };
+        var infos = [];
+        var mun = parseInt(prompt("请输入学生的个数"));
+        for(var i=0;i<mun;i++){
+            var name = prompt("请输入学生的姓名");
+            var score = parseInt(prompt("请输入"+name+"的成绩"));
+            if(score > BestStudent.score){
+                BestStudent.score = score;
+                BestStudent.name = name;
+            }
+
+            var student = {};
+            student.name = name;
+            student.score = score;
+            infos[i]=student;
+        }
+        console.log("最高分为:"+BestStudent.name+"的"+BestStudent.score+"分")
+
+        for(var j=0;j<infos.length;j++){
+            var leave = "";
+            if(infos[j].score >= BestStudent.score -10){
+                leave="A"
+            }else if(infos[j].score >= BestStudent.score -20){
+                leave="B"
+            }else if(infos[j].score >= BestStudent.score -30){
+                leave="C"
+            }else {
+                leave="D"
+            }
+            console.log(infos[j].name+"的分数为:"+infos[j].score+";等级为:"+leave)
+        }
+    }
+
+    app();
+</script>
+</html>

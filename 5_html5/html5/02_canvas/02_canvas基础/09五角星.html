@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        canvas {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+
+        // 获取canvas元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+
+        // 定义中心，和中心到点的距离
+        var x=400, y=300, r1=100,r2=40;
+        // 开启路径
+        ctx.beginPath();
+        // 循环
+        for (var i = 0; i < 5; i ++) {
+            // 计算角度
+            var a1 = (18 + 72 * i) / 180 * Math.PI;  //远端角
+            var a2 = (54 + 72 * i) / 180 * Math.PI;  // 近端角
+            // 根据角度计算点的坐标
+            var x1 = x + Math.cos(a1) * r1;  //远端点
+            var y1 = y - Math.sin(a1) * r1;
+            var x2 = x + Math.cos(a2) * r2;  // 近端点
+            var y2 = y - Math.sin(a2) * r2;
+            // 绘制路径
+            ctx.lineTo(x1, y1);  //绘制远端点
+            ctx.lineTo(x2, y2);  //绘制近端点
+        }
+        ctx.closePath();
+
+        ctx.strokeStyle = 'yellow';
+        ctx.lineWidth = 6;
+        ctx.fillStyle = 'red';
+
+        ctx.fill();
+        ctx.stroke();
+
+
+
+        
+
+        
+    </script>
+</body>
+</html>

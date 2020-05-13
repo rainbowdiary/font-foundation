@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 会占据文档流，对网页起到布局效果（同opacity）
+      不同的是不会响应用户交互
+     */
+    #wrap {
+      visibility: hidden;
+    }
+
+    #wrap:hover {
+      animation: show infinite 4s;
+    }
+
+    @keyframes show {
+      0% {
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 0.2;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrap">
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+  </div>
+  <div>2</div>
+</body>
+
+</html>

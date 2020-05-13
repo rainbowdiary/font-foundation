@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        body{
+            background: #F4F4EA;
+        }
+        #wrap{
+            margin: 100px auto;
+            width: 908px;
+            height: 38px;
+            border: 1px solid #000000;
+        }
+        #wrap .list{
+            overflow: hidden;
+
+        }
+        #wrap .list li{
+            float: left;
+            height: 38px;
+            width: 100px;
+            border-right: 1px solid #000000;
+            text-align: center;
+            line-height: 38px;
+        }
+        #wrap .list li:last-child{
+            border-right:none;
+        }
+        #wrap .list li a{
+            color: #000000;
+
+        }
+        #wrap .list li .square{
+            width: 100px;
+            height: 38px;
+            background: deeppink;
+            transition: 1s transform;
+        }
+        #wrap .list li:hover .square{
+            transform: translateY(-38px);
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <ul class="list">
+        <li flag="a">
+            <a href="javascript:;">我的主页</a>
+            <div class="square"></div>
+        </li>
+        <li flag="b">
+            <a href="javascript:;">新闻头条</a>
+            <div class="square"></div>
+        </li>
+        <li flag="c">
+            <a href="javascript:;">电视剧</a>
+            <div class="square"></div>
+        </li>
+        <li flag="d">
+            <a href="javascript:;">最新电影</a>
+            <div class="square"></div>
+        </li>
+        <li flag="e">
+            <a href="javascript:;">腿长1米8</a>
+            <div class="square"></div>
+        </li>
+        <li flag="f">
+            <a href="javascript:;">小说大全</a>
+            <div class="square"></div>
+        </li>
+        <li flag="g">
+            <a href="javascript:;">旅游度假</a>
+            <div class="square"></div>
+        </li>
+        <li flag="a">
+            <a href="javascript:;">次品退购</a>
+            <div class="square"></div>
+        </li>
+        <li flag="b">
+            <a href="javascript:;">今日团购</a>
+            <div class="square"></div>
+        </li>
+    </ul>
+    <audio id="myAudio"></audio>
+</div>
+
+</body>
+<script type="text/javascript">
+    //http://s8.qhimg.com/share/audio/piano1/a4.mp3
+    window.onload = function () {
+        var liNodes = document.querySelectorAll('#wrap .list li');
+        var myAudio = document.getElementById('myAudio')
+
+        for (var i = 0; i < liNodes.length; i++) {
+            liNodes[i].onmouseenter = function () {
+
+                var letter = this.getAttribute('flag');
+
+                myAudio.src = 'http://s8.qhimg.com/share/audio/piano1/'+ letter +'4.mp3';
+                myAudio.onloadedmetadata = function(){
+                    myAudio.play();
+                }
+
+            }
+
+        }
+
+
+    };
+
+
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性选择器</title>
+</head>
+<body>
+
+    <img src="01.jpg" alt="hello" height="100">
+    <img src="01.jpg" alt="hello" name="lili" height="100">
+    <img src="01.jpg" alt="hello"  width="200">
+    <img src="01.jpg" alt="hello" width="300">
+    <img src="01.jpg" alt="hello" name="lala" width="100" height="200">
+
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            //$('images[name]').css('border', '2px solid red');
+            //$('images[name="lili"]').css('border', '2px solid red');
+            //$('images[name!="lili"]').css('border', '2px solid red');
+            //$('images[width="lili"]').css('border', '2px solid red');
+            //$('images[width^=1]').css('border', '2px solid red');
+           // $('images[width$=0]').css('border', '2px solid red');
+            //$('images[name*=l]').css('border', '2px solid red');
+            $('img[name][width=200]').css('border', '2px solid red');
+        });
+    </script>
+
+</body>
+</html>

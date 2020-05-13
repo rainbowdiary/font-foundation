@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    window.onload=function () {
+        //创建XHR对象
+        var xhr;
+        if(window.XMLHttpRequest){
+            xhr = new XMLHttpRequest(); // IE7以上浏览器
+        }else {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");//IE5 IE6
+        }
+
+        /*
+        发送请求
+            XMLHttpRequest.open() 方法初始化一个请求。
+                xhrReq.open(method, url, router);
+                    method：要使用的HTTP方法，比如「GET」、「POST」、「PUT」、「DELETE」、等。
+                    url：一个DOMString表示要向其发送请求的URL。
+                    router 可选：
+                        一个可选的布尔参数，默认为true，表示要不要异步执行操作。
+                            如果值为false，send()方法直到收到答复前不会返回。
+                            如果true，已完成事务的通知可供事件监听器使用。
+
+            XMLHttpRequest.send() 方法用于发送 HTTP 请求。
+                如果是异步请求（默认为异步请求），则此方法会在请求发送后立即返回；
+                如果是同步请求，则此方法直到响应到达后才会返回。
+                XMLHttpRequest.send() 方法接受一个可选的参数，其作为请求主体；如果请求方法是 GET 或者 HEAD，则应将请求主体设置为 null。
+         */
+
+        //url:http://localhost:3000/news?id=1
+        //url:http://localhost:3000/comments?newsId=1
+        xhr.open("get", "http://localhost:3000/comments?newsId=1");
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === 4 ) {
+                if(xhr.status === 200){
+                    console.log(xhr.responseText)
+                }else {
+                    console.log("error")
+                }
+            }
+        }
+        xhr.send();
+    }
+</script>
+</html>

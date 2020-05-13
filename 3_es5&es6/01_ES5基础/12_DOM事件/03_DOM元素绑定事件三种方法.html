@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 设置元素隐藏的方法：opacity：0
+      特点： 1. 占据文档流，可以做用户交互，可以用来做动画效果
+                例如：鼠标悬才停显示按钮
+            2. 隐藏了也可以触发事件
+      注意：
+        该属性是兼容IE9以上的浏览器，
+        IE8 以及更早的版本支持替代的 filter 属性，
+        例如： filter:Alpha(opacity=50)。
+    */
+
+    body {
+      background-color: #ccc;
+    }
+
+    body>div {
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      background-color: #a0ee00;
+      float: left;
+      margin: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 方法1： 在元素上绑定事件 -->
+  <div class="green1" onclick="alert(1)">1</div>
+  <!--方法2： 使用js绑定 -->
+  <div class="green2">2</div>
+  <!--方法3： 使用addEventListener绑定 -->
+  <div class="green3">3</div>
+
+  <script>
+    /* 方法2： 使用js绑定 */
+    var green2 = document.querySelector(".green2");
+    green2.onclick = function (e) {
+      console.log("触发了1");
+    }
+    // 会被覆盖
+    green2.onclick = function (e) {
+      console.log("触发了2");
+    }
+
+    /* 方法3： 使用addEventListener绑定
+              可以绑定多个事件
+     */
+    var green3 = document.querySelector(".green3");
+    green3.addEventListener('click', func1)
+    green3.addEventListener('click', func2)
+    green3.addEventListener('mouseover', func3)
+
+    function func1() {
+      console.log("func1");
+    }
+    function func2() {
+      console.log("func2");
+    }
+    function func3() {
+      console.log("func3");
+    }
+  </script>
+</body>
+
+</html>

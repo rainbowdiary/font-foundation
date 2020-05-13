@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手风琴轮播</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font: 16px "Microsoft YaHei",sans-serif;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .bg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-size: cover;
+        }
+        .bg01 {
+            background: url("images/mm/1.jpeg") no-repeat center;
+        }
+        .bg02 {
+            background: url("images/mm/2.jpeg") no-repeat center;
+        }
+        .bg03 {
+            background: url("images/mm/3.jpeg") no-repeat center;
+        }
+        .bg04 {
+            background: url("images/mm/4.jpeg") no-repeat center;
+        }
+        .bg05 {
+            background: url("images/mm/5.jpeg") no-repeat center;
+        }
+        .bg {
+            background-size: cover;
+        }
+
+        .wrap {
+            margin: 100px auto;
+            width: 920px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .wrap li{
+            float: left;
+            width: 80px;
+            height: 400px;
+            background-size: cover;
+            cursor: pointer;
+        }
+        .item01 {
+            background: url("images/mm/1.jpeg") no-repeat center;
+        }
+        .item02 {
+            background: url("images/mm/2.jpeg") no-repeat center;
+        }
+        .item03 {
+            background: url("images/mm/3.jpeg") no-repeat center;
+        }
+        .item04 {
+            background: url("images/mm/4.jpeg") no-repeat center;
+        }
+        .item05 {
+            background: url("images/mm/5.jpeg") no-repeat center;
+        }
+        .text {
+            padding: 30px 32px;
+            width: 1em;
+            height: 340px;
+            color: #fff;
+            text-align: center;
+            background-color: #000;
+            opacity: .6;
+            filter: alpha(opacity=60);
+        }
+    </style>
+</head>
+<body>
+<div class="bg bg01"></div>
+<div class="bg bg02"></div>
+<div class="bg bg03"></div>
+<div class="bg bg04"></div>
+<div class="bg bg05"></div>
+<div class="wrap">
+    <ul>
+        <li class="item01">
+            <div class="text">马莲·梦露</div>
+        </li>
+
+        <li class="item02">
+            <div class="text">玛格丽特·月红</div>
+        </li>
+
+        <li class="item03">
+            <div class="text">露西·翠花</div>
+        </li>
+
+        <li class="item04">
+            <div class="text">泰勒·菊香</div>
+        </li>
+
+        <li class="item05">
+            <div class="text">苏菲·春梅</div>
+        </li>
+    </ul>
+</div>
+
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        //最后一个项目 展开
+        $(".wrap li").last().width(600);
+
+        //给li绑定 mouseenter
+        $(".wrap li").mouseenter(function(){
+            //切换北京
+            $(".bg").eq($(this).index()).fadeIn(300).siblings(".bg").fadeOut(300);
+
+
+            $(this).stop().animate({
+                width: 600
+            }, 500).siblings("li").stop().animate({
+                width: 80
+            }, 500);
+        })
+
+    })
+</script>
+</body>
+</html>

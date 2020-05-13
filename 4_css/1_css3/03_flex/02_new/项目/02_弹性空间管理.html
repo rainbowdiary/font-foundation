@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+            flex-grow
+            flex-shrink
+            flex-basis
+            flex
+        */
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            display: flex;
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+
+            /*控制主轴是哪一根*/
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+        }
+        #wrap .inner{
+            height: 50px;
+            border: 1px solid;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 50px;
+            background: pink;
+
+           /* flex-basis: 0%;  !*auto*!
+            flex-grow: 1;    !*0*!
+            flex-shrink:1;   !*1*!*/
+        }
+        #wrap .inner:nth-child(1){
+            flex: 1;
+        }
+        #wrap .inner:nth-child(2){
+            flex: 2;
+        }
+        #wrap .inner:nth-child(3){
+            flex: 3;
+        }
+        #wrap .inner:nth-child(4){
+            flex: 4;
+        }
+        #wrap .inner:nth-child(5){
+            flex: 5;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <span class="inner">1</span>
+        <span class="inner">02</span>
+        <span class="inner">003</span>
+        <span class="inner">0004</span>
+        <span class="inner">00005</span>
+    </div>
+</body>
+</html>

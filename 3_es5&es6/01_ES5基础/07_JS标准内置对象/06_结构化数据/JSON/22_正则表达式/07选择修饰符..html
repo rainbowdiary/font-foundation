@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原子</title>
+</head>
+<body>
+
+    <script>
+        // 选择修饰符 |  类似于逻辑或
+        var reg = /a|b/;
+        console.log(reg.exec('a'));
+        console.log(reg.exec('b'));
+        console.log(reg.exec('ba'));
+        console.log('');
+
+        var reg1 = /abc|def/;
+        console.log(reg1.exec('abcef'));
+        console.log(reg1.exec('def'));
+        console.log('');
+
+        var reg2 = /ab(c|d)ef/;
+        console.log(reg2.exec('def'));
+        console.log(reg2.exec('abc'));
+        console.log(reg2.exec('abcdef'));
+        console.log(reg2.exec('abcef'));
+        console.log(reg2.exec('abdef'));
+    </script>
+</body>
+</html>

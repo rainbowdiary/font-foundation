@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <style>
+        .wrapper{
+            position: relative;
+            margin:100px auto;
+            width: 600px;
+            padding: 20px;
+            border: 2px solid red;
+        }
+
+        .box{
+            margin: 100px;
+            width: 400px;
+            height: 300px;
+            border: 2px dotted orange;
+        }
+    </style>
+</head>
+<body>
+    <button>设置位置</button>
+    <div class="wrapper">
+        <div class="box"></div>
+    </div>
+
+
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        $(function () {
+            // offset  原理：getBoundingCLientRect()
+            console.log($('.box').offset());
+
+            // 只读
+            console.log($('.box').position());
+
+
+            $('button').click(function () {
+                $('#box').offset({
+                    left: 100,
+                    top: 100
+                });
+            });
+        });
+    </script>
+</body>
+</html>

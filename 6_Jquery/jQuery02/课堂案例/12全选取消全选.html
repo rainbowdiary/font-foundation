@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选</title>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <ul class="news-list">
+        <li><input type="checkbox"> Lorem ipsum dolor sit amet.</li>
+        <li><input type="checkbox"> Lorem ipsum dolor sit amet.</li>
+        <li><input type="checkbox"> Lorem ipsum dolor sit amet.</li>
+        <li><input type="checkbox"> Lorem ipsum dolor sit amet.</li>
+        <li><input type="checkbox"> Lorem ipsum dolor sit amet.</li>
+        <li><input type="checkbox"> Lorem ipsum dolor sit amet.</li>
+        <li><input type="checkbox"> Lorem ipsum dolor sit amet.</li>
+    </ul>
+
+    <button>全选</button>
+    <button>取消全选</button>
+    <button>反选</button>
+
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+
+            //全选
+            $('button:eq(0)').click(function(){
+                $('.news-list li input:checkbox').prop('checked', true);
+            });
+
+            // 取消全选
+            $('button:eq(1)').click(function () {
+                $('.news-list li input:checkbox').prop('checked', false);
+            });
+            
+            // 反选
+            $('button:eq(2)').click(function () {
+                // 遍历
+                $('.news-list li input:checkbox').each(function(index, item){
+                    //console.log(index, item);
+                    $(item).prop('checked', !$(item).prop('checked'));
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>

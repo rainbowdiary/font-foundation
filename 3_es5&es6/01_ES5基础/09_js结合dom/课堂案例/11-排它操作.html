@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>😃</button>
+		<button>😞</button>
+		<button>😞</button>
+		<button>😞</button>
+		<button>😞</button>
+		<button>😞</button>
+		<script type="text/javascript">
+			/*
+			 * 排它操作: 所有人默认效果,自己单独一个效果
+			 */
+			var btns = document.getElementsByTagName('button');
+			
+			//循环绑定事件
+			for (var i = 0; i < btns.length; i++) {
+				btns[i].onclick = function(){
+					//所有btns设置难过
+					for (var i = 0; i < btns.length; i++) {
+						btns[i].innerText = '😞';
+					}
+					//自己高兴
+					this.innerText = '😃';
+				}
+			}
+		</script>
+	</body>
+</html>

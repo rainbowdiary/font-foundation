@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>饼图</title>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        // 获取画布元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+
+        // 定义 各大手机品牌的市场占有率
+        var data = [
+            {title:'苹果', value:.1, color: 'yellowgreen'},
+            {title:'华为', value:.22, color: 'red'},
+            {title:'小米', value:.12, color: '#f90'},
+            {title:'OPPO', value:.18, color: 'green'},
+            {title:'vivo', value:.18, color: 'skyblue'},
+            {title:'其他', value:.2, color: 'deeppink'}
+        ];
+
+        // 设置文字属性
+        ctx.font = '20px 微软雅黑';
+        ctx.textBaseline = 'middle';
+        ctx.textAlign = 'end';
+
+
+        //设置圆心半径
+        var x = canvas.width/2, y = canvas.height/2, r = 200;
+
+        // 定义变量 设置结束弧度
+        var endAngle = 0;
+
+
+        // 绘制扇形
+        data.forEach(function (item, index) {
+            // 计算开始弧度和结束弧度
+            var startAngle = endAngle;
+            endAngle = startAngle + (item.value * 360) / 180 * Math.PI;
+            //绘制扇形
+            ctx.beginPath();
+            ctx.moveTo(x,y); //绘制起点
+            ctx.arc(x, y, r, startAngle, endAngle);
+            ctx.fillStyle = item.color;
+            ctx.fill();
+
+
+            // 计算文字对应的弧度
+            var textAngle = startAngle + (item.value * 360) / 180 * Math.PI / 2;
+
+
+            // 计算文字坐标并绘制
+            var textX = x + Math.cos(textAngle) * (r+20);
+            var textY = y + Math.sin(textAngle) * (r+20);
+            // 根据文字的位置 判断文字的水平对齐方式
+            if (textAngle > Math.PI/2 && textAngle < Math.PI*1.5) {
+                ctx.textAlign = 'end';
+            } else {
+                ctx.textAlign = 'start';
+            }
+            ctx.fillText(item.title + ' ' + item.value * 100 + '%', textX, textY);
+        });
+
+
+    </script>
+</body>
+</html>

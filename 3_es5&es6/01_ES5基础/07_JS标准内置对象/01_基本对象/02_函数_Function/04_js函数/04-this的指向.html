@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * this的指向: 在构造函数中,this指向的是当前实例对象,在普通函数中,this指向的是
+			 * window
+			 */
+			function Person(name,age){
+				this.name = name;
+				this.age =age;
+				console.log(this);
+			}
+			
+			var jay = new Person('周杰伦',40);
+			var jolin = new Person('蔡玉林',38);
+			
+			window.Person();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>outline</title>
+    <style>
+        .box {
+            margin: 100px auto;
+            width: 300px;
+            height: 200px;
+            border: 2px solid #333;
+            outline-width: 2px;
+            outline-color: red;
+            outline-style: solid;
+            outline-offset: 1px;
+
+            outline: 2px dashed green;
+            outline-offset: 2px; /*需要单独写，不能写在复合属性中*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

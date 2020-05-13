@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单词中断</title>
+    <style>
+        p {
+            width: 600px;
+            padding: 20px;
+            border: 1px solid #ccc;
+
+            /*如果单词过长，允许单词断开*/ /*只影响英文，不影响中文*/
+            /*overflow-wrap: break-word;*/
+
+            /*专门针对中文设置断行*/
+            word-break: keep-all;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Lorem ipsum dolor sit amet, howasdfasjfdlkajfskdlajfklasjdfklasjdflkasjdfklasdjfklasdjfklasdjfklasdjfklasjdflkasdjflkasjdflkasdfj consectetur adipisicing elit. Ad amet corporis, distinctio dolorem ea ex id ipsum itaque laudantium officia, perspiciatis reprehenderit sapiente voluptatem. Aspernatur commodi explicabo hic libero totam.
+    </p>
+    <p>萨芬骄傲了深刻的 房间里卡积分卡拉斯解放东路卡设计费卢卡斯解放路咖啡机爱上了对方就爱了深刻的风景阿拉山口的房间里卡阿斯顿福建阿斯利康地方讲埃里克森的房间爱六块腹肌</p>
+</body>
+</html>

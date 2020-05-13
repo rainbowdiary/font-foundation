@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="./sea/sea.js"></script>
+<script>
+    // 模块外的路径!!!  ./参照于代码的允许位置
+    seajs.use("./js/index",(obj)=>{
+        obj.damu.a()
+        obj.laofu.a()
+    })
+</script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<button id="btn">创建</button>
+		<div id="box"></div>
+		<script type="text/javascript">
+			/*
+			 * innerHTML创建节点: 用字符串拼接的方式创建节点
+			 */
+			var btn = document.getElementById('btn');
+			var box = document.getElementById('box');
+			var arr = ['三国演义','西游记','红楼梦','水浒传','金瓶梅'];
+//			var str = '<ul><li>1</li><li>2</li><li>3</li><li>4</li></ul>';
+			var str = '';
+			btn.onclick = function() {
+				str = '<ul id="list">';
+//				str = str+'<li>哈哈1</li>';
+//				str = str+'<li>哈哈2</li>';
+//				str = str+'<li>哈哈3</li>';
+//				str = str+'<li>哈哈4</li>';
+//				str = str+'<li>哈哈5</li>';
+				for (var i = 0; i < arr.length; i++) {
+					str = str+'<li>'+arr[i]+'</li>';    // '+arr[i]+'
+				}
+				
+				str=str+'</ul>';
+				console.log(str);
+				//将元素挂到dom树上
+				box.innerHTML = str;
+				
+				var list = document.getElementById('list');
+				console.log(list);
+				var lis = list.getElementsByTagName('li');
+//				for (var i = 0; i < lis.length; i++) {
+//					if(i % 2 == 0){
+//						lis[i].style.backgroundColor = 'yellow';
+//					}else{
+//						lis[i].style.backgroundColor = 'green';
+//					}
+//				}
+				for (var i = 0; i < list.children.length; i++) {
+					if(i % 2 == 0){
+						list.children[i].style.backgroundColor = 'yellow';
+					}else{
+						list.children[i].style.backgroundColor = 'green';
+					}
+					list.children[i].num = i;
+					list.children[i].onmouseover = function(){
+						if(this.num % 2 == 0){
+							this.style.backgroundColor = 'red';
+						}else{
+							this.style.backgroundColor = 'blue';
+						}
+					}
+					list.children[i].onmouseout = function(){
+						if(this.num % 2 == 0){
+							this.style.backgroundColor = 'yellow';
+						}else{
+							this.style.backgroundColor = 'green';
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+
+</html>

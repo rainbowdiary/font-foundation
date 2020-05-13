@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+       canvas {
+         background: #ccc;
+       }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        // 获取画布元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        //创建img元素
+        var imgNode = document.createElement('img');
+        imgNode.src = 'img/img23.jpg';
+
+        // 等到图片加载完毕
+        imgNode.onload = function () {
+            // 把图像绘入到画布中
+            //ctx.drawImage(imgNode, 100, 100);
+            //ctx.drawImage(imgNode, 100, 100, 100, 100);
+            ctx.drawImage(imgNode, 100, 100, 200, 200 * (imgNode.height / imgNode.width));  //只定义一个长度，另一个按照比例
+
+        }
+    </script>
+</body>
+</html>

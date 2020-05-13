@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .box {
+            margin: 100px auto;
+            width: 800px;
+        }
+        .options-list {
+            height: 40px;
+            border-bottom: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+        }
+        .options-list li {
+            float: left;
+            width: 120px;
+            height: 39px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #f5f5f5;
+            border-top: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .options-list li.active {
+            background-color: #fff;
+            height: 40px;
+        }
+        .card-list {
+
+        }
+        .card-list li {
+            display: none;
+            padding: 20px;
+            height: 200px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        .card-list li.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="options-list">
+            <li class="active">未完成订单</li>
+            <li>未发货订单</li>
+            <li>未收货订单</li>
+            <li>未评价订单</li>
+            <li>已失效订单</li>
+        </ul>
+        <ul class="card-list">
+            <li class="active">这里是未完成订单</li>
+            <li>这里是未发货订单</li>
+            <li>这里是未收货订单</li>
+            <li>这里是未评价订单</li>
+            <li>这里是已失效订单</li>
+        </ul>
+    </div>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            // 单击选项
+            $('.options-list li').click(function () {
+                // 当前的li添加类，其他的兄弟元素移出类
+               $(this).addClass('active').siblings().removeClass('active');
+               // 所有的card-list下的li移出类，其中指定索引的li添加类
+               $('.card-list li').removeClass('active').eq($(this).index()).addClass('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        #box {
+            position: absolute;
+            left:10px;
+            top: 10px;
+            width: 100px;
+            height: 100px;
+            background: #f90;
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">来啊，拖我</div>
+
+    <script>
+        (function () {
+            //获取元素
+            var box = document.querySelector('#box');
+
+            // 鼠标按下
+            box.onmousedown = function(event){
+                // 获取鼠标在元素上的位置
+                var eX = event.offsetX;
+                var eY = event.offsetY;
+
+                // 鼠标移动
+                document.onmousemove = function(event){
+                    // 获取鼠标位置
+                    var vX = event.clientX;
+                    var vY = event.clientY;
+
+                    // 计算元素位置
+                    var left = vX - eX;
+                    var top = vY - eY;
+
+                    // 位置的限定
+                    if (left < 0) {
+                        left = 0;
+                    } else if (left > document.documentElement.clientWidth - box.offsetWidth) {
+                        left = document.documentElement.clientWidth - box.offsetWidth;
+                    }
+                    if (top < 0) {
+                        top = 0;
+                    } else if (top > document.documentElement.clientHeight - box.offsetHeight) {
+                        top = document.documentElement.clientHeight - box.offsetHeight;
+                    }
+
+
+                    // 设置元素的位置
+                    box.style.left = left + 'px';
+                    box.style.top = top + 'px';
+                }
+            };
+
+            // 鼠标抬起，解除移动事件
+            document.onmouseup = function () {
+              this.onmousemove = null;
+            }
+        })();
+    </script>
+</body>
+</html>

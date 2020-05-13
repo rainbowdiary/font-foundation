@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发廊灯</title>
+    <style>
+        .box {
+            margin:100px;
+            width: 300px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+
+        }
+        .inner {
+            width: 1000px;
+            height: 60px;
+            transition: 10s;
+            background-image: repeating-linear-gradient(45deg, #000 0px, #000 10px, #fff 10px, #fff 20px);
+        }
+        .box:hover .inner {
+            margin-left: -700px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="box">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/*
+			1.String()
+		*/
+		var a = null;
+		var b = undefined;
+		var c = true;
+		var d = 123;
+		
+//		var ar = a.toString();
+//		var br = b.toString();
+		var cr = c.toString();
+		var dr = d.toString();
+		
+//		console.log(ar,typeof ar);
+//		console.log(br,typeof br);
+		console.log(cr,typeof cr);
+		console.log(dr,typeof dr);
+		
+		
+		//引用数据类型
+		var arr =[1,2,3];
+		arr.valueOf=function(){
+			return 11;
+		}
+		arr.toString=function(){
+			return 22;
+		}
+		var arrR = String(arr);
+		console.log(arrR,typeof arrR);
+		
+		
+	
+		
+	</script>
+</html>

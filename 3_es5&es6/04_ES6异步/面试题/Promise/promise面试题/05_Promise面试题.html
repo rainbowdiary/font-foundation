@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+          宏: 5*
+          微:1 2
+    执行结果: 3 7 4 轮询微队列 1 2 轮询宏队列 5
+    */
+    const first = () => (new Promise((resolve, reject) => {  //返回值
+      console.log(3);  //同步
+      let p = new Promise((resolve, reject) => {//同步
+        console.log(7);
+        setTimeout(() => {
+          console.log(5);
+          resolve(6);
+        }, 0)
+        resolve(1);  //p状态确定
+      });
+      resolve(2);  //first状态确定
+      p.then((arg) => {  //状态确定后放入微任务
+        console.log(arg);
+      });
+
+    }));
+
+    first().then((arg) => {
+      console.log(arg);
+    });
+    console.log(4); //同步
+  </script>
+</body>
+
+</html>

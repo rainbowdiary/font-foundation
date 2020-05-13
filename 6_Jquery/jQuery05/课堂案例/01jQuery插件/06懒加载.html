@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插件</title>
+    <style>
+        .wrapper {
+            margin: 10px auto;
+            width: 1000px;
+        }
+
+        .image-item {
+            float: left;
+            margin: 25px;
+            width: 450px;
+            height: 337.5px;
+        }
+        .image-item img {
+            width: 450px;
+            height: 337.5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="image-item"><img data-src="images/mm/1.jpeg" alt="老刘"></div>
+        <div class="image-item"><img data-src="images/mm/2.jpeg" alt="老刘"></div>
+        <div class="image-item"><img data-src="images/mm/3.jpeg" alt="老刘"></div>
+        <div class="image-item"><img data-src="images/mm/4.jpeg" alt="老刘"></div>
+        <div class="image-item"><img data-src="images/mm/5.jpeg" alt="老刘"></div>
+        <div class="image-item"><img data-src="images/mm/6.jpeg" alt="老刘"></div>
+        <div class="image-item"><img data-src="images/mm/7.jpeg" alt="老刘"></div>
+        <div class="image-item"><img data-src="images/mm/8.jpeg" alt="老刘"></div>
+        <div class="image-item"><img data-src="images/mm/9.jpeg" alt="老刘"></div>
+        <div class="image-item"><img data-src="images/mm/10.jpeg" alt="老刘"></div>
+    </div>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/lazyload/lazyload.min.js"></script>
+    <script>
+        $(function () {
+           $('.wrapper img').lazyload()
+        });
+    </script>
+</body>
+</html>

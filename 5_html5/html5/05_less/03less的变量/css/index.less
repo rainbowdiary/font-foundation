@@ -1,0 +1,32 @@
+// 定义变量
+@bgColor: Red;
+@column-width: 10px;
+@100: 20px;
+@propName:border;
+@selector: .box;
+
+// 颜色
+@saoPink:pink;
+@langGreen: green;
+
+
+
+
+//变量的使用 --- 把变量作为属性的值
+.box {
+  width: 200px;
+  height: 200px;
+  background: @bgColor;
+  color: @saoPink;
+}
+
+
+//把变量作为属性名, @{变量名}
+.box {
+  @{propName}:1px solid #ccc;
+}
+
+//把变量名当做选择器  @{变量名}
+@{selector} {
+  line-height: 100px;
+}

@@ -1,0 +1,458 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  margin: 0px;
+  padding: 0px;
+  font: 14px "微软雅黑";
+}
+a {
+  text-decoration: none;
+  display: block;
+}
+li {
+  list-style: none;
+}
+img {
+  display: block;
+}
+.clearfix,
+#wrap .content .list .item .course .course-3 .list,
+#wrap .content .list .item .works .works-2 .works-list {
+  *zoom: 1;
+}
+.clearfix::after,
+#wrap .content .list .item .course .course-3 .list::after,
+#wrap .content .list .item .works .works-2 .works-list::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#wrap .content .list .item .about .about-1 {
+  color: #009ee0;
+  font-size: 80px;
+  line-height: 0.8;
+  font-weight: bold;
+  letter-spacing: -5px;
+  margin: 50px 0 100px 50px;
+}
+#wrap .content .list .item .about .about-2 {
+  color: white;
+  line-height: 1.5;
+  font-size: 15px;
+  width: 400px;
+  margin-left: 50px;
+}
+#wrap .content .list .item .about .about-3 {
+  position: absolute;
+  left: 550px;
+  top: -100px;
+}
+#wrap .content .list .item .about .about-4 > div {
+  position: absolute;
+  width: 260px;
+  height: 200px;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+}
+#wrap .content .list .item .about .about-4 > div .about-list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+#wrap .content .list .item .about .about-4 > div .about-list li {
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+#wrap .content .list .item .about .about-4 > div .about-list li img {
+  position: absolute;
+  transition: 1s left , 1s top;
+}
+#wrap .content .list .item .about .about-4 > div span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: 1s transform;
+  transform: scale(1.5);
+  display: block;
+}
+#wrap .content .list .item .about .about-4 > div.item-1 {
+  left: 750px;
+  top: 50px;
+}
+#wrap .content .list .item .about .about-4 > div.item-1 span {
+  background: url("../img/about2.jpg") no-repeat;
+}
+#wrap .content .list .item .about .about-4 > div.item-2 {
+  left: 600px;
+  top: 290px;
+}
+#wrap .content .list .item .about .about-4 > div.item-2 span {
+  background: url("../img/about4.jpg") no-repeat;
+}
+#wrap .content .list .item .about .about-4 > div:hover span {
+  transform: scale(1);
+}
+#wrap .content .list .item .course .course-1 {
+  color: #009ee0;
+  font-size: 80px;
+  line-height: 0.8;
+  font-weight: bold;
+  letter-spacing: -5px;
+  margin: 50px;
+}
+#wrap .content .list .item .course .course-2 {
+  color: white;
+  line-height: 1.5;
+  font-size: 15px;
+  width: 400px;
+  margin-left: 50px;
+}
+#wrap .content .list .item .course .course-3 {
+  position: absolute;
+  right: 50px;
+  top: 70px;
+  width: 480px;
+}
+#wrap .content .list .item .course .course-3 .list li {
+  position: relative;
+  float: left;
+  width: 120px;
+  height: 132px;
+  perspective: 500px;
+  transform-style: preserve-3d;
+}
+#wrap .content .list .item .course .course-3 .list li:hover .face {
+  transform: rotateY(180deg);
+}
+#wrap .content .list .item .course .course-3 .list li:hover .backFace {
+  transform: rotateY(360deg);
+}
+#wrap .content .list .item .course .course-3 .list li .face {
+  padding: 15px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  background: url("../img/bks.png") no-repeat;
+  background-position: 50% 50%;
+  backface-visibility: hidden;
+  transition: 1s transform;
+}
+#wrap .content .list .item .course .course-3 .list li .backFace {
+  padding: 15px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  background: #009ee0;
+  color: white;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  transition: 1s transform;
+}
+@keyframes robotMove {
+  0% {
+    transform: translateX(0px) rotateY(0deg);
+  }
+  49% {
+    transform: translateX(-499px) rotateY(0deg);
+  }
+  50% {
+    transform: translateX(-500px) rotateY(180deg);
+  }
+  99% {
+    transform: translateX(-1px) rotateY(180deg);
+  }
+  100% {
+    transform: translateX(0px) rotateY(0deg);
+  }
+}
+#wrap .content .list .item .team .team-1 {
+  color: #009ee0;
+  font-size: 80px;
+  line-height: 0.8;
+  font-weight: bold;
+  letter-spacing: -5px;
+  width: 400px;
+  margin: 50px;
+  float: left;
+}
+#wrap .content .list .item .team .team-2 {
+  float: right;
+  width: 400px;
+  margin: 50px;
+}
+#wrap .content .list .item .team .team-2 p {
+  color: white;
+  line-height: 1.5;
+  font-size: 15px;
+}
+#wrap .content .list .item .team .team-3 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 270px;
+  margin: auto;
+  width: 944px;
+  height: 448px;
+}
+#wrap .content .list .item .team .team-3 li {
+  float: left;
+  width: 118px;
+  height: 448px;
+  box-sizing: border-box;
+  background: url("../img/team.png") no-repeat;
+}
+#wrap .content .list .item .team .team-3 li:nth-child(2) {
+  background-position: -118px 0;
+}
+#wrap .content .list .item .team .team-3 li:nth-child(3) {
+  background-position: -236px 0;
+}
+#wrap .content .list .item .team .team-3 li:nth-child(4) {
+  background-position: -354px 0;
+}
+#wrap .content .list .item .team .team-3 li:nth-child(5) {
+  background-position: -472px 0;
+}
+#wrap .content .list .item .team .team-3 li:nth-child(6) {
+  background-position: -590px 0;
+}
+#wrap .content .list .item .team .team-3 li:nth-child(7) {
+  background-position: -708px 0;
+}
+#wrap .content .list .item .team .team-3 li:nth-child(8) {
+  background-position: -826px 0;
+}
+#wrap .content .list .item .team .team-3 .qipao {
+  display: none;
+  position: absolute;
+}
+#wrap .content .list .item .works .works-1 {
+  color: #009ee0;
+  font-size: 80px;
+  line-height: 0.8;
+  font-weight: bold;
+  letter-spacing: -5px;
+  margin: 50px 0 100px 50px;
+}
+#wrap .content .list .item .works .works-2 {
+  margin-left: 50px;
+}
+#wrap .content .list .item .works .works-2 .works-list li {
+  position: relative;
+  float: left;
+  width: 220px;
+  height: 133px;
+  margin: 0 1px;
+  overflow: hidden;
+}
+#wrap .content .list .item .works .works-2 .works-list li .mask {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(25, 25, 25, 0.8);
+  color: white;
+  padding: 15px;
+  transition: 1s opacity;
+}
+#wrap .content .list .item .works .works-2 .works-list li .mask span {
+  display: block;
+}
+#wrap .content .list .item .works .works-2 .works-list li .mask i {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 32px;
+  height: 34px;
+  background: url("../img/zoomico.png") no-repeat;
+  transition: 1s background-position;
+}
+#wrap .content .list .item .works .works-2 .works-list li .mask i:hover {
+  background-position: 0 -36px;
+}
+#wrap .content .list .item .works .works-2 .works-list li > span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: 1s transform;
+}
+#wrap .content .list .item .works .works-2 .works-list li:nth-child(1) > span {
+  background: url("../img/worksimg1.jpg") no-repeat;
+}
+#wrap .content .list .item .works .works-2 .works-list li:nth-child(2) > span {
+  background: url("../img/worksimg2.jpg") no-repeat;
+}
+#wrap .content .list .item .works .works-2 .works-list li:nth-child(3) > span {
+  background: url("../img/worksimg3.jpg") no-repeat;
+}
+#wrap .content .list .item .works .works-2 .works-list li:nth-child(4) {
+  width: 332px;
+}
+#wrap .content .list .item .works .works-2 .works-list li:nth-child(4) > span {
+  background: url("../img/worksimg4.jpg") no-repeat;
+}
+#wrap .content .list .item .works .works-2 .works-list li:hover > span {
+  transform: rotate(45deg) scale(1.5);
+}
+#wrap .content .list .item .works .works-2 .works-list li:hover .mask {
+  opacity: 1;
+}
+#wrap .content .list .item .works .works-3 {
+  position: absolute;
+  left: 900px;
+  top: 170px;
+  width: 167px ;
+  height: 191px;
+  background: url("../img/robot.png") no-repeat;
+  animation: robotMove 3s linear infinite;
+}
+#wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#wrap .head {
+  width: 100%;
+  background: white!important;
+}
+#wrap .head .head-main {
+  position: relative;
+  width: 1100px;
+  height: 80px;
+  margin: 0 auto;
+}
+#wrap .head .head-main .logo {
+  display: inline-block;
+  margin-top: 30px;
+}
+#wrap .head .head-main .nav {
+  float: right;
+  margin-top: 50px;
+}
+#wrap .head .head-main .nav > li {
+  float: left;
+  margin-left: 40px;
+  color: #11A0DF;
+}
+#wrap .head .head-main .nav > li a {
+  position: relative;
+}
+#wrap .head .head-main .nav > li a .down {
+  transition: 1s width;
+  overflow: hidden;
+  width: 0;
+  color: black;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#wrap .head .head-main .nav > li:hover .down {
+  width: 100%;
+}
+#wrap .head .head-main .arrow {
+  transition: 1s left;
+  width: 21px;
+  height: 11px;
+  position: absolute;
+  z-index: 9;
+  left: 50%;
+  top: 80px;
+  background: url("../img/arrow.png") no-repeat;
+}
+#wrap .content {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 80px;
+  bottom: 0;
+  background: gray;
+}
+#wrap .content > .list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: 1s top;
+}
+#wrap .content > .list > .item {
+  overflow: hidden;
+  position: relative;
+  background-position: 50% 50% !important;
+}
+#wrap .content > .list > .item > div {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  width: 1100px;
+  height: 520px;
+}
+#wrap .content > .list > .item > div.home {
+  background: pink;
+}
+#wrap .content > .list > .item:nth-child(1) {
+  background: url("../img/bg1.jpg") no-repeat;
+}
+#wrap .content > .list > .item:nth-child(2) {
+  background: url("../img/bg2.jpg") no-repeat;
+}
+#wrap .content > .list > .item:nth-child(3) {
+  background: url("../img/bg3.jpg") no-repeat;
+}
+#wrap .content > .list > .item:nth-child(4) {
+  background: url("../img/bg4.jpg") no-repeat;
+}
+#wrap .content > .list > .item:nth-child(5) {
+  background: url("../img/bg5.jpg") no-repeat;
+}
+#wrap .content .points {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  z-index: 10;
+}
+#wrap .content .points > li {
+  width: 15px;
+  height: 15px;
+  margin-top: 5px;
+  border-radius: 50% ;
+  border: 2px solid pink;
+}
+#wrap .content .points > li.active {
+  background: white;
+}
+#wrap .content .points > li:hover {
+  cursor: pointer;
+}

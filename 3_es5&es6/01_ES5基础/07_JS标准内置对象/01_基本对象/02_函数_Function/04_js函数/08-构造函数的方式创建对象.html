@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 构造函数: 相当于创建一种类型
+			 * 
+			 */
+			//构造函数
+			function Person(name,age,gender){
+				this.name = name;
+				this.age = age;
+				this.gender = gender;
+				this.eat = function() {
+					alert('吃火锅');
+				}
+				
+			}
+			//通过构造函数实例化对象
+		 var jay = new Person('周杰伦',40,true);
+		 console.log(jay.name);
+		 //jay.eat();
+		 //var obj = new Object();
+		 console.log(jay);
+		// console.log(obj);
+		var jolin = new Person('蔡依林',39,false);
+		console.log(jolin);
+				
+				function Dog(name,age,gender){
+					this.name = name;
+					this.gender = gender;
+					this.age =age;
+					this.eat = function(){
+						alert('啃骨头~~');
+					}
+				}
+		var wangcai = new Dog('旺财',2,true);
+		console.log(wangcai);
+		
+		//判断某个对象是否属于某个类型的实例
+		console.log(jay instanceof Person);
+		console.log(jay instanceof Dog);
+		console.log(jay instanceof Object);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+       canvas {
+           background: #ccc;
+            background-size: cover;
+       }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        // 获取画布元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        // 创建图片元素
+        var imgNode = document.createElement('img');
+        imgNode.src = 'img/img23.jpg';
+        // 等待图片加载完成
+        imgNode.onload = function () {
+
+            // 绘制矩形路径  利用路径圈定一块区域，以后只有把图像绘制到该区域内，才能显示
+            ctx.beginPath();
+            ctx.rect(100,100, 200, 100);
+            ctx.clip();
+
+            // 把图片绘入画布
+            ctx.drawImage(imgNode, 0, 0, canvas.width/2, canvas.height);
+
+        };
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+       canvas {
+           background: #ccc;
+       }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        // 获取画布元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        ctx.fillRect(0, 0, 50, 50);
+
+        //设置阴影
+        ctx.save();
+            ctx.shadowOffsetX = 10;
+            ctx.shadowOffsetY = 10;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = 'red';
+
+
+            // 绘制矩形
+            ctx.fillRect(100, 100, 200, 100);
+
+            ctx.strokeRect(100, 400, 100, 200);
+
+            ctx.font = '50px 楷体';
+            ctx.fillText('老刘',200, 300);
+        ctx.restore();
+
+        // 绘制不带阴影的矩形
+        ctx.fillRect(400, 200, 200, 100);
+
+    </script>
+</body>
+</html>

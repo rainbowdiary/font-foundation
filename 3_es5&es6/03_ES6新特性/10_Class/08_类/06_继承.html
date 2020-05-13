@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+     class Person{
+         constructor(name,age){
+             this.name =name;
+             this.age =age;
+         }
+         static test(){
+             console.log("test")
+         }
+         eat(){
+             console.log("eat")
+         }
+     }
+     class Teacher extends Person{
+         constructor(name,age,money){
+             super(name,age);
+             this.money =money
+         }
+         teach(){
+             console.log("teach")
+         }
+     }
+     var laofu = new Teacher("圆滚滚",48,NaN)
+    console.log(laofu)
+</script>
+</html>

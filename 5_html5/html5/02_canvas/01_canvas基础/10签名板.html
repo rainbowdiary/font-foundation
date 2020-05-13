@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>签名版</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body {
+            width: 100%;
+            height:100%;
+            overflow: hidden;  /*阻止页面的滚动条*/
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+        (function () {
+            // 第一步 获取canvas元素
+            var canvas = document.querySelector('#myCanvas');
+
+            // 第二步 设置画布大小
+            canvas.width = 800;
+            canvas.height = 600;
+
+            // 第三步 获取绘图上下文
+            var ctx = canvas.getContext('2d');
+
+            // 设置描边宽度
+            ctx.lineWidth = 2;
+
+            // 鼠标按下
+            canvas.onmousedown = function(event){
+                // 开启新的路径
+                ctx.beginPath();
+
+                // 设置路线的起点
+                ctx.moveTo(event.offsetX, event.offsetY);
+
+                // 绑定鼠标移动
+                document.onmousemove = function(event){
+                    // 设置连接点
+                    ctx.lineTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
+
+                    // 描边
+                    ctx.stroke();
+                }
+            };
+
+            // 鼠标抬起
+            document.onmouseup = function(){
+                //移除鼠标移动事件
+                document.onmousemove = null;
+            }
+        })()
+    </script>
+</body>
+</html>

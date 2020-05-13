@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery事件</title>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <br>
+    <br>
+    <button>解除事件绑定</button>
+    <br>
+    <br>
+    <button>只有一次事件</button>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            // 每个事件都是jqueryDOM的方法，事件对象的函数作为回调函数
+            $('button').eq(0).click(function(){
+                console.log('click');
+            });
+            
+            // on jquery推荐 第一个参数写 事件名； 同addEventListener相似
+            $('button').eq(1).on('click', function () {
+               console.log('on click');
+            });
+
+            $('button').eq(2).click(function () {
+               $('button').eq(0).off('click');
+            });
+
+            $('button').eq(3).one('click', function () {
+               console.log('他们说我只有一次');
+            });
+
+            // 自动触发事件
+            $('button').eq(0).trigger('click');
+
+
+
+        })
+    </script>
+</body>
+</html>

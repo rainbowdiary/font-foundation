@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.default{
+				width: 100px;
+				height: 100px;
+				background: pink;
+				border-radius: 50%;
+				border: 3px solid skyblue;
+				float:left;
+				text-align: center;
+				line-height: 100px;
+				margin: 10px;
+				font-size: 40px;
+				color:green;
+				cursor: pointer;
+			}
+			.current{
+				background-color: yellow;
+				border-color: red;
+				color:#fff;
+				font-size: 60px;
+			}
+		</style>
+	</head>
+	<body>
+		<ol>
+			<li class="default current">1</li>
+			<li class="default">2</li>
+			<li class="default">3</li>
+			<li class="default">4</li>
+			<li class="default">5</li>
+		</ol>
+		<script type="text/javascript">
+			var lis = document.getElementsByTagName('li');
+			//循环绑定事件
+			for (var i = 0; i < lis.length; i++) {
+				
+				lis[i].onclick = function(){
+					//所有li保持原样
+					for (var i = 0; i < lis.length; i++) {
+						lis[i].className = 'default';
+					}
+					
+					//自己拥有current类名
+					this.className = 'default current';
+				}
+			}
+		</script>
+	</body>
+</html>

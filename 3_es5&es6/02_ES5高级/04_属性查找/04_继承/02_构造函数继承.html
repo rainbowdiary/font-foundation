@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+    继承
+    多态(重写)
+    封装(函数化)
+    */
+    function Person(name,age) {
+        this.name = name;
+        this.age = age;
+        this.eat=function (msg) {
+            console.log(msg)
+        }
+    }
+    function Teacher(name,age,subject) {
+        //构造函数
+        Person.call(this,name,age)
+        this.subject =  subject,
+        this.teach=function () {
+            console.log("教书")
+        }
+    }
+    function Student(name,age,score) {
+        Person.call(this,name,age)
+        this.score =  score,
+        this.study=function () {
+            console.log("学习")
+        }
+    }
+
+    var damu = new Teacher("达姆",18,"前端")
+    console.log(damu)
+
+    var mx = new Student("马儿",28,8)
+    console.log(mx)
+</script>
+</html>

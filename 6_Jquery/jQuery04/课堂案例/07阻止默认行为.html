@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阻止默认形式</title>
+</head>
+<body>
+
+
+    <a href="http://www.atguigu.com">尚硅谷</a>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function(){
+            $('a').click(function (event) {
+                alert('啊，单击了');
+                // 阻止浏览器默认动作
+                //event.preventDefault();
+                return false;  //既能阻止浏览器默认行为， 也能阻止冒泡
+            });
+        })
+    </script>
+
+</body>
+</html>

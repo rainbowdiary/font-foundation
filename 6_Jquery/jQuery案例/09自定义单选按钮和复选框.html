@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        .list01 li{
+            font-size: 14px;
+            height: 20px;
+            line-height: 20px;
+            padding-left: 20px;
+            background: url(images/radio.gif) no-repeat left top;
+            cursor: pointer;
+        }
+        .list01 li.current{
+            background-position-y:bottom ;
+        }
+        .list02 li{
+            height: 30px;
+            line-height: 30px;
+            padding-left: 35px;
+            background: url(images/duo1.png) no-repeat left 5px;
+            cursor: pointer;
+        }
+        .list02 li.current{
+            background-image: url(images/duo2.png);
+        }
+    </style>
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function(){
+            //单选
+            $('.list01 li').click(function(){
+                $(this).addClass('current').siblings().removeClass('current');
+            });
+            //多选
+            $('.list02 li').click(function(){
+                //第一种:判断是否有类名
+                //hasClass('类名')   判断是否有类名
+//					if($(this).hasClass('current')){
+//						$(this).removeClass('current');
+//					}else{
+//						$(this).addClass('current');
+//					}
+                //第二种  切换类名
+                $(this).toggleClass('current');
+            })
+
+        })
+    </script>
+</head>
+<body>
+<h2>单选</h2>
+<ul class="list01">
+    <li>我虽然是li 但我可以变为单选按钮</li>
+    <li>我虽然是li 但我可以变为单选按钮</li>
+    <li>我虽然是li 但我可以变为单选按钮</li>
+    <li>我虽然是li 但我可以变为单选按钮</li>
+</ul>
+<ul class="list02">
+    <li>jq太贴心了,么么哒!</li>
+    <li>jq太贴心了,么么哒!</li>
+    <li>jq太贴心了,么么哒!</li>
+    <li>jq太贴心了,么么哒!</li>
+</ul>
+</body>
+</html>

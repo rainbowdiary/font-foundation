@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+       canvas {
+           background: #ccc;
+            background-size: cover;
+       }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        // 获取画布元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        // 创建图片
+        var imgNode = document.createElement('img');
+        imgNode.src = 'img/img23.jpg';
+        //图片加载完毕
+        imgNode.onload = function(){
+            ctx.drawImage(imgNode, 0, 0);
+
+            // 创建像素信息对象
+            var newImageData = ctx.createImageData(100, 100);
+
+            // 设置像素信息
+            for (var i = 0; i < newImageData.data.length; i ++) {
+                newImageData.data[i] = Math.floor(Math.random() * 256);
+            }
+
+            console.log(newImageData);
+
+            // 把像素信息写入到画布中
+            ctx.putImageData(newImageData, 400, 200);
+
+
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

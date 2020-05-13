@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+    我们知道 ES6 的 Promise 是需要考虑向下兼容的，开发当中往往没有用系统内核的 Promise ,
+    而是使用 npm install promise 来引入的。那么 promise 的 js 实现和浏览器的实现是完全一致的吗？
+    按照上面的四段代码的解析，我们理解到了，Promise 的 then 的执行，
+    是依赖于上一个 then 的执行完成之后，即 resolve 状态之后，才开始注册到微任务队列中的。
+
+     */
+    new Promise((resolve, reject) => {
+      console.log('外部promise');
+      resolve();
+    })
+      .then(() => {
+        console.log('外部第一个then');
+        new Promise((resolve, reject) => {
+          console.log('内部promise');
+          resolve();
+        })
+          .then(() => {
+            console.log('内部第一个then');
+            /*Promise.resolve()做了什么?
+            是同步的
+            创建一个promise实例，
+            执行resolve
+            将这个创建的成功状态的promise加入微队列
+            */
+           return Promise.resolve();  //加了return后面的执行顺序不一
+          })
+          .then(() => {
+            console.log('内部第二个then');
+          })
+      })
+      .then(() => {
+        console.log('外部第二个then');
+      })
+      .then(() => {
+        console.log('外部第三个then');
+      })
+      // .then(() => {
+      //   console.log('外部第四个then');
+      // })
+
+
+/*
+使用node10版本以内的node去执行代码  
+  执行顺序:'外部promise' '外部第一个then' '内部promise' '内部第一个then' '外部第二个then' '内部第二个then' 外部第三个then'
+  --'外部promise'
+      resolve();
+    **'外部第一个then'注册 *
+      剩下的外部.then都是pending状态
+      '外部第一个then'同步代码执行
+  --'外部第一个then'
+  --'内部promise'
+      resolve();
+    **'内部第一个then'注册 *
+      '外部第一个then'同步代码执行完毕
+    **'外部第二个then'被注册 *
+      
+      查看微队列
+       '内部第一个then'* '外部第二个then'
+       '内部第一个then'*同步代码执行
+  --'内部第一个then'
+    **'内部第二个then'被注册
+      外部第二个then'同步代码执行执行
+  --'外部第二个then'
+    **'外部第三个then'被注册
+      查看微队列
+        '内部第二个then'被注册 '外部第三个then'被注册
+  --'内部第二个then'
+  --外部第三个then'
+     */
+
+/* 浏览器(webkit)的实现，
+  执行顺序:'外部promise' '外部第一个then' '内部promise' '内部第一个then' '外部第二个then' 外部第三个then' '内部第二个then' 
+
+考虑return Promise.resolve();  
+则 后面执行结果不一致
+  查看微队列
+    '内部第一个then'* '外部第二个then'
+    
+    '内部第一个then'*同步代码执行 
+    执行'内部第一个then'同步代码
+  --'内部第一个then'
+      return Promise.resolve();
+      创建一个成功状态的promise 
+    **将promise.resolve的回调注册
+      执行'内部第一个then'
+  --'外部第二个then'
+    **'外部第三个then'被注册
+  
+    查看微队列
+        promise.resolve 外部第三个then
+    执行promise.resolve
+    **'内部第二个then'被注册
+    执行外部第三个then
+  --'外部第三个then'
+  --'内部第二个then'
+*/
+  </script>
+</body>
+
+</html>

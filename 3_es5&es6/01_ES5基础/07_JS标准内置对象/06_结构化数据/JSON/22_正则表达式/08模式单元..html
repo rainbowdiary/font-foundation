@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+</head>
+<body>
+
+    <script>
+        // 改变优先级
+
+        // 把多个原子当成一个整体
+        var reg = /hello{3}/;
+        console.log(reg.exec('hellooo'));
+        var reg1 = /(hello){3}/;
+        console.log(reg1.exec('hellohellohello'));
+        console.log('');
+
+
+        // 暂存内存  把模式单元的内容进行捕获
+        var reg3 = /apple/;
+        console.log(reg3.exec('apple'));
+        var reg4 = /(a)p(pl)e/;
+        console.log(reg4.exec('apple'));
+        console.log('');
+
+        // 如果不想暂存内容，可以用(?:)
+        // 仅仅想改变优先级或者仅仅想把多个原子当做一个整体
+        var reg2 = /ab(?:c|d)ef/;
+        console.log(reg2.exec('abdef'));
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 定义方法，数字前面补几位的零
+    9999，补0，到6位数，=>009999
+     */
+    console.log(zero(9999, 6));
+    function zero(num, n) {
+      return (Array(n).join(0) + num).slice(-n)
+    }
+  </script>
+</body>
+
+</html>

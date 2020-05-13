@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片事件</title>
+</head>
+<body>
+    <img src="../01jQuery插件/images/O9091.jpg" alt="长得像我">
+    <script>
+        var imgNode = document.querySelector('img');
+
+        imgNode.onload = function () {
+            console.log('图片加载完毕');
+        };
+
+        imgNode.onerror = function(){
+            console.log('图片加载错误');
+        }
+    </script>
+</body>
+</html>

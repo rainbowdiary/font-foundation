@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="./02_Promise(自定义)/lib/05_Promise(ES6).js"></script>
+</head>
+
+<body>
+
+</body>
+<script>
+  const result = new MyPromise((resolve, reject) => {
+    resolve(0)
+    return 1;
+  })
+    .then((a) => {
+      console.log(a);
+      console.log(111);
+      return new Promise(() => {
+        console.log(111);
+      })
+    })
+  console.log(result);
+
+</script>
+
+</html>

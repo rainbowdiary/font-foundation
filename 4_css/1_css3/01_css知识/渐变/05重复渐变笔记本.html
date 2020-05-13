@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>重复渐变</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .book {
+            margin: 20px auto;
+            padding: 30px;
+            width: 500px;
+            min-height: 600px;
+            line-height: 30px;
+            /*background-image: linear-gradient(#fff 0, #fff 29px, #999 30px);*/
+            /*background-size: 100% 30px;*/
+            background: repeating-linear-gradient(#fff 0, #fff 29px, #999 30px);
+            background-clip: content-box;
+            background-position: left -2px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px #ccc;
+        }
+        .book p:not(:first-child) {
+            text-indent: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="book">
+        <p>Dear 老刘:</p>
+        <p>好久不见，我想死你了！</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam architecto assumenda, consectetur consequatur deleniti dicta dolor et excepturi fugit in iusto laudantium magni molestiae nihil nobis numquam quae saepe. Accusantium!</p>
+        <p>中宣部常务副部长王晓晖29日介绍，庆祝中华人民共和国成立70周年活动中，将在北京人民大会堂举行隆重颁授仪式，对在中国特色社会主义建设和保卫国家中作出重大贡献、建立卓越功勋、道德品质高尚、群众公认的杰出人士，在中国社会主义现代化建设和促进中外交流合作、维护世界和平中作出杰出贡献的外国人，在各领域各行业作出重大贡献、享有崇高声誉、道德品质高尚、群众公认的杰出人士，分别授予“共和国勋章”“友谊勋章”和国家荣誉称号。中华人民共和国主席习近平将亲自颁授勋章、奖章，签发证书。</p>
+    </div>
+</body>
+</html>

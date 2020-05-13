@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function getPersonInfo(one, two, three) {
+      console.log(one); // ["", " is ", " years old"]
+      console.log(two);
+      console.log(three);
+    }
+
+    const person = "Lydia";
+    const age = 21;
+
+    getPersonInfo`${person} is ${age} years old`; //ES6 标签模板
+    // 等价于
+    // getPersonInfo([""," is ", " years old"], "Lydia", 21)
+
+
+    /*
+    ES6标签模板：
+    - 函数调用的一种特殊形式
+    - 当模板字符串紧跟在一个函数名后面的时候，该函数将被调用来处理这个模板字符串。这被称为“标签模板”功能（tagged template）。
+    函数参数是模板字符串，如果模板字符串中带有变量，是将模板字符串先处理成多个参数，再调用函数。
+    规则：
+    1. 字符串中的非变量被拆成数组形式，变量作为值紧跟数组后面作为参数传入
+    2. 变量紧挨函数名，则数组第一个元素为空
+
+    参考资料:https://www.cnblogs.com/sminocence/p/6832331.html
+     */
+  </script>
+</body>
+
+</html>

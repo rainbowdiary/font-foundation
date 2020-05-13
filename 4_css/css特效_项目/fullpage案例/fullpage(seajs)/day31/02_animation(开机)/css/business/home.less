@@ -1,0 +1,84 @@
+@import "../mixin/mixin";
+@import "../extend/extend";
+@import "../animation/animation";
+#wrap{
+  .content{
+    .list{
+      .item{
+        .home{
+          .home-1{
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            .item{
+              position: absolute;
+              left: 0;
+              right: 0;
+              top: 0;
+              bottom: 0;
+              color: white;
+              font: 100px/520px "MAGNETO";
+              text-align: center;
+              visibility: hidden;
+              &.active{
+                visibility: visible;
+              }
+              &.rightShow{
+                visibility: visible;
+                transform: translateZ(0px);
+                animation:rightShow 1s 1 linear ;
+              }
+              &.leftHide{
+                visibility: hidden;
+                transform: translateZ(-200px);
+                animation:leftHide 1s 1 linear ;
+              }
+              &.rightHide{
+                visibility: hidden;
+                transform: translateZ(-200px);
+                animation:rightHide 1s 1 linear ;
+              }
+              &.leftShow{
+                visibility: visible;
+                transform: translateZ(0px);
+                animation:leftShow 1s 1 linear ;
+              }
+              &:nth-child(1){
+                background:#dc6c5f;
+              }
+              &:nth-child(2){
+                background:#95dc84;
+              }
+              &:nth-child(3){
+                background:#64b9d2;
+              }
+              &:nth-child(4){
+                background:#000000;
+              }
+            }
+          }
+          .home-2{
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            &:extend(.clearfix all);
+            .item{
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              background: rgba(255,255,255,0.5);
+              margin-left: 2px;
+              box-shadow: 0 0 4px red;
+              display: inline-block;
+              &.active{
+                background: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

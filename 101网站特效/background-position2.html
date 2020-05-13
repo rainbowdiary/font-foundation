@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .myDiv {
+      height: 300px;
+      width: 300px;
+      border: 10px dashed black;
+      padding: 20px;
+      background: url('./img/2.jpg') no-repeat;
+      background-size: 100px;
+      /* 可以看出backgorund-position是相对于padding-box外边线而言的 */
+      background-color: pink;
+      /* background-color是相对于border-box而言的 */
+      background-position: right 20px bottom 20px;
+      /* background-origin:规定backgournd-image相对于谁做定位，默认padding-box */
+      background-origin: content-box;
+      /*背景图像相对于内容框来定位。*/
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+      问题: background-position是相对于谁做的定位?
+      盒模型: 从外到内 margin-box,border-box,padding-box,content-box 
+      结论： background-position：默认相对于padding-box外边沿做定位的
+            background-origin:默认值padding-box
+            background-color: 相对于border-box定位的
+  -->
+  <div class="myDiv"></div>
+</body>
+
+</html>

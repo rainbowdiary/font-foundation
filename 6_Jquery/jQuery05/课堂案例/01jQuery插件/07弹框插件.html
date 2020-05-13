@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插件</title>
+    <link rel="stylesheet" href="js/layer/theme/default/layer.css">
+    <style>
+        button {
+            border: 1px solid #ccc;
+            background: #f5f5f5;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <button>弹框</button>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/layer/layer.js"></script>
+    <script>
+        $('button').click(function () {
+            //layer.alert('你不准点我！', {title:'警告', icon: 0});
+            layer.confirm('你爱我吗', {title:'询问', icon: 3});
+        })
+    </script>
+</body>
+</html>

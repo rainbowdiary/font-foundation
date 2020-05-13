@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>竖向导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+
+        .nav {
+            margin: 50px;
+            width: 250px;
+        }
+        .nav h3 {
+            position:relative;
+            padding: 0 20px;
+            height: 40px;
+            line-height: 40px;
+            background: #333;
+            color: #fff;
+            font-size: 16px;
+            font-weight: normal;
+            border-bottom: 1px solid #ccc;
+        }
+        .nav h3 span {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            margin-top: -6px;
+            width: 12px;
+            height: 12px;
+            background: url('images/off.png') no-repeat;
+        }
+        .nav h3 span.open {
+            background: url('images/open.png') no-repeat;
+        }
+        .nav ul {
+            display: none;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+        }
+        .nav li {
+            padding: 0 20px;
+            height: 38px;
+            line-height: 38px;
+            border-bottom: 1px solid #ccc;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <h3>筛选 <span class="tag"></span></h3>
+        <ul>
+            <li>过滤</li>
+            <li>查找</li>
+            <li>串联</li>
+        </ul>
+        <h3>属性 <span class="tag"></span></h3>
+        <ul>
+            <li>属性</li>
+            <li>css类</li>
+            <li>代码</li>
+            <li>文本</li>
+            <li>值</li>
+        </ul>
+        <h3>样式 <span class="tag"></span></h3>
+        <ul>
+            <li>CSS方法</li>
+            <li>位置</li>
+            <li>尺寸</li>
+        </ul>
+        <h3>选择器 <span class="tag"></span></h3>
+        <ul>
+            <li>基本选择器</li>
+            <li>层级选择器</li>
+            <li>过滤选择器</li>
+        </ul>
+    </div>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+           $('.nav h3').click(function () {
+               //$(this).next('ul').toggle();
+
+               //带效果 滑动效果
+               /*
+               $(this).next('ul').slideToggle();
+               $(this).children('span').toggleClass('open');
+                */
+
+               // end 返回最后一次破坏性操作之前
+               $(this).next('ul').slideToggle().end().children('span').toggleClass('open');
+
+
+           });
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模式修饰符</title>
+</head>
+<body>
+    <script>
+        /*
+        *  i
+        *  m
+        *  g
+        * */
+
+        // i 大小写不敏感
+        console.log(/apple/.exec('Apple'));
+        console.log(/apple/i.exec('Apple'));
+        console.log('');
+
+        // m 多行匹配
+        // 影响字符串边界，在多行模式下，换行符可以认为是字符串边界
+        console.log(/^apple/.exec('orange\napple'));
+        console.log(/^apple/m.exec('orange\napple'));
+        console.log(/^apple/m.exec('orange apple'));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件委派</title>
+    <style>
+        ul {
+            padding: 0;
+            list-style: none;
+            width: 600px;
+        }
+        li {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+        }
+        li.active {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">添加</button>
+    <br>
+    <ul class="news-list">
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+    </ul>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            // 普通的绑定
+           // $('.news-list li').click(function () {
+           //    $(this).toggleClass('active');
+           // });
+
+           // 事件委托 委派
+            // 事件绑定给父元素， on方法的第二个参数写 子元素选择器
+            $('.news-list').on('click', 'li', function () {
+               $(this).toggleClass('active');
+
+            });
+
+
+           //按钮单击 添加li
+            $('#btn').click(function () {
+               $('<li>').html('How Are You?').appendTo('.news-list');
+            });
+        });
+    </script>
+</body>
+</html>

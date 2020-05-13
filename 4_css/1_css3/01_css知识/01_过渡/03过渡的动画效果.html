@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过渡</title>
+    <style>
+        .wrapper {
+            width: 800px;
+            height: 40px;
+            border: 5px dashed darkorange;
+        }
+        .box {
+            width: 100px;
+            height: 40px;
+            background: #1E9FFF;
+
+            /*过渡*/
+            transition-duration: 5s;
+            transition-property: width;
+            /*设置过渡的动画效果*/
+            /*transition-timing-function: linear;*/
+            /*transition-timing-function: ease-in;*/
+
+
+
+            /*transition-timing-function: steps(10); !*分多少步完成*!*/
+            /*transition-timing-function: step-start; !*分多少步完成*!*/
+            /*transition-timing-function: step-end; !*分多少步完成*!*/
+
+            /*设置贝塞尔曲线*/
+            transition-timing-function: cubic-bezier(.58,.38,.59,1.42);
+        }
+    </style>
+</head>
+<body>
+    <button>过渡</button>
+    <div class="wrapper">
+        <div class="box"></div>
+    </div>
+
+    <script>
+        var button = document.querySelector('button');
+        var box = document.querySelector('.box');
+
+        button.onclick = function () {
+          box.style.width = '800px';
+        };
+    </script>
+
+
+</body>
+</html>

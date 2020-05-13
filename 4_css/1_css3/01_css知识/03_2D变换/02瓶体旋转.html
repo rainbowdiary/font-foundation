@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瓶体旋转</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            display: block;
+        }
+        #wrap{
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden; /*子元素从父元素溢出*/
+            width: 194px;
+            height: 336px;
+        }
+        #cokeCan,#cokeBg{
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        #cokeBg{
+            top:10px;
+            width: 1074px;
+            height: 280px;
+        }
+        #cokeBg img{
+            float: left;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <!--瓶纸-->
+    <div id="cokeBg">
+        <img src="images/coke_bg.jpg" alt="">
+        <img src="images/coke_bg.jpg" alt="">
+    </div>
+    <!--瓶体-->
+    <div id="cokeCan">
+        <img src="images/coke_can.png" alt="">
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var cokeBg = document.getElementById('cokeBg');
+        //cokeBg 向左边走
+        var num = 0;
+        setInterval(function () {
+            num--;
+            if(Math.abs(num) > 1074){
+                num = 0;
+            }
+            cokeBg.style.transform = 'translateX('+ num +'px)';
+        },20);
+    }
+</script>
+</html>

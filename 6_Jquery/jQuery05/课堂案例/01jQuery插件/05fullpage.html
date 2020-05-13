@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插件</title>
+    <link rel="stylesheet" href="js/fullpage/jquery.fullpage.min.css">
+    <style>
+        .section h1,.section h2 {
+            text-align: center;
+        }
+
+        #nav {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            z-index: 10001;
+        }
+        #nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+
+        #fp-nav ul li a span, .fp-slidesNav ul li a span {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <a href="#firstPage">第一页</a>
+        <a href="#secondPage">第二页</a>
+        <a href="#thirdPage">第三页</a>
+        <a href="#forthPage">第四页</a>
+    </div>
+
+    <div id="fullPage">
+        <div class="section">
+            <h1>欢迎来到尚硅谷</h1>
+        </div>
+        <div class="section">
+            <div class="slide">
+                <h2>第二页 第一章</h2>
+            </div>
+            <div class="slide">
+                <h2>第二页 第二章</h2>
+            </div>
+            <div class="slide">
+                <h2>第二页 第三章</h2>
+            </div>
+        </div>
+        <div class="section">
+            <h2>第三页</h2>
+        </div>
+        <div class="section">
+            <h2>第四页</h2>
+        </div>
+    </div>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/fullpage/jquery.fullpage.min.js"></script>
+    <script>
+        $(function () {
+            $('#fullPage').fullpage({
+                navigation: true,
+                sectionsColor: ['#f90', 'skyblue', 'yellowgreen', 'deeppink'],
+                anchors: ["firstPage", "secondPage", "thirdPage", "forthPage"]
+            });
+        });
+    </script>
+</body>
+</html>

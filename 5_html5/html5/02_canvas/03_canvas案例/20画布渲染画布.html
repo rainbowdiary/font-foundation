@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            /*overflow: hidden;*/
+        }
+       canvas {
+           background: #ccc;
+            background-size: cover;
+       }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas1"></canvas>
+    <canvas id="myCanvas2"></canvas>
+    <script>
+        // 获取画布元素
+        var canvas1 = document.querySelector('#myCanvas1');
+        var canvas2 = document.querySelector('#myCanvas2');
+
+        // 设置大小
+        canvas1.width = canvas2.width = 800;
+        canvas1.height = canvas2.height = 600;
+
+        // 隐藏其中的一个画布
+        canvas1.style.display = 'none';
+
+        // 获取绘图上下文
+        var ctx1 = canvas1.getContext('2d');
+        var ctx2 = canvas2.getContext('2d');
+
+        // 绘图
+        ctx1.fillStyle = 'red';
+        ctx1.fillRect(100, 100, 300, 100);
+        // 绘制好多好多图像
+
+
+
+        // 画布渲染画布
+        ctx2.drawImage(canvas1, 0, 0);
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

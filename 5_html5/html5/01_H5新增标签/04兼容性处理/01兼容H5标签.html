@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>兼容H5标签</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        header,footer,nav,article,aside,section,hgroup {
+            display: block;
+        }
+        #header {
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background: #1DC128;
+        }
+        #nav {
+            margin-top: 20px;
+            line-height: 40px;
+            text-align:center;
+            background: #ccc;
+        }
+        #nav li {
+            display: inline-block;
+        }
+
+        #main {
+            margin: 20px auto;
+            width: 1000px;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        #main aside {
+            float: left;
+            width: 280px;
+        }
+        #main article {
+            float:right;
+            width: 700px;
+        }
+
+        #footer {
+            background: #1DC128;
+            line-height: 100px;
+            text-align:center;
+        }
+
+    </style>
+
+    <script>
+        document.createElement('header');
+        document.createElement('footer');
+        document.createElement('nav');
+        document.createElement('aside');
+        document.createElement('article');
+        document.createElement('section');
+        document.createElement('hgroup');
+    </script>
+</head>
+<body>
+    <header id="header">
+        <h1>老刘的私密空间</h1>
+    </header>
+    <nav id="nav">
+        <ul>
+            <li>首页</li>
+            <li>首页</li>
+            <li>首页</li>
+            <li>首页</li>
+            <li>首页</li>
+        </ul>
+    </nav>
+
+    <div id="main">
+        <aside>
+            <ul>
+                <li><a href="javascript:">老刘老刘老刘</a></li>
+                <li><a href="javascript:">老刘老刘老刘</a></li>
+                <li><a href="javascript:">老刘老刘老刘</a></li>
+                <li><a href="javascript:">老刘老刘老刘</a></li>
+                <li><a href="javascript:">老刘老刘老刘</a></li>
+            </ul>
+        </aside>
+        <article>
+            <h1>老刘</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi aspernatur assumenda cum cumque cupiditate debitis dicta facilis, itaque iure magnam minima porro quidem quo rem repellat reprehenderit sed sunt.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi aspernatur assumenda cum cumque cupiditate debitis dicta facilis, itaque iure magnam minima porro quidem quo rem repellat reprehenderit sed sunt.</p>
+        </article>
+
+    </div>
+
+    <footer id="footer">
+        <nav class="footer-nav">
+            <a href="javascript:">首页</a>
+            <a href="javascript:">首页</a>
+            <a href="javascript:">首页</a>
+            <a href="javascript:">首页</a>
+            <a href="javascript:">首页</a>
+            <a href="javascript:">首页</a>
+        </nav>
+    </footer>
+
+
+
+</body>
+</html>

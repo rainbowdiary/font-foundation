@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			
+			}
+			#one{
+				width:300px;
+				height: 300px;
+				background: red;
+			}
+			#two{
+				width:200px;
+				height: 200px;
+				background: green;
+			}
+			#three{
+				width:100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="one">one
+			<div id="two">two
+				<div id="three">three</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			/*
+			 * 事件冒泡: 嵌套元素,当触发子元素的事件时,会由当前元素依次向外触发父辈元素的相同事件类型
+			 * 的事件,这个过程被称为事件冒泡
+			 * 
+			 * e参数: 事件处理函数中的参数对象,当鼠标单击触发事件时,或取鼠标的一些信息.
+			 * e参数对象只能高级浏览器使用,ie低版本没有e参数对象,只能用window.event对象获取鼠标的
+			 * 信息,高级浏览器也能使用window.event
+			 * 阻止事件冒泡:
+			 * e.stopPropagation(); 高级浏览器
+			 * window.event.cancelBubble = true;
+			 */
+			var one = document.getElementById('one');
+			var two = document.getElementById('two');
+			var three = document.getElementById('three');
+			
+			one.onclick = function(){
+				console.log('one');
+			}
+			two.onclick = function(){
+				console.log('two');
+			}
+			three.onclick = function(e){
+				console.log('three');
+				//console.log(e);
+				//阻止事件冒泡
+				//e.stopPropagation();
+//				console.log(e);
+//				console.log(window.event);
+				//取消事件冒泡
+				window.event.cancelBubble = true;
+			}
+			//获取body
+			document.body.onclick = function(){
+				console.log('body');
+			}
+			//获取html
+			document.documentElement.onclick = function(){
+				console.log('html');
+			}
+			document.onclick = function(){
+				console.log('document');
+			}
+			window.onclick = function(){
+				console.log('window');
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

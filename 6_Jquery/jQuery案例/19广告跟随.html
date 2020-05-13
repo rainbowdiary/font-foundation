@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        img{
+            position: absolute;
+            left:0;
+            top:0;
+        }
+        body{
+            height: 3000px;
+        }
+    </style>
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(window).scroll(function(){
+                //图片跟随的距离就是窗口垂直滚动的距离+固定的160px
+                var move = $(window).scrollTop()+160;
+                $('img').stop().animate({'top':move+'px'})
+            })
+        })
+    </script>
+</head>
+<body>
+<img src="images/adv/03.jpg"/>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+    使用lodash的_.cloneDeepWith(obj)方法实现深度克隆 
+     */
+    var oldObj = {
+      a: 1,
+      b: ["一", "二", "三"],
+      c: {
+        d: {
+          f: 2
+        }
+      },
+      fn() {
+        console.log("----")
+      }
+    }
+
+    const newObj = _.cloneDeepWith(oldObj)
+
+    newObj.c.d.f = "f";
+    console.log(oldObj, newObj)
+  </script>
+</body>
+
+</html>

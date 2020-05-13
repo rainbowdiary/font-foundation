@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+        左查询 : 对等号左边的变量进行查询
+                    如果找到就使用
+                    如果整条作用域链上都没有该变量就会自动在顶级作用域声明一份
+        右查询 : 对等号非左边的变量进行查询
+                    如果找到就使用
+                    如果整条作用域链上都没有该变量就会报错
+    */
+    function test() {
+       var a = 3;
+    }
+    test()
+
+
+    console.log(a)
+</script>
+</html>

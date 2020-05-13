@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原子</title>
+</head>
+<body>
+
+    <script>
+        // 单词之间会有 空格、标点符号 或者 换行符号, 字符串的开始和结束 隔开
+        console.log(/\bre/.exec('result express are'));
+        console.log(/\bre/.exec('express are'));
+        console.log(/\bre/.exec('are'));
+        console.log(/\bre/.exec('are,result'));
+
+        console.log('');
+
+        console.log(/re\b/.exec('result express are'));
+        console.log(/re\b/.exec('express are'));
+        console.log(/re\b/.exec('are'));
+        console.log(/re\b/.exec('are,result'));
+
+
+        console.log('');
+
+        console.log(/\bre\b/.exec('result express are'));
+        console.log(/\bre\b/.exec('express are'));
+        console.log(/\bre\b/.exec('are'));
+        console.log(/\bre\b/.exec('are,result'));
+        console.log(/\bre\b/.exec('re'));
+
+        console.log('');
+
+        console.log(/\Bre/.exec('result express are'));
+        console.log(/re\B/.exec('result express are'));
+        console.log(/\Bre\B/.exec('result express are'));
+
+
+    </script>
+</body>
+</html>

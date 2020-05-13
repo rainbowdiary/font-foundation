@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插件</title>
+    <style>
+        .wrapper {
+            width: 500px;
+            height: 500px;
+            background: #f90;
+            position: relative;
+        }
+        .box {
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            width: 350px;
+            height: 350px;
+            padding: 25px;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, harum!</div>
+    </div>
+
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.wobblewindow.js"></script>
+    <script>
+        $(function(){
+            $('.box').wobbleWindow();
+        });
+    </script>
+</body>
+</html>

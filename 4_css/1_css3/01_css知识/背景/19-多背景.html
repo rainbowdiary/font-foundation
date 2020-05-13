@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多背景</title>
+    <style>
+        .box {
+            margin: 10px auto;
+            width: 600px;
+            height: 800px;
+            border: 1px solid #ccc;
+
+            /*background: url(images/bg06.jpg) no-repeat 0 0,*/
+            /*            url(images/bg07.jpg) no-repeat 10px 10px;*/
+            background: url(images/bg-tl.png) no-repeat left top,
+                        url(images/bg-tr.png) no-repeat right top,
+                        url(images/bg-bl.png) no-repeat left bottom,
+                        url(images/bg-br.png) no-repeat right bottom;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

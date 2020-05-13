@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				height: 10000px;
+			}
+			.box{
+				width: 50px;
+				height: 50px;
+				background: url(images/bgs.png) no-repeat -159px -51px;
+				position: fixed;
+				right: 20px;
+				top:50%;
+				margin-top: -25px;
+			}
+			.box img{
+				position: absolute;
+				left:-150px;
+				top:0;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+			<img src="images/456.png" alt="" id="ercode"/>
+		</div>
+		<script type="text/javascript">
+			//获取box
+			var box = document.getElementById('box');
+			//获取二维码大图
+			var ercode = document.getElementById('ercode');
+			
+			//绑定鼠标移入
+			box.onmouseover = function (){
+			    //移动背景图到-220
+			    this.style.backgroundPositionX = '-220px';
+			    //二维码显示
+			    ercode.style.display = 'block';
+			}
+			//绑定鼠标移出
+			box.onmouseout = function(){
+				this.style.backgroundPositionX = '-159px';
+				ercode.style.display = 'none';
+			}
+		</script>
+	</body>
+</html>

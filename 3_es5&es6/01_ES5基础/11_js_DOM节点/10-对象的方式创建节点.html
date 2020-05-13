@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<button id="btn">创建</button>
+		<div id="box"></div>
+		<script type="text/javascript">
+			/*
+			 * 创建节点对象:
+			 * document.createElement('标签名') 创建元素对象
+			 * 元素.appendChild('节点名称')  将节点追加到元素内部
+			 */
+			var btn = document.getElementById('btn');
+			var box = document.getElementById('box');
+			var arr = ['三国演义', '西游记', '红楼梦', '水浒传', '金瓶梅'];
+			//			
+			btn.onclick = function() {
+				//创建ul对象
+				var ul = document.createElement('ul');
+				box.appendChild(ul);
+				ul.id = 'list';
+				console.dir(ul);
+				//追加到某个元素中
+
+				for(var i = 0; i < arr.length; i++) {
+					//创建li
+					var li = document.createElement('li');
+					ul.appendChild(li);
+					li.innerText = arr[i];
+				}
+				var list = document.getElementById('list');
+				console.log(list);
+				var lis = list.getElementsByTagName('li');
+//				for (var i = 0; i < lis.length; i++) {
+//					if(i % 2 == 0){
+//						lis[i].style.backgroundColor = 'yellow';
+//					}else{
+//						lis[i].style.backgroundColor = 'green';
+//					}
+//				}
+				for (var i = 0; i < list.children.length; i++) {
+					if(i % 2 == 0){
+						list.children[i].style.backgroundColor = 'yellow';
+					}else{
+						list.children[i].style.backgroundColor = 'green';
+					}
+					list.children[i].num = i;
+					list.children[i].onmouseover = function(){
+						if(this.num % 2 == 0){
+							this.style.backgroundColor = 'red';
+						}else{
+							this.style.backgroundColor = 'blue';
+						}
+					}
+					list.children[i].onmouseout = function(){
+						if(this.num % 2 == 0){
+							this.style.backgroundColor = 'yellow';
+						}else{
+							this.style.backgroundColor = 'green';
+						}
+					}
+				}
+				
+			}
+		</script>
+	</body>
+
+</html>

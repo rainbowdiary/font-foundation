@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="box">
+    <input type="button" id="add" value="增加">
+    <input type="button" id="remove" value="删除">
+    <input type="button" id="update" value="修改">
+    <input type="button" id="select" value="查询">
+  </div>
+  <script>
+    /* 需求：不同按钮，点击不同按钮做不同的操作，如何使用事件委托*/
+
+    /* 不用事件委托，每个input会被单独绑定事件，每个input都会被重新渲染 */
+    /*    window.onload = function () {
+         var add = document.getElementById("add");
+         var remove = document.getElementById("remove");
+         var update = document.getElementById("update");
+         var select = document.getElementById("select");
+   
+         add.onclick = function () {
+           console.log("增加");
+         };
+         remove.onclick = function () {
+           console.log("删除");
+         };
+         update.onclick = function () {
+           console.log("修改");
+         };
+         select.onclick = function () {
+           console.log("查找");
+         }
+       } */
+
+
+    /* 用事件委托
+       只需要操作一次dom，性能提升
+     */
+    window.onload = function () {
+      var div = document.getElementById("box");
+      div.onclick = function (e) {
+        console.log(e.target.nodeName)
+        if (e.target.nodeName.toLowerCase() === "input") {
+          switch (e.target.id) {
+            case "add":
+              console.log("增加");
+              break;
+            case "remove":
+              console.log("删除");
+              break;
+            case "update":
+              console.log("修改");
+              break;
+            case "select":
+              console.log("查找");
+              break;
+            default:
+              break;
+          }
+        }
+      }
+    }
+
+  </script>
+</body>
+
+</html>

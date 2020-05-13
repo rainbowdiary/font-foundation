@@ -1,0 +1,37 @@
+!DOCTYPE html>
+
+<head>
+  <title>setTimeout</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+  <script>
+    // JavaScript异步编程
+    /*
+    宏：log("will1 log2("will2 be
+    微：log("p1
+执行顺序： log("p1 log("will1 log("will2
+    */
+    var p1 = new Promise(function (resolve, reject) {
+      resolve(1);
+    })
+    setTimeout(function () {
+      console.log("will1 be executed at the top of the next Event Loop");
+    }, 0)
+    p1.then(function (value) {
+      console.log("p1 fulfilled");
+    })
+    setTimeout(function () {
+      console.log("will2 be executed at the bottom of the next Event Loop");
+    }, 0)
+
+    // 作者：bfe
+    // 链接：https://juejin.im/post/5b7057b251882561381e69bf
+    // 来源：掘金
+    // 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+  </script>
+</body>
+
+</html>

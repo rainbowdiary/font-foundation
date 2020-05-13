@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background: #000;
+
+        }
+        .box{
+            width: 630px;
+            padding: 10px 0 0 10px;
+            border: 1px solid #fff;
+            margin: 100px auto;
+        }
+        .box ul li{
+            float:left;
+            margin: 0 10px 10px 0;
+        }
+        .box ul{
+            overflow: hidden;
+        }
+        img{
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li>
+            <img src="images/avatar2/01.jpg"/>
+        </li>
+        <li>
+            <img src="images/avatar2/02.jpg"/>
+        </li>
+        <li>
+            <img src="images/avatar2/03.jpg"/>
+        </li>
+        <li>
+            <img src="images/avatar2/04.jpg"/>
+        </li>
+        <li>
+            <img src="images/avatar2/05.jpg"/>
+        </li>
+        <li>
+            <img src="images/avatar2/06.jpg"/>
+        </li>
+    </ul>
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.box ul li').hover(function(){
+                //移入谁,目标的兄弟改变透明度
+                $(this).siblings().stop().fadeTo(500,0.3);
+            },function(){
+                $('.box ul li').stop().fadeTo(500,1);
+            })
+        })
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // document.write("hello")
+
+    var fn = document.write
+    fn("hello")
+   /*
+    这样就会报错，因为本来this是document，这样导致this是window，造成隐式丢失
+     */
+  </script>
+</body>
+
+</html>

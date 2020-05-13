@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<h1 title="我是标题">标题</h1>
+		<script type="text/javascript">
+			/*
+			 * document.write只能在页面加载使用,否则会干掉所有的dom
+			 */
+			var btn = document.getElementById('btn');
+			btn.onclick = function(){
+				document.write('<h2 title="我是标题2">哈哈</h2>');
+				
+			}
+		</script>
+	</body>
+</html>

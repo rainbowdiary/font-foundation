@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				display:block;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<img id="bo" />
+		<script type="text/javascript">
+			/*
+			 * 设置元素属性:
+			 * 元素对象.属性名 = '属性值';
+			 */
+			//获取btn
+			var btn = document.getElementById('btn');
+			//获取bo
+			var bo = document.getElementById('bo');
+			//绑定单击事件
+			btn.onclick = function(){
+				//标签是对象,设置对象的属性语法,
+				//设置src属性
+				bo.src = 'images/boduo.jpg';
+				//设置width属性,不要加单位,否则值被设置成0
+				bo.width = '800';
+				bo.title = '晨新,你喜欢我吗?';
+			}
+		</script>
+	</body>
+</html>

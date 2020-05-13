@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 工厂方式: 是一种设计模式
+			 */
+
+			function person(name,age,gender) {
+				var p1 = new Object();
+				p1.name = name;
+				p1.age = age;
+				p1.gender = gender;
+				p1.eat = function() {
+					alert('吃火锅');
+				}
+				//console.log(p1.name);
+				//console.log(p1);
+				//p1.eat();
+				// 将对象返回出函数
+				return p1;
+			}
+			var jay = person('周杰伦',40,true);
+			console.log(jay.name);
+			//jay.eat();
+			console.log(jay);
+			var jolin = person('蔡依林',39,false);
+			console.log(jolin);
+		</script>
+	</body>
+
+</html>

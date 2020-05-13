@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul id="ul">
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+    <li>444</li>
+  </ul>
+  <script>
+    /* 需求：让点击li都会弹出123 */
+    window.onload = function () {
+      let ul = document.getElementById("ul");
+      lis = document.getElementsByTagName("li")
+      /*       
+          for (let index = 0; index < lis.length; index++) {
+              lis[index].onclick = function () {
+                console.log("123");
+              }
+            } */
+
+      /* 使用事件委托，给父元素ul添加事件即可实现给所有li添加事件;
+         因为冒泡所以只要委托父元素添加事件，子元素也会触发事件，
+         每次只需要执行一次ODM操作
+       */
+      ul.onclick = function () {
+        console.log("123");
+      }
+
+      /* 
+         如果只想给li添加事件，就拿到li进行事件处理，
+         拿到li e.target拿到点击的li
+       */
+      /* ul.onclick = function (e) {
+          if (e.target.nodeName.toLowerCase() == "li")
+            console.log("123", e.target.innerHTML);
+        } */
+    }
+  </script>
+</body>
+
+</html>

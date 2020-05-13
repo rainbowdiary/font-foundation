@@ -1,0 +1,13 @@
+.box {
+  width: 200px;
+  height: 200px;
+  background: Red;
+  color: pink;
+}
+.box {
+  border: 1px solid #ccc;
+}
+.box {
+  line-height: 100px;
+}
+/*# sourceMappingURL=index.css.map */

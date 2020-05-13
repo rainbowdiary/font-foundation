@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>位移</title>
+    <style>
+        .wraper {
+            margin: 100px auto;
+            width: 300px;
+            height:300px;
+            border: 5px dashed orange;
+        }
+        .box {
+            width: 300px;
+            height:300px;
+            background-image: url(images/bg-grid.jpg);
+            background-size: 100% 100%;
+
+            /*位移*/
+            /*transform: translateX(20px);*/
+            /*transform: translateX(100%)*/
+            /*transform: translateX(-50px)*/
+            /*transform: translateY(100px);*/
+
+            /*transform:translate(20px); !*只有一个值，只设置水平方向*!*/
+            transform:translate(20px, 200px); /*只有一个值，只设置水平方向*/
+        }
+    </style>
+</head>
+<body>
+    <div class="wraper">
+        <div class="box"></div>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque earum perspiciatis provident. Earum esse, libero molestiae, mollitia nobis nulla pariatur placeat quam ratione rem sapiente sint temporibus unde vel voluptatem.</p>
+</body>
+</html>

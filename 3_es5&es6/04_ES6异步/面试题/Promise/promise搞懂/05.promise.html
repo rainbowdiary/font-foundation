@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+    --输出"外部promise"
+        resolve();
+      **外部第一个then被注册
+        同代码执行
+    --"外部第一个then"
+    --"内部promise"
+        resolve();
+      **内部第一个then被注册
+      return
+    --"内部promise2"
+      **"内部第一个then2"被注册
+         
+         查看为队列 
+         内部第一个then被注册 内部第一个then2被注册 
+    --"内部第一个then"
+      **"内部第二个then"被注册
+        内部第一个then2被注册  "内部第二个then"被注册
+    --"内部第一个then2"
+      **"内部第二个then2"被注册
+         "内部第二个then"被注册 内部第二个then2"被注册
+    --"内部第二个then"
+    --"内部第二个then2"     
+         return代码执行完毕。
+         "外部第二个then"变为成功状态
+    --"外部第二个then"
+
+
+    第一段代码和第二段代码的结合
+    "外部第二个then"必须等return执行完成
+    所有"内部第一个then" 和 "内部第一个then2"交替输出
+    */
+    new Promise((resolve, reject) => {
+      console.log("外部promise");
+      resolve();
+    })
+      .then(() => {
+        console.log("外部第一个then");
+        new Promise((resolve, reject) => {
+          console.log("内部promise");
+          resolve();
+        })
+          .then(() => {
+            console.log("内部第一个then");
+          })
+          .then(() => {
+            console.log("内部第二个then");
+          });
+        return new Promise((resolve, reject) => {
+          console.log("内部promise2");
+          resolve();
+        })
+          .then(() => {
+            console.log("内部第一个then2");
+          })
+          .then(() => {
+            console.log("内部第二个then2");
+          });
+      })
+      .then(() => {
+        console.log("外部第二个then");
+      });
+  </script>
+</body>
+
+</html>

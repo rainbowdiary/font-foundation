@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>border图片</title>
+    <style>
+        /*
+            border: 1px solid #ccc;
+            border-width:
+            border-style:
+            border-color:
+            border-bottom:
+            border-bottom-width:
+            border-bottom-style: solid \ dotted \ dash
+            border-bottom-color:
+        */
+
+        .box {
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            border:50px solid red;
+            /*background-color: yellowgreen;*/
+
+            /*边框图片 指定了 边框图片边框的颜色就没了*/
+            border-image-source: url(images/border0.png);  /*指定边框图片地址*/
+
+            /*边框图片的分割方式*/
+            border-image-slice: 27;
+            border-image-slice: 27 10;
+            border-image-slice: 27 10 27;
+            border-image-slice: 27 10 10 20;
+            border-image-slice: 100%; /*默认值*/
+            border-image-slice: 27;
+
+            /*边框图片宽度*/
+            border-image-width: 100px;
+            border-image-width: 50px;
+
+            /*边框图片的扩展*/
+            border-image-outset: 0;
+
+            /*设置边框图片的平铺方式*/
+            /*border-image-repeat: stretch;*/
+            /*border-image-repeat: repeat;*/
+            /*border-image-repeat: round;*/
+            border-image-repeat: space;
+
+
+            /*复合属性*/
+            border-image: url(images/border2.jpg) 20% / 100px / 10px round;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">Lorem ipsum dolor sit amet.</div>
+
+    <button>按钮</button>
+</body>
+</html>

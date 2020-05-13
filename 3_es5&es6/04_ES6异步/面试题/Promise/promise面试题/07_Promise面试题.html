@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+      宏:
+      微: ('then:', success1)
+执行结果: ('then:', success1)
+*/
+    const promise = new Promise((resolve, reject) => {
+      resolve('success1');  //状态确定
+      reject('error');
+      resolve('success2');
+    });
+
+    promise.then((res) => {
+      console.log('then:', res);
+    }).catch((err) => {
+      console.log('catch:', err);
+    })
+  </script>
+</body>
+
+</html>

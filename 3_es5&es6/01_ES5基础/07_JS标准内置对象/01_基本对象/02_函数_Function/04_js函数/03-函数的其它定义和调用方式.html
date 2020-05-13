@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 函数的定义方式:
+			 * 有名函数(命名函数): 有名字的函数叫有名函数
+			 * 1.定义函数名的方式: function 函数名(){函数体},在定义的前后都能调用
+			 * 2.函数表达式的方式: var 变量 = function(){},此方式定义的函数,只能在
+			 *   定义之后调用,在定义之前调用,因为变量还没有声明和赋值,所以报错
+			 * 匿名函数:没有名字的函数叫匿名函数
+			 * 1.自调用函数:在定以后,马上调用,只能调用一次
+			 * 2.作为函数表达式的方式使用
+			 * 3.作为参数传递时使用
+			 * 4.作为事件处理函数使用
+			 * 5.作为函数的返回值使用
+			 */
+			//sum();
+//			function sum(){
+//				alert('哈哈');
+//			}
+//			//sum();
+//			console.log(sum);
+//			sum();
+//			函数表达式
+//			var sum = function (){
+//				alert('哈哈');
+//			}
+//			sum();
+//			console.log(sum);
+			
+			//自调用函数
+			(function(){
+				alert('我是匿名函数');
+			})();
+			
+			//自调用函数
+			(function(){
+				alert('我是匿名函数');
+			})();
+			
+			
+		</script>
+	</body>
+</html>

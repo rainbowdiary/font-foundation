@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box {
+            width: 752px;
+
+            border: 1px solid #000;
+            padding: 10px 0 0 10px;
+            margin: 100px auto;
+
+        }
+        .box ul{
+            overflow: hidden;
+        }
+        .box ul li{
+            float:left;
+            margin: 0 10px 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .box ul li p {
+            width: 148px;
+            padding-left: 30px;
+            position: absolute;
+            left:0;
+            bottom:-25px;
+            height: 25px;
+            line-height: 25px;
+            background: rgba(0, 0, 0, .5) url(images/nav/110png.png) no-repeat 10px 0;
+            color:#fff;
+        }
+        img{
+            display: block;
+        }
+    </style>
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function(){
+            //给所有的p设置一样的属性
+//				$('.box ul li p').css('background-position-y','-175px');
+            //第一种for循环方式
+//				for (var i = 0; i < $('.box ul li p').length; i++) {
+//					var move = i* -25;
+//					$('.box ul li p').eq(i).css('background-position-y',move+'px');
+//				}
+
+//				第二种方式each()函数
+            $('.box ul li p').each(function(index,obj){
+                //索引
+//					console.log(index);
+                //每个对象
+//					console.log($(obj));
+                //index:循环的增量(或者认为是索引值)
+                //obj:是获取的每一个原生js对象,可以通过$(obj)包装成jq对象
+                var move  = index * -25;
+                $(obj).css('background-position-y',move+'px');
+            });
+            $('.box ul li').hover(function(){
+                $(this).children('p').stop().animate({'bottom':'0'},500)
+            },function(){
+                $(this).children('p').stop().animate({'bottom':'-25px'},500)
+            })
+        })
+    </script>
+</head>
+
+<body>
+<div class="box">
+    <ul>
+
+        <li>
+            <img src="images/nav/01.JPG" />
+            <p>百度一下</p>
+        </li>
+        <li>
+            <img src="images/nav/02.JPG" />
+            <p>淘宝一下</p>
+        </li>
+        <li>
+            <img src="images/nav/03.JPG" />
+            <p>新浪一下</p>
+        </li>
+        <li>
+            <img src="images/nav/04.JPG" />
+            <p>网易一下</p>
+        </li>
+        <li>
+            <img src="images/nav/05.JPG" />
+            <p>搜狐一下</p>
+        </li>
+        <li>
+            <img src="images/nav/06.JPG" />
+            <p>腾旭一下</p>
+        </li>
+        <li>
+            <img src="images/nav/07.JPG" />
+            <p>优酷一下</p>
+        </li>
+        <li>
+            <img src="images/nav/08.JPG" />
+            <p>京东一下</p>
+        </li>
+    </ul>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        ul {
+            list-style: none;
+        }
+        #nav {
+            height: 40px;
+            line-height: 40px;
+            background-color: #333;
+            font-size: 14px;
+        }
+        .container {
+            margin: 0 auto;
+            width: 1000px;
+        }
+        #nav li {
+            float: left;
+            width: 120px;
+            text-align: center;
+        }
+        #nav li a{
+            color: #fff;
+            text-decoration: none;
+        }
+        #nav li ul {
+            display: none;
+            border: 1px solid #ccc;
+            border-top:none;
+            background-color: #fff;
+        }
+        #nav li ul li {
+            float: none;
+        }
+        #nav li ul li a {
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <div class="container">
+            <ul>
+                <li><a href="javascript:">首页</a></li>
+                <li>
+                    <a href="javascript:">商城</a>
+                    <ul>
+                        <li><a href="javascript:">帽子</a></li>
+                        <li><a href="javascript:">假发</a></li>
+                        <li><a href="javascript:">洗发水</a></li>
+                        <li><a href="javascript:">拖鞋</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:">博客</a>
+                    <ul>
+                        <li><a href="javascript:">博客园</a></li>
+                        <li><a href="javascript:">CSDN</a></li>
+                        <li><a href="javascript:">QQ空间</a></li>
+                        <li><a href="javascript:">简书</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:">论坛</a>
+                    <ul>
+                        <li><a href="javascript:">天涯</a></li>
+                        <li><a href="javascript:">猫扑</a></li>
+                        <li><a href="javascript:">贴吧</a></li>
+                        <li><a href="javascript:">知乎</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:">关于我们</a>
+                    <ul>
+                        <li><a href="javascript:">联系我们</a></li>
+                        <li><a href="javascript:">加入我们</a></li>
+                        <li><a href="javascript:">举报我们</a></li>
+                        <li><a href="javascript:">举报我们</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div>
+
+        </div>
+    </div>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            // li绑定鼠标事件
+            //$('#nav li').mouseover(function () {
+            $('#nav li').mouseenter(function () {
+                console.log('over');
+                $(this).css('background-color', 'red').children('ul').stop().slideDown();
+            }).mouseleave(function () {
+                console.log('out')
+                $(this).css('background-color', '').children('ul').stop().slideUp();
+            });
+
+            /*
+            * 当鼠标移动到某个元素上的时候，会触发mouseover; 这个事件还会作用在元素的子元素上
+            * 本来给某个元素监听的mouseover,其子元素也会触发mouseover事件；
+            *
+            * 解决方案：用 mouseenter  mouseleave代替
+            * */
+        });
+    </script>
+
+</body>
+</html>

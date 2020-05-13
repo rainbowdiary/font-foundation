@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>突出显示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #000;
+        }
+        ul {
+            list-style: none;
+        }
+        .box {
+            margin: 100px auto;
+            width: 630px;
+            padding: 10px 0 0 10px;
+            border: 1px solid #fff;
+            overflow: hidden;
+        }
+
+        .box li {
+            float:left;
+            margin: 0 10px 10px 0;
+        }
+        .box li img {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="images/avatar2/01.jpg" alt="老刘"></li>
+            <li><img src="images/avatar2/02.jpg" alt="老刘"></li>
+            <li><img src="images/avatar2/03.jpg" alt="老刘"></li>
+            <li><img src="images/avatar2/04.jpg" alt="老刘"></li>
+            <li><img src="images/avatar2/05.jpg" alt="老刘"></li>
+            <li><img src="images/avatar2/06.jpg" alt="老刘"></li>
+        </ul>
+    </div>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+           $('.box li').mouseenter(function () {
+                $(this).stop().fadeTo(500, 1).siblings().stop().fadeTo(500, .5);
+           }).mouseleave(function () {
+                $('.box li').stop().fadeTo(500, 1);
+           });
+        });
+    </script>
+</body>
+</html>

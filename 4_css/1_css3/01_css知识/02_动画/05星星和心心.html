@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>星星</title>
+    <style>
+        @keyframes jump {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position:-2800px 0;
+            }
+        }
+            
+        .star,.heart {
+            margin: 100px auto;
+            width: 100px;
+            height: 100px;
+            animation: jump .5s steps(28) infinite;
+        }
+        .star {
+            background-image: url('images/star-sprite.png');
+        }
+        .heart {
+            background-image: url('images/heart-sprite.png');
+        }
+        .star:hover,.heart:hover {
+            animation-play-state: paused;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="star"></div>
+    <div class="heart"></div>
+
+</body>
+</html>

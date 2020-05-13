@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+</head>
+<body>
+    <div id="box"></div>
+    <hr>
+    <ul class="list">
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+    </ul>
+    <script src="jquery-1.10.1.js"></script>
+    <script>
+
+        // 连贯操作
+        // dom操作
+        // 效果操作
+        $('#box').width(400).height(300).css('background-color', '#f90').css('border', '1px solid #ccc').append('<img src="http://learn.fuming.site/logo.png" width="100">').hide(5000).slideDown(2000);
+
+        // 批量操作
+        $('.list li').width(600).css('border', '1px solid #ccc').css('padding', '10px').click(function(){
+            $(this).css('background-color', '#f90');
+        });
+
+
+    </script>
+</body>
+</html>

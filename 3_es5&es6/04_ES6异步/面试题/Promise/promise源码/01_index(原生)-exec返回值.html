@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="./lib/05_Promise(ES6).js"></script>
+</head>
+
+<body>
+
+</body>
+<script>
+  /* 执行器返回结果忽略
+     只看执行器的执行过程中是否调用了resolve，reject
+     没有调用状态不会改变，初始化为pending
+  */
+
+  /* 
+  1. result.state = pening
+  2. result.value = undefined
+  3. result.callbacks[111()]
+  */
+  const result = new MyPromise(() => {
+    console.log(a);
+    
+    return 1;
+  })
+    .then(() => {
+      console.log(111);
+    })
+
+  console.log(result); //Promise {<pending>}
+
+</script>
+
+</html>

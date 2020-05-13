@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+			 * js的预解析: js会优先去找在全局中有没有用var声明的变量,将声名提升到全局作用域的
+			 * 顶端
+			 * 
+			 * 作用域:变量的访问区域
+			 * 全局作用域:在script标签中的就是全局作用域
+			 * 
+			 * 全局变量:在全局中声明的变量,全局变量都是window对象下的属性
+			 * 定义全局变量的两种方式:
+			 * 1.带var定义的变量:会将声明提升到全局作用域的顶端
+			 * 2.不带var定义的声明:必须是声明➕赋值,变量的声明不会提升,否则会报错
+			 * 
+			 * 全局对象:浏览器顶级对象window对象,window对象下的属性和方法在使用时,可以省略
+			 * window对象
+			 * 
+			 * 函数作用域:在函数中用var定义的变量是函数中的局部(私有)变量,从外界是无法访问的,声明会提升
+			 * 到函数作用域的顶端.(显示声明和形参(隐式声明))
+			 * 
+			 * 在函数中没有用var定义的变量,一定是函数外界(全局的)的
+			 * 
+			 */
+			//			var a;
+			//			
+			//			console.log(a);
+			//			 a = '哈哈';
+			//			console.log(a);
+			//console.log(a);
+			//console.log(window.a);
+			//			window.alert();
+			//			log();
+			//window.a = '哈哈';
+			//console.log(window.a);
+			//			function sum(){
+			//				alert('我是sum');
+			//			}
+			//			window.sum();
+			//			var sum = function(){
+			//				alert('我是sum');
+			//			}
+			//			console.log(a);
+			//			a = 5;
+
+			//			if(true){
+			//				var a = '哈哈';
+			//			}
+			//			for(var i = 0;i<5;i++){
+			//				var a = '哈哈';
+			//			}
+			//			console.log(i);
+
+			//			var a = 5;
+			//			function fn(){
+			//				var a = '哈哈';
+			//				console.log(a);//哈哈
+			//			}
+			//			fn();
+			//			console.log(a);//5
+
+			//			var a = 5;
+			//			function fn(){
+			//				a = '哈哈';
+			//				console.log(a);//哈哈
+			//			}
+			//			fn();
+			//			console.log(a);//哈哈
+
+			//			function fn(){
+			//				var a;
+			//				console.log(a);
+			//				 a = '哈哈';
+			//				console.log(a);
+			//			}
+			//	fn();
+			//			function fn(){
+			//				console.log(a);
+			//				var a = '哈哈';
+			//				console.log(a);
+			//			}
+			//			fn();
+
+			//			var a = 5;
+			//
+			//			function fn() {
+			//				a = '哈哈';
+			//				var a = '老刘';
+			//				console.log(a);
+			//			}
+			//			fn();
+			//			console.log(a);
+			//			var a = 5;
+			//			function fn(){
+			//				var a;
+			//				a = '哈哈';
+			//				 a = '老刘';
+			//				console.log(a);//老刘
+			//			}
+			//			fn();
+			//			console.log(a);//5
+
+			//			var a = 5;
+			//			function fn() {
+			//				a = '哈哈';
+			//				console.log(a);//哈哈
+			//			}
+			//			fn();
+			//			console.log(a);//哈哈
+
+			//			var a = 5;
+			//			function fn(a) {
+			//				//var a = 0
+			//				a = '哈哈';
+			//				console.log(a);//哈哈
+			//			}
+			//			fn(0);
+			//			console.log(a);//5
+
+
+
+//			var a = 5;
+//			function fn() {
+//				console.log(a);//5
+//				a = '哈哈';
+//			}
+//			fn('嘿嘿');
+//			console.log(a);//哈哈
+
+
+			var a = 5;
+			function fn(a) {
+				// var a = 5;
+				console.log(a);//5
+				a = '哈哈';
+			}
+			fn(a);
+			console.log(a);//5
+			
+		</script>
+	</body>
+
+</html>

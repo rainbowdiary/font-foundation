@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式图片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .banner {
+            background-image: url(img/homeImg.png);
+            background-size: 100% 100%;
+            padding-top: 28.89%;
+
+        }
+
+        @media (max-width: 1024px) {
+            .banner {
+                background-image: url(img/homeImgMiddle.png);
+                padding-top: 28.89%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .banner {
+                background-image: url(img/homeImgSmall.png);
+                padding-top: 28.89%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="banner"></div>
+</body>
+</html>

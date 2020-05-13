@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>立体盒子相册</title>
+    <style>
+        body {
+        }
+        .box {
+            position: relative;
+            margin: 200px auto;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transform-origin: 50% 50% -100px;
+        }
+        .face {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            /*backface-visibility: hidden;*/
+            opacity: .6;
+            transition: 1s;
+        }
+        .face img {
+            width: 200px;
+            height:200px;
+        }
+        .face1 {
+
+        }
+        /*左边一面*/
+        .face2 {
+            left: -200px;
+            transform-origin: right;
+            transform: rotateY(-90deg);
+        }
+        /*右边一边*/
+        .face3 {
+            left: 200px;
+            transform-origin: left;
+            transform: rotateY(90deg);
+        }
+        /*上边一面*/
+        .face4 {
+            top: -200px;
+            transform-origin: bottom;
+            transform: rotateX(90deg);
+        }
+        /*下边一面*/
+        .face5 {
+            top: 200px;
+            transform-origin: top;
+            transform: rotateX(-90deg);
+        }
+        /*后面一面*/
+        .face6 {
+            transform: translateZ(-200px) rotateY(180deg);
+        }
+
+        .face-inner {
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            backface-visibility: hidden;
+        }
+        .face-inner img {
+            width: 100px;
+            height: 100px;
+        }
+        .face-inner1 {
+            transform: translateZ(-50px);
+        }
+        .face-inner2 {
+            left: -50px;
+            transform-origin: right;
+            transform: translateZ(-50px) rotateY(-90deg);
+        }
+        .face-inner3 {
+            left: 150px;
+            transform-origin: left;
+            transform: translateZ(-50px) rotateY(90deg);
+        }
+        .face-inner4 {
+            top: -50px;
+            transform-origin: bottom;
+            transform: translateZ(-50px) rotateX(90deg);
+        }
+        .face-inner5 {
+            top: 150px;
+            transform-origin: top;
+            transform: translateZ(-50px) rotateX(-90deg);
+        }
+        .face-inner6 {
+            transform: translateZ(-150px) rotateY(180deg);
+        }
+
+        .box:hover .face1 {
+            transform: translateZ(100px);
+        }
+        .box:hover .face2 {
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .box:hover .face3 {
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .box:hover .face4 {
+            transform: rotateX(90deg) translateZ(100px)
+        }
+        .box:hover .face5 {
+            transform:  rotateX(-90deg) translateZ(100px);
+        }
+        .box:hover .face6 {
+            transform: translateZ(-300px) rotateY(180deg)
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="face face1"><img src="images/1.jpg" alt="铭哥牛逼"></div>
+    <div class="face face2"><img src="images/2.jpg" alt="铭哥牛逼"></div>
+    <div class="face face3"><img src="images/3.jpg" alt="铭哥牛逼"></div>
+    <div class="face face4"><img src="images/4.jpg" alt="铭哥牛逼"></div>
+    <div class="face face5"><img src="images/5.jpg" alt="铭哥牛逼"></div>
+    <div class="face face6"><img src="images/6.jpg" alt="铭哥牛逼"></div>
+
+    <div class="face-inner face-inner1"><img src="images/7.jpg" alt="铭哥牛逼"></div>
+    <div class="face-inner face-inner2"><img src="images/8.jpg" alt="铭哥牛逼"></div>
+    <div class="face-inner face-inner3"><img src="images/9.jpg" alt="铭哥牛逼"></div>
+    <div class="face-inner face-inner4"><img src="images/10.jpg" alt="铭哥牛逼"></div>
+    <div class="face-inner face-inner5"><img src="images/11.jpg" alt="铭哥牛逼"></div>
+    <div class="face-inner face-inner6"><img src="images/12.jpg" alt="铭哥牛逼"></div>
+</div>
+
+<script>
+    (function () {
+        var box = document.querySelector('.box');
+        var deg = 0;
+
+        setInterval(function () {
+            deg ++;
+            box.style.transform = 'rotateX('+deg+'deg) rotateY('+deg+'deg)';
+        }, 16)
+    })()
+</script>
+</body>
+</html>

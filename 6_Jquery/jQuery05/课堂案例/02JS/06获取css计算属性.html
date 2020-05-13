@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取css计算属性</title>
+    <style>
+        #box {
+            width: 400px;
+            height: 300px;
+            background-color: #f90;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" style="width: 500px;"></div>
+    <script>
+
+        var box = document.querySelector('#box');
+
+        // 获取元素的css属性 只能获取通过行内方式设置的css属性
+        console.log(box.style.width);
+
+
+        // 兼容
+        if (window.getComputedStyle) {  // chrome firefox ie9+
+            // 计算属性
+            var styleNode = window.getComputedStyle(box);
+            console.log(styleNode);
+            console.log(styleNode.width);
+            console.log(styleNode.height);
+            console.log(styleNode.backgroundColor);
+            console.log(styleNode.color);  //没设置 获取的是默认值
+            console.log(styleNode.fontSize); //没设置获取的是默认值
+        } else if (box.currentStyle) {
+            console.log(box.currentStyle);
+            console.log(box.currentStyle.width);
+            console.log(box.currentStyle.height);
+            console.log(box.currentStyle.fontSize);
+        }
+
+
+    </script>
+</body>
+</html>

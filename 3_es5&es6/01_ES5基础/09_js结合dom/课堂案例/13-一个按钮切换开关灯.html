@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>开/关灯</button>
+		<script type="text/javascript">
+			var btns = document.getElementsByTagName('button');
+			//默认开的状态
+			var kg = true;
+			btns[0].onclick = function(){
+				//alert(kg);
+				if(kg){
+					document.body.style.backgroundColor = '#333';
+					//把状态改成关
+					kg = false;
+				}else{
+					document.body.style.backgroundColor = '#fff';	
+					//把状态改成开
+					kg = true;
+				}
+			}
+		</script>
+	</body>
+</html>

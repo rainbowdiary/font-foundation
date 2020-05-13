@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝滚动</title>
+    <style>
+        .box {
+            margin: 100px auto;
+            width: 800px;
+            height:200px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+        .wrapper {
+            width: 10000px;
+        }
+        .image-list {
+            float: left;
+        }
+        .image-list img {
+            float: left;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="wrapper">
+            <div class="image-list">
+                <img src="images/avatar/1.jpg" alt="">
+                <img src="images/avatar/2.jpg" alt="">
+                <img src="images/avatar/3.jpg" alt="">
+                <img src="images/avatar/4.jpg" alt="">
+                <img src="images/avatar/5.jpg" alt="">
+                <img src="images/avatar/6.jpg" alt="">
+                <img src="images/avatar/7.jpg" alt="">
+                <img src="images/avatar/8.jpg" alt="">
+                <img src="images/avatar/9.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function(){
+            var width = $('.image-list img').width() * $('.image-list img').length;
+            $('.wrapper').clone().appendTo('.box');
+
+            var intervalId = setInterval(run, 10);
+
+            $('.box').on('mouseenter', function () {
+                clearInterval(intervalId)
+            }).on('mouseleave', function () {
+                intervalId = setInterval(run, 10);
+            });
+
+            function run(){
+                if ($('.box').scrollLeft() >= width) {
+                    $('.box').scrollLeft(0);
+                }
+                $('.box').scrollLeft($('.box').scrollLeft() + 1);
+            }
+
+        })
+    </script>
+</body>
+</html>

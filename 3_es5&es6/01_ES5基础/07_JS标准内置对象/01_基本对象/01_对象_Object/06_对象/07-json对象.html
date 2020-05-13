@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 数组:一个有序数据的集合
+			 * 对象:一个无序数据的集合,属性没有遵循一定的顺序,所以不能使用for遍历
+			 * json对象:json是一种数据格式,用于进行网络数据的传输,在传输时要用字符串的数据形式
+			 * JSON.stringify(对象): 返回值是一个字符串
+			 * JSON.parse(字符串):返回值是一个对象
+			 */
+			
+//			var num = '周杰伦';
+			
+//			var json01 = {name:'周杰伦',age:40,gender:true,address:'台湾尚硅谷'};
+			var json01 = {"name":"周杰伦","age":40,"gender":true,"address":"台湾尚硅谷"};
+			console.log(json01);
+			console.log(JSON.stringify(json01));
+			var json02 = '{"name":"周杰伦","age":40,"gender":true,"address":"台湾尚硅谷"}';
+			console.log(JSON.parse(json02));
+			
+//			var arr = ['哈哈',5,true,'老刘'];
+//			for (var i = 0; i < arrength; i++) {
+//				arr[i]
+//			}
+//			for (var i = 0; i < json01.length; i++) {
+////				json01[i]
+//			}
+//			console.log(json01.length);
+			
+			/*
+			 * 遍历对象的属性,k是属性名in后面是要遍历的对象    键值对   key/value 
+			 */
+			for(var k in json01){
+//				console.log(k);
+//				json01.k = '哈哈哈';
+
+				//js会认为是给json01对象动态添加属性k
+//				console.log(json01.k);
+				console.log(json01[k]);
+			}
+//			console.log(json01);
+		</script>
+	</body>
+</html>

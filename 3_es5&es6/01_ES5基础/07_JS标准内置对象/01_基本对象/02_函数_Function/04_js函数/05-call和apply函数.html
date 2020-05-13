@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * call和apply函数可以改变对象调用函数中,this的指向
+			 * call函数: 第一个参数值指向改变的那个对象,从第二个参数起,调用函数中的实际参数,
+			 * 顺序和个数是一一对应
+			 * apply函数: 第一个参数值指向改变的那个对象,从第二个是数组,调用函数中的
+			 * 实际参数,顺序和个数是一一对应
+			 * 
+			 */
+			function Person(name,gender){
+				this.name = name;
+				this.gender = gender;
+				this.marry = function(){
+					console.log(this);
+					this.name = '周太太';
+					this.baby = true;
+				}
+			}
+			var jay = new Person('周杰伦','男');
+			var jolin = new Person('蔡依林','女');
+			jay.marry.call(jolin);
+			console.log(jolin);
+//			jay.eat();
+		//	jay.eat.call(jolin);
+			//jay.eat.call();
+			function fn(a,b,c){
+				console.log(this);
+				console.log(a+b+c);
+			}
+			//window.fn.call(jay,3,4,5);
+			window.fn.apply(jay,[3,4,5]);
+		</script>
+	</body>
+</html>

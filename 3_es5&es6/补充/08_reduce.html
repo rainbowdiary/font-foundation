@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var arr = [1,2,3,4,5];
+		// res 是 reduce对应回调最后一次执行时 返回的值
+		var res = arr.reduce((adder,item,index,arr)=>{
+				return adder + item
+		})
+		console.log(res)
+	</script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQueryDOM和原生DOM</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 200px;
+            border: 2px solid #f90;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="box"></div>
+    <ul class="news-list">
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+    </ul>
+
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 获取原生DOM
+            var box = document.getElementById('box');
+            // 获取jQuery DOM
+            var $box = $('#box');
+
+
+            console.log(box);
+            console.log($box);
+
+            // jQuery提供的API， 大部分属于jQueryDOM的方法；只有jQueryDOM才能调用；
+            //box.css('background-color', 'red');
+            box.style.backgroundColor = '#333';
+            //$box.style.backgroundColor = '#333';
+            $box.css('background-color', 'yellowgreen');
+
+
+            // jQueryDOM和原生，联系：
+            // 原生DOM -> jQueryDOM：  $(dom);   $(document).ready() ready是属于jQueryDOM的方法  $(this)
+            $(box).html('How Are You');
+            // jQueryDOM转换为原生DOM： jQueryDOM本质上就是原生DOM组成的集合
+            $box[0].style.width = '400px';
+
+
+            //获取多个元素 nodeList
+            var lis = document.querySelectorAll('.news-list li');
+            var $lis = $('.news-list li');
+
+            console.log(lis);  // 原生NodeList， 原生DOM组成的列表
+            console.log($lis);  //jQueryDOM 不论里面包含一个元素还是多个元素，形式是相同的
+            $lis.css('border', '1px solid #f90');
+            console.log($lis[0]);  //第一个原生DOM
+
+
+
+
+
+        });
+    </script>
+</body>
+</html>

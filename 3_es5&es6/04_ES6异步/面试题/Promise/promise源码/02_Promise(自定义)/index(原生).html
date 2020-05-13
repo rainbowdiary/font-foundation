@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+        Promise.resolve(val)
+            val :
+                非Promise的值  resolvedPromise
+                Promise值      跟val一模一样状态的promise 持有的值也一样
+        Promise.reject(reason)
+               拒绝原因为reason的Promise
+
+        Promise.race([])
+        Promise.all([])
+    */
+
+   /* var p1 = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(1)
+        },2000)
+    })
+    var p2 = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(2)
+        },1000)
+    })
+    var p3 = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(3)
+        },3000)
+    })
+    var arr =[p2,p3,p1]
+
+    console.log(Promise.race(arr));*/
+    /*Promise.all(arr).then((data)=>{
+        console.log(data)
+    })*/
+
+    var p1 = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve(1)
+        },2000)
+    })
+    console.log(Promise.resolve(p1) === p1);
+
+</script>
+</html>

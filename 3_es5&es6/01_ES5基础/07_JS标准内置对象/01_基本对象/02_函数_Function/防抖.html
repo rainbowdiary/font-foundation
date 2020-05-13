@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>debounce</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      border: 1px solid;
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    /*
+    防抖:
+        事件频繁触发时候，让事件在设定时间内的最后一次的触发有效，其他都无效
+    场景:
+        表单规则校验的时候
+    */
+    const box = document.querySelector('.box');
+
+    const downCallBack = function () {
+      console.log("----");
+    }
+    window.addEventListener("mousedown", debounce(downCallBack, 1000))
+    function debounce(cb, delay) {
+      return function () {
+        const that = this;
+        const args = arguments;
+        if (cb.timeoutId) {
+          clearTimeout(cb.timeoutId);
+        }
+        cb.timeoutId = setTimeout(function () {
+          cb.apply(that, args)
+          delete cb.timeoutId
+        }, delay)
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>resize</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 300px;
+            border: 2px solid #ccc;
+
+            overflow: hidden; /*resize要生效，必须设置overflow:hidden*/
+
+            resize: none;
+            resize: horizontal; /*水平方向调整大小*/
+            resize: vertical; /*垂直方向调整大小*/
+            resize: both; /*两个方向调整大小*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

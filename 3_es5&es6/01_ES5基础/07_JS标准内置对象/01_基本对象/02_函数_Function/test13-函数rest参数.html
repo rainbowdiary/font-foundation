@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 展开一个数组，将所有参数放在arg中作为数组 */
+
+    function getAge(...args) {
+      console.log(...args); //21
+      console.log(args); //[21]
+      console.log(typeof args);
+    }
+
+    getAge(21);
+  </script>
+</body>
+
+</html>

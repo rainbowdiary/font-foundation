@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>钟表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+        ul {
+            list-style: none;
+        }
+        .watch {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: #f5f5f5;
+            border: 8px solid #000;
+            border-radius: 50%;
+        }
+        .minute-scale-list,.hour-scale-list {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 400px;
+            height: 400px;
+        }
+
+        .minute-scale-list li {
+            position: absolute;
+            left: 198px;
+            top: 10px;
+            width: 4px;
+            height: 16px;
+            background-color: #000;
+            border-radius: 2px;
+            transform-origin: center 190px;
+        }
+
+        .hour-scale-list li {
+            position: absolute;
+            top: 10px;
+            left: 196px;
+            width: 8px;
+            height: 32px;
+            background: #000;
+            border-radius: 4px;
+            transform-origin: center 190px;
+        }
+        /*中心圆*/
+        .circle {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        /*时针*/
+        .hour {
+            position: absolute;
+            left: 196px;
+            top: 100px;
+            width: 8px;
+            height: 120px;
+            background: #000;
+            border-radius: 4px;
+            transform-origin: center 100px;
+        }
+        /*分针*/
+        .minute {
+            position: absolute;
+            left: 197px;
+            top: 80px;
+            width: 6px;
+            height: 140px;
+            background: #000;
+            border-radius: 3px;
+            transform-origin: center 120px;
+        }
+        /*秒针*/
+        .second {
+            position: absolute;
+            left: 198px;
+            top: 60px;
+            width:4px;
+            height: 160px;
+            background: red;
+            border-radius: 2px;
+            transform-origin: center 140px;
+        }
+    </style>
+</head>
+<body>
+    <div class="watch">
+        <!--分钟刻度-->
+        <ul class="minute-scale-list">
+
+        </ul>
+        <!--小时刻度-->
+        <ul class="hour-scale-list">
+
+        </ul>
+        <!--时针-->
+        <div class="hour"></div>
+        <!--分针-->
+        <div class="minute"></div>
+        <!--秒针-->
+        <div class="second"></div>
+        <!--中心的圆-->
+        <div class="circle"></div>
+    </div>
+
+
+    <script>
+        (function () {
+            // 创建分钟刻度
+            var minuteScaleList = document.querySelector('.minute-scale-list'); //获取ul元素
+            // 循环60次
+            for (var i = 0; i < 60; i ++) {
+                var liNode = document.createElement('li'); //创建li元素
+                liNode.style.transform = 'rotate('+(i * 6)+'deg)'; //设置旋转角度
+                minuteScaleList.appendChild(liNode); // 添加到ul中
+            }
+
+            // 创建小时刻度
+            var hourScaleList = document.querySelector('.hour-scale-list'); //获取ul元素
+            // 循环 12 次
+            for (var i = 0; i < 12; i ++) {
+                var liNode = document.createElement('li'); // 创建li元素
+                liNode.style.transform = 'rotate('+(i * 30)+'deg)';  //设置旋转角度
+                hourScaleList.appendChild(liNode); //添加到ul中
+            }
+
+            // 获取指针元素
+            var hour = document.querySelector('.hour'); //时针
+            var minute = document.querySelector('.minute'); //分针
+            var second = document.querySelector('.second'); //秒针
+
+            // 设置一下指针位置
+            runTime();
+
+            // 指针旋转
+            setInterval(runTime, 1000);
+
+            //定时函数
+            function runTime(){
+                var date = new Date();  //创建日期对象
+                var s = date.getSeconds();    // 获取当前的秒
+                var m = date.getMinutes() + s/60;  //获取当前的分钟
+                var h = date.getHours() + m/60;   // 获取当前的小时数
+
+                // 设置指针转动
+                second.style.transform = 'rotate('+(s * 6)+'deg)'; //秒针
+                minute.style.transform = 'rotate('+(m * 6)+'deg)';  //分针
+                hour.style.transform = 'rotate('+(h * 30)+'deg)';  //时针
+            }
+        })();
+    </script>
+</body>
+</html>

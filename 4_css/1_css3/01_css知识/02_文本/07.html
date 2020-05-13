@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3文本换行</title>
+	<style>
+		p{
+			width:600px;
+			padding:20px;
+			border:1px solid #ccc;
+		}
+		p:nth-child(2){
+			
+
+			word-wrap: break-word; /*可以允许单词内部断行*/
+
+
+		}
+
+		p:nth-child(3){
+			word-break: break-all; /*断行*/
+		}
+
+		p:nth-child(4) {
+			word-break:keep-all; /*不断行*/
+		}
+		p:nth-child(5) {
+			word-break:break-all; /*不断行*/
+		}
+	</style>
+</head>
+<body>
+	<h1>CSS3文本换行</h1>
+	<hr>
+
+	<div>
+		<p>Lorem ipsum dolor sit amet，consecteturadipisicingelitVoluptatessdfaldksfjalkdsfjadsfjaldfsjlkcommodipossimusodioasdfadfsasf temporibus sapiente. Omnis, tempore, ea? A, veniam fugiat?</p>
+
+		<p>Lorem ipsum dolor sit amet，consecteturadipisicingelitVoluptatessdfaldksfjalkdsfjadsfjaldfsjlkcommodipossimusodioasdfadfsasf temporibus sapiente. Omnis, tempore, ea? A, veniam fugiat?</p>
+		
+		<p>Lorem ipsum dolor sit amet, consecteturadipisicingelitVoluptatessdfaldksfjalkdsfjadsfjaldfsjlkcommodipossimusodioasdfadfsasf temporibus sapiente. Omnis, tempore, ea? A, veniam fugiat?</p>
+
+		<p>话说金莲陪着武松正在楼上说话未了只见武大买了些肉菜果饼归家放在厨走上楼来叫道大嫂你且下来则个那妇人应道你看那不晓事的，
+		！叔叔在此无人陪侍，却交我撇了下去。”武松道：“嫂嫂请方便。”妇人道：</p>
+		<p>Lorem ipsum dolor sit amet，consecteturadipisicingelitVoluptatessdfaldksfjalkdsfjadsfjaldfsjlkcommodipossimusodioasdfadfsasf temporibus sapiente. Omnis, tempore, ea? A, veniam fugiat?</p>
+	</div>
+</body>
+</html>

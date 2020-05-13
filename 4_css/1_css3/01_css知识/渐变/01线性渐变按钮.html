@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>渐变按钮</title>
+    <style>
+        .box {
+            margin: 100px auto;
+            text-align: center;
+        }
+        .box .btn {
+            margin: 10px 5px;
+        }
+        .btn {
+            padding:6px 12px;
+            font-size: 14px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+
+
+        .btn-default {
+            background: linear-gradient(#fff, #e0e0e0);
+            border-color: #ccc;
+        }
+        .btn-default:hover,.btn-default:focus {
+            background: #e0e0e0;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background: linear-gradient(#337ab7,#265a88);
+        }
+        .btn-primary:hover,.btn-primary:focus {
+            background: #265a88;
+        }
+
+        .btn-success {
+            color: #fff;
+            background: linear-gradient(#5cb85c,#419641)
+        }
+        .btn-success:hover,.btn-success:focus {
+            background: #419641;
+        }
+
+        .btn-info {
+            color: #fff;
+            background: linear-gradient(#5bc0de,#2aabd2);
+        }
+        .btn-info:hover,.btn-info:focus{
+            background: #2aabd2;
+        }
+
+        .btn-warning {
+            color: #fff;
+            background: linear-gradient(#f0ad4e,#eb9316);
+        }
+        .btn-warning:hover,.btn-warning:focus {
+            background: #eb9316
+        }
+
+        .btn-danger {
+            color: #fff;
+            background: linear-gradient(#d9534f,#c12e2a);
+        }
+        .btn-danger:hover,.btn-danger:focus {
+            background: #c12e2a;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <button class="btn btn-default">#fff #e0e0e0 按钮</button>
+        <button class="btn btn-primary">#337ab7 #265a88 按钮</button>
+        <button class="btn btn-success">#5cb85c #419641 按钮</button>
+        <button class="btn btn-info">#5bc0de #2aabd2 按钮</button>
+        <button class="btn btn-warning">#f0ad4e #eb9316 按钮</button>
+        <button class="btn btn-danger">#d9534f #c12e2a 按钮</button>
+    </div>
+
+</body>
+</html>

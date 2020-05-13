@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>门户</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div id="wrap">
+        <div class="head">
+            <div class="head-main">
+                <h1 class="logo">
+                    <a href="http://www.atgugu.com">
+                        <img src="./img/logo.png" alt="周冬雨旁边">
+                    </a>
+                </h1>
+                <ul class="nav">
+                    <li>
+                        <a href="javascript:;">
+                            <div class="up"><img  src="./img/home.png" alt="home"></div>
+                            <div class="down"><img  src="./img/home_black.png" alt="home_black"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <span class="up">Course</span>
+                            <span class="down">Course</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <span class="up">Works</span>
+                            <span class="down">Works</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <span class="up">About</span>
+                            <span class="down">About</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <span class="up">Team</span>
+                            <span class="down">Team</span>
+                        </a>
+                    </li>
+                </ul>
+                <i class="arrow"></i>
+            </div>
+        </div>
+        <div class="content">
+            <ul class="list">
+                <li class="item">
+                    <div class="home">home</div>
+                </li>
+                <li class="item">
+                    <div class="course">course</div>
+                </li>
+                <li class="item">
+                    <div class="works">works</div>
+                </li>
+                <li class="item">
+                    <div class="about">about</div>
+                </li>
+                <li class="item">
+                    <div class="team">team</div>
+                </li>
+            </ul>
+            <ul class="points">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="./js/frame.js"></script>
+<script>
+    //鼠标事件 滚轮事件 动画完成事件 触屏事件 窗口变化事件
+    //在窗口缩小的时候  整个窗口内包含的css像素的个数在变多 在js中所有跟尺寸 位置有关的设置得重新取值赋值一遍
+    window.onresize=function () {
+        var items = document.querySelectorAll("#wrap .content .list > .item ")
+        var content = document.querySelector("#wrap .content")
+        var arrow = document.querySelector("#wrap .head .head-main .arrow");
+        for(var i=0;i<items.length;i++){
+            items[i].style.height = content.offsetHeight  +"px";
+        }
+        arrow.style.left = ups[frame.now].parentNode.offsetLeft + ups[frame.now].offsetWidth/2 - arrow.offsetWidth/2 + "px";
+        list.style.top= -frame.now*content.offsetHeight  +"px";
+    }
+</script>
+</html>

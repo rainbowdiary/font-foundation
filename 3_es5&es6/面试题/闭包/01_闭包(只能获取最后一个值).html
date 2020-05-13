@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 作用域链的这种配置机制引出了一个值得注意的副作用，即闭包只能取得包含函数中任何变量的最后一个值。
+    function createFunctions() {
+      var result = new Array();
+      for (var i = 0; i < 4; i++) {
+        result[i] = function () {
+          return i;
+        };
+      }
+      return result;//返回的结果result[0]=result[1]=result[2]=result[3]=4;
+    }
+    
+    
+
+    /*
+    result[]
+    result[0]=0
+    */
+  </script>
+</body>
+
+</html>

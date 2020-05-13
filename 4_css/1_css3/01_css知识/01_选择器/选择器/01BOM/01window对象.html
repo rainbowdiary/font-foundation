@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window对象</title>
+</head>
+<body>
+    <button id="btn1">open打开空窗口</button>
+    <button id="btn2">open打开窗口</button>
+    <button id="btn3">open打开页面本窗口</button>
+    <button id="btn4">open打开页面</button>
+    <br>
+    <button id="btn5">打印</button>
+
+    <div style="height:2000px;"></div>
+    <script>
+        // 给窗口取个名字
+        window.name = 'xiaoli';
+
+        // 获取元素
+        var btn1 = document.querySelector('#btn1');
+        var btn2 = document.querySelector('#btn2');
+        var btn3 = document.querySelector('#btn3');
+        var btn4 = document.querySelector('#btn4');
+        var btn5 = document.querySelector('#btn5');
+        btn1.onclick = function(){
+          window.open();
+        };
+        btn2.onclick = function(){
+            window.open('http://www.atguigu.com');
+        };
+        btn3.onclick = function(){
+            window.open('http://www.atguigu.com', 'xiaoli');
+        };
+        btn4.onclick = function(){
+            window.open('http://www.atguigu.com', '', 'width=400,height=300');
+        };
+        btn5.onclick = function(){
+            window.print();
+        };
+
+
+
+
+
+        console.log(window);
+
+        // 全局函数demo 本质是window对象的属性
+        function demo() {
+            console.log(this);
+        }
+        demo(); //调用
+        window.demo();
+
+        console.log('');
+
+        // 获取窗口的大小(视口的大小) （IE8+）
+        console.log(window.innerWidth, window.innerHeight);
+        // 获取视口大小
+        console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+
+    </script>
+</body>
+</html>

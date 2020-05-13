@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 字符串的不可变性: 字符串可以看做是一个数组,可以通过索引访问字符串中的每个字符,
+			 * 字符串一旦被赋值后,就不可以更改了,可以再赋值,再赋值时重新开辟了一个内存地址
+			 */
+			var str = '今天下午上课不困';
+			//console.log(str.length);
+//			for (var i = 0; i < str.length; i++) {
+//				
+//				console.log(str[i]);
+//			}
+			
+//			str[0] = '明';
+//			str = '老刘你蒙我';
+//			console.log(str);
+			
+			
+			
+			var str01 = '今天下午a上课午不困';
+			console.log(str01.charAt(8)); //.charAt(索引),返回值是指定索引位置的字符串,超出索引,结果是空字符串
+			console.log(str01.charCodeAt(4));//.charCodeAt返回在指定的位置的字符的 Unicode 编码
+			console.log(str01.concat('哈哈','嘿嘿'));// .concat(字符串1,字符串2,...);返回的是拼接之后的新的字符串
+			console.log(str01.indexOf('午',4));//.indexOf(要找的字符串,从某个位置开始的索引);返回的是这个字符串的索引值,没找到则返回-1
+			console.log(str01.lastIndexOf('午',5));//.lastIndexOf(要找的字符串,从某个位置开始的索引);从后向前找,但是索引仍然是从左向右的方式,找不到则返回-1
+			console.log(str01.replace('午','哈哈哈'));// .replace("原来的字符串","新的字符串");用来替换字符串的
+			console.log(str01.slice(2,6));//.slice(开始的索引,结束的索引); 从索引的位置开始提取,到索引的前一个结束,并返回这个提取后的字符串
+			console.log(str01.substring(2,6));//.substring(开始的索引,结束的索引),返回截取后的字符串,不包含结束的索引的字符串
+			console.log(str01.substr(1,4));// .substr(开始的索引,个数);返回的是截取后的新的字符串
+			var str02 = '周杰伦|蔡依林|王力宏|老刘';
+			console.log(str02.split('|'));//.split("要干掉的字符串");切割字符串
+			var str03 = 'aBCdefG';
+			console.log(str03.toLocaleLowerCase());//转小写
+			console.log(str03.toLocaleUpperCase());//转大写
+			var str04 = '     天蝎座     ';
+			console.log(str04.trim().length);// 去掉两端空格
+		</script>
+	</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input type</title>
+    <style>
+        div {
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        input type属性值：
+        text password  radio checkbox  button submit reset file   hidden
+
+        H5给type属性新增了更多的值
+    -->
+
+    <form action="1.php"  novalidate>
+        <h2>文本输入类</h2>
+        <!--邮箱-->
+        <div>
+            <label for="emailInput">邮箱:</label>
+            <input type="email" name="email" id="emailInput" required>
+        </div>
+
+        <!--URL-->
+        <div>
+            <label for="urlInput">URL:</label>
+            <input type="url" name="url" id="urlInput" required>
+        </div>
+
+        <!--数字-->
+        <div>
+            <label for="numberInput">number:</label>
+            <input type="number"  max="10" min="0" step="2" id="numberInput" required>
+        </div>
+
+        <!--搜素-->
+        <div>
+            <label for="searchInput">搜素:</label>
+            <input type="search"  id="searchInput" required>
+        </div>
+
+        <!--电话-->
+        <div>
+            <label for="telInput">电话:</label>
+            <input type="tel"  id="telInput" required>
+        </div>
+
+        <h2>范围选择框</h2>
+        <div>
+            <label for="rangeInput">范围:</label>
+            <input type="range" name="myrange" step="10" max="100" min="0" id="rangeInput" required>
+        </div>
+
+        <h2>颜色选择</h2>
+        <div>
+            <label for="colorInput">颜色:</label>
+            <input type="color" id="colorInput" required>
+        </div>
+
+        <h2>时间日期：</h2>
+        <div>
+            <label for="dateInput">年月日:</label>
+            <input type="date" id="dateInput" required>
+        </div>
+        <div>
+            <label for="monthInput">年月:</label>
+            <input type="month" id="monthInput" required>
+        </div>
+        <div>
+            <label for="weekInput">周:</label>
+            <input type="week" id="weekInput" required>
+        </div>
+        <div>
+            <label for="timeInput">时间:</label>
+            <input type="time" id="timeInput" required>
+        </div>
+        <div>
+            <label for="datetimeInput">日期时间:</label>
+            <input type="datetime-local" id="datetimeInput" required>
+        </div>
+
+
+        <div>
+            <button>提交</button>
+        </div>
+    </form>
+
+</body>
+</html>

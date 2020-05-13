@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit:cover">
+    <title>相册</title>
+    <style>
+        * {margin: 0;padding:0}
+        ul {
+            list-style: none;
+        }
+        html,body,#app {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        header {
+            position: relative;
+            z-index:5;
+            width: 100vw;
+            height: 10vh;
+            background: rgba(0,0,0,.8);
+            color: #fff;
+            text-align: center;
+            line-height: 10vh;
+        }
+        header h1 {
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        .album-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .album-list li {
+            margin: 3vw 0;
+            width: 44vw;
+            height: 44vw;
+            background: url(img/loadingImg.gif) no-repeat center center;
+
+        }
+        .album-list li img {
+            display: block;
+            width: 100%;
+            height:100%;
+            border-radius: 3vw;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>三国女将</h1>
+        </header>
+        <ul class="album-list">
+        </ul>
+    </div>
+
+    <script src="js/transformcss.js"></script>
+    <script src="js/touchscroll.js"></script>
+    <script>
+        (function () {
+            //阻止默认事件
+            var app = document.querySelector('#app');
+            app.addEventListener('touchstart', function (event) {
+                event.preventDefault();
+            });
+
+            //获取元素
+            var albumList = document.querySelector('.album-list');
+
+            // 定义数组，存储所有的图片信息
+            var imageData = [];
+            for (var i = 0; i < 100; i ++) {
+                imageData.push((i%18+1)+'.jpg');
+            }
+
+
+            //定义加载图片的初始索引
+            var start = 0;
+            // 定义每次加载的图片数量
+            var length = 12;
+
+
+            // 加载第一波数据
+            createAlbumItem();
+
+
+            // 设置页面可以滑动
+            touchscroll(app, albumList, null, {
+                move: function(){
+                    lazyLoad(); //懒加载判断
+                }
+            });
+
+
+            /**
+             * 创建相册的成员
+             */
+            function createAlbumItem() {
+                var end = start + length;  // 下一次取值的索引
+                for (var i = start; i < end; i ++) {
+                    // 创建li元素
+                    var liNode = document.createElement('li');
+                    // li添加自定义数据
+                    //liNode.setAttribute('data-src', 'img/'+imageData[i])
+                    liNode.dataset.src = 'img/'+imageData[i];
+                    // 把li添加到ul中
+                    albumList.appendChild(liNode);
+                }
+                start = end; // 重新设置获取图片的起始索引
+                // 创建完成之后，调用图片懒加载
+                lazyLoad();
+            }
+
+            /**
+             * 实现图片懒加载
+             */
+            function lazyLoad() {
+                // 获取所有的相册元素
+                var albumItems = document.querySelectorAll('.album-list li');
+                // 遍历所有的相册元素
+                albumItems.forEach(function (albumItem) {
+                    // 判断图片是否已经加载过
+                    if (albumItem.isLoaded) {
+                        return;
+                    }
+                    //判断li具体视口顶部的距离 是否 小于视口高度
+                    if (albumItem.getBoundingClientRect().top < document.documentElement.clientHeight) {
+                        //创建
+                        var imgNode = document.createElement('img');
+                        //设置图片地址
+                        imgNode.src = albumItem.dataset.src;
+                        // 如果图片加载完毕
+                        imgNode.addEventListener('load', function () {
+                            this.style.opacity = 1;
+                        });
+                        //如果图片加载失败
+                        imgNode.addEventListener('error', function () {
+                           this.src = 'img/noimage.png';
+                        });
+                        // 把图片添加到 li中
+                        albumItem.appendChild(imgNode);
+                        // 标记已经加载过图片
+                        albumItem.isLoaded = true;
+
+                    }
+                });
+            }
+        })();
+        
+    </script>
+</body>
+</html>

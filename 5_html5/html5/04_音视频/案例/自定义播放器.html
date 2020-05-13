@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        #wrap{
+            background: #383838;
+        }
+        #myVideo{
+            vertical-align: middle;
+        }
+        .footer{
+            position: relative;
+            height: 25px;
+            width: 100%;
+            background: #2A2A2A;
+        }
+        /*按钮排*/
+        .footer .btns{
+            position: relative;
+            width: 55px;
+            height: 25px;
+
+        }
+        .footer .btns>div{
+            position: absolute;
+            top:0;
+            bottom: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+            width: 9px;
+            height: 11px;
+            background-image: url("img/icon.png");
+            background-repeat: no-repeat;
+        }
+        .footer .btns>.start{
+            left: 8px;
+            background-position: 0px -22px;
+        }
+        .footer .btns>.start.active{
+            background-position: 0px -11px;
+        }
+        .footer .btns>.stop{
+            right: 8px;
+            background-position: 0 0;
+        }
+
+        /*进度条*/
+        .footer .progress{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left:55px;
+            right: 230px;
+            /*background: yellowgreen;*/
+        }
+        .footer .progress .proGrey{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top:0;
+            bottom: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+            height: 3px;
+            background: #737373;
+        }
+        .footer .progress .proGrey .smallWhite{
+            position: absolute;
+            left: 0;
+            top:-2px;
+            width: 9px;
+            height: 7px;
+            background: #fff;
+            border-radius: 2px;
+        }
+        .footer .progress .smallPink{
+            position: absolute;
+            top:0;
+            bottom: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+            width: 0px;
+            height: 3px;
+            background: deeppink;
+        }
+
+
+        .footer .others{
+            position: absolute;
+            top:0;
+            right: 0;
+            width: 230px;
+            height: 25px;
+
+        }
+        /*时间*/
+        .footer .others .time{
+            width: 120px;
+            height: 25px;
+            line-height: 25px;
+            font-size: 12px;
+            color: white;
+            text-align: center;
+        }
+        /*音量*/
+        .footer .others .volumeWrap{
+            position: absolute;
+            top:0;
+            left: 120px;
+            width: 80px;
+            height: 25px;
+
+
+        }
+        .footer .others .volumeWrap .volBtn{
+            position: relative;
+            width: 20px;
+            height: 25px;
+
+        }
+        .footer .others .volumeWrap .volBtn>span{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-6px,-6px);
+            width: 12px;
+            height: 12px;
+            background-image: url("img/icon.png");
+            background-repeat: no-repeat;
+            background-position: 0 -34px;
+        }
+        .footer .others .volumeWrap .volBtn>span.active{
+            background-position: 0 -46px;
+        }
+        .footer .others .volumeWrap .progress{
+            position: absolute;
+            left: 20px;
+            right: 0px;
+            width: 60px;
+            height: 25px;
+
+        }
+        /*全屏*/
+        .footer .others .fullScreen{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 25px;
+
+        }
+        .footer .others .fullScreen>span{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 11px;
+            height: 11px;
+            background-image: url("img/icon.png");
+            background-repeat: no-repeat;
+            background-position: 0 -58px;
+        }
+        .footer .others .fullScreen>span.active{
+            background-position: 0 -70px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <video id="myVideo" src="http://pic.ibaotu.com/00/60/75/01J888piCPNw.mp4"></video>
+    <footer id="footer" class="footer">
+        <!--按钮排-->
+        <div class="btns">
+            <div class="start"></div>
+            <div class="stop"></div>
+        </div>
+        <!--进度条-->
+        <div class="progress">
+            <div class="proGrey">
+                <div class="smallWhite"></div>
+            </div>
+            <div class="smallPink"></div>
+        </div>
+        <!--时间，音量，全屏-->
+        <div class="others">
+            <!--时间-->
+            <div class="time">
+                <span class="now">00:00:00</span>/
+                <span class="all">00:00:00</span>
+            </div>
+            <!--音量-->
+            <div class="volumeWrap">
+                <div class="volBtn">
+                    <span></span>
+                </div>
+                <div class="progress">
+                    <div class="proGrey">
+                        <div class="smallWhite"></div>
+                    </div>
+                    <div class="smallPink"></div>
+                </div>
+            </div>
+            <!--全屏-->
+            <div class="fullScreen">
+                <span></span>
+            </div>
+        </div>
+
+    </footer>
+</div>
+
+
+</body>
+<script type="text/javascript" src="js/drag.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        var myVideo = document.getElementById('myVideo')
+        var footer = document.getElementById('footer');
+
+        var start = document.querySelector('.footer .btns>.start');
+        var stop = document.querySelector('.footer .btns>.stop');
+
+        var progress = document.querySelectorAll('.footer .progress')
+        var proGrey = document.querySelectorAll('.footer .progress .proGrey')
+        var smallWhite = document.querySelectorAll('.footer .progress .proGrey .smallWhite')
+        var smallPink = document.querySelectorAll('.footer .progress .smallPink')
+
+        var fullScreen = document.querySelector('.footer .others .fullScreen>span')
+        var isFullScreen = false;
+
+        var now = document.querySelector('.footer .others .time .now')
+        var all  = document.querySelector('.footer .others .time .all')
+
+        var volBtn = document.querySelector('.footer .others .volumeWrap .volBtn>span');
+
+        var volFalg = 1;
+
+        //定时器
+        var timer = null;
+
+        //视频宽度与高度
+        myVideo.width = document.documentElement.clientWidth;
+        myVideo.height = document.documentElement.clientHeight - footer.offsetHeight;
+
+        //窗口改变后的视频高度与宽度
+        window.onresize = function () {
+            myVideo.width = document.documentElement.clientWidth;
+            myVideo.height = document.documentElement.clientHeight - footer.offsetHeight;
+
+        };
+
+        //总时间
+        //onloadedmetadata 当音频元数据加载完毕时触发。
+        myVideo.onloadedmetadata = function () {
+            all.innerHTML = changeTime(myVideo.duration)
+        }
+
+
+
+        start.onclick = function () {
+            //暂停---播放 --- active
+            if(myVideo.paused){
+                myVideo.play();
+                addClass(start,'active');
+                //进度条在走
+                timer = setInterval(function () {
+                    move()
+                },100);
+
+            }else {
+                //播放---暂停 ---- 移除active
+                myVideo.pause();
+                removeClass(start,'active');
+                clearInterval(timer);
+            }
+
+        };
+
+        stop.onclick = function () {
+            myVideo.pause();
+            removeClass(start,'active');
+            clearInterval(timer);
+            myVideo.currentTime = 0;
+            smallPink[0].style.width = smallWhite[0].style.left = 0 +'px';
+            now.innerHTML = changeTime(myVideo.currentTime)
+        };
+        
+        //进度移动逻辑
+        function move() {
+            //小粉宽度=小白left
+            //  小粉宽度 / (小灰宽度-小白宽度) = 当前时间/总时间
+            var scale = myVideo.currentTime/myVideo.duration;
+
+            smallPink[0].style.width = smallWhite[0].style.left = scale * (proGrey[0].offsetWidth-smallWhite[0].offsetWidth)+'px';
+
+            now.innerHTML = changeTime(myVideo.currentTime)
+        }
+        
+        //点击进度条
+        progress[0].onclick = function (event) {
+            event = event || window.event;
+            var x = event.clientX - progress[0].offsetLeft;
+            smallPink[0].style.width = smallWhite[0].style.left = x + 'px';
+
+            myVideo.currentTime = x/(proGrey[0].offsetWidth-smallWhite[0].offsetWidth)*myVideo.duration;
+
+            now.innerHTML = changeTime(myVideo.currentTime)
+
+            myVideo.play();
+            addClass(start,'active');
+            //进度条在走
+            timer = setInterval(function () {
+                move()
+            },100);
+        };
+
+        //拖动逻辑
+        player();
+        function player() {
+            //主进度条
+            var callback = {
+                move:function () {
+                    smallPink[0].style.width = smallWhite[0].offsetLeft + 'px';
+                    var scale = smallWhite[0].offsetLeft/(proGrey[0].offsetWidth-smallWhite[0].offsetWidth);
+                    myVideo.currentTime = scale * myVideo.duration;
+
+                    now.innerHTML = changeTime(myVideo.currentTime)
+                }
+
+            }
+//            callback.move();
+//            callback['move']()
+           $.drag(smallWhite[0],callback);
+
+
+            //音量
+            smallPink[1].style.width = smallWhite[1].style.left = (proGrey[1].offsetWidth-smallWhite[1].offsetWidth)+'px'
+            volBtn.onclick = function () {
+                //静音 -- 不静音 -- 移除active
+                if(myVideo.muted){
+                    myVideo.muted = false;
+                    removeClass(volBtn,'active')
+
+                    //音量回去
+                    myVideo.volume = volFalg;
+                    smallPink[1].style.width = smallWhite[1].style.left = volFalg*(proGrey[1].offsetWidth-smallWhite[1].offsetWidth)+'px';
+
+                }else {
+                    //不静音 -- 静音 -- active
+                    myVideo.muted = true;
+                    addClass(volBtn,'active');
+                    smallPink[1].style.width = smallWhite[1].style.left = 0 + 'px';
+                    myVideo.volume = 0;
+                }
+
+
+            }
+
+            //音量进度条
+            var callback1 = {
+                move:function () {
+                    smallPink[1].style.width = smallWhite[1].offsetLeft + 'px';
+
+                    myVideo.volume = smallWhite[1].offsetLeft/(proGrey[1].offsetWidth-smallWhite[1].offsetWidth);
+
+                    volFalg = myVideo.volume;
+
+                    if(myVideo.volume == 0){
+                        //静音
+                        myVideo.muted = true;
+                        addClass(volBtn,'active');
+                        smallPink[1].style.width = smallWhite[1].style.left = 0 + 'px';
+                    }else {
+                        myVideo.muted = false;
+                        removeClass(volBtn,'active')
+                        smallPink[1].style.width = smallWhite[1].offsetLeft + 'px';
+                    }
+
+                }
+            }
+            $.drag(smallWhite[1],callback1)
+        }
+
+
+        //全屏实现
+        fullScreen.onclick=function() {
+            if(isFullScreen) {
+                //全屏 -- 不全屏 -- 移除active
+                removeClass(fullScreen,'active')
+                isFullScreen = false
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+                else if (document.mozCancelFullScreen) {
+                    document.mozCancelFullScreen();
+                }
+                else if (document.webkitCancelFullScreen) {
+                    document.webkitCancelFullScreen();
+                }
+                else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            } else {
+                //不全屏 -- 全屏 -- active
+                addClass(fullScreen,'active')
+                isFullScreen = true
+                var docElm = document.documentElement;
+                //W3C
+                if (docElm.requestFullscreen) {
+                    docElm.requestFullscreen();
+                }
+                //FireFox
+                else if (docElm.mozRequestFullScreen) {
+                    docElm.mozRequestFullScreen();
+                }
+                //Chrome等
+                else if (docElm.webkitRequestFullScreen) {
+                    docElm.webkitRequestFullScreen();
+                }
+                //IE11
+                else if (docElm.msRequestFullscreen) {
+                    docElm.msRequestFullscreen();
+                }
+            }
+        }
+
+
+        //功能函数
+        //时间转换格式
+        function changeTime(time){
+            time = parseInt(time);
+
+            var h=toZero(Math.floor(time/3600));
+            var m=toZero(Math.floor(time%3600/60));
+            var s=toZero(Math.floor(time%60));;
+
+            return h+":"+m+":"+s;
+        }
+        function toZero(mun){
+            if(mun<10){
+                mun = "0"+mun;
+            }else{
+                mun = ""+mun;
+            }
+            return mun;
+        }
+
+        function addClass(node,className){
+            var reg=new RegExp("\\b"+className+"\\b");
+            if(!reg.test(node.className)){
+                node.className +=(" "+className);
+            }
+        }
+        function removeClass(node,className){
+            if(node.className){
+                var reg=new RegExp("\\b"+className+"\\b");
+                var classes = node.className;
+                node.className=classes.replace(reg,"");
+            }
+        }
+
+    };
+
+
+</script>
+</html>

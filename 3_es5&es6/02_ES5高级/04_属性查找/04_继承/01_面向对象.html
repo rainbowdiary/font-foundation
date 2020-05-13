@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+    继承
+    多态(重写)
+    封装(函数化)
+    */
+    function Person(name,age) {
+        this.name = name;
+        this.age = age;
+        this.eat=function (msg) {
+            console.log(msg)
+        }
+    }
+    console.log(new Person)
+
+    function Teacher(subject) {
+        this.subject =  subject,
+        this.teach=function () {
+            console.log("教书")
+        }
+    }
+    function Student(score) {
+        this.score =  score,
+        this.study=function () {
+            console.log("学习")
+        }
+    }
+</script>
+</html>

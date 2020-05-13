@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 属性名只能是字符串 或者 Symbol
+
+    let name = "达姆";
+    let age =18;
+    function fn() {
+        return "test"
+    }
+    let obj = {
+        name,
+        age,
+        eat() {
+            console.log("chichichi")
+        },
+        [fn()]:"我是属性",
+    }
+    console.log(obj.test);
+</script>
+</html>

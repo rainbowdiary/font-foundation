@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>亮光文字</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #000;
+        }
+        h1 {
+            margin: 200px auto;
+            width: 800px;
+            font-size: 100px;
+            text-align: center;
+            color: rgba(255, 255, 255, .4);
+            background: linear-gradient(135deg, transparent 70px, #fff 140px, transparent 210px);
+            -webkit-background-clip: text;
+            background-repeat: no-repeat;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>这是一个亮光文字</h1>
+    <script>
+        var h1 = document.querySelector('h1');
+        var start = 0;
+        setInterval(function () {
+            start += 20;
+            if (start > 800) {
+                start = 0;
+            }
+
+            h1.style.backgroundPositionX = start + 'px';
+        }, 50)
+    </script>
+</body>
+</html>

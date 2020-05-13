@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex</title>
+    <style>
+        .wrap {
+            margin: 0 auto;
+            width: 800px;
+            height: 1000px;
+            border: 2px solid #ccc;
+
+            /*设置为伸缩容器*/
+            display: flex;
+
+            /*换行*/
+            flex-wrap: wrap;
+
+            /*设置伸缩项目在侧轴方向的对齐方式（换行）*/
+            align-content: flex-start;
+            align-content: flex-end;
+            align-content: center;
+            align-content: space-between;
+            align-content: space-around;
+            align-content: space-evenly;
+
+
+            /*align-items: flex-start;*/
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            color: #fff;
+        }
+        .box01 {background: #00aaee}
+        .box02 {background: #1DC128}
+        .box03 {background: #5B0000; font-size: 100px}
+        .box04 {background: #88180e}
+        .box05 {background: #ff9900}
+        .box06 {background: #1f1f1f}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box box01">01</div>
+        <div class="box box02">02</div>
+        <div class="box box03">03</div>
+        <div class="box box04">04</div>
+        <div class="box box05">05</div>
+        <div class="box box06">06</div>
+    </div>
+
+
+</body>
+</html>

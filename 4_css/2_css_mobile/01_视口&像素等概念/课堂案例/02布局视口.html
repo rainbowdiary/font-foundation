@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>布局视口&视觉视口</title>
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      background: #f90;
+      font-size: 21px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">hello</div>
+  <script>
+    /* 移动端默认视口，大于实际屏幕，safari是980px */
+    console.log('布局视口', document.documentElement.clientWidth, "*", document.documentElement.clientHeight);
+    /*  2. 大部分情况下与布局视口大小一致。
+        3. 用户缩放的时候，会变化。 */
+    console.log('视觉视口', window.innerWidth, "*", window.innerHeight);
+  </script>
+</body>
+
+</html>

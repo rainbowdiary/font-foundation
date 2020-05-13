@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  function test(a, b) {
+    // arguments.callee()
+    console.log(arguments);
+
+  }
+
+  test(1, 2, 3, 4, 5)
+
+  console.log("------------------------------------------");
+
+  /* typeof arguments */
+  console.log(typeof arguments);    // 'undefined' 只有函数内部才有的属性
+  // arguments 对象只能在函数内使用
+  function test2(a) {
+    console.log(typeof arguments);  // 'object' 是一个类数组
+    console.log(a, Object.prototype.toString.call(arguments));
+    console.log(arguments[0], arguments[1]);
+    console.log(typeof arguments[0]);
+  }
+  test2(1);
+</script>
+
+</html>

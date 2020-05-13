@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取元素大小</title>
+    <style>
+        #box {
+            position: relative;
+            margin: 50px;
+            width: 800px;
+            height: 600px;
+            padding: 15px;
+            border: 5px solid #333;
+
+        }
+        #inner {
+            width:200px;
+            height:200px;
+            background: yellowgreen;
+            border: 2px solid #333;
+            overflow: auto;
+        }
+        .inner-inner {
+            margin: 20px auto;
+            width: 40px;
+            height: 400px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="inner">
+            <div class="inner-inner"></div>
+        </div>
+    </div>
+
+    <script>
+        // 获取元素
+        var inner = document.getElementById('inner');
+
+        // 在第一个开启定位的祖先元素上的位置；
+        console.log(inner.offsetLeft, inner.offsetTop);
+
+        inner.offsetLeft = 1000; // offsetLeft是只读，只能获取，设置无效
+
+        // 元素自身边框的宽度，  clientLeft 左边框的宽度； clientTop 上边框的宽度
+        console.log(inner.clientLeft, inner.clientTop);
+
+
+        // scroll系列  获取该元素内滚动体滚动的距离  可以设置的
+        console.log(inner.scrollLeft, inner.scrollTop);
+
+
+        // 滚动条滚动事件
+        inner.onscroll = function(){
+            console.log(inner.scrollLeft, inner.scrollTop);
+        }
+
+        // 定时器
+        /*setInterval(function () {
+            inner.scrollTop += 1;
+        }, 100);*/
+
+
+        // getBoundingClientRect()
+        console.log(inner.getBoundingClientRect())
+
+
+
+    </script>
+</body>
+</html>

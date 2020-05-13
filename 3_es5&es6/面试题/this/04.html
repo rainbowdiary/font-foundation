@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var length = 10;
+    function fn() {
+      console.log(this.length);
+    }
+
+    var obj = {
+      length: 5,
+      method: function (fn) {
+        fn();  //虽然method函数this指向obj，但是fn()执行的时候是函数内部直接执行，所以this指向window
+        arguments[0](); //this是指向arguments实例本身  ==> arguments.0() 需要输出arguments.length，有两个元素，输出2
+      }
+    };
+    obj.method(fn)
+    obj.method(fn, 1);
+
+    /* 作者：Vincent Ko
+    链接：https://juejin.im/post/5b6e60a05188251afe7bbc0e
+    来源：掘金
+    著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。   */
+  </script>
+</body>
+
+</html>

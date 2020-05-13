@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开机动画</title>
+    <style>
+        @keyframes jumpUp {
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .loading {
+            list-style: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .loading li {
+            float: left;
+            font-size: 36px;
+            font-weight: bold;
+            animation: jumpUp .3s infinite alternate;
+        }
+    </style>
+</head>
+<body>
+    <ul class="loading">
+        <li>L</li>
+        <li>O</li>
+        <li>A</li>
+        <li>D</li>
+        <li>I</li>
+        <li>N</li>
+        <li>G</li>
+    </ul>
+
+    <script>
+        (function () {
+            //所有的li元素
+            var liNodes = document.querySelectorAll('.loading li');
+
+            // 给每个li元素设置动画延迟
+            liNodes.forEach(function (liNode, index) {
+                liNode.style.animationDelay = index*100+'ms';
+            })
+        })()
+    </script>
+</body>
+</html>

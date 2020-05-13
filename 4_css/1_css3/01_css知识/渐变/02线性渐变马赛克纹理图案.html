@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>马赛克纹理图案</title>
+    <style>
+        .container {
+            text-align: center;
+        }
+        .box {
+            display: inline-block;
+            margin: 20px 10px;
+            width: 500px;
+            height: 500px;
+            border: 1px solid #ccc;
+        }
+
+        .box01 {
+            background-color: #fff;
+            background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%),
+                              linear-gradient(135deg, #000 25%, transparent 25%, transparent 75%, #000 75%);
+            background-size: 50px 50px;
+            background-repeat: repeat;
+        }
+
+        .box02 {
+            background-image: linear-gradient(90deg, rgba(200,0,0,.5) 50%, transparent 50%),
+                              linear-gradient(180deg, rgba(200,0,0,.5) 50%, transparent 50%);
+            background-size: 100px 100px;
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box01"></div>
+        <div class="box box02"></div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画效果</title>
+    <style>
+        #box {
+            width: 400px;
+            height: 300px;
+            background: url('images/mm/1.jpeg') no-repeat;
+            background-size: cover;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <h3>自定义动画</h3>
+    <button>隐藏</button>
+    <button>显示</button>
+    <button>切换</button>
+    <button>切换2</button>
+    <br>
+    <br>
+    <div id="box"></div>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            // 隐藏
+            $('button:eq(0)').click(function () {
+               $('#box').animate({
+                   width: 0
+               }, 2000, function(){
+                   $(this).hide();
+               });
+            });
+
+            // 显示
+            $('button:eq(1)').click(function () {
+               $('#box').show().animate({
+                   width: "400px"
+               }, 2000);
+            });
+            
+            
+            // 切换
+            $('button:eq(2)').click(function () {
+                // 判断是隐藏的还是显示的
+                if ($('#box').is(':visible')) {
+                    $('#box').animate({
+                        width: 0
+                    }, 2000, function(){
+                        $(this).hide();
+                    });
+                } else {
+                    $('#box').show().animate({
+                        width: "400px"
+                    }, 2000);
+                }
+            });
+
+            // 切换2
+            $('button:eq(3)').click(function () {
+               $("#box").animate({
+                   width: 'toggle'
+               }, 2000)
+            });
+
+        });
+    </script>
+</body>
+</html>

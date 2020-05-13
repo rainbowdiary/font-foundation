@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性选择器</title>
+    <style>
+        div {
+            margin-bottom:30px;
+            width: 400px;
+            height:300px;
+            background: #f90;
+        }
+
+        div[class~=box] {
+            border: 12px solid #000;
+        }
+
+        div[class|=xiaoli] {
+            border: 12px solid red;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    与jQuery比较
+    多了两个：
+        [attr~=value]   value必须与其他值用空格隔开，后者只有value一个值
+        [attr|=value]   value必须与其他值用-隔开且value在前面，后者只有value一个值
+     少了一个：
+        [attr!=value]  jQuery有 css3没有
+
+    -->
+
+    <div class="box item"></div>
+
+    <div class="xiaoli-active"></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 创建对象:
+			 * 1.在内存中开辟一个空间
+			 * 2.this指向的是当前实例对象
+			 * 3.this点的方式给对象添加属性
+			 * 4.不需要返回值
+			 * 
+			 * instanceof关键字:判断某个对象是否是某个类型的实例
+			 */
+			
+			//构造函数
+			function Person(name,age,gender){
+				this.name = name;
+				this.age = age;
+				this.gender = gender;
+				this.sing = function(){
+					alert('呵呵哈hi');
+				}
+			}
+			var jay = new Person('周杰伦',40,true);
+			console.log(jay.sing);
+			var jolin = new Person('周杰伦',40,true);
+			console.log(jay);
+			console.log(jay instanceof Person);
+		</script>
+	</body>
+</html>

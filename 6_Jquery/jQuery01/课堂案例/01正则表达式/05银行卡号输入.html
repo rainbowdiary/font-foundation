@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>银行卡号输入</title>
+    <style>
+        input {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h4>请输入银行卡号：</h4>
+    <input type="text" id="cardInput" maxlength="23">
+
+    <script>
+        /*
+        * 要求：
+        * ① 长度限制  最长19位
+        * ② 只能输入数字
+        * ③ 每隔4个数字添加一个空格
+        *
+        * 每输入一个数字，就要验证判断
+        * */
+
+        //获取input元素
+        var cardInput = document.getElementById('cardInput');
+
+        cardInput.onkeyup = function(){
+            // 执行replace替换， 如果有非数字替换成空
+            this.value = this.value.replace(/\D/g, '').replace(/(\d{4})(?=\d)/g, '$1 ');
+        }
+
+
+        /*
+        *    2232
+        *    2332 5232   54
+        *
+        *    3242 2342 2342 2344 2343
+        *
+        *    2324 4
+        *
+        *    6734 5332
+        *
+        * */
+
+
+    </script>
+</body>
+</html>

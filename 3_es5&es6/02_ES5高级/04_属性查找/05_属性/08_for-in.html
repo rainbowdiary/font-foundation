@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 在js中 所有的方法都上不了原型链 只能影响对象的直接属性!!
+    // 关键字可以上原型链
+    var damu ={
+        name:"达姆",
+        wife:{
+            name:"冬雨",
+            son:{
+                name:"思聪"
+            }
+        }
+    }
+
+    for(var item in damu){
+        console.log(item)
+    }
+
+    console.log(Object.getOwnPropertyDescriptor(Object.prototype,"toString"))
+</script>
+</html>

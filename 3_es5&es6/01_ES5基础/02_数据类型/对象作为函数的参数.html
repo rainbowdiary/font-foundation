@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    /* 对象作为参数给函数传递的是地址值 */
+    function test(person) {
+      person.age = 26
+      person = {
+        name: 'yyy',
+        age: 30
+      }
+
+      //{name:yck,age:26}
+      return person
+    }
+    const p1 = {
+      name: 'yck',
+      age: 25
+    }
+    const p2 = test(p1)
+    console.log(p1) // -> {name:"yck",age:26}
+    console.log(p2) // -> {name:"yyy",age:30}
+
+
+    /*    作者：Coderfei
+       链接：https://juejin.im/post/5cc543edf265da03761e9451
+       来源：掘金
+       著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。 */
+  </script>
+</body>
+
+</html>

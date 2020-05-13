@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>理想视口</title>
+  <!-- 设置meta标签为理想视口,认为是设备视口宽度 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      background: #f90;
+      font-size: 21px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    hello
+  </div>
+  <script>
+    console.log(document.documentElement.clientWidth);
+    console.log(document.documentElement.clientHeight);
+
+    console.log('');
+
+    console.log(window.innerWidth);
+    console.log(window.innerHeight);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        canvas {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+
+        // 获取canvas元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        // 填充颜色
+        ctx.fillStyle = 'yellowgreen';
+        // 描边颜色
+        ctx.strokeStyle = 'green';
+
+        // 绘制参考线
+        ctx.beginPath();
+        ctx.moveTo(100, 0);
+        ctx.lineTo(100, 600);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(0, 100);
+        ctx.lineTo(800, 100);
+        ctx.stroke();
+
+
+        // 字体属性
+        ctx.font = 'bold 40px Microsoft YaHei';
+        // 文字对齐方式 水平
+        ctx.textAlign = 'start';
+        // 设置文字垂直对齐方式
+        ctx.textBaseline = 'bottom';
+        ctx.textBaseline = 'middle';
+        ctx.textBaseline = 'top';
+
+        ctx.strokeText('小刘gogogo', 100, 100);
+
+    </script>
+</body>
+</html>

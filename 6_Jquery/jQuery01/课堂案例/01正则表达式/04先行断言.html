@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>先行断言</title>
+</head>
+<body>
+    <script>
+        /*
+        * 先行断言本质是 位置修饰
+        * */
+
+        // 需求：匹配 apple 要求apple在 orange的前面
+        var reg = /apple(?=orange)/;   //正向先行断言  只能放置原子的后面
+        console.log(reg.exec('appleorange'));
+        console.log(reg.exec('apple'));
+        console.log(reg.exec('appleoop'));
+        console.log('');
+
+
+        // 需求：匹配 apple 要求apple 的后面不能是 orange
+        var reg1 = /apple(?!orange)/;   //负向先行断言    只能放置原子的后面
+        console.log(reg1.exec('appleorange'));
+        console.log(reg1.exec('apple'));
+        console.log(reg1.exec('appleoop'));
+        console.log('');
+
+
+        // 需求：匹配 apple 要求apple的前面必须是orange
+        var reg2 = /(?<=orange)apple/;  // 正向后行断言  修饰后面的原子
+        console.log(reg2.exec('orangeapple'));
+        console.log(reg2.exec('apple'));
+        console.log(reg2.exec('appleorange'));
+        console.log('');
+
+
+        // 需求：匹配 apple 要求apple的前面不是orange
+        var reg3 = /(?<!orange)apple/;  // 负向后行断言  修饰后面的原子
+        console.log(reg3.exec('orangeapple'));
+        console.log(reg3.exec('apple'));
+        console.log(reg3.exec('appleorange'));
+        console.log('');
+
+
+    </script>
+</body>
+</html>

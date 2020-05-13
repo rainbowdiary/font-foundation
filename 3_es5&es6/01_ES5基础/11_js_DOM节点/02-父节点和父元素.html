@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="box">
+			R&B曲风
+			<h1>周杰伦</h1>
+			<!--范特西-->
+			<ul id="list">
+				<li>双节棍</li>
+				<li>青花瓷</li>
+				<li>菊花台</li>
+				<li>发如雪</li>
+				<li>龙卷风</li>
+			</ul>
+			<h2>方文山</h2>
+		</div>
+		<script type="text/javascript">
+			/*
+			 * 对于一个节点的父节点和父元素都是标签
+			 * 父节点: parentNode
+			 * 高级浏览器和低版本浏览器都能使用
+			 * 父元素: parentElement
+			 * 高级浏览器和低版本浏览器都能使用
+			 * 
+			 */
+			var list = document.getElementById('list');
+			console.log(list.parentNode);
+			console.log(list.parentElement);
+		</script>
+	</body>
+
+</html>

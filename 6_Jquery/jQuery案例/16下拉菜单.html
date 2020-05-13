@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉菜单</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		ul{
+			list-style:none;
+		}
+		.banner img{
+			width:100%;
+		}
+		
+		.nav{
+			background-color:#333;
+			line-height:40px;
+			height:40px;
+		}
+		.container{
+			margin:0 auto;
+			width:1000px;
+		}
+
+		.nav li{
+			float:left;
+			position: relative;
+			width:100px;
+			text-align: center;
+		}
+
+		.nav a{
+			display:block;
+			color:#fff;
+			text-decoration: none;
+		}
+		
+		.nav li ul{
+			display:none;
+			position:absolute;
+			left:0;
+			top:40px;
+			background-color:#fff;
+		}
+
+		.nav ul li ul li a{
+			color:#333;
+		}
+
+		.nav ul li ul li{
+			float:none;
+		}
+
+		.nav ul li ul li ul{
+			left:100px;
+			top:0;
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<div class="container">
+			<ul>
+				<li><a href="#">首页</a></li>
+				<li>
+					<a href="#">商城</a>
+					<ul>
+						<li><a href="#">电子</a></li>
+						<li><a href="#">服装</a></li>
+						<li><a href="#">图书</a>
+							<ul>
+								<li><a href="#">历史</a></li>
+								<li><a href="#">文学</a></li>
+								<li><a href="#">技术</a></li>
+								<li><a href="#">计算机</a></li>
+							</ul>
+						</li>
+						<li><a href="#">电器</a></li>
+						<li><a href="#">视频</a></li>
+					</ul>
+				</li>
+				<li><a href="#">论坛</a>
+					<ul>
+						<li><a href="#">大论坛</a></li>
+						<li><a href="#">小论坛</a></li>
+						<li><a href="#">微论坛</a></li>
+						<li><a href="#">巨论坛</a></li>
+					</ul>
+				</li>
+				<li><a href="#">博客</a></li>
+				<li><a href="#">关于我们</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="banner">
+		<img src="images/O909.jpg" alt="">
+	</div>
+
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script>
+		$(function () {
+			$('.nav li').mouseenter(function () {
+				$(this).css('background-color', 'red').children('ul').stop().slideDown();
+			}).mouseleave(function () {
+				$(this).css('background-color', '').children('ul').stop().slideUp();
+			});
+
+		});
+	</script>
+</body>
+</html>

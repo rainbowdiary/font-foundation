@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap{
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        #wrap .xiaohong{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 20px;
+            height: 20px;
+            background: red;
+            border-radius: 50%;
+            transform: translateY(-50px);
+        }
+        #wrap .xiaofen{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 20px;
+            height: 20px;
+            background: pink;
+            border-radius: 50%;
+        }
+        #wrap .xiaohui{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 20px;
+            height: 20px;
+            background: gray;
+            border-radius: 50%;
+            transform: translateY(50px);
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div class="xiaohong"></div>
+    <div class="xiaofen"></div>
+    <div class="xiaohui"></div>
+</div>
+</body>
+<script>
+    window.onload=function () {
+        var balls = document.querySelectorAll("#wrap div");
+        var xiaohong = balls[0];
+        var xiaofen = balls[1];
+        var xiaohui = balls[2];
+        function move(ball,targetPoint,cb) {
+            var timer = setInterval(function () {
+                var nowPoint = ball.offsetLeft;
+                if(nowPoint<targetPoint){
+                    nowPoint++
+                }else if (nowPoint>targetPoint){
+                    nowPoint--
+                } else{
+                    clearInterval(timer);
+                    cb && cb()
+                }
+                ball.style.left = nowPoint +"px";
+            },3)
+        }
+
+
+
+        new Promise(function (resolve) {
+            move(xiaohong,100,function () {
+                resolve()
+            })
+        }).then(function () {
+            return new Promise(function (resolve) {
+                move(xiaofen,150,function () {
+                    resolve()
+                })
+            })
+        }).then(function () {
+            return new Promise(function (resolve) {
+                move(xiaohui,200,function () {
+                    resolve()
+                })
+            })
+        }).then(function () {
+            return new Promise(function (resolve) {
+                move(xiaohui,150,function () {
+                    resolve()
+                })
+            })
+        }).then(function () {
+            return new Promise(function (resolve) {
+                move(xiaohong,150,function () {
+                    resolve()
+                })
+            })
+        })
+
+
+
+    }
+</script>
+</html>

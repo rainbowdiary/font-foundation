@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <style>
+        #box {
+            width: 400px;
+            height:300px;
+            border: 2px solid #f90;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" style="border-radius:10px;"></div>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            // 获取css属性的值
+            console.log($('#box').css('border'));
+            console.log($('#box').css('border-radius'));
+
+            // 原生DOM获取css属性值  .style方式 只能获取行内设置的css属性
+            console.log(document.getElementById('box').style.border);
+            console.log(document.getElementById('box').style.borderRadius);
+
+
+            // 设置css属性，不论是css方法还是原生操作，都添加到行内
+            //$('#box').css('background-color', '#ccc');
+
+            // 使用css方法同时设置多个css属性
+            $('#box').css({
+                'background-color': 'pink',
+                'text-align': 'center',
+                'line-height': '40px'
+            });
+
+
+
+
+            /*
+            * getComputedStyle()
+            * */
+
+
+
+
+
+        });
+    </script>
+</body>
+</html>

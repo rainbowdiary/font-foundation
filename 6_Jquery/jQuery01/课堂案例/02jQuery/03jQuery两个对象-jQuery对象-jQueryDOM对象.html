@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两个对象</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script src="jquery-1.10.1.js"></script>
+    <script>
+
+        /*
+        * $是jQuery的核心函数
+        * $ 是 jQuery的别名
+        * */
+        console.log($);
+        console.log(jQuery);
+        console.log(jQuery === $);
+
+
+        /*
+        *  $核心函数的功能：
+        *   ① 选择元素
+        *   ② 创建元素
+        * */
+
+        // 选择元素
+        $('#box').width(1000);
+        // 创建元素
+        $('<li>').html('你好').appendTo('body');
+        // $作为对象 本身也有方法
+        $.each([1,2,3,4], function(index, item){
+            console.log(index, item);
+        });
+
+
+
+        // jQuery DOM对象
+        // 通过选择器可以获取一个 jQueryDOM对象
+        // jQuery提供大部分API，都是jQueryDOM的方法
+        var dom = $('#box');
+        console.log(dom);
+
+
+    </script>
+</body>
+</html>

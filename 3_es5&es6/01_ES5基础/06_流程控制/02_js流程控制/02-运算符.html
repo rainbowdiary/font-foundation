@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 运算符:
+			 * 算数运算符: + - * / % =
+			 * 一元运算符: 一个操作数  ++ --  例如:  a++  ++a
+			 * 无论前++还是后++,a都是自身加1,对于算式结果, 前++a是先加1在进行运算,后++是要看后面
+			 * 的算式是否再次用到a,如果用到,才把前面的后a++的加1算上去.
+			 * 二元运算符: 两个及以上的操作数    例如: 5+1/2-3
+			 * 三元运算符: 条件?表达式1:表达式2
+			 * 
+			 * 复合运算符: += -= *= /= %= 例如: a=a+1   a=a+5
+			 * 
+			 * 关系运算符: > < >= <=  ==判断等于   != 判断不等于        ===全等  !== 不全等
+			 * == 只判断值,不判断类型,=== 既判断值,又判断类型
+			 * 
+			 * 逻辑运算符:
+			 * && 且  (理解为是并且) 当多条件时,必须所有条件都是true,这个结果才是true,只要有一个
+			 * 						条件是false,整个结果就是false
+			 * 
+			 * || 或  (理解为或者)   当多条件时,只要有一个条件是true,整个结果就是true,只有所有
+			 * 						条件是false时,整个结果才是false
+			 * !  非  (取反)
+			 * 
+			 * */
+
+			console.log(4 / 2);
+			console.log(4 % 2);
+			console.log(5 % 2);
+			var a = 1;
+			//			a = a+5;
+			//			a += 5;
+			//			a = a-5;
+			//			a-=5;
+//			a = a + 1;
+			a+=1;
+			a++;
+			++a;
+			console.log(a);
+			console.log(5>3);
+			console.log('5'>3);
+			console.log(5 < 3);
+			console.log(5 == 3);
+			console.log(5 == '5');
+			console.log(5 != '5');
+			console.log(5 === 5);
+			console.log(5 !== 5);
+			console.log(5 >= 5);
+			console.log(5 >= 4);
+			
+			console.log(5>4 && 5>2 && 5>1);
+			
+			console.log(5>6 || 5<1 || 5<4);
+			
+			console.log(!true);
+			console.log(!(5>3));
+			console.log(!(5<3));
+		</script>
+	</body>
+
+</html>

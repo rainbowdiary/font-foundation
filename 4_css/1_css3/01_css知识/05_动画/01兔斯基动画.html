@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>兔斯基动画</title>
+    <style>
+        .box {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: url('images/animation.png') no-repeat 0 0;
+
+            animation-name: rabbit;
+            animation-duration: .5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: steps(11);
+
+
+        }
+        @keyframes rabbit {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -528px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

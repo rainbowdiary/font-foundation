@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扭曲</title>
+    <style>
+        .wraper {
+            margin: 100px auto;
+            width: 300px;
+            height:300px;
+            border: 10px dashed orange;
+        }
+        .box {
+            width: 300px;
+            height:300px;
+            background-image: url(images/bg-grid.jpg);
+            background-size: 100% 100%;
+
+
+            /*transform: skewX(10deg);*/
+            /*transform: skewY(20deg);*/
+            /*transform: skew(20deg,20deg);*/
+            transform: skew(20deg); /*只有一个值，相当于设置skeyX*/
+        }
+    </style>
+</head>
+<body>
+    <div class="wraper">
+        <div class="box"></div>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque earum perspiciatis provident. Earum esse, libero molestiae, mollitia nobis nulla pariatur placeat quam ratione rem sapiente sint temporibus unde vel voluptatem.</p>
+</body>
+</html>

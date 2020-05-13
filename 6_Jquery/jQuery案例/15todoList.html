@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery todoList</title>
+
+
+    <style>
+        /*base*/
+        body {
+            background: #fff;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 4px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            line-height: 20px;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+        }
+
+        .btn-danger {
+            color: #fff;
+            background-color: #da4f49;
+            border: 1px solid #bd362f;
+        }
+
+        .btn-danger:hover {
+            color: #fff;
+            background-color: #bd362f;
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+
+
+        /*app*/
+        .todo-container {
+            width: 600px;
+            margin: 0 auto;
+        }
+        .todo-container .todo-wrap {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /*header*/
+        .todo-header input {
+            width: 560px;
+            height: 28px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 4px 7px;
+        }
+
+        .todo-header input:focus {
+            outline: none;
+            border-color: rgba(82, 168, 236, 0.8);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+        }
+
+        /*main*/
+        .todo-main {
+            margin-left: 0px;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            padding: 0px;
+        }
+
+        .todo-empty {
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            padding-left: 5px;
+            margin-top: 10px;
+        }
+        /*item*/
+        li {
+            list-style: none;
+            height: 36px;
+            line-height: 36px;
+            padding: 0 5px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        li label {
+            float: left;
+            cursor: pointer;
+        }
+
+        li label li input {
+            vertical-align: middle;
+            margin-right: 6px;
+            position: relative;
+            top: -1px;
+        }
+
+        li button {
+            float: right;
+            display: none;
+            margin-top: 3px;
+        }
+
+        li:before {
+            content: initial;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        /*footer*/
+        .todo-footer {
+            height: 40px;
+            line-height: 40px;
+            padding-left: 6px;
+            margin-top: 5px;
+        }
+
+        .todo-footer label {
+            display: inline-block;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .todo-footer label input {
+            position: relative;
+            top: -1px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        .todo-footer button {
+            float: right;
+            margin-top: 5px;
+        }
+
+        .todo-main li button {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var dataJson = [{
+                "content": "吃饭",
+                "isComplete": false
+            }, {
+                "content": "睡觉",
+                "isComplete": false
+            }, {
+                "content": "剃头",
+                "isComplete": false
+            }];
+
+            bind();
+            setDataJsonLength();
+            $('.todo-main .todoItem').mouseover(function() {
+                $(this).css('background-color', '#eee');
+                $(this).find('.btn').show();
+            }).mouseout(function() {
+                $(this).css('background-color', '#fff');
+                $(this).find('.btn').hide();
+
+            });
+
+            //给checked添加单击事件
+            $('.todo-main').on('click', '.todoItem input', function() {
+                //					console.log($(this).parent().parent().index());
+                if($(this).prop('checked')) {
+                    //修改数据
+                    dataJson[$(this).parent().parent().index()].isComplete = true;
+                } else {
+                    dataJson[$(this).parent().parent().index()].isComplete = false;
+                }
+                //同步更新已完成的数量    #allCompletedTodos
+                setChecked();
+                console.log(dataJson);
+            });
+
+            //单击全选按钮
+            $('#checkAll').click(function() {
+                if($(this).prop('checked')) {
+                    //所有变成全选
+                    $('.todo-main .todoItem input').prop('checked', true);
+                    //数组数据全部变true
+                    for(var i = 0; i < dataJson.length; i++) {
+                        dataJson[i].isComplete = true;
+                    }
+                    console.log(dataJson);
+                    //设置完成任务数
+                    $('#allCompletedTodos').text($('.todo-main .todoItem').length);
+                } else {
+                    $('.todo-main .todoItem input').prop('checked', false);
+                    //设置完成任务数
+                    $('#allCompletedTodos').text('0');
+                    for(var i = 0; i < dataJson.length; i++) {
+                        dataJson[i].isComplete = false;
+                    }
+                    console.log(dataJson);
+                }
+            });
+
+            //输入框抬起事件
+            $('#newTodo').keyup(function(e) {
+                if(e.keyCode == 13) {
+                    if($(this).val().trim()) {
+                        var newObj = {
+                            "content": $(this).val().trim(),
+                            "isComplete": false
+                        }
+                        //追加数组
+                        dataJson.unshift(newObj);
+                        //添加dom
+                        var li = $('<li class="todoItem" style="background-color: rgb(255, 255, 255);"><label><input type="checkbox"><span>' + newObj.content + '</span></label><button class="btn btn-danger" style="display: none;">删除</button></li>');
+                        $('.todo-main').prepend(li);
+                        //动画显示
+                        li.hide().slideDown(100);
+                        setChecked();
+                    } else {
+                        alert('任务不能为空');
+                    }
+                    console.log(dataJson);
+                }
+
+            });
+
+            //单击里删除
+            $('.todo-main').on('click', '.todoItem button', function() {
+                $(this).parent().slideUp(100, function() {
+                    //删除li元素
+                    $(this).remove();
+                    //删除数组
+                    dataJson.splice($(this).index(), 1);
+                    setChecked();
+                    console.log(dataJson);
+                    setDataJsonLength();
+                })
+            });
+
+            //单击清除完成项目按钮
+            $('#removeAllCompleted').click(function() {
+
+                var btns = $('.todo-main .todoItem input:checked');
+                for(var i = $('.todo-main .todoItem input:checked').length - 1; i >= 0; i--) {
+                    //获取li的index()
+                    dataJson.splice($('.todo-main .todoItem input:checked').eq(i).parent().parent().index(),1);
+                    //动画 删除li
+                    $('.todo-main .todoItem input:checked').eq(i).parent().parent().slideUp(100,function(){
+                        $(this).remove();
+                    });
+                }
+                console.log(dataJson);
+            });
+            /**
+             * 设置所有任务的个数
+             */
+            function setDataJsonLength() {
+                $('#allTodos').text($('.todo-main .todoItem').length);
+            }
+
+            /**
+             * 绑定数据
+             */
+            function bind() {
+                for(var i = 0; i < dataJson.length; i++) {
+                    var li = $('<li class="todoItem" style="background-color: rgb(255, 255, 255);"><label><input type="checkbox"><span>' + dataJson[i].content + '</span></label><button class="btn btn-danger" style="display: none;">删除</button></li>');
+                    $('.todo-main').append(li);
+                }
+            }
+
+            /**
+             * 设置复选框是否选中
+             */
+            function setChecked() {
+                var num = 0;
+                $('.todo-main .todoItem input').each(function() {
+                    if($(this).prop('checked')) {
+
+                        num++;
+
+                    }
+                });
+                $('#allCompletedTodos').text(num);
+                if(num == $('.todoItem input').length) {
+                    $('#checkAll').prop('checked', true);
+                } else {
+                    $('#checkAll').prop('checked', false);
+                }
+            }
+        })
+    </script>
+</head>
+
+<body>
+<div id="root">
+    <div class="todo-container">
+        <div class="todo-wrap">
+            <div class="todo-header">
+                <input id="newTodo" type="text" placeholder="请输入你的任务名称，按回车键确认" />
+            </div>
+            <ul class="todo-main">
+
+            </ul>
+            <div class="todo-footer">
+                <label>
+                    <input id="checkAll" type="checkbox"/>
+                </label>
+                <span>
+          已完成<span id="allCompletedTodos">0</span> / 全部<span id="allTodos">2</span>
+						</span>
+                <button id="removeAllCompleted" class="btn btn-danger">清除已完成任务</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

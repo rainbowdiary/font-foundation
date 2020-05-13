@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件的监听方式</title>
+</head>
+<body>
+    <button id="btn1">按钮1</button>
+    <button id="btn2">按钮2</button>
+
+    <br>
+    <br>
+
+    <button id="btn3">解除绑定</button>
+
+
+    <script>
+        var btn1 = document.querySelector('#btn1');
+        var btn2 = document.querySelector('#btn2');
+        var btn3 = document.querySelector('#btn3');
+
+        // 把事件当做dom对象的方法
+        btn1.onclick = function () {
+            console.log('btn1 click');
+        };
+        // 发生覆盖
+        btn1.onclick = function () {
+            console.log('btn1 click 啦啦啦');
+        };
+
+        // dom2 添加事件监听
+        if (btn2.addEventListener) {
+            btn2.addEventListener('click', clickFn);
+        } else if (btn2.attachEvent) {
+            btn2.attachEvent('onclick', clickFn);
+        }
+
+
+
+        // btn2.addEventListener('click', function(){
+        //     console.log('btn2 click 啦啦啦啦');
+        // });
+
+        function clickFn(){
+            console.log('btn2 click');
+        }
+
+
+
+
+        // 解除绑定
+        btn3.onclick = function () {
+            // dom0
+            btn1.onclick = null;  //解除绑定 覆盖
+            //dom2
+            if (btn2.removeEventListener) {
+                btn2.removeEventListener('click', clickFn)
+            } else if (btn2.detachEvent) {
+                btn2.detachEvent('onclick', clickFn);
+            }
+
+        }
+    </script>
+</body>
+</html>

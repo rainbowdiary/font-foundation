@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vertical-align</title>
+    <style>
+        p {
+            margin: 100px auto;
+            width: 600px;
+            height: 100px;
+            padding: 20px;
+            border: 1px solid #ccc;
+
+        }
+        p span:nth-child(1) {
+            vertical-align: middle;
+            vertical-align: bottom;
+            vertical-align: top;
+        }
+
+        p:nth-child(2) img {
+            width: 20px;
+            height: 20px;
+            /*vertical-align: middle;*/
+            vertical-align: -4px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+        .wrapper {
+            margin: 100px auto;
+            text-align: center;
+        }
+        .box {
+            display: inline-block;
+            width:200px;
+            height: 200px;
+            border: 1px solid #ccc;
+            vertical-align: bottom;
+        }
+
+        table td {
+            vertical-align: bottom;
+        }
+
+    </style>
+</head>
+<body>
+
+    <p>
+        <span>你好</span>
+        <span>我好</span>
+    </p>
+
+
+    <h2>文字和图片对齐</h2>
+    <p>
+        <img src="images/bg02.jpg" alt="老刘">
+        Lorem ipsum dolor sit amet.
+    </p>
+
+
+    <h2>inline-block的元素有的有文字，有的没文字</h2>
+    <div class="wrapper">
+        <div class="box"></div>
+        <div class="box">哈哈</div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+
+    <h2>表格</h2>
+    <table border="1" width="600">
+        <tr height="60">
+            <td>老刘</td>
+            <td>老刘</td>
+            <td>老刘</td>
+        </tr>
+        <tr height="60">
+            <td>老刘</td>
+            <td>老刘</td>
+            <td>老刘</td>
+        </tr>
+    </table>
+
+</body>
+</html>

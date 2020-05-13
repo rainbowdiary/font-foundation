@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<button onclick="alert();">按钮</button>-->
+		<!--   可以把onclick的双引号看做是js中事件处理函数中的匿名函数-->
+		<!--<button onclick="fn();">按钮</button>-->
+		<button id="btn">按钮</button>
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+//			btn.onclick = function(){
+//				fn();
+//			};
+			btn.onclick = fn;
+			
+			function fn(){
+				alert('我是fn');
+			}
+			function sum(){
+				fn();
+			}
+			///sum();
+		</script>
+	</body>
+</html>

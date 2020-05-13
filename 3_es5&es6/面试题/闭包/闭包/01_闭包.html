@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*什么时候创建闭包
+        在外层函数被执行时 执行上下文被创建时创建闭包*/
+
+   /* 闭包被存放在了哪
+        存放在了内层函数的作用域中*/
+
+    /*闭包什么时候被销毁
+     将内层函数置为null (一般不做)*/
+
+    /*闭包的作用(优点)
+       延长外层函数变量的生命周期
+    * */
+
+    /*闭包的缺点
+        内存泄漏(在后台特别严重 因为要考虑高并发 在前端不需要关注)
+    */
+    function wrap() {
+        var a = "wrap-a";
+        function inner() {
+            console.log(a)
+        }
+        return inner;
+    }
+    var inner = wrap();
+    inner()
+
+    /* 
+    var inner = retunr inner(){log(a="wrap-a")}
+    
+     */
+</script>
+</html>

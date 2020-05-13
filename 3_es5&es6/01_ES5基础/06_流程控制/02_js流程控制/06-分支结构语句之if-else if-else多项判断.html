@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 多项判断: 当if中的条件是true时,执行代码段1,后面的条件不在进行判断比较,
+			 * 当if中的条件是falsee时,不执行代码段1,继续判断后面else if中的条件,如果条件是true
+			 * 执行代码段2,如果是false继续判断后面的else if 以此类推,直到所有条件都是false,必定
+			 * 会执行else中的代码段4
+			 * 
+			 */
+			var score = 95;
+			//当写范围条件盘短时,要由大向小写
+			if(score >= 90) {
+				//代码段1
+				alert('优秀');
+			} else if(score >= 80) {
+				//代码段2
+				alert('良好');
+			} else if(score >= 70){
+				//代码段3
+				alert('凑合');
+			} else if(score >= 60){
+				alert('万岁');
+			}else{
+				//代码段4
+				alert('不及格');
+			}
+//     逻辑错误的代码
+//			if(score >= 60){
+//				alert('万岁');
+//			}else if(score >= 70){
+//				alert('凑合');
+//			}else if(score >= 90){
+//				alert('优秀');
+//			}else{
+//				alert('不及格');
+//			}
+			console.log('后面的代码.........1');
+			console.log('后面的代码.........2');
+			console.log('后面的代码.........3');
+			console.log('后面的代码.........4');
+		</script>
+	</body>
+
+</html>

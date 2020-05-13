@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>代码文本值</title>
+    <style>
+        #box {
+            width: 600px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+
+    <br>
+
+    <input type="text">
+    <button>获取</button>
+
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            // html()  text()  val()
+            // 获取
+            console.log($('#box').html());  // innerHTML
+            console.log($('#box').text());  // innerText
+
+
+            // 设置
+            $('#box').html('<li>Lorem ipsum dolor.</li>');
+            $('#box').text('<li>Lorem ipsum dolor.</li>');
+
+            
+            $('button').click(function () {
+                console.log($('input').val());
+            });
+
+            // 设置input的value值
+            $('input').val('How Are You');
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串的正则方法</title>
+</head>
+<body>
+    <script>
+        // search
+        // 返回字符串中第一次匹配到正则的索引
+        // 匹配不到，返回-1
+        console.log('hello'.search(/hello/));
+        console.log('apphello'.search(/hello/));
+        console.log('apphello'.search(/\d/));
+        console.log('');
+
+        // match 与 RegExp.exec   返回相同的结果
+        // 匹配成功返回数组， 不成功返回null
+        console.log('hello'.match(/\w{2}/));
+        console.log('hello'.match(/\w(\w)/));
+        console.log('');
+
+
+        // split()   把字符串分割成数组
+        var str = 'hello.nihao,app.dds,orange bbs;apple';
+        console.log(str.split(',')); //指定字符串作为分隔符
+        // , . 空格都可以作为分隔符
+        console.log(str.split(/[,\. ;]/));  //正则作为分隔符，可以指定多种形式的分隔符
+
+
+    </script>
+</body>
+</html>

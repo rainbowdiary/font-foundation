@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条纹 隔行花色 斑马线</title>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 600px;
+        }
+        li {
+            padding: 15px 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="news-list">
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Lorem ipsum dolor sit amet.</li>
+    </ul>
+
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+
+            $('.news-list li:odd').css('background-color', '#ddd');
+            $('.news-list li:even').css('background-color', '#f5f5f5');
+        });
+    </script>
+</body>
+</html>

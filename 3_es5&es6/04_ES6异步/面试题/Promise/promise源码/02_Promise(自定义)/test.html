@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/04_Promise_test.js"></script>
+</head>
+
+<body>
+    <script>
+            var person1 = new MyPromise(function (resolve,reject ) {
+            setTimeout(function (flag) {
+                if(flag){
+                    console.log("第一次数据获取成功")
+                    resolve()
+                }else{
+                    console.log("第一次数据获取失败")
+                    reject()
+                }
+            },1000,true)
+        }).then(function () {
+             //返回值决定then的MyPromise状态是什么;return返回只能是一个值;
+            return new MyPromise2(function (reslove,reject) { 
+                setTimeout(function (flag) {
+                    if(flag){
+                        console.log("第二次数据获取成功")
+                        reslove()
+                    }else{
+                        console.log("第二次数据获取失败")
+                        reject()
+                    }
+                },1000,true)
+            })
+        }).then(function () {
+            return new MyPromise3(function (resolve,reject) {
+                setTimeout(function (flag) {
+                    if(flag){
+                        console.log("第三次数据获取成功")
+                        resolve()
+                    }else{
+                        console.log("第三次数据获取失败")
+                        reject()
+                    }
+                },1000,true)
+            })
+        })
+
+
+        var person2 = new MyPromise(function (resolve,reject ) {
+            setTimeout(function (flag) {
+                if(flag){
+                    console.log("第一次数据获取成功")
+                    resolve()
+                }else{
+                    console.log("第一次数据获取失败")
+                    reject()
+                }
+            },1000,true)
+        }).then(function () {
+             //返回值决定then的MyPromise状态是什么;return返回只能是一个值;
+            return new MyPromise2(function (reslove,reject) { 
+                setTimeout(function (flag) {
+                    if(flag){
+                        console.log("第二次数据获取成功")
+                        reslove()
+                    }else{
+                        console.log("第二次数据获取失败")
+                        reject()
+                    }
+                },1000,false)
+            })
+        }).then(function () {
+            return new MyPromise3(function (resolve,reject) {
+                setTimeout(function (flag) {
+                    if(flag){
+                        console.log("第三次数据获取成功")
+                        resolve()
+                    }else{
+                        console.log("第三次数据获取失败")
+                        reject()
+                    }
+                },1000,true)
+            })
+        }).then(function () {
+            // 发第四请求
+        })
+
+    </script>
+</body>
+
+</html>

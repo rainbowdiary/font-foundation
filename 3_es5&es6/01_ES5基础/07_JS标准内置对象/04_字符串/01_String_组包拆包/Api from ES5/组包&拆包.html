@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		//组包
+		var str = "damu";
+		console.log(str.length);
+		console.log(typeof str);
+		
+		//拆包
+		var str2 =new String("damu");
+		console.log(typeof str2);
+		str2 = str2.valueOf();
+		console.log(typeof str2);
+		
+		/*
+		不同类型对象的valueOf()方法的返回值
+			对象					返回值
+			Array			返回数组对象本身。
+			Boolean				布尔值。
+			Date			存储的时间是从 1970 年 1 月 1 日午夜开始计的毫秒数 UTC。
+			Function			函数本身。
+			Number				数字值。
+			Object			对象本身。这是默认情况。
+			String				字符串值。
+			
+			Math 和 Error 对象没有 valueOf 方法
+		*/
+	</script>
+</html>

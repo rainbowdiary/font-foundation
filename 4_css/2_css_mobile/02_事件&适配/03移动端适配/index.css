@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body，#app {
+  width: 100%;
+  height: 100%;
+  background: #eee;
+}
+body {
+  font-family: PingFangSC-Regular, Arial, sans-serif;
+}
+.header {
+  height: 1.408rem;
+  text-align: center;
+  line-height: 1.408rem;
+  background: #fff;
+  border-bottom: 0.032rem solid #DADADA;
+}
+.header h1 {
+  font-size: 0.576rem;
+  font-weight: normal;
+  color: #262A32;
+}
+.main {
+  background: #eee;
+}
+.item {
+  width: 11.04rem;
+  margin: 0.64rem auto;
+  background: #FFFFFF;
+  border-radius: 0.128rem 0.128rem 0 0;
+}
+.item-top {
+  box-sizing: border-box;
+  padding: 0.64rem 0 0 0.64rem;
+  height: 3.84rem;
+  color: #fff;
+  border-radius: 0.128rem 0.128rem 0 0;
+}
+.card-title {
+  font-size: 0.768rem;
+}
+.card-phone {
+  margin-top: 0.16rem;
+  font-size: 0.384rem;
+}
+.card-address {
+  margin-top: 0.16rem;
+  font-size: 0.384rem;
+}
+.item-bottom {
+  box-sizing: border-box;
+  height: 1.28rem;
+  padding: 0.32rem 0.32rem 0.32rem 0.32rem;
+  border-radius: 0.128rem 0.128rem 0 0;
+}
+.card-remove {
+  float: left;
+  line-height: 0.64rem;
+}
+.card-remove .btn {
+  font-size: 0.448rem;
+  border: none;
+  background: none;
+}
+.card-select {
+  position: relative;
+  float: right;
+  padding-right: 0.96rem;
+  font-size: 0.448rem;
+  line-height: 0.64rem;
+}
+.card-select input {
+  display: none;
+}
+.card-select .checkbox-box {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: -0.032rem;
+  box-sizing: border-box;
+  width: 0.704rem;
+  height: 0.704rem;
+  border: 0.032rem solid #DCDCDC;
+  border-radius: 50%;
+}
+.item:nth-child(1) .item-top {
+  background-image: linear-gradient(89deg, #C8C8C8 0%, #B2B2B2 100%);
+}
+.item:nth-child(2) .item-top {
+  background-image: linear-gradient(89deg, #BCD3E6 0%, #9DC0D8 100%);
+}
+.item:nth-child(3) .item-top {
+  background-image: linear-gradient(89deg, #F0C279 0%, #E6B45D 100%);
+}
+.item:nth-child(4) .item-top {
+  background-image: linear-gradient(89deg, #504E4E 0%, #262626 100%);
+}
+/*# sourceMappingURL=index.css.map */

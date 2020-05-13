@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 对象的键都是以字符串形式存储的 */
+    /* 案例1 */
+    const obj = { 1: "a", 2: "b", 3: "c" };
+    const set = new Set([1, 2, 3, 4, 5]);//set为数组
+
+    console.log(obj.hasOwnProperty("1")); //true  
+    console.log(obj.hasOwnProperty(1)); //true
+    console.log(set.has("1"));; //false
+    console.log(set.has(1));; //true
+
+    /* 案例2: 对象如果有相同的键 */
+    //对象有相同的键，则后面的值对替代前面的值，但是键的位置不变
+    const obj = { a: "one", b: "two", a: "three" };
+    console.log(obj);
+    // {a: "three",b: "two"}
+
+
+    /* 案例3： */
+    /* 给对象添加键为对象，对象的键都是字符串存储，所以对象会隐式转化为字符串[Object Object]
+考点: 
+  对象的属性都是字符串存储
+  隐式强制数据类型的转换： 对象的属性如果时引用数据类型会转化为字符串
+ */
+    const a = {};
+    const b = { key: "b" };
+    const c = { key: "c" };
+
+    a[b] = 123; //等价于 a.[Object Object]=123
+    a[c] = 456; //等价于 a.[Object Object]=456
+    console.log(a[b]); //对象键转化为字符串了
+
+    /*
+    给对象添加属性结果为
+    let a = {}
+    a[{b:"b"}] = 123
+    console.log(a) //{[object Object]: 123}
+     */
+  </script>
+</body>
+
+</html>

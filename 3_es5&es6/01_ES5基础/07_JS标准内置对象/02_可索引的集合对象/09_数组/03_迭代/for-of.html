@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+    for-of迭代可迭代对象，枚举迭代对象的值
+    迭代对象: 数组，字符串，Map，Set，但是不能是普通对象
+     */
+
+    for (let val of ['a', 'b', 'c'])
+      console.log(val);            // a, b, c (array values)
+
+    for (let val of 'str')
+      console.log(val);            // s, t, r (string characters)
+
+    for (let val of { a: 1, b: 2, c: 3 })
+      console.log(val);           // TypeError (not iterable)
+
+    for (let val of new Set(['a', 'b', 'a', 'd']))
+      console.log(val);      //a,b,d
+  </script>
+</body>
+
+</html>

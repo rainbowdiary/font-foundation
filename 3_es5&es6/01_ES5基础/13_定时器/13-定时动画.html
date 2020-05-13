@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时动画</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            position: absolute;
+            top: 200px;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            background-color: #f90;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">位置变化400px</button>
+    <button id="btn2">位置变化800px</button>
+    <div id="box"></div>
+
+    <script>
+
+        // 获取按钮
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+        // 获取box元素
+        var box = document.getElementById('box');
+
+
+       // console.log(box.offsetLeft);
+        
+        // 监听事件  位置变化到 400
+        btn1.onclick = function () {
+            // 定义步幅  每次变化量
+            var step = 10;
+
+            // 定义当前位置 获取当前的位置
+            var current = box.offsetLeft;
+
+            // 开启定时器
+            var timer = setInterval(function () {
+                // current值 变化
+                current += step;
+
+                // 设置box的位置
+                box.style.left = current + 'px';
+
+                // 判断变化到目标位置
+                if (current >= 400) {
+                    clearInterval(timer);
+                }
+            }, 20);
+        };
+
+
+        // 监听事件 实现位置变化到 800px
+        btn2.onclick = function () {
+            // 定义步幅  每次变化量
+            var step = 10;
+
+            // 定义当前位置  获取box当前的位置
+            var current = box.offsetLeft;
+
+            // 开启定时器
+            var timer = setInterval(function () {
+                // current值 变化
+                current += step;
+
+                // 设置box的位置
+                box.style.left = current + 'px';
+
+                // 判断变化到目标位置
+                if (current >= 800) {
+                    clearInterval(timer);
+                }
+            }, 20);
+        }
+
+    </script>
+</body>
+</html>

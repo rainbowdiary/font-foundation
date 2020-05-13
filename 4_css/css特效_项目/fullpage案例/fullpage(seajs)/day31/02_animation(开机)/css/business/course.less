@@ -1,0 +1,81 @@
+@import "../mixin/mixin";
+@import "../extend/extend";
+#wrap{
+  .content{
+    .list{
+      .item{
+        .course{
+          .course-1{
+            .commonTitle();
+            margin: 50px;
+            position: relative;
+            z-index: 2;
+          }
+          .course-2{
+            .commonText();
+            width: 400px;
+            margin-left: 50px;
+            position: relative;
+            z-index: 2;
+          }
+          .course-3{
+            position: absolute;
+            z-index: 2;
+            right: 50px;
+            top: 70px;
+            width: 480px;
+            .list{
+              &:extend(.clearfix all);
+              li{
+                position: relative;
+                float: left;
+                width: 120px;
+                height: 132px;
+                perspective: 500px;
+                transform-style: preserve-3d;
+                &:hover{
+                  .face{
+                    transform: rotateY(180deg);
+                  }
+                  .backFace{
+                    transform: rotateY(360deg);
+                  }
+                }
+                .face{
+                  padding: 15px;
+                  position: absolute;
+                  left: 0;
+                  right: 0;
+                  top: 0;
+                  bottom: 0;
+                  z-index: 2;
+                  background: url("../img/bks.png") no-repeat;
+                  background-position: 50% 50%;
+                  backface-visibility: hidden;
+                  transition: 1s transform;
+                }
+                .backFace{
+                  padding: 15px;
+                  position: absolute;
+                  left: 0;
+                  right: 0;
+                  top: 0;
+                  bottom: 0;
+                  z-index: 1;
+                  background: #009ee0;
+                  color: white;
+                  transform: rotateY(180deg);
+                  backface-visibility: hidden;
+                  transition: 1s transform;
+                }
+              }
+            }
+          }
+          .plane1{ width:359px; height:283px; background:url(../img/plane1.png) no-repeat; position:absolute; left:300px; top:-100px; }
+          .plane2{ width:309px; height:249px; background:url(../img/plane2.png) no-repeat; position:absolute; left:-100px; top:200px; }
+          .plane3{ width:230px; height:182px; background:url(../img/plane3.png) no-repeat; position:absolute; left:300px; top:400px; }
+        }
+      }
+    }
+  }
+}

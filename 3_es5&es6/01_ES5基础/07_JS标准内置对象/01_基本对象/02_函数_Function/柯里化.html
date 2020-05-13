@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <script src="https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js"></script> -->
+</head>
+
+<body>
+  <script>
+    /* add(1)(2)(3)(4) == > 10
+    思考： 结果逻辑在一个函数中处理，这个函数需要拿到后面传递过来的拼接后的参数
+    fn中做累加逻辑， var add = curry(fn) add(1)(2)(3)(4)
+    原文链接：https://blog.csdn.net/chen801090/article/details/105602712
+ */
+
+    // 1. 参数固定
+    /*     function fn(a, b, c, d) {
+          var a = [...arguments].reduce((a, b) => a + b)
+          return a
+        }
+        function curry(fn) {
+          let len = fn.length
+          let arr = []
+          // _c被调用多次，将每次传递过来的参数拼接成一个数组（不要改变传递过来的数据类型）
+          return function _c(...newArgs) {
+            arr = [...arr, ...newArgs] //arr里面有上一次放进来的参数和这一次放进来的参数（合并传递过来的参数，需要存上一次传递过来的参数给arr，这一次arr=[...arr,...newArgs]）
+            if (arr.length < len) {  //固定fn的参数
+              return _c
+            } else {
+              return fn.apply(this, arr)
+            }
+          }
+        }
+    
+        const add = curry(fn)
+        var total = add(1)(2)(3)(4);
+        console.log(total); */
+
+
+    // 2. 不固定宽度
+    function fn(...args) {
+      return args.reduce((a, b) => a + b)
+    }
+    function curry(fn) {
+      let arr = []
+      return function _c(...newArgs) {
+        if (newArgs.length) {
+          arr = [...arr, ...newArgs]
+          return _c
+        } else {
+          return fn.apply(this, arr)
+        }
+      }
+    }
+
+    let add = curry(fn)
+    let add1 = curry(fn)
+    // 注意调用方式的变化
+    console.log(add(1)(2)(3)(4, 5)()) //15
+    console.log(add1('h')('e')('l')('l')('o')()) //'hello'
+
+  </script>
+</body>
+
+</html>

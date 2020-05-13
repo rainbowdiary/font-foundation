@@ -1,0 +1,48 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+
+    </body>
+    <script>
+        // es6所有的异步方案 : 使用同步的编程思想 书写 异步的代码
+        new Promise(function (resolve,reject ) {
+            setTimeout(function (flag) {
+                if(flag){
+                    console.log("第一次数据获取成功")
+                    resolve()
+                }else{
+                    reject("第一次数据获取失败")
+                }
+            },1000,true)
+        }).then(function () {
+            return new Promise(function (reslove,reject) {
+                setTimeout(function (flag) {
+                    if(flag){
+                        console.log("第二次数据获取成功")
+                        reslove()
+                    }else{
+                        reject("第二次数据获取失败")
+                    }
+                },1000,false)
+            })
+        }).then(function () {
+            return new Promise(function (resolve,reject) {
+                setTimeout(function (flag) {
+                    if(flag){
+                        console.log("第三次数据获取成功")
+                        resolve()
+                    }else{
+                        console.log("第三次数据获取失败")
+                        reject()
+                    }
+                },1000,true)
+            })
+        }).catch(function () {
+            console.log("处理整个流程中 任何一步异常")
+        })
+    </script>
+    </html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol {
+            list-style: none;
+        }
+        .play-box {
+            position: relative;
+            margin: 100px auto;
+            width: 900px;
+            height: 350px;
+            overflow: hidden;
+        }
+        .image-list {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .image-list li {
+            float: left;
+            width: 900px;
+            height: 350px;
+        }
+
+        .image-list li img {
+            display: block;
+        }
+
+        .icon-list {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        .icon-list li {
+            float: left;
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            background: #333;
+            cursor: pointer;
+
+        }
+
+        .icon-list li.active {
+            border-color: #f60;
+            color: #f60;
+        }
+
+        .prev-btn,.next-btn {
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+            width: 40px;
+            height: 100px;
+            background-image: url('img/index.png');
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+        .prev-btn {
+            left: 0;
+            background-position: 0 0;
+        }
+        .next-btn {
+            right: 0;
+            background-position: -50px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="play-box">
+        <!--轮播图片-->
+        <ul class="image-list">
+            <li class="active"><img src="img/01.jpg" alt=""></li>
+            <li><img src="img/02.jpg" alt=""></li>
+            <li><img src="img/03.jpg" alt=""></li>
+            <li><img src="img/04.jpg" alt=""></li>
+            <li><img src="img/05.jpg" alt=""></li>
+        </ul>
+        <!--按钮-->
+        <ol class="icon-list">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>
+
+        <!--前后按钮-->
+        <span class="prev-btn"></span>
+        <span class="next-btn"></span>
+
+        <script>
+            // 轮播图逻辑
+            (function () {
+
+                // 获取相关元素
+                var playBox = document.querySelector('.play-box');
+                var imageList = playBox.querySelector('.image-list');
+                var iconList = playBox.querySelector('.icon-list');
+                var prevBtn = playBox.querySelector('.prev-btn');
+                var nextBtn = playBox.querySelector('.next-btn');
+
+                // 定义当前的索引
+                var index = 0;
+
+                var duration = 5000;  //轮播间隔
+                var intervalId = null;  //定时器标识
+
+                // 获取图片宽度
+                var imageWidth = imageList.children[0].offsetWidth;
+                // 设置ul.imageList 的宽度
+                imageList.style.width = imageWidth * imageList.children.length + 'px';
+
+
+                // 给所有的 icon按钮 绑定单击事件
+                for (var i = 0; i < iconList.children.length; i ++) {
+                    // 给每个li添加个属性
+                    iconList.children[i].index = i;
+                    // 绑定事件
+                    iconList.children[i].onclick = function(){
+                        index = this.index; // 上层作用域变量index 变化
+                        setPlay();  //设置显示和高亮
+                    }
+                }
+
+                // next按钮 单击事件 下一张
+                nextBtn.onclick = function () {
+                   movePlay('next');  //下一张
+                };
+
+                // prev按钮， 单击 上一张
+                prevBtn.onclick = function() {
+                    movePlay('prev'); // 上一张
+                };
+
+                // 设置定时，开始自动轮播
+                intervalId = setInterval(function () {
+                   movePlay('next');  //下一张
+                }, duration);
+
+                // 鼠标滑入轮播图包裹元素
+                playBox.onmouseover = function () {
+                  clearInterval(intervalId);  // 停止定时
+                };
+
+                // 鼠标离开轮播图包裹元素 重新开启定时
+                playBox.onmouseout = function () {
+                  intervalId = setInterval(function(){
+                      movePlay('next');
+                  }, duration);
+                };
+
+
+                /**
+                 * @param direction 表示前进方向， next:下一张  prev：上一张
+                 */
+                function movePlay(direction) {
+                    if (direction === 'next') {  //下一张
+                        // 索引变化
+                        index ++;
+                        // 范围限定
+                        if (index > iconList.children.length - 1) {
+                            index = 0;
+                        }
+                    } else if (direction === 'prev') {  // 上一张
+                        // 索引变化
+                        index --;
+                        // 范围判断
+                        if (index < 0) {
+                            index = iconList.children.length - 1;
+                        }
+                    }
+
+                    //设置高亮或显示
+                    setPlay();
+                }
+
+                /**
+                 * 设置指定索引的图片显示和按钮高亮
+                 */
+                function setPlay() {
+                    // 排他 所有的失去高亮， 去掉active类
+                    for (var j = 0; j < iconList.children.length; j ++) {
+                        iconList.children[j].className = '';
+                    }
+                    // 当前高亮 当前添加activ类
+                    iconList.children[index].className = 'active';
+
+                    // 控制图片显示
+                    /*
+                    * 0  0 * 900
+                    * 1  -1 * 900
+                    * 2  -2 * 900
+                    * 3  -4 * 900
+                    * */
+                    animate(imageList, -index * imageWidth)
+                }
+
+
+                /**
+                 * 定时动画
+                 * @param node 要变化的元素
+                 * @param target 目标位置
+                 */
+                function animate(node, target) {
+                    //如果元素上有动画，先清除掉
+                    clearInterval(node.timer);
+
+                    // 定义步幅  每次变化量
+                    var step = 40;
+                    // 获取当前的位置
+                    var current = node.offsetLeft;
+                    // 判断步幅 是增加还是减小
+                    step = target > current ? step : -step;
+
+                    // 开启定时器 把定机器标记作为node元素的属性
+                    node.timer = setInterval(function () {
+
+                        // 目标位置和当前位置的差值（绝对值）  大于 step（绝对值） 说明距离目标位置还比较远；
+                        // 否则， 说明距离目标位置接近
+                        if (Math.abs(target - current) > Math.abs(step) ) {
+                            // current值 变化
+                            current += step;
+                            // 设置元素的位置
+                            node.style.left = current + 'px';
+                        } else {   // 说明接近目标位置
+                            // 设置元素到目标位置
+                            node.style.left = target + 'px';
+                            // 停止定时
+                            clearInterval(node.timer);
+                        }
+                    }, 10);
+                }
+
+            })();
+
+
+        </script>
+
+
+    </div>
+</body>
+</html>

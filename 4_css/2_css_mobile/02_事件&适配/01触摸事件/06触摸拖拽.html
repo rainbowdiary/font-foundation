@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit:cover">
+    <title>touchEvent</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            background: #f90;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        var box = document.querySelector('#box');
+
+        //触摸开始
+        box.addEventListener('touchstart', function (event) {
+            // 获取触点对象
+            var touch = event.changedTouches[0];
+            // 获取触点在元素上的位置
+            box.eX = touch.clientX - box.offsetLeft; // 触点在视口上的位置-元素在视口上的位置
+            box.eY = touch.clientY - box.offsetTop;
+        });
+
+        // 触摸移动
+        box.addEventListener('touchmove', function (event) {
+            //获取touch对象
+            var touch = event.changedTouches[0];
+            // 获取触点的位置
+            var vX = touch.clientX;
+            var vY = touch.clientY;
+            // 计算元素新的位置
+            var left = vX - box.eX;
+            var top = vY - box.eY;
+            //位置限定
+            if (left < 0) {
+                left = 0;
+            } else if (left > window.innerWidth - box.offsetWidth) {
+                left = window.innerWidth - box.offsetWidth
+            }
+            if (top < 0) {
+                top = 0;
+            } else if (top > window.innerHeight - box.offsetHeight) {
+                top =  window.innerHeight - box.offsetHeight
+            }
+            // 设置元素的位置
+            box.style.left = left + 'px';
+            box.style.top = top + 'px';
+        });
+
+
+    </script>
+</body>
+</html>

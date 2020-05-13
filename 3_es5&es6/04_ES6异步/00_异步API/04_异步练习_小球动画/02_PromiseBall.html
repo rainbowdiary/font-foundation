@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            border: 1px solid;
+        }
+        #red,#pink,#gray{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        div#red{
+            background: red;
+            top: 120px;
+        }
+        div#pink{
+            background: pink;
+            top: 140px;
+        }
+        div#gray{
+            background: gray;
+            top: 160px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="red"></div>
+        <div id="pink"></div>
+        <div id="gray"></div>
+    </div>
+</body>
+<script>
+    window.onload=function () {
+        let redBox = document.querySelector("#red");
+        let pinkBox = document.querySelector("#pink");
+        let grayBox = document.querySelector("#gray");
+        //box :哪个球
+        //dis :滚多远
+        //cb  :滚完干嘛
+        function move(box,dis,cb) {
+            let timer = setInterval(()=>{
+                let nowLeft = box.offsetLeft;
+                if(nowLeft === dis){
+                    cb&&cb();
+                    clearInterval(timer);
+                }else{
+                    if(nowLeft>dis){
+                        nowLeft --;
+                    }else{
+                        nowLeft ++;
+                    }
+                    box.style.left = nowLeft+"px";
+                }
+            },10)
+        }
+
+        var promise = new Promise(function (reslove,reject) {
+            move(redBox,50,function () {
+                //滚完之后的逻辑
+                reslove();
+            })
+        });
+
+        promise
+            .then(function () {
+                return new Promise(function (reslove,reject) {
+                    move(pinkBox,100,function () {
+                        //滚完之后的逻辑
+                        reslove();
+                    })
+                })
+            })
+            .then(function () {
+                return new Promise(function (reslove,reject) {
+                    move(grayBox,150,function () {
+                        //滚完之后的逻辑
+                        reslove();
+                    })
+                })
+            })
+            .then(function () {
+                return new Promise(function (reslove,reject) {
+                    move(grayBox,100,function () {
+                        //滚完之后的逻辑
+                        reslove();
+                    })
+                })
+            })
+            .then(function () {
+                return new Promise(function (reslove,reject) {
+                    move(redBox,100,function () {
+                        //滚完之后的逻辑
+                        reslove();
+                    })
+                })
+            })
+    }
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ready</title>
+
+</head>
+<body>
+    <div id="box"></div>
+    <img src="https://www.google.com/1.jpg" alt="">
+
+    <script src="jquery-1.10.1.js"></script>
+    <script>
+        // 把所有操作都写在 ready里面
+        // 文档就绪就触发 页面中的元素加载完毕
+        // 页面中所有dom元素加载完毕才触发
+        // 原生的JS事件， DOMContentLoaded
+        $(document).ready(function () {
+            $('#box').width(400).height(300).css('background', '#f90');
+
+            // 原生js
+            console.log(document.getElementById('box'));
+        });
+        
+        $(document).ready(function () {
+           console.log('啊，我也是ready');
+        });
+
+        $(document).ready(function(){
+
+        });
+
+
+        // 等到页面中所有一切加载完毕才触发
+        // 容易造成阻塞
+        window.onload = function() {
+            console.log('啊，我是load，我触发了');
+        }
+
+
+    </script>
+
+</body>
+</html>

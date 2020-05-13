@@ -1,0 +1,173 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  margin: 0px;
+  padding: 0px;
+  font: 14px "微软雅黑";
+}
+a {
+  text-decoration: none;
+  display: block;
+}
+li {
+  list-style: none;
+}
+img {
+  display: block;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#wrap .head {
+  width: 100%;
+  background: white!important;
+}
+#wrap .head .head-main {
+  position: relative;
+  width: 1100px;
+  height: 80px;
+  margin: 0 auto;
+}
+#wrap .head .head-main .logo {
+  display: inline-block;
+  margin-top: 30px;
+}
+#wrap .head .head-main .nav {
+  float: right;
+  margin-top: 50px;
+}
+#wrap .head .head-main .nav > li {
+  float: left;
+  margin-left: 40px;
+  color: #11A0DF;
+}
+#wrap .head .head-main .nav > li a {
+  position: relative;
+}
+#wrap .head .head-main .nav > li a .down {
+  transition: 1s width;
+  overflow: hidden;
+  width: 0;
+  color: black;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#wrap .head .head-main .nav > li:hover .down {
+  width: 100%;
+}
+#wrap .head .head-main .arrow {
+  transition: 1s left;
+  width: 21px;
+  height: 11px;
+  position: absolute;
+  z-index: 9;
+  left: 50%;
+  top: 80px;
+  background: url("../img/arrow.png") no-repeat;
+}
+#wrap .content {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 80px;
+  bottom: 0;
+  background: gray;
+}
+#wrap .content .list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: 1s top;
+}
+#wrap .content .list > .item {
+  position: relative;
+  background-position: 50% 50% !important;
+}
+#wrap .content .list > .item > div {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  width: 1100px;
+  height: 520px;
+  text-align: center;
+  font: 150px "楷体";
+  line-height: 520px;
+}
+#wrap .content .list > .item > div.home {
+  background: pink;
+}
+#wrap .content .list > .item > div.course {
+  background: pink;
+}
+#wrap .content .list > .item > div.works {
+  background: pink;
+}
+#wrap .content .list > .item > div.about {
+  background: pink;
+}
+#wrap .content .list > .item > div.team {
+  background: pink;
+}
+#wrap .content .list > .item:nth-child(1) {
+  background: url("../img/bg1.jpg") no-repeat;
+}
+#wrap .content .list > .item:nth-child(2) {
+  background: url("../img/bg2.jpg") no-repeat;
+}
+#wrap .content .list > .item:nth-child(3) {
+  background: url("../img/bg3.jpg") no-repeat;
+}
+#wrap .content .list > .item:nth-child(4) {
+  background: url("../img/bg4.jpg") no-repeat;
+}
+#wrap .content .list > .item:nth-child(5) {
+  background: url("../img/bg5.jpg") no-repeat;
+}
+#wrap .content .points {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  z-index: 10;
+}
+#wrap .content .points > li {
+  width: 15px;
+  height: 15px;
+  margin-top: 5px;
+  border-radius: 50% ;
+  border: 2px solid pink;
+}
+#wrap .content .points > li.active {
+  background: white;
+}
+#wrap .content .points > li:hover {
+  cursor: pointer;
+}

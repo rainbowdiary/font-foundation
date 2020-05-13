@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>八卦</title>
+    <style>
+        body {
+            background: #ccc;
+        }
+        .box {
+            position: relative;
+            margin:100px auto;
+            box-sizing: border-box;
+            width: 400px;
+            height: 400px;
+            background-color: #fff;
+            border-bottom:200px solid #000;
+            border-radius:50%;
+        }
+        .box::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 100px;
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+            background-color:#fff;
+            border:80px solid #000;
+            border-radius: 50%;
+        }
+        .box::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 100px;
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+            background-color: #000;
+            border: 80px solid #fff;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box"></div>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>贪吃蛇</title>
+</head>
+<body>
+
+    <script>
+        // 地图类
+        (function () {
+            // 定义地图的构造函数
+            function MapG(width, height, bgColor) {
+                // 设置属性
+                this.width = width;
+                this.height = height;
+                this.bgColor = bgColor;
+            }
+
+            // 初始化方法
+            MapG.prototype.init = function(){
+                /*
+                * 在原型的方法中， this表示实例
+                * */
+                // 创建地图div
+                var divMap = document.createElement('div');
+                // 设置div的属性
+                divMap.style.width = this.width + 'px';
+                divMap.style.height = this.height + 'px';
+                divMap.style.backgroundColor = this.bgColor;
+                divMap.style.position = 'relative';
+                // 给div添加id属性
+                divMap.id = 'divMap';
+                // 把地图添加body中
+                document.body.appendChild(divMap)
+            };
+
+            // 把MapG暴露在window上
+            window.MapG = MapG;
+
+        })();
+        
+        // 食物类
+        (function () {
+            // 食物构造函数
+            function Food(width, height, bgColor) {
+                // 设置属性
+                this.width = width;
+                this.height = height;
+                this.bgColor = bgColor;
+                // 获取地图div
+                var divMap = document.getElementById('divMap');
+                // 设置食物的坐标，食物的坐标用格子数表示
+                this.x = Math.floor(Math.random() * (divMap.offsetWidth / this.width));
+                this.y = Math.floor(Math.random() * divMap.offsetHeight / this.height);
+            }
+
+            // 初始化方法
+            Food.prototype.init = function () {
+                // 获取地图div
+                var divMap = document.getElementById('divMap');
+                // 创建div
+                var divFood = document.createElement('div');
+                // 设置css样式
+                divFood.style.width = this.width + 'px';
+                divFood.style.height = this.height + 'px';
+                divFood.style.backgroundColor = this.bgColor;
+                divFood.style.position = 'absolute';
+                // 设置食物的位置
+                divFood.style.left = this.x * this.width + 'px';
+                divFood.style.top = this.y * this.height + 'px';
+                // 把食物添加到地图上
+                divMap.appendChild(divFood);
+            };
+
+            // 把构造函数暴露在window上
+            window.Food = Food;
+
+        })();
+        
+        // 蛇类
+        (function () {
+            // 定义变量 存储蛇节元素
+            var elements = [];
+
+            // 构造函数
+            function Snake(width, height, dir) {
+                //设置属性
+                this.width = width;
+                this.height = height;
+                this.dir = dir; //表示蛇的移动方向 left向左 right向右  up向上 down向上
+                this.snBody = [
+                    {
+                        x: 4,
+                        y: 1,
+                        bgColor: 'red'
+                    },
+                    {
+                        x: 3,
+                        y: 1,
+                        bgColor: '#f90'
+                    },
+                    {
+                        x: 2,
+                        y: 1,
+                        bgColor: 'blue'
+                    }
+                ];
+            }
+
+            // 初始化方法
+            Snake.prototype.init = function () {
+                // 把旧的蛇节删除
+                remove();
+                // 获取地图元素
+                var divMap = document.getElementById('divMap');
+                // 创建蛇
+                for (var i = 0; i < this.snBody.length; i ++) {
+                    // 创建div 蛇的一节
+                    var divSnake = document.createElement('div');
+                    // 设置css属性
+                    divSnake.style.position = 'absolute';
+                    divSnake.style.width = this.width + 'px';
+                    divSnake.style.height = this.height + 'px';
+                    divSnake.style.backgroundColor = this.snBody[i].bgColor;
+                    // 设置蛇节的位置
+                    divSnake.style.left = this.snBody[i].x * this.width + 'px';
+                    divSnake.style.top = this.snBody[i].y * this.height + 'px';
+                    // 把蛇节添加到地图上
+                    divMap.appendChild(divSnake);
+                    // 把蛇节元素存储下来 追加到数组中
+                    elements.push(divSnake);
+
+                }
+            };
+
+            // 蛇的移动
+            Snake.prototype.move = function() {
+                /*
+                // 蛇尾
+                this.snBody[2].x = this.snBody[1].x;
+                this.snBody[2].y = this.snBody[1].y;
+                // 蛇中
+                this.snBody[1].x = this.snBody[0].x;
+                this.snBody[1].y = this.snBody[0].y;
+                // 蛇头
+                this.snBody[0].x += 1;
+                 */
+
+                // 把蛇节的坐标修改为掐面一个蛇节的坐标，实现蛇的移动
+                for (var i = this.snBody.length - 1; i > 0; i --) {
+                    // 重新设置蛇节的坐标 = 前面一个蛇节的坐标
+                    this.snBody[i].x = this.snBody[i-1].x;
+                    this.snBody[i].y = this.snBody[i-1].y;
+                }
+                // 设置蛇头的坐标 根据this.dir蛇的移动方向，决定蛇头的坐标变化
+                switch (this.dir) {
+                    case 'left': this.snBody[0].x -= 1; break;
+                    case 'right': this.snBody[0].x  += 1; break;
+                    case 'up': this.snBody[0].y -= 1; break;
+                    case 'down': this.snBody[0].y += 1; break;
+                }
+
+
+
+
+               // 把老蛇删除
+                //生成新蛇
+            };
+
+            // 删除旧的蛇节
+            function remove() {
+                // 获取地图元素
+                var divMap = document.getElementById('divMap');
+                // 遍历数组，删除每一个蛇节
+                for (var i = 0; i < elements.length; i ++) {
+                    divMap.removeChild(elements[i]);
+                }
+                // 清空数组
+                elements = [];
+
+            }
+
+            // 把构造函数暴露在 window上
+            window.Snake = Snake;
+
+        })();
+
+
+
+        var mapG = new MapG(800, 600, '#ccc');
+        mapG.init(); //初始计划
+
+        // 实例化食物
+        var food = new Food(20, 20, 'yellowgreen');
+        food.init();
+
+        // 实例化蛇
+        var snake = new Snake(20, 20, 'down');
+        snake.init();  // 第一次初始化
+
+        // snake.move();
+        // snake.move();
+        // snake.move();
+
+        // 定时器蛇移动
+        setInterval(function () {
+            snake.move();  // 蛇移动（更新数据）
+            snake.init();  // 生成新蛇
+        }, 500);
+
+
+    </script>
+</body>
+</html>

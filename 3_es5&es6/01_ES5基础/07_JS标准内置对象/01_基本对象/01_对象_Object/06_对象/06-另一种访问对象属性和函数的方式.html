@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 另一种访问对象属性和方法的方式:
+			 * 对象["属性名"]
+			 * 
+			 */
+			var jj = {
+				name:'林俊杰',
+				age:34,
+				eat:function(){
+					console.log('豆浆油条');
+				}
+			}
+//			console.log(jj.name);
+//			jj.eat();
+			jj["name"] = '林志颖';
+			console.log(jj["name"]);
+			jj["eat"]();
+		</script>
+	</body>
+</html>

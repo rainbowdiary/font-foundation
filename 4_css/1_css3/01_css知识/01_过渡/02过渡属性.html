@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过渡</title>
+    <style>
+        .box {
+            width: 200px;
+            height:200px;
+            background: red;
+            display: block;
+
+            transition-duration: 5s; /*指定过渡时间*/
+            /*transition-property: all; !*所有的能过渡属性都过渡*!*!*/
+            /*transition-property: width;  !*指定具体的属性*!*/
+           transition-property: width,height;  /*!*指定多个属性*!*/
+        }
+
+    </style>
+</head>
+<body>
+    <button>过渡</button>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+        var button = document.querySelector('button');
+        button.onclick = function(){
+            box.style.width = '400px';
+            box.style.height = '400px';
+            box.style.background = 'green';
+            box.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

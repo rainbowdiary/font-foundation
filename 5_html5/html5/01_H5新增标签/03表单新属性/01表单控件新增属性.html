@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form表单</title>
+    <style>
+        input,textarea,button {
+            box-sizing: content-box;
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<form action="1.php">
+    <input type="text" name="username" placeholder="请输入用户名" autofocus autocomplete="off" required pattern="\w{4,8}">
+    <br>
+    <br>
+    <textarea name="" id="" cols="30" rows="10" placeholder="请输入介绍"></textarea>
+    <br>
+    <br>
+    <button>提交</button>
+</form>
+</body>
+</html>

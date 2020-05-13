@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原子</title>
+</head>
+<body>
+    <script>
+        // 数量修饰，表示前面的原子连续出现的次数
+        //数量修饰，修饰的是紧挨着的原子（数量修饰符写在原子的后面）
+        console.log(/a{3}/.exec('appaleabb'));
+        console.log(/a{3}/.exec('bbaaaabb'));
+        console.log(/ab{3}/.exec('bbbaaaabbb'));  //数量修饰，修饰的是紧挨着的原子（数量修饰符写在原子的后面）
+        console.log(/\w{3}/.exec('apple'));
+        // 前面的原子，至少2次; 尽可能多的匹配（贪婪匹配）
+        console.log(/\w{2,}/.exec('helloworld'));
+        console.log(/\w{2,}/.exec('+ab+'));
+        console.log(/\w{2,}/.exec('+a+'));
+        //前面的原子出现3-5次
+        console.log(/\w{3,5}/.exec('+helloworld+'));
+        console.log(/\w{3,5}/.exec('+app+{}'));
+
+
+        // 特殊的数量修饰符
+        //？ 数量修饰符，前面的原子出现 0次或1次   {0,1}
+        console.log(/\w?/.exec('+-+'));
+        console.log(/\w?/.exec('app+'));
+        // +  前面的原子出现 1次或多次   {1,}
+        console.log(/a+/.exec('+-+'));
+        console.log(/a+/.exec('+-a+'));
+        console.log(/a+/.exec('+-apaaa+'));
+        console.log(/a+/.exec('+-aaaa+'));
+        // *  前面的原子出现0次、1次、或多次 任意次 {0,}
+        console.log(/\w*/.exec('+-+'));
+        console.log(/\w*/.exec('app+'));
+
+
+
+        // 万能匹配的正则表达式
+        console.log(/.*/.exec('aksjfdlasjdflkasjf '));
+        console.log(/.*/.exec(''))
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit:cover">
+    <title>触摸滑动</title>
+    <link rel="stylesheet" href="swiper/swiper.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <!--swiper插件的布局要求：-->
+    <!--
+        包裹元素，id名class名任意取
+        包含一个元素，class必须是 swiper-wrapper
+        要求每个轮播图的项目 class名 swiper-item 。切包含在swiper-wrapper元素内
+
+    -->
+    <div id="mySwiper">
+        <ul class="swiper-wrapper">
+           <li class="swiper-item"><img src="img/1.jpg" alt="老刘"></li>
+           <li class="swiper-item"><img src="img/2.jpg" alt="老刘"></li>
+           <li class="swiper-item"><img src="img/3.jpg" alt="老刘"></li>
+           <li class="swiper-item"><img src="img/4.jpg" alt="老刘"></li>
+           <li class="swiper-item"><img src="img/5.jpg" alt="老刘"></li>
+        </ul>
+        <div class="icons"></div>
+
+    </div>
+
+    <div id="content">
+        <img src="img/content.png" alt="老刘">
+    </div>
+
+    <script src="swiper/transformcss.js"></script>
+    <script src="swiper/swiper.js"></script>
+    <script>
+        (function () {
+            swiper({
+                el: document.querySelector('#mySwiper'),
+                pagation: document.querySelector('#mySwiper .icons'),
+                isAutoPlay: true,
+                duration: 4000
+            });
+        })();
+    </script>
+</body>
+</html>

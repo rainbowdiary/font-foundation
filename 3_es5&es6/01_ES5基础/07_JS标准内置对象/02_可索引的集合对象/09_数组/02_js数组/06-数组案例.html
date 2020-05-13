@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//案例1:求数组中所有元素的和
+			var arr01 = [13, 41, 32, 25, 11];
+			var sum01 = 0;
+			//遍历
+			for(var i = 0; i < arr01.length; i++) {
+				//console.log(arr01[i]);
+				sum01 = sum01 + arr01[i];
+			}
+			console.log(sum01);
+
+			//案例2:求数组中所有元素的平均值
+			console.log(sum01 / arr01.length);
+
+			//案例3:求数组中所有元素中的最大值
+			var arr02 = [13, 15, 32, 25, 40];
+			// 当前最大值   ,默认认为数组中的第一个元素的值是当前最大值
+			var max = arr02[0];
+			// 当前最小值   ,默认认为数组中的第一个元素的值是当前最大值
+			var min = arr02[0];
+
+			//从数组的第二个元素开始遍历
+			for(var i = 1; i < arr02.length; i++) {
+				//当max中的值小于后面元素值的时候,将后面元素的值赋值给max,让max
+				//保证始终是当前数组中的最大值
+				if(max < arr02[i]) {
+					max = arr02[i]
+				}
+				//当min中的值大于后面元素值的时候,将后面元素的值赋值给min,让min
+				//保证始终是当前数组中的最小值
+
+				if(min > arr02[i]) {
+					min = arr02[i]
+				}
+			}
+			//数组中的最大值
+			console.log(max);
+			console.log(min);
+
+			//案例5:倒序遍历数组
+			var arr03 = [5, 6, 7, 8, 9];
+			for(var i = arr03.length-1;i>=0;i--){
+				console.log(arr03[i]);
+			}
+			
+			//案例6:把数组中每个元素用|拼接到一起产生一个字符串并输出
+			//        周杰伦|王力宏|林俊杰|邓紫棋|梁静茹
+			var arr04 = ['周杰伦','王力宏','林俊杰','邓紫棋','梁静茹','老刘'];
+			//累计器
+			var str = '';
+			// 拼接到数组中的倒数第二个元素
+			for (var i = 0; i < arr04.length-1; i++) {
+				str = str+ arr04[i] +'|';
+			}
+//			var num = arr04.length-1;
+//			str = str + arr04[num];
+			//人为的拼接数组中的最后一个元素的值
+			str = str + arr04[arr04.length-1];
+			console.log(str);
+			
+			
+			var arr05 = ['陶喆'];
+			//        周杰伦|王力宏|林俊杰|邓紫棋|梁静茹
+			//累计器
+			var str = '';
+			// 从数组中的第二个元素拼接到数组的最后一个元素
+			for (var i = 1; i < arr05.length; i++) {
+				str =str+'|'+ arr05[i];
+			}
+			//人为的用第一个元素拼接str
+			str = arr05[0] + str;
+			console.log(str);
+			
+			//案例7:去掉数组中的所有的元素0，把其他的数据放在一个新的数组中
+			var arr06 = [0,5,7,0,2,0,1];
+			var t = [];
+			for (var i = 0; i < arr06.length; i++) {
+				if(arr06[i] != 0){
+					
+//					console.log(arr06[i]);
+					//插入到新数组t中
+					//5721
+					//将值按数组的索引顺序插入到t数组
+					t[t.length] = arr06[i]; 
+				}
+			}
+			console.log(t);
+		
+			var k = [];
+			//k.length    0
+			k[k.length] = '哈哈0' ;          //k[0] = '哈哈0';
+			//k.length    1							
+			k[k.length] = '哈哈1';		     //k[1] = '哈哈1';
+			//k.length    2
+			k[k.length] = '哈哈2';		    //k[2] = '哈哈2';
+			console.log(k);
+		</script>
+	</body>
+
+</html>

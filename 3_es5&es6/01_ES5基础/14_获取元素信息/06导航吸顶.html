@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取元素大小</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            margin-top: 20px;
+            list-style: none;
+        }
+        li {
+            margin: 20px;
+            height: 200px;
+            background: yellowgreen;
+        }
+        nav {
+            margin-top: 200px;
+            height: 60px;
+            background: #f90;
+            text-align: center;
+        }
+
+        nav.fixed {
+            margin-top: 0;
+            position:fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav">
+        导航
+    </nav>
+    <ul>
+        <li>111</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+        // 获取导航元素
+        var nav = document.getElementById('nav');
+
+        // 获取nav的高度
+        var navHeight = nav.offsetHeight;
+        // 获取nav距离顶部距离
+        var navTop = nav.offsetTop;
+
+        // 监听页面滚动
+        window.onscroll = function(){
+            // 如果滚动条滚动距离 >= 导航距离页面顶部的距离
+            if (scroll().top >= navTop) {
+                nav.className = 'fixed';
+
+                // nav设置固定定位脱离文档流，影响后面的元素；
+                // 把nav本来所占的位置（自身高度+margin-top） 赋值给body 的padding-top
+                document.body.style.paddingTop = navTop + navHeight + 'px'
+            } else {
+                nav.className = '';
+                document.body.style.paddingTop = '0';
+            }
+        };
+
+
+        /**
+         * 获取滚动条滚动距离
+         * 返回对象，对象left：水平滚动的距离  top：垂直滚动的距离
+         */
+        function scroll(){
+            // 获取水平方向滚动距离
+            var left = window.scrollLeft || document.documentElement.scrollLeft || document.body.scrollLeft;
+
+            // 获取垂直方向滚动距离
+            var top = window.scrollTop || document.documentElement.scrollTop || document.body.scrollTop;
+
+            // 返回对象
+            return {
+                left: left,
+                top: top
+            }
+        }
+
+    </script>
+</body>
+</html>

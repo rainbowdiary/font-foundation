@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚轮</title>
+    <style>
+        #box {
+            position: absolute;
+            left:0;
+            top:0;
+            right:0;
+            bottom:0;
+            margin: auto;
+            width: 300px;
+            height: 300px;
+            background: #f90;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        //获取元素
+        var box = document.querySelector('#box');
+
+        //监听滚轮事件
+        // ie chrome
+        box.onmousewheel = scrollFn;
+        //firefox
+        box.addEventListener('DOMMouseScroll', scrollFn);
+
+        // 滚轮事件的函数
+        function scrollFn(event){
+            // 定义变量 记录滚轮方向
+            var direction = '';
+            if (event.wheelDelta) {
+                // chrome ie  120向上 -120向下
+                if (event.wheelDelta > 0) {
+                    direction = 'up';
+                } else {
+                    direction = 'down';
+                }
+
+            } else if (event.detail) {
+                // firefox  -3向上 3向下
+                if (event.detail < 0) {
+                    direction = 'up';
+                } else {
+                    direction = 'down';
+                }
+            }
+
+            // 执行向上还是向下的逻辑
+            if (direction === 'up') {
+                //让元素放大
+                box.style.width = box.offsetWidth + 10 + 'px';
+                box.style.height = box.offsetHeight + 10 + 'px';
+            } else if (direction === 'down') {
+                //元素缩小
+                box.style.width = box.offsetWidth - 10 + 'px';
+                box.style.height = box.offsetHeight - 10 + 'px';
+            }
+        }
+    </script>
+</body>
+</html>

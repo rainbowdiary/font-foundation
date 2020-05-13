@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件</title>
+</head>
+<body>
+    <script>
+
+        // 键盘事件需要绑定给document
+
+        // 按键按下
+        document.onkeydown = function(event){
+            //console.log('keydown');
+            //console.log(event);
+            console.log(event.keyCode);
+
+
+        };
+
+        // 按键抬起
+        document.onkeyup = function (ev) {
+            console.log('keyup');
+        };
+        
+        // 
+        document.onkeypress = function () {
+            console.log('keypress');
+        }
+        
+    </script>
+</body>
+</html>

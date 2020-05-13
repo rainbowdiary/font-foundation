@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+<script>
+    window.onload=function () {
+        // 以数字为下标 具有length属性的对象 我们叫它伪数组
+        /*var liNodes = document.querySelectorAll("ul li");
+        console.log(liNodes.item(0))*/
+
+        var liNodes = document.getElementsByTagName("li");
+        console.log(liNodes[Symbol.iterator]().next())
+        /*for (var item of liNodes){
+            console.log(item)
+        }*/
+    }
+</script>
+</html>

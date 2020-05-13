@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    
+浅克隆两个对象的地址值是同一个，深克隆得到一个新的对象吗
+
+深克隆:
+    1. 序列化
+      json不支持函数类型的克隆
+    2. lodash _cloneDeepWith方法
+
+    面试： 
+      会先使用lodash实现功能，
+      项目空余时间改造函数，自己实现一下
+  -->
+  <script>
+    let oldObj = {
+      a: 1,
+      b: { name: "tom" },
+      c: "d",
+      e: ["一", "二", "三"]
+    }
+
+    function qianClone(obj) {
+      let newObj = {}
+      for (let key in obj) {
+        newObj[key] = obj[key]
+      }
+      return newObj
+    }
+
+    oldObj.c = "f"
+    const newObj = qianClone(oldObj)
+    console.log(oldObj, newObj);
+
+  </script>
+</body>
+
+</html>

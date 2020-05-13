@@ -1,0 +1,77 @@
+.box-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  height: 300px;
+  margin-left: -200px;
+  margin-top: -150px;
+}
+.box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  height: 300px;
+  margin-left: -200px;
+  margin-top: -150px;
+}
+/*-------------不带输出的混合-------------------*/
+.box01 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  height: 300px;
+  margin-left: -200px;
+  margin-top: -150px;
+}
+.box02 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  height: 300px;
+  margin-left: -200px;
+  margin-top: -150px;
+}
+/*-------------带参数的混合-------------------*/
+.box02 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 800px;
+  height: 600px;
+  margin-left: -400px;
+  margin-top: -300px;
+  background-color: #f90;
+}
+/*-------------带参数的, 参数有默认值 混合-------------------*/
+.box03 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 500px;
+  height: 600px;
+  margin-left: -250px;
+  margin-top: -300px;
+  background-color: transparent;
+}
+/*-------------带参数的, 参数有默认值 默认值不按顺序 调用混合指定参数名-------------------*/
+.box04 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 700px;
+  height: 300px;
+  margin-left: -350px;
+  margin-top: -150px;
+  background-color: transparent;
+}
+/*-------------@arguments-------------------*/
+.box {
+  -webkit-transition: width, height, opacity 10s linear 0s;
+  -moz-transition: width, height, opacity 10s linear 0s;
+  transition: width, height, opacity 10s linear 0s;
+}
+/*# sourceMappingURL=index.css.map */

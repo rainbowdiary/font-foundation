@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    
+浅克隆两个对象的地址值是同一个，深克隆得到一个新的对象吗
+
+深克隆:
+    1. 序列化
+      json不支持函数类型的克隆
+    2. lodash _cloneDeepWith方法
+
+    面试： 
+      会先使用lodash实现功能，
+      项目空余时间改造函数，自己实现一下
+  -->
+  <script>
+    /*  var oldObj = {
+       a: 1,
+       b: { name: "tom" },
+       c: { d: { f: 2 } },
+       e: ["一", "二", "三"]
+     }
+ 
+     var newObj = {}
+     newObj = Object.assign(newObj, oldObj)
+ 
+     newObj.c.d.f = "f"
+     console.log(oldObj, newObj); */
+
+    var oldObj = {
+      a: 1,
+      b: { name: "tom" },
+      c: { d: 2 },
+      e: ["一", "二", "三"]
+    }
+
+    var newObj = {}
+    newObj = Object.assign(newObj, oldObj)
+
+    newObj.a = "f"  //没有改----克隆出一个新对象，但是问题是修改引用，会影响原对象
+    console.log(oldObj, newObj);
+
+    /*
+    浅克隆的问题: 是 如果是对象 克隆出来的对象是危险的；
+    修改引用的话 会影响原对象
+     */
+  </script>
+</body>
+
+</html>

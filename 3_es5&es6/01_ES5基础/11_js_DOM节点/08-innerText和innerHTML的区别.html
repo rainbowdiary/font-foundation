@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<div id="box"></div>
+		<script type="text/javascript">
+			/*
+			 * innerText: 将所有的文本进行原样输出,遇到标签会用特殊字符表示
+			 * innerHTML:将文本原样输出,遇到标签会解析成效果
+			 */
+			var btn = document.getElementById('btn');
+			var box = document.getElementById('box');
+			btn.onclick = function(){
+				
+//				box.innerText = '<h1>我是一个盒子</h1>';
+				box.innerHTML = '<h1>我是一个盒子</h1>';
+			}
+		</script>
+	</body>
+</html>

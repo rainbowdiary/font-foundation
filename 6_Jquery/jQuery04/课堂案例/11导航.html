@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .nav-box {
+            margin: 100px auto;
+            width: 752px;
+            padding: 10px 0 0 10px;
+            border: 1px solid #999;
+            overflow: hidden;
+        }
+        .nav-box li {
+            float: left;
+            position: relative;
+            margin: 0 10px 10px 0;
+            width: 178px;
+            height: 125px;
+            overflow: hidden;
+        }
+        .nav-box li p {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -30px;
+            padding-left: 30px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            color: #fff;
+            background: rgba(0, 0, 0, .6) url('images/nav/110png.png') no-repeat 5px 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-box">
+        <ul>
+            <li>
+                <img src="images/nav/01.JPG" alt="老刘">
+                <p>百度一下 你就知道</p>
+            </li>
+            <li>
+                <img src="images/nav/02.JPG" alt="老刘">
+                <p>淘宝一下 你就知道</p>
+            </li>
+            <li>
+                <img src="images/nav/03.JPG" alt="老刘">
+                <p>新浪一下 你就知道</p>
+            </li>
+            <li>
+                <img src="images/nav/04.JPG" alt="老刘">
+                <p>网易一下 你就知道</p>
+            </li>
+            <li>
+                <img src="images/nav/05.JPG" alt="老刘">
+                <p>搜狐一下 你就知道</p>
+            </li>
+            <li>
+                <img src="images/nav/06.JPG" alt="老刘">
+                <p>腾讯一下 你就知道</p>
+            </li>
+            <li>
+                <img src="images/nav/07.JPG" alt="老刘">
+                <p>优酷一下 你就知道</p>
+            </li>
+            <li>
+                <img src="images/nav/08.JPG" alt="老刘">
+                <p>京东一下 你就知道</p>
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            // 给每个项目的 p元素设置 background-position
+            $('.nav-box li p').each(function (index, item) {
+                $(item).css('background-position-y', 3 - index * 25);
+            });
+
+            // 每个li绑定事件
+            $('.nav-box li').mouseenter(function(){
+                $(this).children('p').finish().animate({
+                    bottom: 0
+                }, 500);
+            }).mouseleave(function () {
+                $(this).children('p').finish().animate({
+                    bottom: '-30px'
+                }, 500);
+            })
+        });
+        
+    </script>
+</body>
+</html>

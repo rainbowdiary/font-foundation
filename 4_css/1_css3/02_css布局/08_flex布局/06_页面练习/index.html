@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>布局案例</title>
+    <style>
+        * { font-family: Arial; font-size: 16px; margin: 0; padding: 0; border: none; }
+        a { text-decoration: none; }
+        ul { list-style: none; }
+        img {
+            display: block;
+        }
+        html,body {
+            height: 100%;
+        }
+        .header {
+            position: absolute;
+            padding: 0 15px;
+            left:0;
+            right:0;
+            height: 70px;
+            background-color: rgba(0,0,0,.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav {
+            display: flex;
+            width: 275px;
+            justify-content: space-between;
+        }
+        .nav li {
+            width: 85px;
+            height: 35px;
+            border: 1px solid #fff;
+            border-radius: 8px;
+        }
+        .nav li a {
+            display:block;
+            color: #fff;
+            text-align:center;
+            line-height: 35px;
+        }
+        .main {
+            height: 100%;
+            background: url('images/bg.jpg') 0 0/cover;
+            display: flex;
+        }
+        .contents {
+            margin: auto;
+            width: 1000px;
+            height: 210px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .contents li {
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .contents li:nth-child(1){
+            background-color: #595CA8;
+        }
+        .contents li:nth-child(2){
+            background-color: #FF9D2E;
+        }
+        .contents li:nth-child(3){
+            background-color: #01A6DE;
+        }
+        .contents li:nth-child(4){
+            background-color: #015E91;
+        }
+        .contents li:nth-child(5){
+            background-color: #1DC128;
+        }
+        .contents li:nth-child(6){
+            background-color: #01A6DE;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>
+            <a href="javascript:">
+                <img src="images/atguigu-logo.png" alt="老刘">
+            </a>
+        </h1>
+
+        <ul class="nav">
+            <li><a href="javascript:">新学科</a></li>
+            <li><a href="javascript:">学科简介</a></li>
+            <li><a href="javascript:">上海校区</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <ul class="contents">
+            <li>
+                <img src="images/ywfw_1.png" alt="老刘">
+                <span>老刘</span>
+            </li>
+            <li>
+                <img src="images/ywfw_2.png" alt="老刘">
+                <span>老刘</span>
+            </li>
+            <li>
+                <img src="images/ywfw_3.png" alt="老刘">
+                <span>老刘</span>
+            </li>
+            <li>
+                <img src="images/ywfw_4.png" alt="老刘">
+                <span>老刘</span>
+            </li>
+            <li>
+                <img src="images/ywfw_5.png" alt="老刘">
+                <span>老刘</span>
+            </li>
+            <li>
+                <img src="images/ywfw_6.png" alt="老刘">
+                <span>老刘</span>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

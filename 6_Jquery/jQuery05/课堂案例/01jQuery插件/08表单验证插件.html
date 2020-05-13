@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插件</title>
+</head>
+<body>
+    <form action="1.php" id="form">
+        <input type="text" name="email">
+        <br>
+        <input type="text" name="username">
+    </form>
+
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/validator/jquery.validator.min.js?local=zh-CN"></script>
+
+    <script>
+        $(function () {
+            $('#form').validator({
+                fields: {
+                    email: {
+                        rule: "required,email",
+                        ok: '邮箱正确!',
+                        tip: '请输入正确的邮箱',
+                    },
+                    username: {
+                        rule: "",
+                        ok: "",
+                        tip: ""
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+</html>

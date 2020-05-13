@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        canvas {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+
+        // 获取canvas元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        // 绘制多边形
+        //poly(ctx, 400, 300, 100);
+        poly(ctx, 400, 300, 100, 10, 6, 'green', 'red');
+
+
+        /***
+         * 绘制多边形
+         * @param ctx 绘图环境
+         * @param x,y 图像的中心点坐标
+         * @param r   中心点距离端点的位置
+         * @param count   边数 默认5
+         * @param strokeWidth 描边宽度
+         * @param strokeColor 描边颜色
+         * @param fillColor 填充颜色
+         */
+        function poly(ctx, x, y, r, count=5, strokeWidth=2, strokeColor = '#000', fillColor = 'transparent') {
+            // 开启路径
+            ctx.beginPath();
+            // 循环绘制路径
+            for (var i = 0; i < count; i ++) {
+                // 计算角度
+                var a = (90 + i * (360 / count)) / 180 * Math.PI;
+                // 计算每个断点的坐标
+                var pX = x + Math.cos(a) * r;
+                var pY = y - Math.sin(a) * r;
+                // 绘制连接点
+                ctx.lineTo(pX, pY);
+            }
+            // 闭合路径
+            ctx.closePath();
+
+            // 描边填充
+            ctx.lineWidth = strokeWidth;
+            ctx.strokeStyle = strokeColor;
+            ctx.fillStyle = fillColor;
+
+            ctx.fill();
+            ctx.stroke();
+
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

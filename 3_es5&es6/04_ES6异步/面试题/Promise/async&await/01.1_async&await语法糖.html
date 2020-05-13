@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 由于因为async await 本身就是promise + generator的语法糖。所以await后面的代码是microtask。所以对于本题中的
+
+    async function async1() {
+      console.log('async1 start');
+      await async2();
+      console.log('async1 end');
+    }
+    // 等价于
+    async function async1() {
+      console.log('async1 start');
+      Promise.resolve(async2()).then(() => {
+        console.log('async1 end');
+      })
+    }
+  </script>
+</body>
+
+</html>

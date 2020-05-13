@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--第一种-->
+		<!--<a href="http://www.baidu.com" id="a1">超链接</a>-->
+		<!--第二种-->
+		<!--<a href="http://www.baidu.com" onclick="alert('行内式');return false;">超链接</a>-->
+		<!--第三种-->
+		<a href="http://www.baidu.com" onclick="return fn();">超链接</a>
+		<script type="text/javascript">
+			/*
+			 * 阻止超链接跳转: 在事件处理函数中,return false
+			 */
+			//var a1 = document.getElementById('a1');
+//			a1.onclick = fn;
+//			a1.onclick = function(){
+//				//var bool = fn();
+////				return bool;
+//				return fn();
+//			}
+			
+			function fn(){
+				alert('哈哈');
+				//阻止标签默认行为
+				return false;
+			}
+			
+			function sum(){
+				var num	= add(1,2);
+				console.log(num);
+				return num;
+			}
+			function add(a,b){
+				return a+b;
+			}
+			
+			//console.log(sum());
+		</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        canvas {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <script>
+
+        // 获取canvas元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置画布大小
+        canvas.width = 800;
+        canvas.height = 600;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'green';
+        ctx.fillStyle = 'red';
+
+        // 快速填充矩形
+        // 不需要beginPath; fillRect内部会beginPath进行了封装
+        ctx.fillRect(100, 100, 200, 100);
+
+        // 快速描边矩形  内部封装路径，无需beginPath()
+        ctx.strokeRect(100, 300, 200, 100);
+
+        // 快速清除矩形
+        ctx.clearRect(200, 150, 300, 200);
+
+        
+    </script>
+</body>
+</html>

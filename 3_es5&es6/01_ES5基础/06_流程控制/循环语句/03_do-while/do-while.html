@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 循环语句：
+			 * 	通过循环语句可以反复的执行一段代码多次
+			 * 
+			 * do...while循环
+			 * 	- 语法：
+			 * 		do{
+			 * 			语句...
+			 * 		}while(条件表达式)
+			 * 
+			 * 	- 执行流程：
+			 * 		do...while语句在执行时，会先执行循环体，
+			 * 			循环体执行完毕以后，在对while后的条件表达式进行判断，
+			 * 			如果结果为true，则继续执行循环体，执行完毕继续判断以此类推
+			 * 			如果结果为false，则终止循环
+			 * 
+			 * 		实际上这两个语句功能类似，不同的是while是先判断后执行，
+			 * 			而do...while会先执行后判断，
+			 * 		do...while可以保证循环体至少执行一次，
+			 * 			而while不能
+			 */
+            //1.输出100以内的所有偶数，以及他们的和还有个数
+            var sum = 0;
+            var count =0;
+            var i=0;
+            do{
+                if(i%2===0){
+                    console.log(i);
+                    sum+=i;
+                    count++;
+                }
+                i++;
+            }while(i<=100)
+            console.log(sum,count);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

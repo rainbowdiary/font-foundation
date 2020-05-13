@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var promise = new Promise(function (resolve,reject) {
+        resolve(1)
+    })
+    promise.then(function (val) {
+        console.log(val)
+        throw new Error("我错了")
+    }).then(function (val) {
+        console.log(val)
+    },function (errMsg) {
+        console.log(errMsg)
+    })
+</script>
+</html>

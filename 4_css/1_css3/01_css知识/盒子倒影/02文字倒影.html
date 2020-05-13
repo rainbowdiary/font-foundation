@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文字倒影</title>
+    <style>
+        .box {
+            margin:100px auto;
+            width:600px;
+            padding: 10px;
+            text-align: center;
+            font: 30px '楷体';
+            background: #F6E3AB;
+            border: 10px double #ccc;
+        }
+        .box h1 {
+            font-size: 1.2em;
+        }
+        .box h1 small {
+            font-size: .5em;
+        }
+        .box p,.box h1{
+            -webkit-box-reflect: below 0 linear-gradient(transparent,transparent 50%,rgba(255,255,255,.2));
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>人民解放军占领南京 <small>毛泽东</small></h1>
+        <p>钟山风雨起苍黄，百万雄师过大江。</p>
+        <p>虎距龙盘今胜昔，天翻地覆慨而慷。</p>
+        <p>宜将剩勇追穷寇，不可沽名学霸王。</p>
+        <p>宜将剩勇追穷寇，不可沽名学霸王。</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            list-style: none;
+            width: 30px;
+            height: 30px;
+            border: 1px solid;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+   <ul id="list">
+       <li>1</li>
+       <li>2</li>
+       <li>3</li>
+       <li>4</li>
+       <li>5</li>
+   </ul>
+</body>
+<script>
+    window.onload=function () {
+        var list =  document.querySelector("#list")
+
+        // 静态列表
+        var liNodes = document.querySelectorAll("#list li");
+
+        //动态列表
+        //var liNodes = list.getElementsByTagName("li");
+
+        // dom树重新绘制
+        list.innerHTML += "<li>6</li>";
+        liNodes = document.querySelectorAll("#list li");
+
+        for(var i=0;i<liNodes.length;i++){
+            liNodes[i].style.background = "pink"
+        }
+    }
+</script>
+</html>

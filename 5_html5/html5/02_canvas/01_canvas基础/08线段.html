@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        canvas {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+        // 获取画布元素
+        var canvas = document.querySelector('#myCanvas');
+
+        // 设置大小
+        canvas.width = 600;
+        canvas.height = 400;
+
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+
+        ctx.moveTo(100, 100);  //设置起点
+        ctx.lineTo(400, 100);
+        ctx.stroke();
+
+        ctx.beginPath(); //开启路径
+        ctx.lineTo(100, 300);   //设置起点
+        ctx.lineTo(400, 300);
+        ctx.stroke();
+
+
+
+    </script>
+</body>
+</html>

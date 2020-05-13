@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function testSometing() {
+      console.log("执行testSometing");
+      return "testSometing";
+    }
+
+    async function testAsync() {
+      console.log("执行testAsync");
+      return Promise.resolve("hello async");
+    }
+
+    async function test() {
+      console.log("test start...");
+      const v1 = await testSometing();//关键点1
+      console.log(v1);
+      const v2 = await testAsync();
+      console.log(v2);
+      console.log(v1, v2);
+    }
+
+    test();
+
+    var promise = new Promise((resolve) => { console.log("promise start.."); resolve("promise"); });//关键点2
+    promise.then((val) => console.log(val));
+
+    console.log("test end...")
+
+    /*
+    await在等什么?
+        源码中返回一个Promise
+        等一个Promise，等待 Promise 处理完成
+    await的返回值是什么?
+        Promise 正常处理(fulfilled)，其回调的resolve函数参数作为 await 表达式的值!!，
+        若 Promise 处理异常(rejected)，await 表达式会把 Promise 的异常原因抛出。
+    */
+
+
+    /*
+    --"test start..."
+      v1 = await testSometing();执行
+      testSometing执行
+
+    --"执行testSometing" testSometing()返回"testSometing";
+        所以v1 = await testSometing(); ==> await "testSometing"
+        v1 = await "testSometing"
+        v1 = Promise.state=resolve value="testSometing"
+      **微队列: v1 val='promise' v2*
+        test()执行完毕
+    --"promise start.."
+      promise.state=resolve value='promise'
+    --"test end..."
+      查看微队列
+      执行v1*
+ *  --'v1' = testSometing    %%%%%%% v1 = Promise.state=resolve value="testSometing"
+      v2 = await testAsync();执行
+      执行testAsync()
+    --"执行testAsync"
+      v2 = await promise.state=resolve value="hello async"
+      v2=promise.state=resolve value="hello async"
+    --val='promise'
+      查看微队列
+*   --v2=promise.state=resolve value="hello async"
+*   --v1=Promise.state=resolve value="testSometing",
+      --v2=promise.state=resolve value="hello async"
+
+
+Node和浏览器执行结果一致
+    */
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <!-- 
+    1. let是块级作用域，且块级作用域内是封闭的（在声明之前使用会报错）
+    2. let不允许重复声明
+    3. let不存在变量提升
+    4. let声明的变量在for循环体内有效，在循环体外引用会报错
+    5. let const声明的全局变量不在跟顶层对象window挂钩
+
+    const声明的一个只读的常量
+
+    1.var有变量提升，
+    2.var允许重复声明变量
+    3.var声明的变量在for循环中会提升到全局作用域
+    4.var声明的全局变量等价于顶层对象的属性"
+   -->
+  <script>
+    for (var i = 0; i < 5; i++) {
+      setTimeout(() => {
+        console.log(i);//5个5
+      }, 100)
+    }
+    console.log(i);//5
+    console.log('=============')
+
+    for (let j = 0; j < 5; j++) {
+      setTimeout(() => {
+        console.log(j);//0,1,2,3,4
+      }, 100)
+    }
+    console.log(j);//报错 j is not defined
+
+
+    /* 为什么结果不一样? 用let就可以显示正确结果，而var就不可以呢?
+      因为：
+       var有变量提升，for中使用var定义变量会被提升到当前作用域最顶层，所以全局可以找到i变量
+       let是块级作用域，只能在代码块中起作用，在js中一个{}中的语句称为代码块，
+                       每次循环都会产生代码块，每个代码块中都是一个新的变量j；
+    */
+  </script>
+</body>
+
+</html>

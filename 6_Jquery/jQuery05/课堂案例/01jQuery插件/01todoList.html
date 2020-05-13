@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todolist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .btn {
+            padding: 5px 20px;
+            color: #fff;
+            font-size: 14px;
+            background-color: red;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .todo-wrapper {
+            margin: 100px auto;
+            padding: 10px;
+            width: 600px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .todo-header input {
+            width: 580px;
+            font-size: 14px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .todo-main {
+            margin: 10px 0;
+        }
+        .todo-list {
+            border:1px solid #ccc;
+            border-radius: 5px;
+            border-bottom: none;
+        }
+        .todo-item {
+            padding: 0 10px;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #ccc;
+        }
+        .todo-item label {
+            float: left;
+        }
+        .todo-item .btn {
+            display: none;
+            float: right;
+            margin-top: 6px;
+        }
+        .todo-footer {
+            padding: 10px;
+            overflow: hidden;
+        }
+        .todo-footer-left {
+            float: left;
+        }
+        .todo-footer .btn {
+            float:right;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="todo-wrapper">
+        <div class="todo-header">
+            <input type="text" id="addTodoInput" placeholder="请输入你的任务，按回车确认">
+        </div>
+        <div class="todo-main">
+            <ul class="todo-list">
+                <li class="todo-item">
+                    <label>
+                        <input type="checkbox">
+                        <span>买房</span>
+                    </label>
+                    <button class="btn">删除</button>
+                </li>
+                <li class="todo-item">
+                    <label>
+                        <input type="checkbox">
+                        <span>买车</span>
+                    </label>
+                    <button class="btn">删除</button>
+                </li>
+                <li class="todo-item">
+                    <label>
+                        <input type="checkbox">
+                        <span>买黄金</span>
+                    </label>
+                    <button class="btn">删除</button>
+                </li>
+            </ul>
+        </div>
+        <div class="todo-footer">
+            <div class="todo-footer-left">
+                <input type="checkbox" id="allCheckedTodo">
+                <span>
+                    已完成 <span id="allCompletedTodos">0</span>
+                    /
+                    全部 <span id="allTodos">3</span>
+                </span>
+            </div>
+            <button class="btn" id="removeCompletedTodo">清除已完成</button>
+        </div>
+    </div>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+
+            // 点击会出 添加todo
+            $('#addTodoInput').keyup(function (event) {
+                // 判断如果用户按键是回车
+                if (event.keyCode === 13) {
+                    // 添加todo-item 到列表中
+                    $('<li>').addClass('todo-item').html('<label><input type="checkbox"> <span>'+$(this).val()+'</span></label><button class="btn">删除</button>').hide().prependTo('.todo-list').slideDown(500);
+                    // 清空input中的输入
+                    $(this).val('');
+                    // 计算数量
+                    totalNumbers();
+                }
+            });
+
+
+            // 删除按钮的隐藏显示  使用事件委派
+            $('.todo-list').on('mouseenter', '.todo-item', function () {
+                $(this).children('.btn').stop().fadeIn(); //显示
+            }).on('mouseleave', '.todo-item', function () {
+                $(this).children('.btn').stop().fadeOut(); //隐藏
+            }).on('click', '.todo-item .btn', function(){  // 点击按钮删除
+                $(this).parent().remove(); //删除
+                totalNumbers();  //计算数量
+            }).on('change', '.todo-item :checkbox', function () {  // 反向监听全选和不选取
+                // 遍历所有checkbox，只有有一个是false，就是不全选
+                var isAllChecked = true;
+                $('.todo-item :checkbox').each(function (index, item) {
+                    if (!$(item).prop('checked')) {
+                       isAllChecked = false;
+                       return;  // 跳出each
+                    }
+                });
+                // 设置全选按钮
+                $('#allCheckedTodo').prop('checked', isAllChecked);
+                // 计算数量
+                totalNumbers();
+                
+            });
+
+            // 点击全选
+            $('#allCheckedTodo').change(function(){
+                $('.todo-item :checkbox').prop('checked', $(this).prop('checked'));
+                totalNumbers(); //计算数量
+            });
+            
+            
+            // 点击清除已完成
+            $('#removeCompletedTodo').click(function () {
+                $('.todo-item :checkbox:checked').parent().parent().remove();
+                totalNumbers(); // 计算数量
+            });
+
+
+            // 统计数量
+            function totalNumbers() {
+                // 计算总数
+                $('#allTodos').text($('.todo-item').length);
+                // 计算已完成的数量
+                $('#allCompletedTodos').text($('.todo-item :checkbox:checked').length);
+            }
+
+
+
+
+        });
+    </script>
+</body>
+</html>

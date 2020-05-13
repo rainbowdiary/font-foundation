@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>全选</button>
+		<button>取消全选</button>
+		<button>反选</button><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<input type="checkbox" /><br />
+		<script type="text/javascript">
+			var btns = document.getElementsByTagName('button');
+			var inputs = document.getElementsByTagName('input');
+			//全选
+			btns[0].onclick = function(){
+//				alert(inputs[0].checked);
+//				inputs[0].checked = true;
+				for (var i = 0; i < inputs.length; i++) {
+					inputs[i].checked = true;
+				}
+			}
+			//取消全选
+			btns[1].onclick = function(){
+//				alert(inputs[0].checked);
+//				inputs[0].checked = true;
+				for (var i = 0; i < inputs.length; i++) {
+					inputs[i].checked = false;
+				}
+			}
+			//反选
+			btns[2].onclick = function(){
+//				alert(inputs[0].checked);
+//				inputs[0].checked = true;
+				for (var i = 0; i < inputs.length; i++) {
+					//第一种
+//					if(inputs[i].checked){
+//						inputs[i].checked = false;
+//					}else{
+//						inputs[i].checked = true;
+//					}
+					//第二种     将当前每个对象的值进行取反再赋值给自己的checked
+					inputs[i].checked = !(inputs[i].checked);
+				}
+			}
+		</script>
+	</body>
+</html>

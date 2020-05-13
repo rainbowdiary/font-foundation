@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>消息滚动播放</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .news-box {
+            margin: 100px auto;
+            width: 800px;
+            height: 420px;
+            overflow: hidden;
+            /*border: 1px solid #ccc;*/
+        }
+        .news-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            height: 75px;
+            background-color: #ddd;
+        }
+        .news-item img {
+            float: left;
+            width: 100px;
+            height: 75px;
+        }
+        .news-item .news-content {
+            float: left;
+            margin-left: 10px;
+        }
+        .news-content h3 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="news-box">
+        <ul>
+
+            <li class="news-item">
+                <img src="images/mm/1.jpeg" alt="老刘的图片">
+                <div class="news-content">
+                    <h3>Hello LaoLiu</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </li>
+            <li class="news-item">
+                <img src="images/mm/2.jpeg" alt="老刘的图片">
+                <div class="news-content">
+                    <h3>Hello LaoLiu</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </li>
+            <li class="news-item">
+                <img src="images/mm/3.jpeg" alt="老刘的图片">
+                <div class="news-content">
+                    <h3>Hello LaoLiu</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </li>
+            <li class="news-item">
+                <img src="images/mm/4.jpeg" alt="老刘的图片">
+                <div class="news-content">
+                    <h3>Hello LaoLiu</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </li>
+            <li class="news-item">
+                <img src="images/mm/5.jpeg" alt="老刘的图片">
+                <div class="news-content">
+                    <h3>Hello LaoLiu</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </li>
+            <li class="news-item">
+                <img src="images/mm/6.jpeg" alt="老刘的图片">
+                <div class="news-content">
+                    <h3>Hello LaoLiu</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </li>
+            <li class="news-item">
+                <img src="images/mm/7.jpeg" alt="老刘的图片">
+                <div class="news-content">
+                    <h3>Hello LaoLiu</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </li>
+            <li class="news-item">
+                <img src="images/mm/8.jpeg" alt="老刘的图片">
+                <div class="news-content">
+                    <h3>Hello LaoLiu</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </li>
+            <li class="news-item">
+                <img src="images/mm/9.jpeg" alt="老刘的图片">
+                <div class="news-content">
+                    <h3>Hello LaoLiu</h3>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+           setInterval(function () {
+               $('.news-item').last().fadeTo(0, 0).hide().prependTo('.news-box ul').slideDown().fadeTo(1000, 1);
+           }, 2000);
+        });
+
+
+    </script>
+</body>
+</html>

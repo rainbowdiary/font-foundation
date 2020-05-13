@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+        var obj ={
+        name :"达姆",
+        wife :"18岁的冬雨",
+        age :18
+    }
+    // 迭代器
+    Object.prototype[Symbol.iterator] = function () {
+        var index =0;
+        var arr = [];
+        
+        for(var item in this){
+            arr.push(this[item])
+        }
+        
+        //迭代器对象
+        return {
+            next:function () {
+                //迭代对象
+                return {
+                    value:arr[index++],
+                    done:index > arr.length
+                }
+            }
+        };
+    }
+
+var it = obj[Symbol.iterator]();
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+
+    for(var item of obj){
+        console.log(item)
+    }
+</script>
+</html>

@@ -1,0 +1,114 @@
+// 实现水平垂直对齐
+// 混合 普通混合
+.box-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  height: 300px;
+  margin-left: -400px/2;
+  margin-top: -300px/2;
+}
+
+.box {
+  .box-center(); // 调用混合
+}
+
+
+/*-------------不带输出的混合-------------------*/
+// 定义混合
+.box-center01() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  height: 300px;
+  margin-left: -400px/2;
+  margin-top: -300px/2;
+}
+.box01 {
+  .box-center01();
+}
+.box02 {
+  .box-center01();
+}
+
+
+/*-------------带参数的混合-------------------*/
+//定义混合
+.box-center02(@width, @height, @bgColor) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: @width;
+  height: @height;
+  margin-left: -@width/2;
+  margin-top: -@height/2;
+  background-color: @bgColor;
+}
+//调用混合
+.box02 {
+  .box-center02(800px, 600px, #f90)
+}
+
+
+/*-------------带参数的, 参数有默认值 混合-------------------*/
+//定义混合
+// 有默认值的参数 往后放=
+//.box-center03(@width, @height, @bgColor:transparent) {
+.box-center03(@width:400px, @height:300px, @bgColor:transparent) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: @width;
+  height: @height;
+  margin-left: -@width/2;
+  margin-top: -@height/2;
+  background-color: @bgColor;
+}
+//调用混合
+.box03 {
+  .box-center03(500px, 600px);
+  //.box-center03(400px, 300px);
+  //.box-center03(400px, 300px, red);
+}
+
+
+
+/*-------------带参数的, 参数有默认值 默认值不按顺序 调用混合指定参数名-------------------*/
+.box-center04(@width:400px, @height, @bgColor:transparent) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: @width;
+  height: @height;
+  margin-left: -@width/2;
+  margin-top: -@height/2;
+  background-color: @bgColor;
+}
+
+// 调用混合指定 参数名
+.box04 {
+  .box-center04(@height:300px, @width: 700px)
+}
+
+
+
+
+/*-------------@arguments-------------------*/
+
+// 定义混合
+.transition(@prop:all, @duration:0s, @timing-function:ease, @delay:0s) {
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  transition: @arguments;
+}
+
+.box {
+  //.transition(width);
+  //.transition(width, 20s, linear, 1s);
+
+  // 混合的参数用，隔开， 混合的参数也可以使用分号隔开
+  .transition(width,height,opacity; 10s; linear)
+}
+
