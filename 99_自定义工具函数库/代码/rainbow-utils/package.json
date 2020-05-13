@@ -1,0 +1,24 @@
+{
+  "name": "rainbow-u",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/rainbow-util.js",
+  "directories": "自定义工具库",
+  "scripts": {
+    "build": "webpack"
+  },
+  "keywords": [
+    "tools",
+    "array",
+    "object",
+    "function",
+    "declares",
+    "promise"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js"></script> -->
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="app1">节流效果</button>
+  <button id="app2">防抖效果</button>
+  <!-- 
+    节流和防抖都是在某事件被频繁调用的时候，为了限制调用评率而产生的
+    节流是：当事件被频繁调用的时候，事件第一次调用后，需要间隔指定的时间段才能调用第二次，适合事件按照一定的频率触发
+    防抖是： 当事件被频繁调用的时候，在指定事件内，只能让最后一次生效，前面都不生效，适合多次事件一次响应
+
+   -->
+  <script>
+    function throttle(cb, delay) { //只是节流函数的工具函数
+      let pre = 0
+      return function (event) {  //返回一个事件回调函数，也是节流函数
+        // console.log("throttle");
+        let current = Date.now();
+        if (current - pre > delay) {
+          cb.call(this, event)  // 调用事件函数,且原this不能改变
+          pre = current
+        }
+      }
+    }
+
+    function debounce(cb, delay) {
+      return function (event) {
+        // if (cb.timeoutId) { //会检查原型链
+        if (cb.hasOwnProperty("timeoutId")) { //不会检查原型链
+          clearTimeout(cb.timeoutId)
+        }
+        //启动定时器只是准备处理事件
+        cb.timeoutId = setTimeout(() => {    //回调函数的调用才是执行事件
+          cb.call(this, event)
+          delete cb.timeoutId
+        }, delay);
+      }
+    }
+  </script>
+  <script>
+    function handleClick(event) {
+      console.log("app1", event.target);
+    }
+
+    // document.getElementById("app1").onclick = _.throttle(handleClick, 2000, { 'trailing': false })
+    // document.getElementById("app2").onclick = _.debounce(handleClick, 1000)
+    document.getElementById("app1").onclick = throttle(handleClick, 1000)
+    document.getElementById("app2").onclick = debounce(handleClick, 1000)
+
+
+  </script>
+</body>
+
+</html>
